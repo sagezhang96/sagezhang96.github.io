@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Swift学习记录 | 🍁晨霜攀黛瓦🍁</title>
+  <title>Hacking With Swift —— Project1——3 | 🍁晨霜攀黛瓦🍁</title>
 
   <link rel="icon" type="image/svg+xml" href="/spiderman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -537,14 +537,14 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        Swift学习记录
+        Hacking With Swift —— Project1——3
       </span>
     </div>
     
@@ -559,8 +559,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/Learning/" class="post-detail-header_category">
-              Learning
+            <a href="/categories/Hacking-With-Swift/" class="post-detail-header_category">
+              Hacking With Swift
             </a>
           
         </span>
@@ -569,11 +569,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 4.7k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 5.8k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 19分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 23分钟 |
           </span>
   
           
@@ -739,6 +739,61 @@
 <h3 id="11-定制容器"><a href="#11-定制容器" class="headerlink" title="11.定制容器"></a>11.定制容器</h3><p>利用泛型创建一些自定义容器，并在容器中加入任何自定义内容。</p>
 <p>在 Swift 中，我们会这样写：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">GridStack</span>&lt;<span class="title class_">Content</span>: <span class="title class_">View</span>&gt;: <span class="title class_">View</span> &#123; <span class="comment">//这一部分是Swift的一个高级特性，称为泛型。</span></span><br><span class="line">    <span class="keyword">let</span> rows: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> columns: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> content: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; <span class="type">Content</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="comment">// more to come</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>特别注意这一let content行——它定义了一个必须能够接受两个整数并返回某种我们可以显示的内容的闭包。拥有这一行所以才叫做定制容器。</p>
+<p>在body中我们可以这么写</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">    <span class="type">VStack</span> &#123;</span><br><span class="line">        <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span>rows, id: \.<span class="keyword">self</span>) &#123; row <span class="keyword">in</span></span><br><span class="line">            <span class="type">HStack</span> &#123;</span><br><span class="line">                <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span>columns, id: \.<span class="keyword">self</span>) &#123; column <span class="keyword">in</span></span><br><span class="line">                    content(row, column)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们有了一个自定义容器，我们可以像这样使用它编写一个视图：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">GridStack</span>(rows: <span class="number">4</span>, columns: <span class="number">4</span>) &#123; row, col <span class="keyword">in</span></span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;R<span class="subst">\(row)</span> C<span class="subst">\(col)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Milestone-Project1-3"><a href="#Milestone-Project1-3" class="headerlink" title="Milestone Project1-3"></a>Milestone Project1-3</h2><h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><p>制作一款大脑训练游戏，挑战玩家在剪刀石头布中输赢。</p>
+<p>以下是简单的游戏规则：</p>
+<p>游戏的每一轮，应用程序都会随机选择石头、布或剪刀，并提示玩家这轮应该赢或者是输。（可以输赢交替也可以随机）</p>
+<p>然后玩家必须点击正确的选项来根据提示赢得或输掉游戏。</p>
+<p>如果玩家选择正确（按照提示：让你输你就输，让你赢你就赢），玩家得分；否则玩家失去一分。</p>
+<p>游戏在 10 个问题后结束，此时会显示玩家最终所得的分数。</p>
+<p>因此，如果应用程序选择“Rock”和“Win”，则玩家需要选择“Paper”，但如果应用程序选择“Rock”和“Lose”，则玩家需要选择“Scissors”。 </p>
+<h3 id="复习前面所学内容（预计挑战中要用到的）"><a href="#复习前面所学内容（预计挑战中要用到的）" class="headerlink" title="复习前面所学内容（预计挑战中要用到的）"></a>复习前面所学内容（预计挑战中要用到的）</h3><ul>
+<li>使用堆栈排列视图：这个游戏里需要以下几个视图：<ol>
+<li>一个导航视图NavigationView，展示该游戏的名称“石头剪刀布智力训练”</li>
+<li>一个记录当前得分的文本视图</li>
+<li>一个展示电脑选的手势（石头剪刀布）以及电脑要求本轮游戏的结果（win or lose）的视图</li>
+<li>一个展示玩家选择的手势的视图（包含三个按钮）</li>
+<li>玩家每轮选择手势后，实时结果反馈的视图（可选，也可以所有轮次结束后直接给出游戏得分）</li>
+<li>提前结束游戏的按钮视图（可选）</li>
+<li>选择游戏总轮次视图（可选）</li>
+</ol>
+</li>
+<li>值绑定：需要将当前玩家所选手势赋值给一个变量。</li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h3 id="教程所给的提示"><a href="#教程所给的提示" class="headerlink" title="教程所给的提示"></a>教程所给的提示</h3><p>要解决这个挑战，你需要利用在教程 1 和 2 中学到的技能：</p>
+<ol>
+<li><p>从一个 App 模板开始，然后创建一个属性来存储三种可能的移动：石头、布和剪刀。</p>
+</li>
+<li><p>你需要创建两个@State属性来存储应用程序的当前选择以及玩家应该赢还是输。</p>
+</li>
+<li><p>你可以使用Int.random(in:)来选择一个随机移动。如果你愿意，你可以用它来决定玩家是否也应该赢，但还有一个更简单的选择：Bool.random()随机为真或为假。在初始值之后，toggle()在两轮之间使用，因此它总是在变化。</p>
+</li>
+<li><p>创建一个VStack显示玩家得分、应用程序移动以及玩家应该赢还是输的图表。你可以使用if shouldWin返回两个不同文本视图之一。</p>
+</li>
+<li><p>重要的部分是制作三个响应玩家移动的按钮：Rock、Paper 或 Scissors。</p>
+</li>
+<li><p>使用font()修饰符调整文本的大小。如果你在这三个动作中使用表情符号，它们也会缩放。提示：你可以要求使用非常大的系统字体.font(.system(size: 200))——它们将是固定大小，但至少你可以确保它们既漂亮又大！</p>
+</li>
+</ol>
+<p>提示：</p>
+<ol>
+<li><p>从最简单的逻辑开始：三个按钮，每个按钮都有这样的逻辑：“玩家点击了石头，玩家试图获胜，应用程序选择了剪刀，所以加 1 分。”</p>
+</li>
+<li><p>一旦你有了这个工作，寻找一种方法来简化你的逻辑，例如一个数组，其中的项目击败了每一步。例如，如果你的移动数组是[“Rock”, “Paper”, “Scissors”]你的获胜移动数组[“Paper”, “Scissors”, “Rock”]。</p>
+</li>
+<li><p>如果你不想，你不需要添加图形；只需一些文本视图和按钮就足够了。为什么不试试表情符号？</p>
+</li>
+</ol>
 
       </div>
       <div class="post-tags-categories">
@@ -760,7 +815,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2023/08/01/Hacking With Swift Learning Notes/" target="_blank" title="Swift学习记录">https://sagezhang96.github.io/2023/08/01/Hacking With Swift Learning Notes/</a>
+    <a href="/2023/08/01/Hacking With Swift Learning Notes/" target="_blank" title="Hacking With Swift —— Project1——3">https://sagezhang96.github.io/2023/08/01/Hacking With Swift Learning Notes/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -782,16 +837,18 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2023/08/28/30%E5%B2%81%E7%9A%84%E6%88%91%E4%BC%9A%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%E6%88%91/" class="post-nav-link">
+    <a href="/2023/09/18/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9F%A5%E8%AF%86%E5%BA%93/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">30岁的我会是怎样的我</div>
+        <div class="title-text">产品经理知识库</div>
       </div>
       
       <!-- <div class="content">
-        30岁的我会是怎样的我要换工作了最近处于一个很矛盾的人生节点，去年11月份由于已经裸辞待业半年整，再加上整个就业环境非常
+        
+    h1 { counter-reset: h2counter; }
+    h2 { counter-reset
       </div> -->
     </a>
   </div>
@@ -1122,7 +1179,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hacking-With-Swift-Learning-Notes"><span class="toc-text">Hacking With Swift Learning Notes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Project1-WeSplit"><span class="toc-text">Project1. WeSplit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Swift%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">1. Swift应用程序的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95"><span class="toc-text">2. 创建表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E5%AF%BC%E8%88%AA%E6%A0%8F"><span class="toc-text">3. 创建导航栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E7%A8%8B%E5%BA%8F%E7%8A%B6%E6%80%81"><span class="toc-text">4. 修改程序状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%80%BC%E7%BB%91%E5%AE%9A"><span class="toc-text">5. 值绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%9C%A8%E5%BE%AA%E7%8E%AF%E4%B8%AD%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE%EF%BC%88%E8%BF%99%E4%B8%80%E9%83%A8%E4%BB%BD%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BB%83%E4%B9%A0%E9%80%8F%EF%BC%89"><span class="toc-text">6. 在循环中创建视图（这一部份需要多练习透）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84%E8%BE%93%E5%85%A5%EF%BC%88%E4%B8%BA%E8%BE%93%E5%85%A5%E6%A1%86%E5%8A%A0%E5%85%A5format%E4%BF%AE%E9%A5%B0%EF%BC%89"><span class="toc-text">7. 获取用户的输入（为输入框加入format修饰）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%9C%A8%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">8. 在表单中添加选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E9%9A%90%E8%97%8F%E9%94%AE%E7%9B%98"><span class="toc-text">9. 隐藏键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project2-Guess-the-flag"><span class="toc-text">Project2. Guess the flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%A0%86%E6%A0%88%E6%9D%A5%E6%8E%92%E5%88%97%E8%A7%86%E5%9B%BE"><span class="toc-text">1. 使用堆栈来排列视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A2%9C%E8%89%B2%E5%92%8C%E6%A1%86%E6%9E%B6"><span class="toc-text">2. 颜色和框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B8%90%E5%8F%98%E8%89%B2%EF%BC%88%E6%A2%AF%E5%BA%A6%EF%BC%89"><span class="toc-text">3. 渐变色（梯度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%89%E9%92%AE%E5%92%8C%E5%9B%BE%E5%83%8F"><span class="toc-text">4. 按钮和图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%98%BE%E7%A4%BA%E6%8F%90%E7%A4%BA%E5%AF%B9%E8%AF%9D%E6%A1%86"><span class="toc-text">5.显示提示对话框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%A0%86%E5%8F%A0%E6%8C%89%E9%92%AE"><span class="toc-text">6. 堆叠按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%8D%87%E7%BA%A7%E8%AE%BE%E8%AE%A1"><span class="toc-text">7.使用修饰符升级设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project3-Views-and-modifiers"><span class="toc-text">Project3. Views and modifiers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A7%86%E5%9B%BE%E5%92%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="toc-text">1.视图和修饰符的简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88-SwiftUI-%E5%AF%B9%E8%A7%86%E5%9B%BE%E4%BD%BF%E7%94%A8%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9F"><span class="toc-text">2.为什么 SwiftUI 对视图使用结构体？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SwiftUI-%E4%B8%BB%E8%A7%86%E5%9B%BE%E7%9A%84%E8%83%8C%E5%90%8E%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">3.SwiftUI 主视图的背后是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E9%A5%B0%E9%A1%BA%E5%BA%8F%E4%B9%9F%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">4.修饰顺序也很重要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88-SwiftUI-%E4%BD%BF%E7%94%A8%E2%80%9Csome-View%E2%80%9D%E4%BD%9C%E4%B8%BA%E5%AE%83%E7%9A%84%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">5.为什么 SwiftUI 使用“some View”作为它的视图类型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9D%A1%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">6.条件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%8E%AF%E5%A2%83%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">7.环境修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%A7%86%E5%9B%BE%E4%BD%9C%E4%B8%BA%E5%B1%9E%E6%80%A7"><span class="toc-text">8.视图作为属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%9F%A5%E7%9C%8B%E7%BB%84%E6%88%90"><span class="toc-text">9.查看组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">10.自定义修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%AE%9A%E5%88%B6%E5%AE%B9%E5%99%A8"><span class="toc-text">11.定制容器</span></a></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hacking-With-Swift-Learning-Notes"><span class="toc-text">Hacking With Swift Learning Notes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Project1-WeSplit"><span class="toc-text">Project1. WeSplit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Swift%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">1. Swift应用程序的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95"><span class="toc-text">2. 创建表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E5%AF%BC%E8%88%AA%E6%A0%8F"><span class="toc-text">3. 创建导航栏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E7%A8%8B%E5%BA%8F%E7%8A%B6%E6%80%81"><span class="toc-text">4. 修改程序状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%80%BC%E7%BB%91%E5%AE%9A"><span class="toc-text">5. 值绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%9C%A8%E5%BE%AA%E7%8E%AF%E4%B8%AD%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE%EF%BC%88%E8%BF%99%E4%B8%80%E9%83%A8%E4%BB%BD%E9%9C%80%E8%A6%81%E5%A4%9A%E7%BB%83%E4%B9%A0%E9%80%8F%EF%BC%89"><span class="toc-text">6. 在循环中创建视图（这一部份需要多练习透）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E7%9A%84%E8%BE%93%E5%85%A5%EF%BC%88%E4%B8%BA%E8%BE%93%E5%85%A5%E6%A1%86%E5%8A%A0%E5%85%A5format%E4%BF%AE%E9%A5%B0%EF%BC%89"><span class="toc-text">7. 获取用户的输入（为输入框加入format修饰）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%9C%A8%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">8. 在表单中添加选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E9%9A%90%E8%97%8F%E9%94%AE%E7%9B%98"><span class="toc-text">9. 隐藏键盘</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project2-Guess-the-flag"><span class="toc-text">Project2. Guess the flag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%A0%86%E6%A0%88%E6%9D%A5%E6%8E%92%E5%88%97%E8%A7%86%E5%9B%BE"><span class="toc-text">1. 使用堆栈来排列视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%A2%9C%E8%89%B2%E5%92%8C%E6%A1%86%E6%9E%B6"><span class="toc-text">2. 颜色和框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B8%90%E5%8F%98%E8%89%B2%EF%BC%88%E6%A2%AF%E5%BA%A6%EF%BC%89"><span class="toc-text">3. 渐变色（梯度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8C%89%E9%92%AE%E5%92%8C%E5%9B%BE%E5%83%8F"><span class="toc-text">4. 按钮和图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%98%BE%E7%A4%BA%E6%8F%90%E7%A4%BA%E5%AF%B9%E8%AF%9D%E6%A1%86"><span class="toc-text">5.显示提示对话框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%A0%86%E5%8F%A0%E6%8C%89%E9%92%AE"><span class="toc-text">6. 堆叠按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%8D%87%E7%BA%A7%E8%AE%BE%E8%AE%A1"><span class="toc-text">7.使用修饰符升级设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Project3-Views-and-modifiers"><span class="toc-text">Project3. Views and modifiers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A7%86%E5%9B%BE%E5%92%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="toc-text">1.视图和修饰符的简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88-SwiftUI-%E5%AF%B9%E8%A7%86%E5%9B%BE%E4%BD%BF%E7%94%A8%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9F"><span class="toc-text">2.为什么 SwiftUI 对视图使用结构体？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SwiftUI-%E4%B8%BB%E8%A7%86%E5%9B%BE%E7%9A%84%E8%83%8C%E5%90%8E%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">3.SwiftUI 主视图的背后是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E9%A5%B0%E9%A1%BA%E5%BA%8F%E4%B9%9F%E5%BE%88%E9%87%8D%E8%A6%81"><span class="toc-text">4.修饰顺序也很重要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88-SwiftUI-%E4%BD%BF%E7%94%A8%E2%80%9Csome-View%E2%80%9D%E4%BD%9C%E4%B8%BA%E5%AE%83%E7%9A%84%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">5.为什么 SwiftUI 使用“some View”作为它的视图类型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%9D%A1%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">6.条件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E7%8E%AF%E5%A2%83%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">7.环境修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E8%A7%86%E5%9B%BE%E4%BD%9C%E4%B8%BA%E5%B1%9E%E6%80%A7"><span class="toc-text">8.视图作为属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%9F%A5%E7%9C%8B%E7%BB%84%E6%88%90"><span class="toc-text">9.查看组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">10.自定义修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%AE%9A%E5%88%B6%E5%AE%B9%E5%99%A8"><span class="toc-text">11.定制容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Milestone-Project1-3"><span class="toc-text">Milestone Project1-3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%91%E6%88%98"><span class="toc-text">挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0%E5%89%8D%E9%9D%A2%E6%89%80%E5%AD%A6%E5%86%85%E5%AE%B9%EF%BC%88%E9%A2%84%E8%AE%A1%E6%8C%91%E6%88%98%E4%B8%AD%E8%A6%81%E7%94%A8%E5%88%B0%E7%9A%84%EF%BC%89"><span class="toc-text">复习前面所学内容（预计挑战中要用到的）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%99%E7%A8%8B%E6%89%80%E7%BB%99%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="toc-text">教程所给的提示</span></a></li></ol></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1155,6 +1212,27 @@
             
 
             <div class="post-img-box">
+              <a href="/2023/11/02/Project4-BetterRest/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-02</span>
+                
+              </div>
+              <a class="post-title" href="/2023/11/02/Project4-BetterRest/">Hacking With Swift —— Project4_BetterRest</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2023/10/18/Hexo%E8%A7%A3%E5%86%B3bamboo%E4%B8%BB%E9%A2%98%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%E6%97%A0%E6%B3%95%E6%BB%9A%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1167,27 +1245,6 @@
                 
               </div>
               <a class="post-title" href="/2023/10/18/Hexo%E8%A7%A3%E5%86%B3bamboo%E4%B8%BB%E9%A2%98%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%83%A8%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%E6%97%A0%E6%B3%95%E6%BB%9A%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98/">Hexo解决bamboo主题移动端部分情况下无法滚屏的问题</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/10/12/%E5%8D%81%E4%B8%80%E6%97%85%E6%B8%B8%E5%9B%9E%E6%9D%A5%E4%B9%8B%E5%90%8E/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231017011633.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231017011633.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">10-12</span>
-                
-              </div>
-              <a class="post-title" href="/2023/10/12/%E5%8D%81%E4%B8%80%E6%97%85%E6%B8%B8%E5%9B%9E%E6%9D%A5%E4%B9%8B%E5%90%8E/">写在十一旅游回来之后</a>
             </div>
           </div>
         
@@ -1239,18 +1296,18 @@
             
 
             <div class="post-img-box">
-              <a href="/2023/08/28/30%E5%B2%81%E7%9A%84%E6%88%91%E4%BC%9A%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%E6%88%91/" class="post-img " style="background-size: cover; 
+              <a href="/2023/08/01/Hacking%20With%20Swift%20Learning%20Notes/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">08-28</span>
+                  <span class="post-date">08-01</span>
                 
               </div>
-              <a class="post-title" href="/2023/08/28/30%E5%B2%81%E7%9A%84%E6%88%91%E4%BC%9A%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%E6%88%91/">30岁的我会是怎样的我</a>
+              <a class="post-title" href="/2023/08/01/Hacking%20With%20Swift%20Learning%20Notes/">Hacking With Swift —— Project1——3</a>
             </div>
           </div>
         
