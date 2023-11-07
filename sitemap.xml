@@ -2,9 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sagezhang96.github.io/2023/11/06/project5-wordscramble/</loc>
+    
+    <lastmod>2023-11-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sagezhang96.github.io/2023/11/07/project6-Animation/</loc>
+    
+    <lastmod>2023-11-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sagezhang96.github.io/2023/11/02/Project4-BetterRest/</loc>
     
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,6 +101,15 @@
   </url>
   
   <url>
+    <loc>https://sagezhang96.github.io/repository/index.html</loc>
+    
+    <lastmod>2023-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sagezhang96.github.io/tags/index.html</loc>
     
     <lastmod>2023-09-20</lastmod>
@@ -93,15 +120,6 @@
   
   <url>
     <loc>https://sagezhang96.github.io/links/index.html</loc>
-    
-    <lastmod>2023-09-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sagezhang96.github.io/repository/index.html</loc>
     
     <lastmod>2023-09-20</lastmod>
     
@@ -130,7 +148,7 @@
 
   <url>
     <loc>https://sagezhang96.github.io/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,21 +156,21 @@
   
   <url>
     <loc>https://sagezhang96.github.io/tags/codeing/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sagezhang96.github.io/tags/swift/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sagezhang96.github.io/tags/Working/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -161,21 +179,21 @@
   
   <url>
     <loc>https://sagezhang96.github.io/categories/Learning/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sagezhang96.github.io/categories/Hacking-With-Swift/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sagezhang96.github.io/categories/KnowledgeBase/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
