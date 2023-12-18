@@ -534,7 +534,7 @@
 
 
 
-<div class="swiper-length" style="display: none;">1</div>
+<div class="swiper-length" style="display: none;">0</div>
 <div id="appSwiper"
   class="swiper-no-swiping"
   @mouseenter="stopAutoPlay()" 
@@ -542,74 +542,39 @@
 >
   <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
     
-      
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          
-          <swiper-slide>
-            <div class="item swiper-lazy" data-background="/medias/1.jpg" style=" background-size: 300000px; 
-            background-position: left center;" style="position: relative;">
-              <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
-              <div class="flag" style="z-index: 2;">
-                <div class="img-mask swiper-lazy" data-background="/medias/1.jpg" style="height: 100%; background-size: cover; 
-                  background-position: center center;">
-                  <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>  
-                </div>
-                <div class="flag-text">
-                  <div class="flag-text-content">
-                    <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
-                      <a href="/2023/11/13/ArticleExample/">
-                        Hexo主题--Bamboo介绍
-                      </a>
+      <swiper-slide>
+        <div class="item swiper-lazy" data-background="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231017142657.png" style="background-size: 300000px; 
+          background-position: left center;" style="position: relative;">
+          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+            <div class="flag">
+              
+              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231017142657.png" style="height: 100%; background-size: cover; 
+                background-position: center center;">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
+              </div>
+              <div class="flag-text">
+                <div class="flag-text-content">
+                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
+                  
+                    <div class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                      <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :type-speed="100" :back-speed="50">
+                        <h1 class="typing"></h1>
+                      </vue-typed-js>
                     </div>
-                    <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">一级菜单阿萨德加客户爱空间的化解肯定会啊
-二级菜单按时大声道奥迪
-砂进口哈地方是发送到水电费水电费说法束缚带
-1print(&#x27;adadada&#x27;)
-爱仕达撒多所啊打算阿萨德奥迪阿萨德a是的啊das 的按时大声道啊的按时达到</div>
-                  </div>
-                  <div class="bottom-one-btn ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/2023/11/13/ArticleExample/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">阅读更多</a></div>
+                    
+                </div>
+                <div style="display: flex;" class="flag-text-btns">
+                  
+                    <div class="ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://www.baidu.com/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">功能点1（百度）</a></div>
+                  
+                  
+                    <div class="ani animated" style="margin-left: 10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://www.google.com/" class="read-more swiper-btn-color2" style="display: inline-block; z-index:1;border: 1px solid white;">功能点2（谷歌）</a></div>
+                  
                 </div>
               </div>
             </div>
-
-          </swiper-slide>
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    <div class="swiper-pagination" slot="pagination" pointer style="display: none;"></div>
-    <div class="swiper-button-prev swiper-button-white" pointer slot="button-prev" style="display: none;"></div>
-    <div class="swiper-button-next swiper-button-white" pointer slot="button-next" style="display: none;"></div>
+          </div>
+      </swiper-slide>
     
   </swiper>
   
