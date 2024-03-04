@@ -569,7 +569,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 381 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 382 |
           </span>
   
           <span class="min2read">
@@ -600,17 +600,22 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。</p>
+        <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171225.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171225.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="首先看自己的电脑是否是公网ipv6"><a href="#首先看自己的电脑是否是公网ipv6" class="headerlink" title="首先看自己的电脑是否是公网ipv6"></a>首先看自己的电脑是否是公网ipv6</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>打开下面这个测试链接 <a target="_blank" rel="noopener" href="http://test-ipv6.com/">http://test-ipv6.com/</a></p>
-<p>如果是10&#x2F;10，表示你的设备已经接入ipv6网络了，这时候查看网页中显示的公网IPV6地址：</p>
+<p>如果是10&#x2F;10，表示你的设<img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171125.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171125.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp">备已经接入ipv6网络了，这时候查看网页中显示的公网IPV6地址：</p>
 <p>你的公网 IPv6 地址是 240e:3b7:xxxxxxxxxx</p>
 <p>如果是240x开头的，即是公网ip（不同运行商x可能会不同，电信是240e，联通是2408，移动是2409）</p>
 <p>如果是ff08开头的，或者其他ffxx开头的，就是局域网IPv6，需要去路由器或者光猫的管理页面设置IPv6。</p>
 <h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>windows用户，win+r并输入CMD打开命令行，输入ipconfig可以查看ip。</p>
 <p>mac用户，打开终端输入ifconfig可以查看ip。</p>
-<h2 id="路由器光猫开启IPv6"><a href="#路由器光猫开启IPv6" class="headerlink" title="路由器光猫开启IPv6"></a>路由器光猫开启IPv6</h2><h3 id="小米路由器（上级是光猫并开启了IPv6）"><a href="#小米路由器（上级是光猫并开启了IPv6）" class="headerlink" title="小米路由器（上级是光猫并开启了IPv6）"></a>小米路由器（上级是光猫并开启了IPv6）</h3><p>登录管理页面后在【常用设置】-【网络设置】-【IPv6设置】选择上网方式为Native以及自动</p>
+<h2 id="路由器光猫开启IPv6"><a href="#路由器光猫开启IPv6" class="headerlink" title="路由器光猫开启IPv6"></a>路由器光猫开启IPv6</h2><h3 id="小米路由器（上级是光猫并开启了IPv6）"><a href="#小米路由器（上级是光猫并开启了IPv6）" class="headerlink" title="小米路由器（上级是光猫并开启了IPv6）"></a>小米路由器（上级是光猫并开启了IPv6）</h3><ul>
+<li><p>登录管理页面后在【常用设置】-【网络设置】-【IPv6设置】<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170850.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170850.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+</li>
+<li><p>选择上网方式为Native，自动配置DNS<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170922.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170922.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+</li>
+</ul>
 <h3 id="光猫开启IPv6"><a href="#光猫开启IPv6" class="headerlink" title="光猫开启IPv6"></a>光猫开启IPv6</h3><p>现在各大运营商的光猫都默认开启了ipv6，如果没开启，咨询网络售后人员开启。</p>
-<p>以电信天翼网关为例，进入管理页面后，在【高级设置】-【网关信息】中，确认WAN IPv6为240x开头即可。</p>
+<p>以电信天翼网关为例，进入管理页面后，在【高级设置】-【网关信息】中，确认WAN IPv6为240x开头即可。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171019.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171019.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 
       </div>
       <div class="post-tags-categories">
