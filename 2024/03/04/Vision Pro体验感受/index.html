@@ -28,7 +28,7 @@
 
   
   
-    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
   
   
     
@@ -48,13 +48,8 @@
     
     
     <!-- 依赖于jquery和vue -->
-    
-        <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
-    
-
-    
-        <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
-    
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
 
     <!-- import link -->
     
@@ -78,26 +73,25 @@
 
   
   <!-- 预加载动画 -->
-  <!-- 页面预加载动画 -->
-
   
-    <div class="preloader_2" id="loader">
+  
+  <div class="preloader_2" id="loader">
   <div class="loader"></div>
 </div>
 
-  
-<script>
-  var endLoading = function () {
-    document.body.style.overflow = 'auto';
-    document.getElementById('loader').classList.add("loading");
-  }
-  window.addEventListener('DOMContentLoaded',endLoading);
-</script>
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
 
   <body>
     <!-- 判断是否为暗黑风格 -->
     <!-- 判断是否为黑夜模式 -->
-<script>
+<script defer>
   let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
 
   if (isDark) {
@@ -198,7 +192,7 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo lazyload placeholder" src="/null" class="lazyload placeholder" data-srcset="/null" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
       <h3 class="drawer-box-head_title">🍁晨霜攀黛瓦🍁</h3>
       <h5 class="drawer-box-head_desc"></h5>
     </div>
@@ -319,8 +313,8 @@
       showDialogDrawer() {
         this.visible = true;
         // 防止页面滚动，只能让弹框滚动
-        this.top = $(document).scrollTop();
-        // body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
       },
       cancelDialogDrawer() {
         this.visible = false;
@@ -334,6 +328,10 @@
 
     </div>
     <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
       
       <a href="/" class="logo">🍁晨霜攀黛瓦🍁</a>
     </div>
@@ -493,37 +491,12 @@
     <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
   
   
-    <div id="he-plugin-simple"></div>
-    <script>
-      WIDGET = {
-        CONFIG: {
-          "modules": "012",
-          "background": 5,
-          "tmpColor": "4A4A4A",
-          "tmpSize": 16,
-          "cityColor": "4A4A4A",
-          "citySize": 16,
-          "aqiSize": 16,
-          "weatherIconSize": 24,
-          "alertIconSize": 18,
-          "padding": "10px 10px 10px 10px",
-          "shadow": "1",
-          "language": "auto",
-          "borderRadius": 5,
-          "fixed": "false",
-          "vertical": "middle",
-          "horizontal": "center",
-          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
-        }
-      }
-    </script>
-    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
-    
 </header>
         <!-- 内容区域 -->
         
- <!-- prismjs 代码高亮 -->
- 
+<!-- prismjs 代码高亮 -->
+
+
 
 
 <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
@@ -565,27 +538,11 @@
       
 
       
-        <div class="post-detail-header_wordcount">
-          <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 1.9k |
-          </span>
-  
-          <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 7 mins.分钟 |
-          </span>
-  
-          
-            <span class="reading">
-              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
-            </span>
-          
-        </div>
-      
     
   </div>
   
   
-    <script src="/js/bubble/bubble.js"></script>
+    <script defer src="/js/bubble/bubble.js"></script>
   
 </div>
 
@@ -819,7 +776,7 @@
 <!-- 文章详情页的分享 -->
 <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
 
-<script src="/js/shareJs/social-share.min.js"></script>
+<script defer src="/js/shareJs/social-share.min.js"></script>
 </script>
 
 <style>
@@ -842,7 +799,8 @@
     
   </div>
 
-<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
 
 
   </div>
@@ -1077,7 +1035,7 @@
 </aside>
 
   <!-- 图片放大 Wrap images with fancybox support -->
-  <script src="/js/wrapImage.js"></script>
+  <script defer src="/js/wrapImage.js"></script>
 </div>
 
 <!-- 文章详情页背景图 -->
@@ -1240,7 +1198,7 @@
   
     <!-- 底部鱼儿跳动效果，依赖于jquery-->
 <div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
-<script>
+<script defer>
   var RENDERER = {
     POINT_INTERVAL: 5,
     FISH_COUNT: 3,
@@ -1407,7 +1365,7 @@
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2022 - 2023 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
 
           </div>
         
@@ -1425,58 +1383,45 @@
 
     <!-- 渲染暗黑按钮 -->
     
-      <div class="dark">
+      <div class="dark" onclick="toggleDarkMode()">
   <div class="dark-content">
-    <i class="fas fa-moon" aria-hidden="true"></i>
-    <!-- <span>关灯</span> -->
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
   </div>
-  
 </div>
 
-<script>
+<script defer>
   $(function() {
-    let isDark = JSON.parse(localStorage.getItem('dark'))  || JSON.parse('false');
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
     if (isDark) {
-      $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
     }
-    $('.dark').click(function() {
-      if ($(document.body).is('.darkModel')) {
-        $(document.body).removeClass('darkModel');
-        localStorage.setItem('dark', false);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      } else {
-        $(document.body).addClass('darkModel');
-        localStorage.setItem('dark', true);
-        $(".dark-content").replaceWith(
-          `
-          <div class='dark-content'>
-            <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          `
-        );
-      }
-    })
-  })
+  }
 </script>
+
     
     <!-- 渲染回到顶部按钮 -->
     
       <div class="goTop top-btn-color" pointer>
   <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </div>
-<script src="/js/goTop.js"></script>
+<script defer src="/js/goTop.js"></script>
 
     
     <!-- 渲染左下角音乐播放器 -->
@@ -1484,7 +1429,7 @@
 
     <!-- 图片放大 -->
     
-      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     
 
     <!-- 百度解析 -->
@@ -1492,7 +1437,7 @@
 
     <!-- Baidu Push -->
 
-<script>
+<script async>
     (function () {
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
@@ -1509,7 +1454,7 @@
     
     <!-- 背景彩带 -->
     
-      <script type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
+      <script async type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/js/ribbon.min.js"></script>
     
 
     <script src="/js/utils/index.js"></script>
@@ -1879,7 +1824,7 @@
 <!-- 评论所需js -->
 
   
-    <script src="/js/waline/waline.min.js"></script>
+        <script src="/js/waline/waline.min.js"></script>
 <script type="text/javascript">
   comment_el = '#waline-comment';
   var waline;
@@ -1887,12 +1832,12 @@
     if (!$(comment_el).length) {
       return;
     }
-    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo';
     walineEmoji = walineEmoji.split(',')
 
     waline = Waline({
       el: comment_el,
-      serverURL: 'https://walinecomments-e15rji4m7-sagezhang96s-projects.vercel.app/',
+      serverURL: 'https://walinecomments-e15rji4m7-sagezhang96s-projects.vercel.app',
       lang: 'zh-CN',
       vistor: '',
       emoji: walineEmoji,
@@ -1906,15 +1851,16 @@
     loadWaline();
   });
 </script>
-
-  
+      
 
 
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
   
-    <script src="/js/cursor/fireworks.js"></script>
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
+    <script async src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script async src="/js/cursor/explosion.min.js"></script>
   
 
 
@@ -1985,9 +1931,7 @@
 
   <script src="/js/pjax@0.2.8/index.js"></script>
   
-    <!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
-
-<div class="pjax-animate">
+    <div class="pjax-animate">
   
     <div class="loading-circle"><div id="loader-circle"></div></div>
     <script>

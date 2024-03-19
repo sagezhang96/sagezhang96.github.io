@@ -17,13 +17,13 @@ https://sagezhang96.github.io/repository/index.html
 https://sagezhang96.github.io/books/index.html
 https://sagezhang96.github.io/404.html
 https://sagezhang96.github.io/
-https://sagezhang96.github.io/tags/codeing/
 https://sagezhang96.github.io/tags/Hexo/
 https://sagezhang96.github.io/tags/%E7%A4%BA%E4%BE%8B/
-https://sagezhang96.github.io/tags/comments/
+https://sagezhang96.github.io/tags/codeing/
 https://sagezhang96.github.io/tags/swift/
-https://sagezhang96.github.io/categories/Learning/
+https://sagezhang96.github.io/tags/comments/
 https://sagezhang96.github.io/categories/%E7%A4%BA%E4%BE%8B%E6%96%87%E7%AB%A0/
-https://sagezhang96.github.io/categories/Apple/
 https://sagezhang96.github.io/categories/Hacking-With-Swift/
+https://sagezhang96.github.io/categories/Learning/
+https://sagezhang96.github.io/categories/Apple/
 https://sagezhang96.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/
