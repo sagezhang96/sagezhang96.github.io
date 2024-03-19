@@ -1042,6 +1042,9 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   .header #he-plugin-simple {
     margin-right: 0;
   }
+  .header .blog-title {
+    margin-left: 150px;
+  }
 }
 @media (max-width: 551px) {
   .header #he-plugin-simple {
@@ -2615,7 +2618,6 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   position: relative;
   width: 100%;
   height: 60vh;
-  height: 100vh;
   overflow: hidden;
   background-size: cover;
   background-position: center center;
@@ -2745,6 +2747,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
 }
 .archive .post-archive .year a {
   color: #273849;
+  color: rgba(66,185,133,0.8);
   transition: color 0.3s;
   font-weight: 700;
   font-size: 2em;

@@ -491,6 +491,32 @@
     <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
   
   
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
 </header>
         <!-- 内容区域 -->
         <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
@@ -884,12 +910,36 @@
         
           <div class="link">
             
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
           </div>
         
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
 
           </div>
         
@@ -1356,17 +1406,75 @@
     if (!$(comment_el).length) {
       return;
     }
-    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo';
+    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const locale = {
+      nick: '昵称',
+        nickError: '昵称不能少于3个字符',
+        mail: '邮箱',
+        mailError: '请填写正确的邮件地址',
+        link: '网址',
+        optional: '可选',
+        placeholder: '欢迎评论',
+        sofa: '快来抢沙发吧~',
+        submit: '提交',
+        like: '喜欢',
+        cancelLike: '取消喜欢',
+        reply: '回复',
+        cancelReply: '取消回复',
+        comment: '评论',
+        refresh: '刷新',
+        more: '加载更多...',
+        preview: '预览',
+        emoji: '表情',
+        uploadImage: '上传图片',
+        seconds: '秒前',
+        minutes: '分钟前',
+        hours: '小时前',
+        days: '天前',
+        now: '刚刚',
+        uploading: '正在上传',
+        login: '登录',
+        logout: '退出',
+        admin: '博主',
+        admin: '博主',    //这里可以更改管理员的标签
+        sticky: '置顶',
+        word: '字',
+        wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+        anonymous: '匿名',
+        level0: '潜水',
+        level1: '冒泡',
+        level2: '吐槽',
+        level3: '活跃',
+        level4: '话痨',
+        level5: '传说',
+        gif: '表情包',
+        gifSearchPlaceholder: '搜索表情包',
+        profile: '个人资料',
+        approved: '通过',
+        waiting: '待审核',
+        spam: '垃圾',
+        unsticky: '取消置顶',
+        oldest: '按倒序',
+        latest: '按正序',
+        hottest: '按热度',
+        reactionTitle: '你认为这篇文章怎么样？'
+    }
 
     waline = Waline({
       el: comment_el,
-      serverURL: 'https://walinecomments-e15rji4m7-sagezhang96s-projects.vercel.app',
+      serverURL: 'walinecomments-7ww13f8u5-sagezhang96s-projects.vercel.app',
       lang: 'zh-CN',
       vistor: '',
+      locale,
+      wordLimit: '140',
       emoji: walineEmoji,
+      avatar: 'retro',
+      path: window.location.pathname,
       login: 'enable',
       pageSize: '10',
+      reaction: true,
       copyright: true
     });
   }
@@ -1381,10 +1489,8 @@
 <!-- 鼠标点击特效 -->
 <!-- 爱心点击 -->
 
-  
-    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
-    <script async src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-    <script async src="/js/cursor/explosion.min.js"></script>
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
   
 
 
