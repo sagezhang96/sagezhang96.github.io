@@ -572,8 +572,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/Learning/" class="post-detail-header_category">
-              Learning
+            <a href="/categories/Programming/" class="post-detail-header_category">
+              Programming
             </a>
           
         </span>
@@ -582,7 +582,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 150 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 271 |
           </span>
   
           <span class="min2read">
@@ -617,13 +617,22 @@
 
 <h1 id="header中可以添加其他的View"><a href="#header中可以添加其他的View" class="headerlink" title="header中可以添加其他的View"></a>header中可以添加其他的View</h1><p>header可以添加Text和Color的View，同样的，对于ZVHstack，也可以组合多个Text或Color视图。也可以对这些视图加.backgroud修饰符。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;123123&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;456789&quot;</span>)</span><br><span class="line">                &#125; header: &#123;</span><br><span class="line">                    <span class="type">HStack</span>(spacing: <span class="number">0.0</span>)&#123;</span><br><span class="line">                        <span class="type">Text</span>(<span class="string">&quot;A&quot;</span>)</span><br><span class="line">                            <span class="comment">//.background(.red)</span></span><br><span class="line">                        <span class="type">Text</span>(<span class="string">&quot;bc&quot;</span>)</span><br><span class="line">                            .textCase(.lowercase)</span><br><span class="line">                            <span class="comment">//.background(.blue)</span></span><br><span class="line">                            <span class="comment">//.background(.red)</span></span><br><span class="line">                        <span class="type">Color</span>(.yellow)</span><br><span class="line">                        <span class="comment">//TextField(&quot;123&quot;)      这种是不允许的。</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="section中还可以添加footer，会显示在下方"><a href="#section中还可以添加footer，会显示在下方" class="headerlink" title="section中还可以添加footer，会显示在下方"></a>section中还可以添加footer，会显示在下方</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Section</span>(header: <span class="type">HStack</span> &#123;</span><br><span class="line">                    <span class="type">Image</span>(systemName: <span class="string">&quot;leaf.fill&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Fruits&quot;</span>)</span><br><span class="line">                &#125;, footer: <span class="type">HStack</span> &#123;</span><br><span class="line">                    <span class="type">Image</span>(systemName: <span class="string">&quot;heart.fill&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Eat healthy!&quot;</span>)</span><br><span class="line">                &#125;)&#123;</span><br><span class="line">                    <span class="type">TextField</span>(<span class="string">&quot;Amount&quot;</span>, value: <span class="variable">$checkAmount</span>, format: .currency(code: <span class="type">Locale</span>.current.currency<span class="operator">?</span>.identifier <span class="operator">??</span> <span class="string">&quot;USD&quot;</span>))</span><br><span class="line">                &#125;</span><br><span class="line">                .headerProminence(.increased)</span><br></pre></td></tr></table></figure>
+<p>像上面那种写法，只能加header或footer其中之一，两个都加会报错（不知道什么原因）</p>
+<p>添加header或footer建议都使用这种句式，一并添加，实际使用中比较少见到footer。</p>
+
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/codeing/" class="">
-              codeing
+            <a href="/tags/coding/" class="">
+              coding
+            </a>
+          
+            <a href="/tags/swift/" class="">
+              swift
             </a>
           
         </div>
@@ -674,6 +683,23 @@
   </div>
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/08/01/Hacking%20With%20Swift%20Learning%20Notes/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Hacking With Swift —— Project1——3</div>
+      </div>
+      <!-- <div class="content">
+        Hacking With Swift Learning NotesProject1. WeSplit1. Swift应用
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -893,7 +919,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#header%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%B7%BB%E5%8A%A0%E5%85%B6%E4%BB%96%E7%9A%84View"><span class="toc-text">header中可以添加其他的View</span></a></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#header%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%B7%BB%E5%8A%A0%E5%85%B6%E4%BB%96%E7%9A%84View"><span class="toc-text">header中可以添加其他的View</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#section%E4%B8%AD%E8%BF%98%E5%8F%AF%E4%BB%A5%E6%B7%BB%E5%8A%A0footer%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E5%9C%A8%E4%B8%8B%E6%96%B9"><span class="toc-text">section中还可以添加footer，会显示在下方</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -928,7 +954,7 @@
             <div class="post-img-box">
               <a href="/2024/06/25/Project8_MoonShot/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -937,7 +963,7 @@
                   <span class="post-date">06-25</span>
                 
               </div>
-              <a class="post-title" href="/2024/06/25/Project8_MoonShot/">Hacking With Swift —— project8_MoonShot</a>
+              <a class="post-title" href="/2024/06/25/Project8_MoonShot/">【Hacking With Swift】project8_MoonShot</a>
             </div>
           </div>
         
@@ -968,18 +994,18 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/06/03/Project3_ViewsAndModels/" class="post-img " style="background-size: cover; 
+              <a href="/2024/06/23/Project7-iExpense/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-03</span>
+                  <span class="post-date">06-23</span>
                 
               </div>
-              <a class="post-title" href="/2024/06/03/Project3_ViewsAndModels/">Project3_ViewsAndModels</a>
+              <a class="post-title" href="/2024/06/23/Project7-iExpense/">【Hacking With Swift】project7_iExpense</a>
             </div>
           </div>
         
@@ -989,18 +1015,18 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/06/03/Project2_GuessTheFlag/" class="post-img " style="background-size: cover; 
+              <a href="/2024/06/21/project6-Animation/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-03</span>
+                  <span class="post-date">06-21</span>
                 
               </div>
-              <a class="post-title" href="/2024/06/03/Project2_GuessTheFlag/">Project2_GuessTheFlag</a>
+              <a class="post-title" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
             </div>
           </div>
         
@@ -1010,18 +1036,18 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/06/03/Project4-BetterRest/" class="post-img " style="background-size: cover; 
+              <a href="/2024/06/14/project5-wordscramble/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-03</span>
+                  <span class="post-date">06-14</span>
                 
               </div>
-              <a class="post-title" href="/2024/06/03/Project4-BetterRest/">Hacking With Swift —— Project4_BetterRest</a>
+              <a class="post-title" href="/2024/06/14/project5-wordscramble/">【Hacking With Swift】project5_WordScramble</a>
             </div>
           </div>
         
