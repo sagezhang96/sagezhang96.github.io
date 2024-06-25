@@ -582,11 +582,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 1.4k |
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.8k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
+            <i class="fas fa-clock"></i> 阅读时长: 9分钟 |
           </span>
   
           
@@ -645,6 +645,8 @@
 
 <p>最后使用以下代码来判断用户输入是否符合要求，错误将显示对应的提示框。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> isOriginal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word used already&quot;</span>, message: <span class="string">&quot;Be more original&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">guard</span> isPossible(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word not possible&quot;</span>, message: <span class="string">&quot;You can&#x27;t spell that word from &#x27;<span class="subst">\(rootWord)</span>&#x27;!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">guard</span> isReal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word not recognized&quot;</span>, message: <span class="string">&quot;You can&#x27;t just make them up, you know!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终所有代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> usedWords <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rootWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> newWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//alarm</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> errorTitle <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> errorMessage <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> showingError <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span>&#123;</span><br><span class="line">            <span class="type">List</span>&#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">TextField</span>(<span class="string">&quot;Enter your word&quot;</span>, text: <span class="variable">$newWord</span>)</span><br><span class="line">                        .textInputAutocapitalization(.never)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">ForEach</span>(usedWords, id: \.<span class="keyword">self</span>)&#123; word <span class="keyword">in</span></span><br><span class="line">                        <span class="type">HStack</span>&#123;</span><br><span class="line">                            <span class="type">Image</span>(systemName: <span class="string">&quot;<span class="subst">\(word.count)</span>.circle&quot;</span>)</span><br><span class="line">                            <span class="type">Text</span>(word)</span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(rootWord)</span><br><span class="line">            .onSubmit(addNewWord)</span><br><span class="line">            .onAppear(perform:startGame)</span><br><span class="line">            .alert(errorTitle, isPresented: <span class="variable">$showingError</span>) &#123;</span><br><span class="line">                <span class="type">Button</span>(<span class="string">&quot;OK&quot;</span>) &#123; &#125;</span><br><span class="line">            &#125; message: &#123;</span><br><span class="line">                <span class="type">Text</span>(errorMessage)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">startGame</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> startWordURL <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: <span class="string">&quot;start&quot;</span>, withExtension: <span class="string">&quot;txt&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> startWords <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">String</span>(contentsOf: startWordURL) &#123;</span><br><span class="line">                <span class="keyword">let</span> allWords <span class="operator">=</span> startWords.components(separatedBy: <span class="string">&quot;<span class="subst">\n</span>&quot;</span>)</span><br><span class="line">                rootWord <span class="operator">=</span> allWords.randomElement() <span class="operator">??</span> <span class="string">&quot;silkworm&quot;</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">&quot;Could not load start.txt from bundle.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">addNewWord</span>() &#123;</span><br><span class="line">        <span class="keyword">let</span> answer <span class="operator">=</span> newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)</span><br><span class="line">        <span class="keyword">guard</span> answer.count <span class="operator">&gt;</span> <span class="number">0</span> <span class="keyword">else</span> &#123;<span class="keyword">return</span>&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> isOriginal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word used already&quot;</span>, message: <span class="string">&quot;Be more original&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> isPossible(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word not possible&quot;</span>, message: <span class="string">&quot;You can&#x27;t spell that word from &#x27;<span class="subst">\(rootWord)</span>&#x27;!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> isReal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word not recognized&quot;</span>, message: <span class="string">&quot;You can&#x27;t just make them up, you know!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        withAnimation &#123;</span><br><span class="line">            usedWords.insert(answer, at: <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        newWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isOriginal</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="operator">!</span>usedWords.contains(word)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isPossible</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> tempWord <span class="operator">=</span> rootWord</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> word &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> pos <span class="operator">=</span> tempWord.firstIndex(of: letter) &#123;</span><br><span class="line">                tempWord.remove(at: pos)</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isReal</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> checker <span class="operator">=</span> <span class="type">UITextChecker</span>()</span><br><span class="line">        <span class="keyword">let</span> range <span class="operator">=</span> <span class="type">NSRange</span>(location: <span class="number">0</span>, length: word.utf16.count)</span><br><span class="line">        <span class="keyword">let</span> misspelledRange <span class="operator">=</span> checker.rangeOfMisspelledWord(in: word, range: range, startingAt: <span class="number">0</span>, wrap: <span class="literal">false</span>, language: <span class="string">&quot;en&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> misspelledRange.location <span class="operator">==</span> <span class="type">NSNotFound</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">wordError</span>(<span class="params">title</span>: <span class="type">String</span>, <span class="params">message</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        errorTitle <span class="operator">=</span> title</span><br><span class="line">        errorMessage <span class="operator">=</span> message</span><br><span class="line">        showingError <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-tags-categories">
         
@@ -691,17 +693,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/2023/11/07/project6-Animation/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">Hacking With Swift —— project5_WordScramble</div>
+        <div class="title-text">Hacking With Swift —— project6_Animation</div>
       </div>
       
       <!-- <div class="content">
-        简介文章待添加
-主要代码123456789101112131415161718192021222324252627282
+        这个项目主要是学习一些简单的SwiftUI中的动画，包括隐式动画（implicit animations），显式动画以及
       </div> -->
     </a>
   </div>
@@ -976,6 +977,48 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/06/25/Project8_MoonShot/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-25</span>
+                
+              </div>
+              <a class="post-title" href="/2024/06/25/Project8_MoonShot/">Hacking With Swift —— project8_MoonShot</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/06/24/%E7%94%B5%E8%84%91%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E7%9A%84%E5%B0%9D%E8%AF%95%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-24</span>
+                
+              </div>
+              <a class="post-title" href="/2024/06/24/%E7%94%B5%E8%84%91%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E7%9A%84%E5%B0%9D%E8%AF%95%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">电脑自动重启的尝试解决办法记录</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/06/03/Project3_ViewsAndModels/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1030,48 +1073,6 @@
                 
               </div>
               <a class="post-title" href="/2024/06/03/Project4-BetterRest/">Hacking With Swift —— Project4_BetterRest</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/05/30/hws_Day1-14/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">05-30</span>
-                
-              </div>
-              <a class="post-title" href="/2024/05/30/hws_Day1-14/">Preparation for Hackingwithswift</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/05/28/Project1_Wesplit_problems/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">05-28</span>
-                
-              </div>
-              <a class="post-title" href="/2024/05/28/Project1_Wesplit_problems/">Project1_Wesplit_problems</a>
             </div>
           </div>
         
