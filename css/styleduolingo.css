@@ -1,0 +1,133 @@
+/* 只在 duolingo 页面隐藏 header 和 footer */
+body.duolingo-layout .header, 
+body.duolingo-layout .footer,
+body.duolingo-layout .dark,
+body.duolingo-layout #j-fish-skip {
+    display: none;
+}
+
+/* 基本样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Banner 样式 */
+.banner {
+    background: #58CC02;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.banner .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.banner .btn {
+    background-color: #FFF;
+    color: #58CC02;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.banner .btn:hover {
+    background-color: #F5F5F5;
+}
+
+/* 功能展示样式 */
+.features {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;  /* 图标和文字垂直对齐 */
+    justify-content: center;  /* 水平居中对齐 .feature-item */
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.feature-item img {
+    width: 40px; /* 根据需要调整图标大小 */
+    height: 40px;
+    margin-right: 15px; /* 图标与文字间的间距 */
+    object-fit: contain; /* 确保图标比例 */
+}
+
+.feature-item span {
+    font-weight: bold; /* 文字加粗 */
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    align-items: center; /* 使文字在span内部垂直居中 */
+}
+
+
+
+/* 付款和截图样式 */
+.payment, .screenshots {
+    text-align: center;
+    /* padding: 50px 0; */
+}
+
+.payment h2, .screenshots h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.payment .btn {
+    background-color: #FF8800;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.payment .btn:hover {
+    background-color: #FFAA33;
+}
+
+/* .screenshots img {
+    max-width: 90%;
+    margin: 10px auto;
+    display: block;
+} */
+
+/* .screenshots {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+} */
+
+.screenshots img {
+    max-width: 22%;
+    height: 60%;
+}
