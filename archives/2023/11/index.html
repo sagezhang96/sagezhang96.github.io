@@ -84,7 +84,7 @@
         
     
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="🍁晨霜攀黛瓦🍁" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="🍁晨霜攀黛瓦🍁" type="application/atom+xml">
 </head>
 
   
@@ -250,17 +250,6 @@
           
             <li class="drawer-box-content_item" style="position: relative;">
               
-                <a href="/duolingo" class="drawer-menu-item-link">
-                  
-                    <i class="fas fa-language" aria-hidden="true"></i>
-                  
-                  <span class="name">Duolingo</span>
-                </a>
-              
-            </li>
-          
-            <li class="drawer-box-content_item" style="position: relative;">
-              
                 <a href="/categories" class="drawer-menu-item-link">
                   
                     <i class="fas fa-bookmark" aria-hidden="true"></i>
@@ -393,17 +382,6 @@
                     <i class="fas fa-tags" aria-hidden="true"></i>
                   
                   <span class="name">标签</span>
-                </a>
-              
-            </li>
-          
-            <li class="menu-item" style="position: relative;">
-              
-                <a href="/duolingo" class="menu-item-link" title="Duolingo">
-                  
-                    <i class="fas fa-language" aria-hidden="true"></i>
-                  
-                  <span class="name">Duolingo</span>
                 </a>
               
             </li>
@@ -555,12 +533,17 @@
     
 </header>
         <!-- 内容区域 -->
-        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+        <!-- 设置深色和浅色背景层 -->
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
 <div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+
+<!-- 定义带有背景图片的页面头部 -->
 <div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
+  <!-- 显示归档页面的标题 -->
   <div class="archive-header-title">
     archive
   </div>
+  <!-- 显示归档页面的描述，支持typed.js打字机效果 -->
   <div class="archive-header-desc">
   
   <span class="title" id="archive-header-desc"></span>
@@ -585,6 +568,7 @@
   <div class="mask-box"></div>
 </div>
 
+<!-- 可选的视频背景功能 -->
 <div class="archive-video">
   <video class="full-video" autoplay loop muted>
       <source style="width: 100%;height: 100vh;" src="/">
@@ -616,22 +600,26 @@
   <div class="mask-box"></div>
 </div>
 
-<!-- hash算法 -->
+<!-- 哈希算法：用于为没有指定缩略图的文章随机分配图片 -->
 
 
+<!-- 主要的归档内容区域 -->
 <div class="archive-main">
   <section class="archive">
     <div class="archive-content">
       <ul class="post-archive">
         
         
+        
           
+            
             
             <div class="year" data-aos="zoom-in-up">
                 <div class="bullet"></div>
-                <a href="/archives/2023">2023</a>
+                <a href="/archives/2023/11">2023年11月</a>
             </div>
           
+          <!-- 为每篇文章显示日期、标题和缩略图 -->
           <li class="post-item" data-aos="fade-left">
             
             <div class="post-img-box">
@@ -649,6 +637,7 @@
           </li>
         
           
+          <!-- 为每篇文章显示日期、标题和缩略图 -->
           <li class="post-item" data-aos="fade-left">
             
             <div class="post-img-box">
@@ -668,6 +657,7 @@
       </ul>
     </div>
   </section>
+  <!-- 包含分页组件 -->
   <div class="w-70">
     
   </div>
