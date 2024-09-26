@@ -582,10 +582,10 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2023-11-13</span>
+            <span class="post-time">2024-09-26</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2023/11/13/ArticleExample/">Hexo主题--Bamboo介绍</a>
+            <a class="post-title-link" href="/2024/09/26/ArticleExample/">说说（也就是碎碎念）</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -607,27 +607,28 @@
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/2023/11/13/ArticleExample/" style="background-size: cover; 
+            <a href="/2024/09/26/ArticleExample/" style="background-size: cover; 
               background-position: center center;">
               <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
-            一级菜单阿萨德加客户爱空间的化解肯定会啊
-二级菜单按时大声道奥迪
-砂进口哈地方是发送到水电费水电费说法束缚带
-1print(&#x27;adadada&#x27;)
-爱仕达撒多所啊打算阿萨德奥迪阿萨德a是的啊das 的按时大声道啊的按时达到
+            测试
+                    
+                      2024年9月26日 16:28:33
+                      评论
+                    
+        
           </div>
         </div>
         <div class="post-more">
-          <a href="/2023/11/13/ArticleExample/">
+          <a href="/2024/09/26/ArticleExample/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/2023/11/13/ArticleExample/" style="background-size: cover; 
+        <a href="/2024/09/26/ArticleExample/" style="background-size: cover; 
           background-position: center center;">
           <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
@@ -1376,7 +1377,75 @@
       reaction: true,
       copyright: true
     });
+
+    console.log('Waline initialized:', waline);
+
+    // 添加评论按钮的点击事件
+    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+    commentButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const time = this.getAttribute('data-time');
+        const text = this.getAttribute('data-text');
+        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+        
+        console.log('Quote content:', quoteContent);
+
+        // 滚动到评论区
+        window.scrollTo({
+          top: document.querySelector(comment_el).offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // 尝试设置评论内容
+        const setCommentContent = () => {
+          console.log('Attempting to set comment content');
+          const editor = document.querySelector('#waline-edit');
+          if (editor) {
+            console.log('Editor found:', editor);
+            if (typeof editor.value !== 'undefined') {
+              editor.value = quoteContent;
+              console.log('Editor value set');
+              // 触发输入事件
+              const event = new Event('input', { bubbles: true });
+              editor.dispatchEvent(event);
+              console.log('Input event dispatched');
+              
+              // 设置光标位置到引用内容之前
+              editor.setSelectionRange(0, 0);
+              editor.focus();
+            } else {
+              console.error('Editor value is undefined');
+            }
+          } else {
+            console.error('Editor not found');
+          }
+        };
+
+        // 使用 setTimeout 和重试机制
+        let attempts = 0;
+        const maxAttempts = 5;
+        const attemptInterval = 500; // 毫秒
+
+        const attemptSetContent = () => {
+          if (attempts < maxAttempts) {
+            setTimeout(() => {
+              console.log(`Attempt ${attempts + 1} to set content`);
+              setCommentContent();
+              if (!document.querySelector('#waline-edit')) {
+                attempts++;
+                attemptSetContent();
+              }
+            }, attemptInterval);
+          } else {
+            console.error('Max attempts reached, unable to set comment content');
+          }
+        };
+
+        attemptSetContent();
+      });
+    });
   }
+  
   $(document).ready(loadWaline);
   document.addEventListener('pjax:complete', function () {
     loadWaline();

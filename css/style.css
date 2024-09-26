@@ -1812,6 +1812,61 @@ pre:hover::-webkit-scrollbar-thumb:hover,
     padding: 15px 15px 20px 18px;
   }
 }
+.weibo-post {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 80%;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+}
+.weibo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weibo-time {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+.weibo-comment-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.weibo-comment-btn:hover {
+  background-color: #0056b3;
+}
+.weibo-text {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+.weibo-gallery {
+  margin-top: 10px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.gallery-item {
+  flex: 1 1 calc(33.333% - 10px);
+  box-sizing: border-box;
+}
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .footer {
   min-height: 130px;
   padding: 10px 0;

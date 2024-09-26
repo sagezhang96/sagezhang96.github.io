@@ -533,8 +533,7 @@
     
 </header>
         <!-- 内容区域 -->
-        
-<!-- prismjs 代码高亮 -->
+        <!-- prismjs 代码高亮 -->
 
 
 
@@ -611,6 +610,11 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
+        
+  
+  
+  
+
         <h1 id="代码对比"><a href="#代码对比" class="headerlink" title="代码对比"></a>代码对比</h1><p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162329.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162329.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="费率列表使用了-State-private-var而不是let"><a href="#费率列表使用了-State-private-var而不是let" class="headerlink" title="费率列表使用了@State private var而不是let"></a>费率列表使用了@State private var而不是let</h2><h2 id="state中的S没有大写"><a href="#state中的S没有大写" class="headerlink" title="@state中的S没有大写"></a>@state中的S没有大写</h2><h2 id="计算每人费用搞了个函数，但是没调用"><a href="#计算每人费用搞了个函数，但是没调用" class="headerlink" title="计算每人费用搞了个函数，但是没调用"></a>计算每人费用搞了个函数，但是没调用</h2><p>可以直接定义var的时候用闭包函数直接计算</p>
@@ -962,6 +966,27 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/09/26/ArticleExample/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-26</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/26/ArticleExample/">说说（也就是碎碎念）</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/06/25/Project8_MoonShot/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1037,27 +1062,6 @@
                 
               </div>
               <a class="post-title" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/06/14/project5-wordscramble/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-14</span>
-                
-              </div>
-              <a class="post-title" href="/2024/06/14/project5-wordscramble/">【Hacking With Swift】project5_WordScramble</a>
             </div>
           </div>
         
@@ -1222,6 +1226,8 @@
   })
   
 </script>
+
+
 
 
       </main>
@@ -1960,7 +1966,75 @@
       reaction: true,
       copyright: true
     });
+
+    console.log('Waline initialized:', waline);
+
+    // 添加评论按钮的点击事件
+    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+    commentButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const time = this.getAttribute('data-time');
+        const text = this.getAttribute('data-text');
+        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+        
+        console.log('Quote content:', quoteContent);
+
+        // 滚动到评论区
+        window.scrollTo({
+          top: document.querySelector(comment_el).offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // 尝试设置评论内容
+        const setCommentContent = () => {
+          console.log('Attempting to set comment content');
+          const editor = document.querySelector('#waline-edit');
+          if (editor) {
+            console.log('Editor found:', editor);
+            if (typeof editor.value !== 'undefined') {
+              editor.value = quoteContent;
+              console.log('Editor value set');
+              // 触发输入事件
+              const event = new Event('input', { bubbles: true });
+              editor.dispatchEvent(event);
+              console.log('Input event dispatched');
+              
+              // 设置光标位置到引用内容之前
+              editor.setSelectionRange(0, 0);
+              editor.focus();
+            } else {
+              console.error('Editor value is undefined');
+            }
+          } else {
+            console.error('Editor not found');
+          }
+        };
+
+        // 使用 setTimeout 和重试机制
+        let attempts = 0;
+        const maxAttempts = 5;
+        const attemptInterval = 500; // 毫秒
+
+        const attemptSetContent = () => {
+          if (attempts < maxAttempts) {
+            setTimeout(() => {
+              console.log(`Attempt ${attempts + 1} to set content`);
+              setCommentContent();
+              if (!document.querySelector('#waline-edit')) {
+                attempts++;
+                attemptSetContent();
+              }
+            }, attemptInterval);
+          } else {
+            console.error('Max attempts reached, unable to set comment content');
+          }
+        };
+
+        attemptSetContent();
+      });
+    });
   }
+  
   $(document).ready(loadWaline);
   document.addEventListener('pjax:complete', function () {
     loadWaline();

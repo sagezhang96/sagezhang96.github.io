@@ -533,8 +533,7 @@
     
 </header>
         <!-- 内容区域 -->
-        
-<!-- prismjs 代码高亮 -->
+        <!-- prismjs 代码高亮 -->
 
 
 
@@ -611,6 +610,11 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
+        
+  
+  
+  
+
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这部分是Swift的基础知识，学习以为后续SwiftUI做准备</p>
 <h2 id="变量、常量、字符串和数字"><a href="#变量、常量、字符串和数字" class="headerlink" title="变量、常量、字符串和数字"></a>变量、常量、字符串和数字</h2><p>创建变量：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting <span class="operator">=</span> <span class="string">&quot;Hello, playground&quot;</span></span><br></pre></td></tr></table></figure>
@@ -1083,6 +1087,27 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/09/26/ArticleExample/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-26</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/26/ArticleExample/">说说（也就是碎碎念）</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/06/25/Project8_MoonShot/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1158,27 +1183,6 @@
                 
               </div>
               <a class="post-title" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/06/14/project5-wordscramble/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-14</span>
-                
-              </div>
-              <a class="post-title" href="/2024/06/14/project5-wordscramble/">【Hacking With Swift】project5_WordScramble</a>
             </div>
           </div>
         
@@ -1343,6 +1347,8 @@
   })
   
 </script>
+
+
 
 
       </main>
@@ -2081,7 +2087,75 @@
       reaction: true,
       copyright: true
     });
+
+    console.log('Waline initialized:', waline);
+
+    // 添加评论按钮的点击事件
+    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+    commentButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const time = this.getAttribute('data-time');
+        const text = this.getAttribute('data-text');
+        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+        
+        console.log('Quote content:', quoteContent);
+
+        // 滚动到评论区
+        window.scrollTo({
+          top: document.querySelector(comment_el).offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // 尝试设置评论内容
+        const setCommentContent = () => {
+          console.log('Attempting to set comment content');
+          const editor = document.querySelector('#waline-edit');
+          if (editor) {
+            console.log('Editor found:', editor);
+            if (typeof editor.value !== 'undefined') {
+              editor.value = quoteContent;
+              console.log('Editor value set');
+              // 触发输入事件
+              const event = new Event('input', { bubbles: true });
+              editor.dispatchEvent(event);
+              console.log('Input event dispatched');
+              
+              // 设置光标位置到引用内容之前
+              editor.setSelectionRange(0, 0);
+              editor.focus();
+            } else {
+              console.error('Editor value is undefined');
+            }
+          } else {
+            console.error('Editor not found');
+          }
+        };
+
+        // 使用 setTimeout 和重试机制
+        let attempts = 0;
+        const maxAttempts = 5;
+        const attemptInterval = 500; // 毫秒
+
+        const attemptSetContent = () => {
+          if (attempts < maxAttempts) {
+            setTimeout(() => {
+              console.log(`Attempt ${attempts + 1} to set content`);
+              setCommentContent();
+              if (!document.querySelector('#waline-edit')) {
+                attempts++;
+                attemptSetContent();
+              }
+            }, attemptInterval);
+          } else {
+            console.error('Max attempts reached, unable to set comment content');
+          }
+        };
+
+        attemptSetContent();
+      });
+    });
   }
+  
   $(document).ready(loadWaline);
   document.addEventListener('pjax:complete', function () {
     loadWaline();

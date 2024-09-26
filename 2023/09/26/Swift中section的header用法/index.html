@@ -533,8 +533,7 @@
     
 </header>
         <!-- 内容区域 -->
-        
-<!-- prismjs 代码高亮 -->
+        <!-- prismjs 代码高亮 -->
 
 
 
@@ -611,6 +610,11 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
+        
+  
+  
+  
+
         <h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;123123&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;456789&quot;</span>)</span><br><span class="line">                &#125; header: &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;this is header&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="header中可以添加其他的View"><a href="#header中可以添加其他的View" class="headerlink" title="header中可以添加其他的View"></a>header中可以添加其他的View</h1><p>header可以添加Text和Color的View，同样的，对于ZVHstack，也可以组合多个Text或Color视图。也可以对这些视图加.backgroud修饰符。</p>
@@ -950,6 +954,27 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/09/26/ArticleExample/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-26</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/26/ArticleExample/">说说（也就是碎碎念）</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/06/25/Project8_MoonShot/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1025,27 +1050,6 @@
                 
               </div>
               <a class="post-title" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/06/14/project5-wordscramble/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-14</span>
-                
-              </div>
-              <a class="post-title" href="/2024/06/14/project5-wordscramble/">【Hacking With Swift】project5_WordScramble</a>
             </div>
           </div>
         
@@ -1210,6 +1214,8 @@
   })
   
 </script>
+
+
 
 
       </main>
@@ -1948,7 +1954,75 @@
       reaction: true,
       copyright: true
     });
+
+    console.log('Waline initialized:', waline);
+
+    // 添加评论按钮的点击事件
+    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+    commentButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const time = this.getAttribute('data-time');
+        const text = this.getAttribute('data-text');
+        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+        
+        console.log('Quote content:', quoteContent);
+
+        // 滚动到评论区
+        window.scrollTo({
+          top: document.querySelector(comment_el).offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // 尝试设置评论内容
+        const setCommentContent = () => {
+          console.log('Attempting to set comment content');
+          const editor = document.querySelector('#waline-edit');
+          if (editor) {
+            console.log('Editor found:', editor);
+            if (typeof editor.value !== 'undefined') {
+              editor.value = quoteContent;
+              console.log('Editor value set');
+              // 触发输入事件
+              const event = new Event('input', { bubbles: true });
+              editor.dispatchEvent(event);
+              console.log('Input event dispatched');
+              
+              // 设置光标位置到引用内容之前
+              editor.setSelectionRange(0, 0);
+              editor.focus();
+            } else {
+              console.error('Editor value is undefined');
+            }
+          } else {
+            console.error('Editor not found');
+          }
+        };
+
+        // 使用 setTimeout 和重试机制
+        let attempts = 0;
+        const maxAttempts = 5;
+        const attemptInterval = 500; // 毫秒
+
+        const attemptSetContent = () => {
+          if (attempts < maxAttempts) {
+            setTimeout(() => {
+              console.log(`Attempt ${attempts + 1} to set content`);
+              setCommentContent();
+              if (!document.querySelector('#waline-edit')) {
+                attempts++;
+                attemptSetContent();
+              }
+            }, attemptInterval);
+          } else {
+            console.error('Max attempts reached, unable to set comment content');
+          }
+        };
+
+        attemptSetContent();
+      });
+    });
   }
+  
   $(document).ready(loadWaline);
   document.addEventListener('pjax:complete', function () {
     loadWaline();
