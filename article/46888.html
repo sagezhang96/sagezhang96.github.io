@@ -22,7 +22,7 @@
 </script>
 
 
-  <title>归档: 2023/9 | 🍁晨霜攀黛瓦🍁</title>
+  <title>CodeingDiaries | 🍁晨霜攀黛瓦🍁</title>
 
   <link rel="icon" type="image/svg+xml" href="/spiderman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -555,117 +555,705 @@
     
 </header>
         <!-- 内容区域 -->
-        <!-- 设置深色和浅色背景层 -->
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+        <!-- prismjs 代码高亮 -->
 
-<!-- 定义带有背景图片的页面头部 -->
-<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
-  <!-- 显示归档页面的标题 -->
-  <div class="archive-header-title">
-    archive
-  </div>
-  <!-- 显示归档页面的描述，支持typed.js打字机效果 -->
-  <div class="archive-header-desc">
-  
-  <span class="title" id="archive-header-desc"></span>
-  <script>
-  function typedFn() {
-    const el = '#archive-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
-  
-  </div>
-  <div class="mask-box"></div>
-</div>
 
-<!-- 可选的视频背景功能 -->
-<div class="archive-video">
-  <video class="full-video" autoplay loop muted>
-      <source style="width: 100%;height: 100vh;" src="/">
-  </video>
-  <div class="video-header-title">
-    archive
-  </div>
-  <div class="video-header-desc">
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-      <span class="title" id="archive-video-header-desc"></span>
-      <script>
-  function typedFn() {
-    const el = '#archive-video-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        CodeingDiaries
+      </span>
+    </div>
+    
+    
       
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-07-21 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Programming/" class="post-detail-header_category">
+              Programming
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.2k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 4分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
   </div>
-  <div class="mask-box"></div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
 </div>
 
-<!-- 哈希算法：用于为没有指定缩略图的文章随机分配图片 -->
 
 
-<!-- 主要的归档内容区域 -->
-<div class="archive-main">
-  <section class="archive">
-    <div class="archive-content">
-      <ul class="post-archive">
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h2 id="2023年3月"><a href="#2023年3月" class="headerlink" title="2023年3月"></a>2023年3月</h2><h3 id="2023年3月19日-23-21-43"><a href="#2023年3月19日-23-21-43" class="headerlink" title="2023年3月19日 23:21:43"></a>2023年3月19日 23:21:43</h3><p>昨天Mac mini到了，就产品来说，感觉macos系统并没有想象中的好，那个质感给我一种十年前的Linux系统的感觉。我之前用的Ubuntu20的界面都已经还可以了，苹果的IOS和iPadOS界面都美化得挺好的，MacOS给我的感觉就很旧。</p>
+<p>没办法，想做IOS开发就是要用MacOS，所以上面也就是简单的吐槽。</p>
+<p>新买的4K显示器下面的接口都已经被我插满了，周六忙了一个下午和半个晚上，终于把双屏双主机的方案搞得让我满意80%了，不得不赞一下显示器支架，真的能让桌面整洁很多，一点缺点就是桌夹式的安装之后桌子就不能靠墙了，但是打孔的话，就得靠桌子很前了，需要一个很宽的桌子，也没有100%完美的方案。</p>
+<p>装Xcode和自带的Git就花了好久，根本还是没有明白git的工作原理，就目前也还是只知道改了文件要commit顺便push，也没有完全明白。感觉属实不应该花这么长时间，但每次时间一眨眼就过去了。<br>项目的计划已经基本上做好了，剩下的就是认认真真执行了，加油。</p>
+<pre><code>成果总结
+* Mac mini到货
+* 安装Xcode和git，简单熟悉了一下界面
+* 已做基本的项目计划
+
+To do List:
+* 做详细的项目计划
+* 学习Swift语言
+* 调研学习Swift和学习APP开发的先后顺序
+</code></pre>
+<h3 id="2023年3月24日-23-12-34"><a href="#2023年3月24日-23-12-34" class="headerlink" title="2023年3月24日 23:12:34"></a>2023年3月24日 23:12:34</h3><p>开始有点明白git的工作机制了，不过也只是懂了一点皮毛。不过应该能够对付日常的代码修改更新了。要记住，commit-pull-push三步走。<br>另外这周基本也都没有碰个人的这个项目，只是预先画了画圆形图</p>
+<p>成果总结</p>
+<ul>
+<li>熟悉git</li>
+<li>修改界面里的一些参数</li>
+</ul>
+<h3 id="2023年4月3日-22-34-53"><a href="#2023年4月3日-22-34-53" class="headerlink" title="2023年4月3日 22:34:53"></a>2023年4月3日 22:34:53</h3><p>跟着Hack With Swift学习了第一天的课程，因为之前有编程基础了，这部分非常简单，也不需要自己花时间去理解。</p>
+<pre><code>成果总结
+* Day1 complete
+* 知道了在Xcode中，playground和project的区别
+To do List:
+* 功能列表计划（初步完成）
+* 原型图计划，计划是在5月1日画完初稿原型图
+* Day2（已经完成Day1-Day15的学习）
+</code></pre>
+<h3 id="2023年4月24日-21-57-07"><a href="#2023年4月24日-21-57-07" class="headerlink" title="2023年4月24日 21:57:07"></a>2023年4月24日 21:57:07</h3><p>目前已经把HackingWithSwift-100Day of SwiftUI的前面Day15学习完了。不过只认真学习到了闭包那里就已经看不懂了，毕竟自己的编程基础也不是特别好。它类似于Python中的匿名函数，听说在Swift编程中使用得还挺频繁的，那就之后实际用的过程中慢慢学习体会吧！</p>
+<p>接下来没有立马就跟着教程学下面的Project1，而是去苹果官网跟着tutorial先预习了一下SwiftUI，写了第一个小程序（不算Hello, world！的那种）。体会到了Xcode编写IOS应用的便捷，感受到了苹果开发Swift语言的直观。起码没有打消积极性，哈哈哈，继续加油吧。</p>
+<pre><code>成果总结
+* 跟着tutorial写了第一个超级简单的程序
+* 程序内容包括文字、文字的格式修改；图片、图片的形状修改以及添加轮廓；还添加了一个地图视图
+* 初步了解了一个IOS程序的文件组成部分（Asset以及SwiftView的意思，创建了Swiftview之后，在另一个View文件中添加已创建在其他View中的view）
+To do List:
+* 熟悉Markdown语法，本地搭建Markdown知识库并使用Gitbook渲染
+* 将飞书文档转移至本地知识库
+</code></pre>
+<h3 id="2023年6月28日-17-39-26"><a href="#2023年6月28日-17-39-26" class="headerlink" title="2023年6月28日 17:39:26"></a>2023年6月28日 17:39:26</h3><p>5月份准备NPDP考试，6月份躺平了一个月，独立开发进度基本为0.如果非要说进度的话，那就是把HackingWithSwift的视频下下来了。并且第一个项目已经完成了。挑战也完成了，就是做了一个单位转换的小APP。</p>
+<p>非常简单的一个小程序，刚做出来的时候还是很有成就感的，但之后觉得，那么简单是不是不应该值得骄傲的事情。但是呢，导师说是每一个小的progress都要记录下来，接下来继续学习！</p>
+<h3 id="2023年7月18日-23-14-45"><a href="#2023年7月18日-23-14-45" class="headerlink" title="2023年7月18日 23:14:45"></a>2023年7月18日 23:14:45</h3><p>今天是实践“每天坚持一点点”的第一天，所以没有实践太多，也是特别容易分心，很多语法不会，基础很差，所以写代码的时候非常多的错误。</p>
+<p>主要实践了Swift中Foreach的用法，以及如何分割数组，索引部分数据。HackingWithSwift并没有学新内容。</p>
+<p>最后还搜索了一下Xcode以及macos系统里面的一些快捷键。加入收藏夹了，用起来！</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/coding/" class="">
+              coding
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/46888.html" target="_blank" title="CodeingDiaries">https://blog.five2fire.top/article/46888.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/2441.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">Hacking With Swift —— Project1——3</div>
+      </div>
+      
+      <!-- <div class="content">
+        Hacking With Swift Learning NotesProject1. WeSplit1. Swift应用
+      </div> -->
+    </a>
+  </div>
+
+
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
         
         
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
         
           
-            
-            
-            <div class="year" data-aos="zoom-in-up">
-                <div class="bullet"></div>
-                <a href="/archives/2023/09">2023年09月</a>
-            </div>
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
           
-          <!-- 为每篇文章显示日期、标题和缩略图 -->
-          <li class="post-item" data-aos="fade-left">
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2023%E5%B9%B43%E6%9C%88"><span class="toc-text">2023年3月</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B43%E6%9C%8819%E6%97%A5-23-21-43"><span class="toc-text">2023年3月19日 23:21:43</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B43%E6%9C%8824%E6%97%A5-23-12-34"><span class="toc-text">2023年3月24日 23:12:34</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B44%E6%9C%883%E6%97%A5-22-34-53"><span class="toc-text">2023年4月3日 22:34:53</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B44%E6%9C%8824%E6%97%A5-21-57-07"><span class="toc-text">2023年4月24日 21:57:07</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B46%E6%9C%8828%E6%97%A5-17-39-26"><span class="toc-text">2023年6月28日 17:39:26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023%E5%B9%B47%E6%9C%8818%E6%97%A5-23-14-45"><span class="toc-text">2023年7月18日 23:14:45</span></a></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/article/dfd22a7f.html" class="post-img " style="background-size: cover; 
+              <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">09-26</span>
+                
+                  <span class="post-date">09-27</span>
+                
               </div>
-              <a class="post-title" href="/article/dfd22a7f.html">Swift中section的header用法</a>
+              <a class="post-title" href="/article/3999.html">短暂的两个月副业总结</a>
             </div>
-          </li>
+          </div>
         
-      </ul>
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/c04d1fa7.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-26</span>
+                
+              </div>
+              <a class="post-title" href="/article/c04d1fa7.html">说说（也就是碎碎念）</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/53249.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-25</span>
+                
+              </div>
+              <a class="post-title" href="/article/53249.html">【Hacking With Swift】project8_MoonShot</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16672.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-24</span>
+                
+              </div>
+              <a class="post-title" href="/article/16672.html">电脑自动重启的尝试解决办法记录</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/46793.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/46793.html">【Hacking With Swift】project7_iExpense</a>
+            </div>
+          </div>
+        
+      </div>
     </div>
   </section>
-  <!-- 包含分页组件 -->
-  <div class="w-70">
+
     
   </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
 
       </main>
     </div>

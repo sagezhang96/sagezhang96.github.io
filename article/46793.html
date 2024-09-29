@@ -22,7 +22,7 @@
 </script>
 
 
-  <title>🍁晨霜攀黛瓦🍁</title>
+  <title>【Hacking With Swift】project7_iExpense | 🍁晨霜攀黛瓦🍁</title>
 
   <link rel="icon" type="image/svg+xml" href="/spiderman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -555,834 +555,279 @@
     
 </header>
         <!-- 内容区域 -->
-        
-  <!-- 首页轮播 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-
-
-
-
-
-
-<div class="swiper-length" style="display: none;">0</div>
-<div id="appSwiper"
-  class="swiper-no-swiping"
-  @mouseenter="stopAutoPlay()" 
-  @mouseleave="startAutoPlay()"
->
-  <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        【Hacking With Swift】project7_iExpense
+      </span>
+    </div>
     
-      <swiper-slide>
-        <div class="item swiper-lazy" data-background="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/blackhole.jpg" style="background-size: 300000px; 
-          background-position: left center;" style="position: relative;">
-          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
-            <div class="flag">
-              
-              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/blackhole.jpg" style="height: 100%; background-size: cover; 
-                background-position: center center;">
-                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
-              </div>
-              <div class="flag-text">
-                <div class="flag-text-content">
-                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
-                  
-                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">与其感慨路难行,不如马上出发</div>
-                    
-                </div>
-                <div style="display: flex;" class="flag-text-btns">
-                  
-                    <div class="ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://github.com/sagezhang96/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">我的Github页面</a></div>
-                  
-                  
-                    <div class="ani animated" style="margin-left: 10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/messageboard" class="read-more swiper-btn-color2" style="display: inline-block; z-index:1;border: 1px solid white;">留言板</a></div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-      </swiper-slide>
     
-  </swiper>
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2024-06-23 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/Hacking-With-Swift/" class="post-detail-header_category">
+              Hacking With Swift
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 5.7k |
+          </span>
   
-  <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 20分钟 |
+          </span>
   
-    <svg class="hans-container" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="hans-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="hans-parallax"><use xlink:href="#hans-wave" x="50" y="0" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="3" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="6" fill="rgba(224,233,239,.5)"></use></g></svg>
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
     
-</div>
-
-
-<style>.hans-parallax>use{animation:hans-wave-move 12s linear infinite}.hans-parallax>use:nth-child(1){animation-delay:-2s}.hans-parallax>use:nth-child(2){animation-delay:-2s;animation-duration:5s}.hans-parallax>use:nth-child(3){animation-delay:-4s;animation-duration:3s}@keyframes hans-wave-move{0%{transform:translate(-90px,0)}100%{transform:translate(85px,0)}}</style>
-<style>
-  .hans-container {
-    position: absolute!important;
-    bottom: 0;
-    width: 100%;
-    height: 120px;
-    z-index: 100;
-    pointer-events:none;
-  }
-</style>
-
-
-<script>
-  var autoplay = JSON.parse('false');
-  var delay = '5000';
-  var loop = JSON.parse('false') ? false : JSON.parse('true');
-  var effect = 'slide';
-  var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  var defaultDesc = '与其感慨路难行,不如马上出发';
-  defaultDesc = defaultDesc.split(',');
-  var defaultDescTypedLoop = JSON.parse('true');
-  var vm = new Vue({
-    el: '#appSwiper',
-    data: {
-      defaultDesc: defaultDesc,
-      defaultDescTypedLoop,
-      swiperOptions: {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true // 允许点击小圆点跳转
-        },
-        loop: loop ? true : false,
-        effect, // fade
-        autoplay: (autoplay && swiperLength > 1) ? {
-  　　　　delay,
-  　　　　disableOnInteraction: false // 手动切换之后继续自动轮播
-    　　} : false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        lazy: {
-          loadPrevNext: true,
-        },
-        on:{
-          init: function() {
-            swiperAnimateCache(this); //隐藏动画元素 
-            swiperAnimate(this); //初始化完成开始动画
-          }, 
-          slideChangeTransitionEnd: function(){ 
-            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-          } 
-        }
-        // Some Swiper option/callback...
-      }
-    },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiper.$swiper
-      }
-    },
-    mounted() {
-      // console.log('Current Swiper instance object', this.swiper)
-      // this.swiper.slideTo(0, 1000, false)
-    },
-    methods: {
-      stopAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.stop();
-      },
-      startAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.start();
-      },
-      slideChangeTransitionEnd() {
-        console.log('1');
-      },
-      toPostContent() {
-        const fullHeight = $(window).height() - 60;
-        $('html,body').animate({scrollTop: fullHeight},500);
-      }
-    },
-    created() {}
-  })
-</script>
-
-  <script src="/js/bubble/homeBubble.js"></script>
-
-<style>
-#appSwiper {
-  position: relative;
-  user-select: none;
-  overflow: hidden;
-  font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
-}
-.default-excerpt {
-  font-size: 1.6em;
-  margin-top: 1em;
-  color: #eee;
-}
-.bottom-one-btn {
-  margin-top: 15px;
-}
-.swiper-container {
-  overflow: hidden;
-  z-index: 0;
-}
-.swiper-slide {
-  height: 350px;
-  position: relative;
-}
-.swiper-button-prev,
-.swiper-button-next {
-  padding: 10px 10px;
-  transition: background 0.2s;
-}
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-.swiper-slide .item {
-  width: 100%;
-  height: 100%;
-}
-.flag {
-  position: relative;
-  width: 70%;
-  margin: 0 auto;
-  color: #ffffff;
-  height: 100%;
-  background: #000;
-}
-.flag img {
-  min-height: 100%;
-}
-.flag-text {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 80%;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 9999;
-}
-.flag-text .title {
-  font-size: 1.8em;
-}
-.flag-text .title a {
-  color: #fff;
-  transition: color 0.3s;
-}
-.flag-text .title a:hover {
-  color: rgba(50, 155, 230, 0.8);
-}
-.flag-text .excerpt {
-  color: #eee;
-  width: 70%;
-  line-height: 30px;
-  height: 150px;
-  margin-top: 2%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-}
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background-color: #42b983;
-}
-.img-mask {
-  opacity:0.6; filter: alpha(opacity=60);
-}
-.flag-text .read-more {
-  margin-bottom: 30px;
-  padding: 5px 15px;
-  color: #ffffff;
-  border-radius: 20px;
-}
-#scroll-down {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5em;
-  color: #fff;
-  cursor: pointer;
-  z-index: 2;
-}
-#scroll-down a {
-  color: #fff;
-}
-@-webkit-keyframes rightan
-  {
-  
-  0%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateY(-30px);
-    opacity: 1;
-  }
-  100%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-}
-.scroll-down-effects {
-  animation: rightan 1.5s infinite;
-}
-/* 当头部导航设置为背景透明的时候 */
-.swiper-slide {
-  height: 400px;
-}
-.flag-text {
-  top: 80px;
-}
-
-@media (min-width: 992px) {
-  .swiper-button-prev {
-    margin-left: 15%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 15%;
-    transform: translateX(180%);
-  }
-  .flag-text .title {
-    width: 80%;
-    line-height: 35px;
-    max-height: 70px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-}
-@media screen and (max-width: 1200px) { 
-  .flag {
-    width: 80%;
-  }
-  .swiper-button-prev {
-    margin-left: 10%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 10%;
-    transform: translateX(180%);
-  }
-}
-@media (max-width: 992px) {
-  .flag {
-    width: 100%;
-  }
-  .flag-text .title {
-    font-size: 1.5em;
-    margin-top: 50px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-  .flag-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-  .flag-text .excerpt {
-    width: 100%;
-    line-height: 25px;
-    height: 125px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-  }
-  .flag-text .read-more {
-    margin-bottom: 80px;
-  }
-}
-@media (max-width: 992px) and (min-width: 551px) {
-  .flag-text .excerpt {
-    width: 70%;
-  }
-}
-@media (max-width: 551px) {
-  .swiper-slide {
-    height: 250px;
-  }
-  .flag-text .title {
-    line-height: 30px;
-    max-height: 60px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-top: 20px;
-  }
-  .flag-text .excerpt {
-    font-size: 1em;
-    line-height: 20px;
-    height: 80px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-  }
-  .flag-text .excerpt { 
-    margin-top: 10px;
-  }
-  .flag-text .read-more {
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    transform: scale(0.5);
-  }
-  .swiper-button-prev {
-    left: 0;
-  }
-  .swiper-button-next {
-    right: 0;
-  }
-}
-/* 当头部导航设置为背景透明的时候 */
-  @media (max-width: 992px) {
-    .flag-text {
-      top: 60px;
-      height: 80%;
-    }
-  }
-  @media (max-width: 551px) {
-    .swiper-slide {
-      height: 310px;
-    }
-  }
-
-/* 文字或者按钮居中显示 */
-
-
-
-
-/* 全屏显示 */
-
-
-/* video */
-.swiper-video {
-  width: 100%;
-  height: 100%;
-}
-.swiper-video video {
-  pointer-events: none;
-}
-.swiper-video-maskBox{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #000;
-  opacity: 0.2;
-  z-index: 1;
-}
-@media (min-width: 992px) {
-  
-    .swiper-video {
-      display: none;
-    }
-    .swiper-default-bgImg {
-      display: block;  
-    }
-  
-}
-@media (max-width: 992px) {
-  .swiper-video {
-    display: none;
-  }
-  .swiper-default-bgImg {
-    display: block;  
-  }
-}
-/* video-end */
-</style>
-
-
-<div id="l_main">
-  <div class="l_content">
-    <!-- 自定义的内容 -->
-    
-  
-    <div class="widget my_github_container" id="my_github_container" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #0A9BD2" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-days fa-fw" aria-hidden="true"></i><span class='name'>博客更新频率</span></a>
-        
-      </header>
-      <div class="content">
-         <img no-lazy width="100%" hright="300px" src="https://ghchart.rshah.org/42b983/sagezhang96" alt="sagezhang96 github" /> 
-      </div>
   </div>
   
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
 
-    <!-- 首页座右铭 -->
-    
-    <!-- 首页公告 -->
-    
-<style>
-  .index-notice-content {
-    margin-top: 10px;
-  }
-  .warp {
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .index-notice-content__ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-  }
-  .index-notice-content__ul li,
-  .index-notice-content__ul a {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-  }
-  .index-notice-content__title {
-    flex: 1;
-    overflow: hidden;
-  }
-  .index-notice-content__title a,
-  .index-notice-content__title span {
-    overflow: hidden;
-    display: block;
-    text-overflow:ellipsis; 
-    white-space: nowrap;
-    height: 100%;
-    width: 100%;
-    color: #000;
-  }
-  .index-notice-content__title a:hover,
-  .index-notice-content__title span:hover {
-    text-decoration: underline;
-  }
-  .index-notice-content__date {
-    min-width: 80px;
-    margin-left: 5px;
-    color: #000;
-  }
-</style>
-<div class="index-notice" id="appIndexNotice">
-    <h3>
-      <i class="fas fa-bullhorn index-notice-icon"></i>号外号外！！！
-    </h3>
-    <div class="index-notice-content">
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h1 id="iExpense-电子记账"><a href="#iExpense-电子记账" class="headerlink" title="iExpense 电子记账"></a>iExpense 电子记账</h1><p>这个项目中我们仍然要完成一个小程序——iExpense，可以记录简单的账目。主要是学习如何显示另一个屏幕、如何跨屏幕共享数据、如何保存并加载用户数据。</p>
+<p>我们将了解<code>@observable</code>、<code>sheet()</code>、<code>onDelete()</code>等等。</p>
+<h2 id="iExpense简介"><a href="#iExpense简介" class="headerlink" title="iExpense简介"></a>iExpense简介</h2><p>接下来的两个项目将开始推动我们的 SwiftUI 技能超越基础知识，因为我们将探索具有多个屏幕、加载和保存用户数据以及具有更复杂用户界面的应用程序。</p>
+<p>在这个项目中，我们将构建 iExpense，这是一个费用跟踪器，可将个人成本与业务成本分开。从本质上讲，这是一个带有表单（花了多少钱？）和列表（花费的金额）的应用程序，但为了完成这两件事，我们需要学习如何：</p>
+<ul>
+<li>显示和关闭第二个数据屏幕。</li>
+<li>从列表中删除行</li>
+<li>保存和加载用户数据</li>
+<li>更多其他内容……</li>
+</ul>
+<p>有很多事情要做，所以让我们开始吧！</p>
+<h2 id="在类中使用-state"><a href="#在类中使用-state" class="headerlink" title="在类中使用@state"></a>在类中使用@state</h2><p>前面我们学习到，<code>@state</code>属性包装器专为当前视图本地的简单数据而设计，但一旦您想要共享数据，您就需要采取一些重要的额外步骤。</p>
+<p>先看下面这段代码，这是一个存储用户名字和姓氏的结构，我们现在可以在 SwiftUI 视图中使用它，方法是创建 @State 属性并将内容附加到 <code> $user.firstName</code> 和 <code>$user.lastName </code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> firstName <span class="operator">=</span> <span class="string">&quot;Bilbo&quot;</span></span><br><span class="line">    <span class="keyword">var</span> lastName <span class="operator">=</span> <span class="string">&quot;Baggins&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> user <span class="operator">=</span> <span class="type">User</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Your name is <span class="subst">\(user.firstName)</span> <span class="subst">\(user.lastName)</span>.&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;First name&quot;</span>, text: <span class="variable">$user</span>.firstName)</span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;Last name&quot;</span>, text: <span class="variable">$user</span>.lastName)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这一切都有效：SwiftUI 足够智能，可以理解一个对象包含我们的所有数据，并且当任一值发生变化时都会更新 UI。在幕后，实际发生的情况是，每次结构体中的值更改时，整个结构体都会发生更改 - 就像每次我们键入一个新用户一样名字或姓氏的键。这听起来可能有点浪费，但实际上速度非常快。</p>
+<p>之前我们研究了类和结构之间的差异，我提到了两个重要的差异。首先，结构总是有唯一的所有者，而对于类，多个事物可以指向相同的值。其次，该类在更改其属性的方法之前不需要<code>mutating</code>  关键字，因为您可以更改属性常量类。</p>
+<p>实际上，这意味着，如果我们有两个 SwiftUI 视图，并且向它们发送相同的结构来使用，它们实际上每个都有该结构的唯一副本；如果一个人改变了它，另一个人将看不到这种变化。另一方面，如果我们创建 <code>class</code> 的实例并将其发送到两个视图，它们将&lt; &#x2F;span&gt; 分享更改。</p>
+<p>对于 SwiftUI 开发人员来说，这意味着如果我们想要在多个视图之间共享数据 – 如果我们希望两个或多个视图指向相同的数据，以便当一个视图发生更改时，它们都会得到这些更改 – 我们需要使用类而不是结构。</p>
+<p>因此，请将 User 结构更改为类。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> firstName <span class="operator">=</span> <span class="string">&quot;Bilbo&quot;</span></span><br><span class="line">    <span class="keyword">var</span> lastName <span class="operator">=</span> <span class="string">&quot;Baggins&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你会发现程序无法正常运行了。当然，我们可以像以前一样在文本字段中输入内容，但上面的文本视图不会改变。</p>
+<p>当我们使用 @State 时，我们要求 SwiftUI 监视属性的更改。因此，如果我们更改字符串、翻转布尔值、添加到数组等，则属性已更改，SwiftUI 将重新调用视图的 body 属性。</p>
+<p>当 User 是一个结构体时，每次我们修改该结构体的属性时，Swift 实际上都会创建该结构体的一个新实例。 @State 能够发现该更改，并自动重新加载我们的视图。现在我们有了一个类，这种行为就不再发生：Swift 可以直接修改值。</p>
+<p>还记得我们如何使用 mutating 关键字来修改属性的结构体方法吗？这是因为，如果我们将结构体的属性创建为变量，但结构体本身是常量，则我们无法更改属性 - Swift 需要能够在属性更改时销毁并重新创建整个结构体，而这对于 Swift 来说是不可能的常量结构。类不需要mutating关键字，因为即使类实例被标记为常量，Swift仍然可以修改变量属性。</p>
+<p>我知道这一切听起来都非常理论化，但这里有一个转折点：现在 User 是一个类，属性本身并没有改变，所以 @State没有注意到任何事情并且无法重新加载视图。是的，类内的值 正在发生变化，但 @State 不会监视这些值，所以实际上发生的情况是我们类中的值正在更改，但视图不会重新加载以反映该更改。</p>
+<p>我们可以通过一个小改动来解决这个问题：在类前之前添加一行<code>@Observable</code>。</p>
+<p>现在我们的代码将再次工作。要了解原因，让我们探索一下 @Observable 实际上做了什么……</p>
+<h2 id="与-Observable-共享-SwiftUI-状态"><a href="#与-Observable-共享-SwiftUI-状态" class="headerlink" title="与 @Observable 共享 SwiftUI 状态"></a>与 @Observable 共享 SwiftUI 状态</h2><p>如果您将 @State 与结构一起使用，则当值更改时，您的 SwiftUI 视图将自动更新，但如果您将 @State 与类一起使用，则必须使用 <code>@Observable </code></p>
+<p>我们详细地看一下这个代码</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Observable</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> firstName <span class="operator">=</span> <span class="string">&quot;Bilbo&quot;</span></span><br><span class="line">    <span class="keyword">var</span> lastName <span class="operator">=</span> <span class="string">&quot;Baggins&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以 <code>@Observable</code> 开头，这告诉 SwiftUI 监视类中每个单独的属性的更改，并在属性发生更改时重新加载依赖于该属性的任何视图。实际上，Swift在背后为我们做了大量的工作：</p>
+<p> <code>@Observable</code> 行是一个 宏，这是 Swift 悄悄重写我们的方法添加额外功能的代码。现在我们已经导入了它所来自的框架，Xcode 可以做一些非常巧妙的事情：如果您右键单击代码中的 <code>@Observable</code>，您可以选择 Expand Macro 来查看到底重写了什么正在发生 – Xcode 将向您显示正在生成的所有隐藏代码。</p>
+<p>我不打算在这里写出整个宏扩展，因为它太多了，但我确实想指出三件事：</p>
+<ol>
+<li>我们的两个属性被标记为<code>@ObservationTracked</code>，这意味着 Swift 和 SwiftUI 正在监视它们的更改。</li>
+<li>如果右键单击 <code>@ObservationTracked</code>，您也可以展开该宏 – 是的，它’ ;是宏中的宏。该宏的作用是跟踪任何属性的读取或写入，以便 SwiftUI 只能更新绝对需要刷新的视图。</li>
+<li>我们的类符合<code>Observable</code> 协议。这很重要，因为 SwiftUI 的某些部分认为这意味着“可以监视此类的更改。”</li>
+</ol>
+<p>这三者都很重要，但最重要的是中间的一个：iOS 会跟踪每个从 <code>@Observed</code> 对象读取属性的 SwiftUI 视图，这样当属性更改时，它可以智能地更新依赖于它的所有视图，同时保持其他视图不变。</p>
+<p>使用结构时，<code>@State</code> 属性包装器会保持值处于活动状态并监视它的更改。另一方面，当使用 类 时，<code>@State</code> 只是为了保持对象的活动状态 – 所有的变化都在监视更新视图由 <code>@Observable</code> 负责。</p>
+<h2 id="显示和隐藏视图"><a href="#显示和隐藏视图" class="headerlink" title="显示和隐藏视图"></a>显示和隐藏视图</h2><p>在 SwiftUI 中显示视图的方式有多种，最基本的一种是工作表：在工作表之上呈现的新视图我们现有的。在 iOS 上，这会自动为我们提供一个类似卡片的演示，其中当前视图稍微滑向远处，新视图以动画方式显示在顶部。</p>
+<p>工作表的工作方式与提醒非常相似，因为我们不会直接使用 <code>mySheet.present()</code> 或类似代码来呈现它们。相反，我们定义了应显示工作表的条件，当这些条件为 true 或 false 时，将分别显示或消除工作表。</p>
+<p>让我们从一个简单的示例开始，该示例将使用工作表显示另一个视图的一个视图。首先，我们创建要在工作表中显示的视图，如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">SecondView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;Second View&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，创建初始视图，并通过一个按钮来调用上面这个视图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct ContentView: View &#123;</span><br><span class="line">    @State private var showingSheet = false</span><br><span class="line"></span><br><span class="line">    var body: some View &#123;</span><br><span class="line">        Button(&quot;Show Sheet&quot;) &#123;</span><br><span class="line">            showingSheet.toggle()</span><br><span class="line">        &#125;</span><br><span class="line">        .sheet(isPresented: $showingSheet) &#123;</span><br><span class="line">            SecondView()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你现在运行该程序，你会看到你可以点击按钮让我们的第二个视图从底部向上滑动，然后你可以将其向下拖动以将其关闭。</p>
+<p>我们也可以为第二个视图添加一些参数，并在初始视图中传入参数，比如添加一个名字。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">SecondView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;Hello, <span class="subst">\(name)</span>!&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> showingSheet <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Show Sheet&quot;</span>) &#123;</span><br><span class="line">            showingSheet.toggle()</span><br><span class="line">        &#125;</span><br><span class="line">        .sheet(isPresented: <span class="variable">$showingSheet</span>) &#123;</span><br><span class="line">            <span class="type">SecondView</span>(name: <span class="string">&quot;@twostraws&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        .fullScreenCover(isPresented: <span class="variable">$showingSheet</span>, content: &#123;</span><br><span class="line">            <span class="type">SecondView</span>(name: <span class="string">&quot;Sage&quot;</span>)</span><br><span class="line">        &#125;)  <span class="comment">//如果想要全屏显示这个工作表可以用这个修饰符</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在工作表将显示“你好，@twostraws”。</p>
+<p>接下来我们学习如何清除这个第二个视图（除了向下滑动关闭，我们可以通过编程来实现）。</p>
+<p>我们需要另一个属性包装器<code>@Environment</code>，它允许我们创建存储外部提供给我们的值的属性。用户处于浅色模式还是深色模式？他们是否要求使用更小或更大的字体？他们在哪个时区？所有这些以及更多都是来自外部环境的值。</p>
+<p>要尝试关闭第二个视图，请将此属性添加到 <code>SecondView</code>，这会根据环境中的值创建一个名为 <code>dismiss</code> 的属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Environment</span>(\.dismiss) <span class="keyword">var</span> dismiss</span><br></pre></td></tr></table></figure>
+
+<p>现在用此按钮替换 SecondView 中的文本视图：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Button</span>(<span class="string">&quot;Dismiss&quot;</span>) &#123;</span><br><span class="line">    dismiss()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>点击该按钮后，您现在应该发现可以通过按下按钮来显示和隐藏工作表。</p>
+<h2 id="使用-onDelete-删除项目"><a href="#使用-onDelete-删除项目" class="headerlink" title="使用 onDelete() 删除项目"></a>使用 onDelete() 删除项目</h2><p>SwiftUI 为我们提供了 onDelete() 修饰符，用于控制如何从集合中删除对象。实际上，这几乎专门与 List 和 ForEach 一起使用：我们创建使用 ForEach 显示的行列表，然后将 onDelete() 附加到该 ForEach 以便用户可以删除他们不需要的行。</p>
+<p>首先，让我们构建一个可以使用的示例：一个显示数字的列表，每次点击按钮时都会出现一个新数字。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> numbers <span class="operator">=</span> [<span class="type">Int</span>]()</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> currentNumber <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">List</span> &#123;</span><br><span class="line">                <span class="type">ForEach</span>(numbers, id: \.<span class="keyword">self</span>) &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Row <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Add Number&quot;</span>) &#123;</span><br><span class="line">                numbers.append(currentNumber)</span><br><span class="line">                currentNumber <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经过前面学习，现在也可以不用<code>ForEach</code>来实现。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">List</span>(numbers, id: \.<span class="keyword">self</span>) &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Row <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是在这一节中，我们要学习的<code>onDelete()</code>修饰符，仅存在于<code>ForEach</code>上，所以我们必须使用<code>ForEach</code>来构建这个列表。</p>
+<p>接下来我们要实现一个接收 IndexSet 类型的单个参数的方法。这有点像一组整数，只不过它是经过排序的，并且它只是告诉我们 ForEach 中应删除的所有项目的位置。</p>
+<p>因为我们的 ForEach 完全是从单个数组创建的，所以我们实际上可以将该索引集直接传递到我们的 numbers 数组 – 它有一个特殊的remove(atOffsets:) 接受索引集的方法。</p>
+<p>最后，我们可以告诉 SwiftUI 在想要从 ForEach 中删除数据时调用该方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ForEach</span>(numbers, id: \.<span class="keyword">self</span>) &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Row <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">.onDelete(perform: removeRows)</span><br></pre></td></tr></table></figure>
+<p>现在继续运行您的应用程序，然后添加一些数字。准备好后，从右向左滑动列表中的任意行，您应该会发现出现一个删除按钮。您可以点击它，也可以使用 iOS 的滑动删除功能，通过进一步滑动来删除。</p>
+<p>考虑到这很容易，我认为结果非常好。但 SwiftUI 还有另一个技巧：我们可以在导航栏中添加一个“编辑&#x2F;完成”按钮，让用户更轻松地删除几行。</p>
+<p>首先，将 VStack 包裹在 NavigationStack 中，然后将此修饰符添加到 VStack：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.toolbar &#123;</span><br><span class="line">    <span class="type">EditButton</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这实际上就是所需的一切 - 如果您运行该应用程序，您会看到可以添加一些数字，然后点击“编辑”开始删除这些行。准备好后，点击“完成”退出编辑模式。考虑到只需要很少的代码，还不错！</p>
+<h2 id="使用-UserDefaults-存储用户设置"><a href="#使用-UserDefaults-存储用户设置" class="headerlink" title="使用 UserDefaults 存储用户设置"></a>使用 UserDefaults 存储用户设置</h2><p>多数用户几乎期望应用存储他们的数据，以便他们可以创建更多定制的体验，iOS 提供了几种读取和写入用户数据的方法。</p>
+<p>存储少量数据的一种常见方法称为<code>UserDefaults</code>，它非常适合简单的用户偏好。 “少量”没有附加具体数字，但您在 <code>UserDefaults</code> 中存储的所有内容都会在您的应用启动时自动加载 - 如果您在其中存储大量内容，您的应用启动速度将会减慢。为了至少给您一个想法，您的目标应该是在其中存储不超过 512KB。</p>
+<p><code>UserDefaults</code> 非常适合存储用户上次启动应用程序的时间、他们上次阅读的新闻报道或其他被动收集的信息等信息。更好的是，SwiftUI 通常可以将 <code>UserDefaults</code> 包装在一个名为 @AppStorage 的漂亮而简单的属性包装器中 - 它现在只支持功能的子集，但它确实可以有帮助。</p>
+<p>聊够了——让我们看一些代码。这是一个带有按钮的视图，显示点击计数，以及每次点击按钮时计数的增量：</p>
+<p>由于这显然是一个非常重要的应用程序，因此我们希望保存用户点击的次数，以便他们将来返回该应用程序时可以从上次中断的地方继续。</p>
+<p>为了实现这一点，我们需要在按钮的操作闭包内写入UserDefaults。因此，请在 tapCount +&#x3D; 1 行之后添加以下内容：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Tap count: <span class="subst">\(tapCount)</span>&quot;</span>) &#123;</span><br><span class="line">            tapCount <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">            <span class="type">UserDefaults</span>.standard.set(tapCount, forKey: <span class="string">&quot;Tap&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仅在那一行代码中，您就可以看到三件事正在发生：</p>
+<ol>
+<li>我们需要使用UserDefaults.standard。这是附加到我们的应用程序的 UserDefaults 的内置实例，但在更高级的应用程序中，您可以创建自己的实例。例如，如果您想在多个应用扩展之间共享默认值，您可以创建自己的 UserDefaults 实例。</li>
+<li>有一个set()方法可以接受任何类型的数据 - 整数、布尔值、字符串等等。</li>
+<li>我们将一个字符串名称附加到该数据上，在我们的例子中它是键“Tap”。这个键区分大小写，就像常规的 Swift 字符串一样，这很重要 – 我们需要使用相同的键从 UserDefaults 中读回数据。</li>
+</ol>
+<p>说到读回数据，而不是从将 tapCount 设置为 0 开始，我们应该让它从 UserDefaults 读回值，如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="type">UserDefaults</span>.standard.integer(forKey: <span class="string">&quot;Tap&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>请注意它如何使用完全相同的键名称，这确保它读取相同的整数值。</p>
+<p>继续尝试该应用程序，看看您的想法 - 您应该能够点击按钮几次，返回 Xcode，再次运行该应用程序，并准确地看到您离开时的数字。</p>
+<p>有两件事你在代码中看不到，但都很重要。首先，如果我们没有设置“Tap”键会发生什么？应用程序第一次运行时就会出现这种情况，但正如您刚刚看到的那样，它工作正常 - 如果找不到密钥，它只会发回 0。</p>
+<p>有时使用像 0 这样的默认值会很有帮助，但有时可能会令人困惑。例如，对于布尔值，如果 boolean(forKey:) 找不到您要求的密钥，您将返回 false，但该 false 是您自己设置的值，还是意味着根本没有值？</p>
+<p>其次，iOS 需要一点时间将数据写入永久存储 - 才能将更改实际保存到设备中。他们不会立即写入更新，因为您可能会连续进行多次更新，因此他们会等待一段时间，然后立即写出所有更改。另一个数字我们不知道需要多长时间，但应该需要几秒钟。</p>
+<p>因此，如果您点击按钮然后从 Xcode 快速重新启动应用程序，您会发现最近的点击计数未保存。曾经有一种方法可以强制立即写入更新，但此时它毫无价值 - 即使用户在做出选择后立即开始终止您的应用程序，您的默认数据也会立即写入，因此不会丢失任何内容。</p>
+<p>现在，我提到 SwiftUI 提供了一个 <code>@AppStorage</code> 围绕 <code>UserDefaults</code> 的属性包装器，在像这样的简单情况下它确实很有帮助。它的作用是让我们有效地完全忽略 <code>UserDefaults</code>，只使用 <code>@AppStorage</code> 而不是 <code>@State</code>，如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@AppStorage</span>(<span class="string">&quot;tapCount&quot;</span>) <span class="keyword">private</span> <span class="keyword">var</span> tapCount <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Tap count: <span class="subst">\(tapCount)</span>&quot;</span>) &#123;</span><br><span class="line">            tapCount <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再次，我想指出三件事：</p>
+<ol>
+<li>我们对UserDefaults系统的访问是通过@AppStorage属性包装器进行的。其工作原理类似于 @State：当值更改时，它将重新调用 body 属性，以便我们的 UI 反映新数据。</li>
+<li>我们附加一个字符串名称，这是我们要存储数据的 UserDefaults 键。我使用了“tapCount”，但它可以是任何东西 - 它不需要与属性名称匹配。</li>
+<li>属性的其余部分被声明为正常，包括提供默认值 0。如果内部没有保存现有值，则将使用该值。UserDefaults。</li>
+</ol>
+<p>显然使用<code>@AppStorage</code>  比 <code>UserDefaults</code> 更容易：它是一行代码而不是两行，而且这也意味着我们不必重复每次的键名。然而，目前至少 <code>@AppStorage</code> 并不能让存储复杂的对象（例如 Swift 结构）变得容易 - 也许是因为 Apple 希望我们记住，在其中存储大量数据是一个坏主意！</p>
+<p>重要提示：当您向 App Store 提交应用时，Apple 会要求您告知他们为何使用 <code>UserDefaults</code>。没什么好担心的，他们只是想确保开发者不会尝试跨应用识别用户。这同样也适用于属性包装器<code>@AppStorage</code>。</p>
+<h2 id="使用-Codable-归档-Swift-对象"><a href="#使用-Codable-归档-Swift-对象" class="headerlink" title="使用 Codable 归档 Swift 对象"></a>使用 Codable 归档 Swift 对象</h2><p><code>@AppStorage</code>  非常适合存储整数和布尔值等简单设置，但当涉及复杂数据（例如自定义 Swift 类型）时，我们需要做更多的工作。这是我们需要直接探索 UserDefaults 本身的地方，而不是通过 <code>@AppStorage</code>  属性包装器。</p>
+<p>这是一个我们可以使用的简单User数据结构：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> firstName: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> lastName: <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它有两个字符串，但它们并不特殊 - 它们只是文本片段。对于整数（普通的旧数字）、布尔值（true 或 false）和 Double（普通的旧数字，只是其中有一个点）也是如此。即使是这些值的数组和字典也很容易想到：有一个字符串，然后是另一个字符串，然后是第三个字符串，依此类推。</p>
+<p>在处理此类数据时，Swift 为我们提供了一个出色的协议，名为 Codable：专门用于归档的协议 和取消归档数据，这是“将对象转换为纯文本并再次转换回来”的一种奇特方式。</p>
+<p>我们将在未来的项目中考虑更多Codable，但现在我们将使其尽可能简单：我们想要归档自定义类型因此我们可以将其放入 UserDefaults 中，然后当它从 中返回out 时将其取消存档5&gt;.UserDefaults</p>
+<p>当使用仅具有简单属性（字符串、整数、布尔值、字符串数组等）的类型时，我们需要做的唯一一件事就是为支持归档和取消归档添加一致性Codable，像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span>: <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> firstName: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> lastName: <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Swift 会自动为我们生成一些代码，这些代码将根据需要为我们归档和取消归档 User 实例，但我们仍然需要告诉 Swift 何时归档以及如何处理数据。</p>
+<p>这部分流程由名为 JSONEncoder 的新类型提供支持。它的工作是获取符合 Codable 的内容并以 JavaScript 对象表示法 (JSON) 发回该对象 - 名称暗示它特定于 JavaScript，但在实践中我们都使用它，因为它太快了而且简单。</p>
+<p>Codable 协议不要求我们使用 JSON，事实上其他格式也是可用的，但它是迄今为止最常见的格式。在这种情况下，我们实际上并不关心使用什么类型的数据，因为它只是存储在UserDefaults.</p>
+<p>要将 user 数据转换为 JSON 数据，我们需要调用 上的 encode() 方法。这可能会引发错误，因此应该使用 或 调用它以巧妙地处理错误。例如，如果我们有一个属性来存储 实例，如下所示：JSONEncodertrytry?User</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> user <span class="operator">=</span> <span class="type">User</span>(firstName: <span class="string">&quot;Taylor&quot;</span>, lastName: <span class="string">&quot;Swift&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以创建一个按钮来存档用户并将其保存到UserDefaults，如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Button</span>(<span class="string">&quot;Save User&quot;</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> encoder <span class="operator">=</span> <span class="type">JSONEncoder</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> data <span class="operator">=</span> <span class="keyword">try?</span> encoder.encode(user) &#123;</span><br><span class="line">        <span class="type">UserDefaults</span>.standard.set(data, forKey: <span class="string">&quot;UserData&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>直接访问 UserDefaults 而不是通过<code>@AppStorage</code> ，因为 <code>@AppStorage</code> 属性包装器在这里不起作用.</p>
+<p>该data常量是一种新的数据类型，其名称可能会令人困惑，Data。它旨在存储您能想到的任何类型的数据，例如字符串、图像、zip 文件等。不过，在这里，我们所关心的是它是我们可以直接写入UserDefaults的数据类型之一。</p>
+<p>当我们以另一种方式返回时 - 当我们有 JSON 数据并且希望将其转换为 Swift Codable 类型时 - 我们应该使用 JSONDecoder 而不是 JSONEncoder()，但过程大致相同。</p>
+<p>项目概述到此结束，因此请继续将您的项目重置为初始状态，准备好进行构建。</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/coding/" class="">
+              coding
+            </a>
+          
+            <a href="/tags/swift/" class="">
+              swift
+            </a>
+          
+        </div>
+        
+      </div>
       
-      <vue-seamless-scroll
-        :data="listData"
-        :class-option="classOption"
-        class="warp"
-        style="height: 90px"
-      >
-        <ul class="index-notice-content__ul">
-          
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/2024/09/26/shuoshuo/" title="cursor初体验，更新了早就想要的碎碎念模块，并且可以评论。" style="color:red">
-                      cursor初体验，更新了早就想要的碎碎念模块，并且可以评论。
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:red">
-                    2024-09-26
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/messageboard/" title="来都来了，觉得我的Blog怎么样？留个言再走呗！" style="color:red">
-                      来都来了，觉得我的Blog怎么样？留个言再走呗！
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:red">
-                    点击去留言！
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="messageboard/" title="升级评论的系统，由Valine升级至Waline。可以匿名评论，也可以匿名留言。" style="color:#177cb0">
-                      升级评论的系统，由Valine升级至Waline。可以匿名评论，也可以匿名留言。
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:#177cb0">
-                    2024-03-19
-                  </div>
-                
-              
-            </li>
-           
-        </ul>
-      </vue-seamless-scroll>
-    </div>
-</div>
-<script src="/js/vue-seamless-scroll/index.js"></script>
-
-<!-- 滚动插件采用 vue-seamless-scroll
-  https://chenxuan0000.github.io/vue-seamless-scroll/zh/guide/06-singleStop.html 
--->
-
-<script>
-  var seamless = JSON.parse('');
-  seamless = seamless ? 0 : 30;
-  var listData = '[object Object],[object Object],[object Object]' || '';
-  listData = listData.split(',');
-  var vm = new Vue({
-    el: '#appIndexNotice',
-    data: {
-      listData: listData,
-      moveNum: 2,
-      classOption: {
-        singleHeight: seamless,
-        limitMoveNum: listData.length
-      },
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-    },
-    created() {
-      this.moveNum = parseInt(this.listData.length);
-    }
-  })
-</script>
-
-
-
-    <!-- 首页文章置顶 -->
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/46793.html" target="_blank" title="【Hacking With Swift】project7_iExpense">https://blog.five2fire.top/article/46793.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
     
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
 
 
-<div class="topArticle reveal">
-	<h3><i class="fas fa-thumbs-o-up" aria-hidden="true"></i>推荐文章</h3>
-	<div class="articles">
-		
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article" style="background-size: cover; 
-						background-position: center center;">
-						<img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/article/c04d1fa7.html">说说（也就是碎碎念）</a></div>
-							<!-- <div class="content">
-								碎碎念碎碎念
-							</div> -->
-						</div>
-						<a href="/article/c04d1fa7.html" class="more">
-							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article" style="background-size: cover; 
-						background-position: center center;">
-						<img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/article/e7cc1654.html">非常好眼镜，使我身体旋转</a></div>
-							<!-- <div class="content">
-								期待国内早日发售！（虽然我也买不起）
-							</div> -->
-						</div>
-						<a href="/article/e7cc1654.html" class="more">
-							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-				<div class="article-link">
-					
-					<div class="article" style="background-size: cover; 
-						background-position: center center;">
-						<img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/article/1191.html">《自控力》读书笔记</a></div>
-							<!-- <div class="content">
-								意志力实际上是“我要做”、“我不要”和“我想要”这三种力量。它们协同努力，让我们变成更好的自己。
-							</div> -->
-						</div>
-						<a href="/article/1191.html" class="more">
-							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-	</div>
-</div>
 
-
-    <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-    <!-- 每一篇文章卡片 -->
-    <section class="posts">
   
-  
-    <article class="post">
-      <a href="/article/3999.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="短暂的两个月副业总结">
-          <div class="post-excerpt">
-            <p>前言这篇文章，从我刚开始做这个副业，就已经决定要写，到9.15号停止接单，再到今天开始写，拖了快一个月了。
-其实到上个月底，业务就已经“趋于稳定”了，那个时候应该是写这篇文章的最佳时刻，被我硬生生拖了一个月。
-为什么现在行动了呢，说出来可能会让人觉得毫无关联——因为国家救市政策出来，股市大涨。
-大家...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">短暂的两个月副业总结</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%BA%A7%E5%93%81/" class="post-category">
-            <i class="fas fa-folder"></i> 产品
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E5%89%AF%E4%B8%9A/" class="post-tag">#副业</a>
-          
-            <a href="/tags/%E4%BA%A7%E5%93%81%EF%BC%8C-%E6%95%88%E7%8E%87/" class="post-tag">#产品， 效率</a>
-          
-        </div>
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/16672.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">电脑自动重启的尝试解决办法记录</div>
       </div>
-      <div class="post-date">2024-09-27</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/c04d1fa7.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="说说（也就是碎碎念）">
-          <div class="post-excerpt">
-            <p>碎碎念碎碎念...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">说说（也就是碎碎念）</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
-            <i class="fas fa-folder"></i> 碎碎念
-          </a>
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-date">2024-09-26</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/53249.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project8_MoonShot">
-          <div class="post-excerpt">
-            <p>
-
-引入在这个项目中，我们将构建一个应用程序，让用户了解组成 NASA 阿波罗太空计划的任务和宇航员。您将获得更多使用 Codable 的经验，但更重要的是，您还将使用滚动视图、导航和更有趣的布局。
-是的，您将获得一些使用 List 、 Text 等内容的练习时间，但您还将开始解决重要的 Swift...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】project8_MoonShot</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-25</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/16672.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="电脑自动重启的尝试解决办法记录">
-          <div class="post-excerpt">
-            <p>主机配置
+      
+      <!-- <div class="content">
+        主机配置
 
 
 配件
@@ -1399,232 +844,158 @@ AMD 6750xt
 
 
 现象描述
-DOTA2游戏，4+2游廊的时候，游戏过程中无规律自动重启
-DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按钮，4+2结束时自动回到主菜单），自动重启。这个算是有规律？
-其余时间偶尔...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">电脑自动重启的尝试解决办法记录</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
-            <i class="fas fa-folder"></i> 其他
-          </a>
-        
-        <div class="post-tags">
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-24</div>
-    </article>
+DOTA2游戏
+      </div> -->
+    </a>
+  </div>
+
+
+
   
-    <article class="post">
-      <a href="/article/46793.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project7_iExpense">
-          <div class="post-excerpt">
-            <p>iExpense 电子记账这个项目中我们仍然要完成一个小程序——iExpense，可以记录简单的账目。主要是学习如何显示另一个屏幕、如何跨屏幕共享数据、如何保存并加载用户数据。
-我们将了解@observable、sheet()、onDelete()等等。
-iExpense简介接下来的两个项目将开始推...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】project7_iExpense</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-23</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/57245.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project6_Animation">
-          <div class="post-excerpt">
-            <p>这个项目主要是学习一些简单的SwiftUI中的动画，包括隐式动画（implicit animations），显式动画以及绑定动画。
-隐式动画隐式动画通过.animation()的modifier指定，每当视图里某个隐式动画的参数改变时，SwiftUI会动画化呈现旧值到新值的变化。这些参数包括尺寸，偏...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】project6_Animation</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-21</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/41438.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project5_WordScramble">
-          <div class="post-excerpt">
-            <p>简介该项目会创建这样一个游戏，先向玩家展示一个随机的八个字母的单词，并要求他们将其拼成单词。例如，如果起始词是“alarming”，他们可能拼写为“alarm”、“ring”、“main”等。
-在这个过程中，我们会遇到如何处理List，如何处理String，如何读取文件（使用Bundle），以及如何...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】project5_WordScramble</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-14</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/5898.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project4_BetterRest">
-          <div class="post-excerpt">
-            <p>简介该项目主要用于了解IOS中一项很强大的功能——机器学习。
-运用机器学习，分析数据。从而通过每天摄入咖啡量，希望醒来的时刻以及所需睡眠量，来计算出何时应该上床睡觉了。
-在这个过程中，我们将遇到 Stepper、DatePicker、DateFormatter等内容。
-在程序中，需要引导用户输入一天...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project4_BetterRest</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-06</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/41590.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project3_ViewsAndModels">
-          <div class="post-excerpt">
-            <p>1.视图和修饰符的简介在这个项目中，我们将弄明白为什么Swift中使用结构体而不是用类来编程，以及为什么some View有那么多。
-在项目结尾希望你能够彻底了解Swift是通过什么运转起来的。
-2.为什么 SwiftUI 对视图使用结构体？一个是为了性能考虑，结构体的创建很简单，可以包含一个整数，...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project3_ViewsAndModels</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-03</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/2890.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project2_GuessTheFlag">
-          <div class="post-excerpt">
-            <p>猜旗子.alert用法12345@State private var showingScore = false.alert(scoreTitle, isPresented: $showingScore) &amp;#123;                Button(&amp;quot;Continue&amp;quot...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project2_GuessTheFlag</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/Hacking-With-Swift/" class="post-category">
-            <i class="fas fa-folder"></i> Hacking With Swift
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/coding/" class="post-tag">#coding</a>
-          
-            <a href="/tags/swift/" class="post-tag">#swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-01</div>
-    </article>
-  
-</section>
-    <!-- 翻页 -->
-    
-  <!-- <nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-  </nav> -->
-  <div class="page-nav">
-    
-    <div class="page-info">
-        <div class="page-info-text">1 / 2</div>
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
+    <a href="/article/57245.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">【Hacking With Swift】project6_Animation</div>
+      </div>
+      <!-- <div class="content">
+        这个项目主要是学习一些简单的SwiftUI中的动画，包括隐式动画（implicit animations），显式动画以及
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
     
-      <a href="/page/2/"
-         class="page-nav-next">
-          <span class="mr-5">下一页</span><i class="fas fa-angle-right"></i>
-      </a>
-      
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
   </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
 
   </div>
 
+  <!-- 目录 -->
   <aside id='l_side'>
   
     
@@ -1703,83 +1074,29 @@ iExpense简介接下来的两个项目将开始推...</p>
   <div class="layout_sticky">    
     
       
-        
-    <section class="widget side_category">
-      
+<section class="widget side_toc">
+  
   <header>
     
-      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
     
   </header>
 
 
-      <div class='content'>
-        <ul class="entry navigation">
-          
-            <li><a class="flat-box"
-              title="/categories/Apple/" href="/categories/Apple/"
-              id="categoriesApple"
-              ><div class='name'>Apple</div><div class='badge'>(2)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/Hacking-With-Swift/" href="/categories/Hacking-With-Swift/"
-              id="categoriesHacking-With-Swift"
-              ><div class='name'>Hacking With Swift</div><div class='badge'>(10)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/Learning/" href="/categories/Learning/"
-              id="categoriesLearning"
-              ><div class='name'>Learning</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/Programming/" href="/categories/Programming/"
-              id="categoriesProgramming"
-              ><div class='name'>Programming</div><div class='badge'>(2)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E4%BA%A7%E5%93%81/" href="/categories/%E4%BA%A7%E5%93%81/"
-              id="categoriesE4BAA7E59381"
-              ><div class='name'>产品</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
-              id="categoriesE585B6E4BB96"
-              ><div class='name'>其他</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"
-              id="categoriesE7A28EE7A28EE5BFB5"
-              ><div class='name'>碎碎念</div><div class='badge'>(1)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"
-              id="categoriesE8AFBBE4B9A6E7AC94E8AEB0"
-              ><div class='name'>读书笔记</div><div class='badge'>(1)</div></a></li>
-          
-        </ul>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iExpense-%E7%94%B5%E5%AD%90%E8%AE%B0%E8%B4%A6"><span class="toc-text">iExpense 电子记账</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iExpense%E7%AE%80%E4%BB%8B"><span class="toc-text">iExpense简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%B1%BB%E4%B8%AD%E4%BD%BF%E7%94%A8-state"><span class="toc-text">在类中使用@state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E-Observable-%E5%85%B1%E4%BA%AB-SwiftUI-%E7%8A%B6%E6%80%81"><span class="toc-text">与 @Observable 共享 SwiftUI 状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%92%8C%E9%9A%90%E8%97%8F%E8%A7%86%E5%9B%BE"><span class="toc-text">显示和隐藏视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-onDelete-%E5%88%A0%E9%99%A4%E9%A1%B9%E7%9B%AE"><span class="toc-text">使用 onDelete() 删除项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-UserDefaults-%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE"><span class="toc-text">使用 UserDefaults 存储用户设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Codable-%E5%BD%92%E6%A1%A3-Swift-%E5%AF%B9%E8%B1%A1"><span class="toc-text">使用 Codable 归档 Swift 对象</span></a></li></ol></li></ol> -->
+        <div class="toc"></div>
       </div>
-    </section>
-  
-  
-      
-      
-        
-<section class="widget side_tagcloud">
-    
-  <header>
-    
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-    <a href="/tags/codeing/" style="font-size: 14px; color: #999">codeing</a> <a href="/tags/coding/" style="font-size: 24px; color: #555">coding</a> <a href="/tags/comments/" style="font-size: 17.33px; color: #828282">comments</a> <a href="/tags/swift/" style="font-size: 20.67px; color: #6c6c6c">swift</a> <a href="/tags/%E4%BA%A7%E5%93%81%EF%BC%8C-%E6%95%88%E7%8E%87/" style="font-size: 14px; color: #999">产品， 效率</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 14px; color: #999">副业</a>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1905,146 +1222,165 @@ iExpense简介接下来的两个项目将开始推...</p>
     </div>
   </section>
 
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name' style="color: ">站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>19 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>51.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sun Sep 29 2024 16:57:03 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2024-09-29 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2024-09-29 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-
     
   </div>
 </aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
 </div>
-<!-- 花瓣和雪花飘落 -->
-<!-- 雪花和花瓣特效 -->
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
 
 
 
-<!-- 灯笼 -->
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
 
 
       </main>
