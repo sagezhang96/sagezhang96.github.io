@@ -261,6 +261,17 @@
           
             <li class="drawer-box-content_item" style="position: relative;">
               
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
                 <a href="/about" class="drawer-menu-item-link">
                   
                     <i class="fas fa-user" aria-hidden="true"></i>
@@ -393,6 +404,17 @@
                     <i class="fas fa-bookmark" aria-hidden="true"></i>
                   
                   <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
                 </a>
               
             </li>
@@ -986,21 +1008,10 @@
     <!-- 自定义的内容 -->
     
   
-    <div class="widget welcome" id="welcome" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: blue" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-envelope fa-fw" aria-hidden="true"></i><span class='name'>欢迎</span></a>
-        
-      </header>
-      <div class="content">
-        你好你好
-      </div>
-  </div>
-  
     <div class="widget my_github_container" id="my_github_container" style="order: -1;background: #fff">
       <header>
         
-          <a style="color: blue" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-envelope fa-fw" aria-hidden="true"></i><span class='name'>测试日历</span></a>
+          <a style="color: #0A9BD2" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-days fa-fw" aria-hidden="true"></i><span class='name'>博客更新频率</span></a>
         
       </header>
       <div class="content">
@@ -1011,15 +1022,6 @@
 
     <!-- 首页座右铭 -->
     
-  <div class="motto">
-      <h3 class="motto-title"></h3>
-      <div class="motto-content">
-        <p>
-          与其感慨路难行，不如马上出发。  
-        </p> 
-      </div>
-  </div>
-
     <!-- 首页公告 -->
     
 <style>
@@ -1071,7 +1073,7 @@
 </style>
 <div class="index-notice" id="appIndexNotice">
     <h3>
-      <i class="fas fa-bullhorn index-notice-icon"></i>公告
+      <i class="fas fa-bullhorn index-notice-icon"></i>号外号外！！！
     </h3>
     <div class="index-notice-content">
       
@@ -1079,7 +1081,7 @@
         :data="listData"
         :class-option="classOption"
         class="warp"
-        style="height: 150px"
+        style="height: 90px"
       >
         <ul class="index-notice-content__ul">
           
@@ -1122,47 +1124,13 @@
               
                 <div class="index-notice-content__title">
                   
-                    <span title="加入Github日历以及侧边栏自定义恋爱墙" style="color:blue">
-                      加入Github日历以及侧边栏自定义恋爱墙
-                    </span>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:blue">
-                    2024-03-21
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="/2024/03/04/Vision%20Pro%E4%BD%93%E9%AA%8C%E6%84%9F%E5%8F%97/" title="去体验了Vision Pro了，真的太棒了吧！" style="color:blue">
-                      去体验了Vision Pro了，真的太棒了吧！
-                    </a>
-                  
-                </div>
-                
-                  <div class="index-notice-content__date" style="color:blue">
-                    2024-03-04
-                  </div>
-                
-              
-            </li>
-          
-            <li>
-              
-                <div class="index-notice-content__title">
-                  
-                    <a href="messageboard/" title="升级评论的系统，由Valine升级至Waline。可以匿名评论，也可以匿名留言。" style="color:blue">
+                    <a href="messageboard/" title="升级评论的系统，由Valine升级至Waline。可以匿名评论，也可以匿名留言。" style="color:#177cb0">
                       升级评论的系统，由Valine升级至Waline。可以匿名评论，也可以匿名留言。
                     </a>
                   
                 </div>
                 
-                  <div class="index-notice-content__date" style="color:blue">
+                  <div class="index-notice-content__date" style="color:#177cb0">
                     2024-03-19
                   </div>
                 
@@ -1180,9 +1148,9 @@
 -->
 
 <script>
-  var seamless = JSON.parse('false');
+  var seamless = JSON.parse('');
   seamless = seamless ? 0 : 30;
-  var listData = '[object Object],[object Object],[object Object],[object Object],[object Object]' || '';
+  var listData = '[object Object],[object Object],[object Object]' || '';
   listData = listData.split(',');
   var vm = new Vue({
     el: '#appIndexNotice',
@@ -1217,6 +1185,8 @@
 	<div class="articles">
 		
 			
+		
+			
 				<div class="article-link">
 					
 					<div class="article" style="background-size: cover; 
@@ -1226,9 +1196,9 @@
 					<div class="text">
 						<div class="text-main">
 							<div class="title"><a href="/2024/09/26/shuoshuo/">说说（也就是碎碎念）</a></div>
-							<div class="content">
+							<!-- <div class="content">
 								碎碎念碎碎念
-							</div>
+							</div> -->
 						</div>
 						<a href="/2024/09/26/shuoshuo/" class="more">
 							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
@@ -1258,25 +1228,6 @@
 			
 		
 			
-				<div class="article-link">
-					
-					<div class="article" style="background-size: cover; 
-						background-position: center center;">
-						<img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-					</div>
-					<div class="text">
-						<div class="text-main">
-							<div class="title"><a href="/2024/03/04/parsec_useguide/">parsec通过公网IPV6实现远程连接</a></div>
-							<div class="content">
-								没有IPv4的公网IP就只好用IPv6咯~
-							</div>
-						</div>
-						<a href="/2024/03/04/parsec_useguide/" class="more">
-							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
-						</a>
-					</div>
-				</div>
-			
 		
 			
 				<div class="article-link">
@@ -1288,9 +1239,9 @@
 					<div class="text">
 						<div class="text-main">
 							<div class="title"><a href="/2024/03/04/Vision%20Pro%E4%BD%93%E9%AA%8C%E6%84%9F%E5%8F%97/">非常好眼镜，使我身体旋转</a></div>
-							<div class="content">
+							<!-- <div class="content">
 								期待国内早日发售！（虽然我也买不起）
-							</div>
+							</div> -->
 						</div>
 						<a href="/2024/03/04/Vision%20Pro%E4%BD%93%E9%AA%8C%E6%84%9F%E5%8F%97/" class="more">
 							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
@@ -1309,9 +1260,9 @@
 					<div class="text">
 						<div class="text-main">
 							<div class="title"><a href="/2023/11/30/%E3%80%8A%E8%87%AA%E6%8E%A7%E5%8A%9B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《自控力》读书笔记</a></div>
-							<div class="content">
+							<!-- <div class="content">
 								意志力实际上是“我要做”、“我不要”和“我想要”这三种力量。它们协同努力，让我们变成更好的自己。
-							</div>
+							</div> -->
 						</div>
 						<a href="/2023/11/30/%E3%80%8A%E8%87%AA%E6%8E%A7%E5%8A%9B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="more">
 							<i class="fas fa-eye" aria-hidden="true"></i>阅读更多
@@ -1334,153 +1285,104 @@
 
     <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
     <!-- 每一篇文章卡片 -->
-    <!-- hash算法 -->
-
-<section class="posts">
+    <section class="posts">
   
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-09-26</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/09/26/shuoshuo/">说说（也就是碎碎念）</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/09/26/shuoshuo/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            碎碎念碎碎念
+  
+    <article class="post">
+      <a href="/2024/09/27/%E7%9F%AD%E6%9A%82%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%9C%88%E5%89%AF%E4%B8%9A%E6%80%BB%E7%BB%93/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="短暂的两个月副业总结">
+          <div class="post-excerpt">
+            <p>前言这篇文章，从我刚开始做这个副业，就已经决定要写，到9.15号停止接单，再到今天开始写，拖了快一个月了。
+其实到上个月底，业务就已经“趋于稳定”了，那个时候应该是写这篇文章的最佳时刻，被我硬生生拖了一个月。
+为什么现在行动了呢，说出来可能会让人觉得毫无关联——因为国家救市政策出来，股市大涨。
+大家...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/09/26/shuoshuo/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">短暂的两个月副业总结</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/%E4%BA%A7%E5%93%81/" class="post-category">
+            <i class="fas fa-folder"></i> 产品
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%AF%E4%B8%9A/" class="post-tag">#副业</a>
+          
+            <a href="/tags/%E4%BA%A7%E5%93%81%EF%BC%8C-%E6%95%88%E7%8E%87/" class="post-tag">#产品， 效率</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/09/26/shuoshuo/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-09-27</div>
     </article>
   
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-25</span>
+    <article class="post">
+      <a href="/2024/09/26/shuoshuo/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="说说（也就是碎碎念）">
+          <div class="post-excerpt">
+            <p>碎碎念碎碎念...</p>
           </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/25/Project8_MoonShot/">【Hacking With Swift】project8_MoonShot</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/25/Project8_MoonShot/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            
+        </div>
+        <div class="post-content">
+          <h2 class="post-title">说说（也就是碎碎念）</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="post-category">
+            <i class="fas fa-folder"></i> 碎碎念
+          </a>
+        
+        <div class="post-tags">
+          
+        </div>
+      </div>
+      <div class="post-date">2024-09-26</div>
+    </article>
+  
+    <article class="post">
+      <a href="/2024/06/25/Project8_MoonShot/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project8_MoonShot">
+          <div class="post-excerpt">
+            <p>
 
 引入在这个项目中，我们将构建一个应用程序，让用户了解组成 NASA 阿波罗太空计划的任务和宇航员。您将获得更多使用 Codable 的经验，但更重要的是，您还将使用滚动视图、导航和更有趣的布局。
-是的，您将获得一些使用 List 、 T
+是的，您将获得一些使用 List 、 Text 等内容的练习时间，但您还将开始解决重要的 Swift...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/25/Project8_MoonShot/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】project8_MoonShot</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/25/Project8_MoonShot/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-25</div>
     </article>
   
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-24</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/24/Fix_Computer_AutoRestart/">电脑自动重启的尝试解决办法记录</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/24/Fix_Computer_AutoRestart/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            主机配置
+    <article class="post">
+      <a href="/2024/06/24/Fix_Computer_AutoRestart/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="电脑自动重启的尝试解决办法记录">
+          <div class="post-excerpt">
+            <p>主机配置
 
 
 配件
@@ -1498,409 +1400,208 @@ AMD 6750xt
 
 现象描述
 DOTA2游戏，4+2游廊的时候，游戏过程中无规律自动重启
-DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按钮，4+2结束
+DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按钮，4+2结束时自动回到主菜单），自动重启。这个算是有规律？
+其余时间偶尔...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/24/Fix_Computer_AutoRestart/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">电脑自动重启的尝试解决办法记录</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/%E5%85%B6%E4%BB%96/" class="post-category">
+            <i class="fas fa-folder"></i> 其他
           </a>
+        
+        <div class="post-tags">
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/24/Fix_Computer_AutoRestart/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-24</div>
     </article>
   
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-23</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/23/Project7-iExpense/">【Hacking With Swift】project7_iExpense</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/23/Project7-iExpense/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            iExpense 电子记账这个项目中我们仍然要完成一个小程序——iExpense，可以记录简单的账目。主要是学习如何显示另一个屏幕、如何跨屏幕共享数据、如何保存并加载用户数据。
-我们将了解@observable、sheet()、onDele
+    <article class="post">
+      <a href="/2024/06/23/Project7-iExpense/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project7_iExpense">
+          <div class="post-excerpt">
+            <p>iExpense 电子记账这个项目中我们仍然要完成一个小程序——iExpense，可以记录简单的账目。主要是学习如何显示另一个屏幕、如何跨屏幕共享数据、如何保存并加载用户数据。
+我们将了解@observable、sheet()、onDelete()等等。
+iExpense简介接下来的两个项目将开始推...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/23/Project7-iExpense/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】project7_iExpense</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/23/Project7-iExpense/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-23</div>
     </article>
   
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-21</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/21/project6-Animation/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            这个项目主要是学习一些简单的SwiftUI中的动画，包括隐式动画（implicit animations），显式动画以及绑定动画。
-隐式动画隐式动画通过.animation()的modifier指定，每当视图里某个隐式动画的参数改变时，Sw
+    <article class="post">
+      <a href="/2024/06/21/project6-Animation/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project6_Animation">
+          <div class="post-excerpt">
+            <p>这个项目主要是学习一些简单的SwiftUI中的动画，包括隐式动画（implicit animations），显式动画以及绑定动画。
+隐式动画隐式动画通过.animation()的modifier指定，每当视图里某个隐式动画的参数改变时，SwiftUI会动画化呈现旧值到新值的变化。这些参数包括尺寸，偏...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/21/project6-Animation/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】project6_Animation</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/21/project6-Animation/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-21</div>
     </article>
   
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-14</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/14/project5-wordscramble/">【Hacking With Swift】project5_WordScramble</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/14/project5-wordscramble/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            简介该项目会创建这样一个游戏，先向玩家展示一个随机的八个字母的单词，并要求他们将其拼成单词。例如，如果起始词是“alarming”，他们可能拼写为“alarm”、“ring”、“main”等。
-在这个过程中，我们会遇到如何处理List，如何
+    <article class="post">
+      <a href="/2024/06/14/project5-wordscramble/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】project5_WordScramble">
+          <div class="post-excerpt">
+            <p>简介该项目会创建这样一个游戏，先向玩家展示一个随机的八个字母的单词，并要求他们将其拼成单词。例如，如果起始词是“alarming”，他们可能拼写为“alarm”、“ring”、“main”等。
+在这个过程中，我们会遇到如何处理List，如何处理String，如何读取文件（使用Bundle），以及如何...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/14/project5-wordscramble/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】project5_WordScramble</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/14/project5-wordscramble/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-14</div>
     </article>
   
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-06</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/06/Project4-BetterRest/">【Hacking With Swift】Project4_BetterRest</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/06/Project4-BetterRest/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            简介该项目主要用于了解IOS中一项很强大的功能——机器学习。
+    <article class="post">
+      <a href="/2024/06/06/Project4-BetterRest/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project4_BetterRest">
+          <div class="post-excerpt">
+            <p>简介该项目主要用于了解IOS中一项很强大的功能——机器学习。
 运用机器学习，分析数据。从而通过每天摄入咖啡量，希望醒来的时刻以及所需睡眠量，来计算出何时应该上床睡觉了。
-在这个过程中，我们将遇到 Stepper、DatePicker、Dat
+在这个过程中，我们将遇到 Stepper、DatePicker、DateFormatter等内容。
+在程序中，需要引导用户输入一天...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/06/Project4-BetterRest/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】Project4_BetterRest</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/06/Project4-BetterRest/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-06</div>
     </article>
   
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-03</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/03/Project3_ViewsAndModels/">【Hacking With Swift】Project3_ViewsAndModels</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/03/Project3_ViewsAndModels/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            1.视图和修饰符的简介在这个项目中，我们将弄明白为什么Swift中使用结构体而不是用类来编程，以及为什么some View有那么多。
+    <article class="post">
+      <a href="/2024/06/03/Project3_ViewsAndModels/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project3_ViewsAndModels">
+          <div class="post-excerpt">
+            <p>1.视图和修饰符的简介在这个项目中，我们将弄明白为什么Swift中使用结构体而不是用类来编程，以及为什么some View有那么多。
 在项目结尾希望你能够彻底了解Swift是通过什么运转起来的。
-2.为什么 SwiftUI 对视图使用结构体
+2.为什么 SwiftUI 对视图使用结构体？一个是为了性能考虑，结构体的创建很简单，可以包含一个整数，...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/03/Project3_ViewsAndModels/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】Project3_ViewsAndModels</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/03/Project3_ViewsAndModels/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-03</div>
     </article>
   
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-06-01</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/06/01/Project2_GuessTheFlag/">【Hacking With Swift】Project2_GuessTheFlag</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/06/01/Project2_GuessTheFlag/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            猜旗子.alert用法12345@State private var showingScore = false.alert(scoreTitle, isPresented: $showingScore) &#123;            
+    <article class="post">
+      <a href="/2024/06/01/Project2_GuessTheFlag/" class="post-link">
+        <div class="post-img">
+          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project2_GuessTheFlag">
+          <div class="post-excerpt">
+            <p>猜旗子.alert用法12345@State private var showingScore = false.alert(scoreTitle, isPresented: $showingScore) &amp;#123;                Button(&amp;quot;Continue&amp;quot...</p>
           </div>
         </div>
-        <div class="post-more">
-          <a href="/2024/06/01/Project2_GuessTheFlag/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+        <div class="post-content">
+          <h2 class="post-title">【Hacking With Swift】Project2_GuessTheFlag</h2>
+        </div>
+      </a>
+      <div class="post-info">
+        
+          <a href="/categories/Hacking-With-Swift/" class="post-category">
+            <i class="fas fa-folder"></i> Hacking With Swift
           </a>
+        
+        <div class="post-tags">
+          
+            <a href="/tags/coding/" class="post-tag">#coding</a>
+          
+            <a href="/tags/swift/" class="post-tag">#swift</a>
+          
         </div>
       </div>
-      <div class="post-img">
-        <a href="/2024/06/01/Project2_GuessTheFlag/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2024-05-28</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2024/05/28/Project1_Wesplit_problems/">【Hacking With Swift】Project1_Wesplit_problems</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/" rel="tag">swift</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/Hacking-With-Swift/">Hacking With Swift</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2024/05/28/Project1_Wesplit_problems/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            代码对比
-
-问题费率列表使用了@State private var而不是let@state中的S没有大写计算每人费用搞了个函数，但是没调用可以直接定义var的时候用闭包函数直接计算
-12345678910var totalPerPerson
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2024/05/28/Project1_Wesplit_problems/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2024/05/28/Project1_Wesplit_problems/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
+      <div class="post-date">2024-06-01</div>
     </article>
   
 </section>
@@ -2036,6 +1737,11 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
               ><div class='name'>Programming</div><div class='badge'>(2)</div></a></li>
           
             <li><a class="flat-box"
+              title="/categories/%E4%BA%A7%E5%93%81/" href="/categories/%E4%BA%A7%E5%93%81/"
+              id="categoriesE4BAA7E59381"
+              ><div class='name'>产品</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
               title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/"
               id="categoriesE585B6E4BB96"
               ><div class='name'>其他</div><div class='badge'>(1)</div></a></li>
@@ -2068,7 +1774,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
 
 
     <div class='content'>
-    <a href="/tags/codeing/" style="font-size: 14px; color: #999">codeing</a> <a href="/tags/coding/" style="font-size: 24px; color: #555">coding</a> <a href="/tags/comments/" style="font-size: 17.33px; color: #828282">comments</a> <a href="/tags/swift/" style="font-size: 20.67px; color: #6c6c6c">swift</a>
+    <a href="/tags/codeing/" style="font-size: 14px; color: #999">codeing</a> <a href="/tags/coding/" style="font-size: 24px; color: #555">coding</a> <a href="/tags/comments/" style="font-size: 17.33px; color: #828282">comments</a> <a href="/tags/swift/" style="font-size: 20.67px; color: #6c6c6c">swift</a> <a href="/tags/%E4%BA%A7%E5%93%81%EF%BC%8C-%E6%95%88%E7%8E%87/" style="font-size: 14px; color: #999">产品， 效率</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 14px; color: #999">副业</a>
     </div>
 </section>
 
@@ -2089,6 +1795,27 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
       <!-- hash算法 -->
       
       <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/09/27/%E7%9F%AD%E6%9A%82%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%9C%88%E5%89%AF%E4%B8%9A%E6%80%BB%E7%BB%93/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-27</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/27/%E7%9F%AD%E6%9A%82%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%9C%88%E5%89%AF%E4%B8%9A%E6%80%BB%E7%BB%93/">短暂的两个月副业总结</a>
+            </div>
+          </div>
         
           <div class="aside-list-item">
             
@@ -2174,27 +1901,6 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
             </div>
           </div>
         
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/06/21/project6-Animation/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-21</span>
-                
-              </div>
-              <a class="post-title" href="/2024/06/21/project6-Animation/">【Hacking With Swift】project6_Animation</a>
-            </div>
-          </div>
-        
       </div>
     </div>
   </section>
@@ -2202,7 +1908,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
       
   <section class="widget side_archives">
     
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div>
+    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div>
   </section>
 
       <section class="widget side_webinfo">
@@ -2219,7 +1925,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>18 篇</div>
+          <div>19 篇</div>
         </div>
       
 
@@ -2241,7 +1947,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>48.9k 字</div>
+          <div>51.5k 字</div>
         </div>
       
 
@@ -2267,8 +1973,8 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Sep 26 2024 17:00:07 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2024-09-26 日</div>
+            <div id="last-update" style="display: none;">Sun Sep 29 2024 16:37:23 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2024-09-29 日</div>
           
         </div>
         
@@ -2318,7 +2024,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2024-09-26 日';
+            document.getElementById('last-update-show').innerHTML = '2024-09-29 日';
           }
         </script>
         
@@ -2327,20 +2033,6 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
   </div>
 </section>
       
-  
-    <div class="widget testLove" id="testLove" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-heart fa-fw" aria-hidden="true"></i><span class='name'>恋爱墙</span></a>
-        
-      </header>
-      <div class="content">
-        
-<div style="text-align: center;"> <img src="https://cdn.jsdelivr.net/gh/sagezhang96/imgbed@main/img/20240321120544.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/sagezhang96/imgbed@main/img/20240321120544.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" style="width: 50px;height: 50px;vertical-align: -20px;border-radius: 50%;margin-right: 5px;margin-bottom: 5px;-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;" /> <svg viewbox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="15" height="15" class="my-face"> <path d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z" fill="#515151" /> </svg> <img src="https://cdn.jsdelivr.net/gh/sagezhang96/imgbed@main/img/20240321120503.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/sagezhang96/imgbed@main/img/20240321120503.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" style="width: 50px;height: 50px;vertical-align: -20px;border-radius: 50%;margin-left: 5px;margin-bottom: 5px;-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);border: 2px solid #fff;" /><br /> <span id="htmer_time"></span> </div> <div style="text-align: center;"> From:2016年11月24日 </div>
-
-<script defer data-pjax src="/love/index.js"></script> 
-      </div>
-  </div>
   
 
     
