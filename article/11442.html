@@ -569,7 +569,7 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -591,8 +591,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/Hacking-With-Swift/" class="post-detail-header_category">
-              Hacking With Swift
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-detail-header_category">
+              技术
             </a>
           
         </span>
@@ -601,7 +601,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> 字数统计: 344 |
+            <i class="fas fa-file-text-o"></i> 字数统计: 375 |
           </span>
   
           <span class="min2read">
@@ -637,7 +637,9 @@
   
   
 
-        <h1 id="代码对比"><a href="#代码对比" class="headerlink" title="代码对比"></a>代码对比</h1><p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+<p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
+<h1 id="代码对比"><a href="#代码对比" class="headerlink" title="代码对比"></a>代码对比</h1><p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162046.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162329.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231222162329.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="费率列表使用了-State-private-var而不是let"><a href="#费率列表使用了-State-private-var而不是let" class="headerlink" title="费率列表使用了@State private var而不是let"></a>费率列表使用了@State private var而不是let</h2><h2 id="state中的S没有大写"><a href="#state中的S没有大写" class="headerlink" title="@state中的S没有大写"></a>@state中的S没有大写</h2><h2 id="计算每人费用搞了个函数，但是没调用"><a href="#计算每人费用搞了个函数，但是没调用" class="headerlink" title="计算每人费用搞了个函数，但是没调用"></a>计算每人费用搞了个函数，但是没调用</h2><p>可以直接定义var的时候用闭包函数直接计算</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> totalPerPerson: <span class="type">Double</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> peopleCount <span class="operator">=</span> <span class="type">Double</span>(peoplecount <span class="operator">+</span> <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">let</span> tipSelection <span class="operator">=</span> <span class="type">Double</span>(tiprate)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> tipValue <span class="operator">=</span> totalspend <span class="operator">/</span> <span class="number">100</span> <span class="operator">*</span> tipSelection</span><br><span class="line">    <span class="keyword">let</span> grandTotal <span class="operator">=</span> totalspend <span class="operator">+</span> tipValue</span><br><span class="line">    <span class="keyword">let</span> amountPerPerson <span class="operator">=</span> grandTotal <span class="operator">/</span> peopleCount</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> amountPerPerson</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -661,12 +663,16 @@
         
         <div class="tags">
           
-            <a href="/tags/coding/" class="">
-              coding
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="">
+              编程
             </a>
           
-            <a href="/tags/swift/" class="">
-              swift
+            <a href="/tags/Swift/" class="">
+              Swift
+            </a>
+          
+            <a href="/tags/Hacking-with-Swift/" class="">
+              Hacking with Swift
             </a>
           
         </div>
@@ -702,7 +708,7 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/article/2890.html" class="post-nav-link">
       <div class="title">
@@ -711,7 +717,8 @@
       </div>
       
       <!-- <div class="content">
-        猜旗子.alert用法12345@State private var showingScore = false.aler
+        英文原博博主是   Paul Hudson     @twostraws
+本文是学习Swift过程中翻译该网站的内容: 
       </div> -->
     </a>
   </div>
@@ -722,7 +729,7 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
     <a href="/article/57078.html" class="post-nav-link">
       <div class="title">
@@ -988,9 +995,30 @@
             
 
             <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-30</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1009,9 +1037,9 @@
             
 
             <div class="post-img-box">
-              <a href="/article/c04d1fa7.html" class="post-img " style="background-size: cover; 
+              <a href="/article/63779.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115631.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115631.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1020,7 +1048,7 @@
                   <span class="post-date">09-26</span>
                 
               </div>
-              <a class="post-title" href="/article/c04d1fa7.html">说说（也就是碎碎念）</a>
+              <a class="post-title" href="/article/63779.html">说说（也就是碎碎念）</a>
             </div>
           </div>
         
@@ -1030,18 +1058,18 @@
             
 
             <div class="post-img-box">
-              <a href="/article/53249.html" class="post-img " style="background-size: cover; 
+              <a href="/article/11062.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-25</span>
+                  <span class="post-date">07-07</span>
                 
               </div>
-              <a class="post-title" href="/article/53249.html">【Hacking With Swift】project8_MoonShot</a>
+              <a class="post-title" href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
             </div>
           </div>
         
@@ -1051,39 +1079,18 @@
             
 
             <div class="post-img-box">
-              <a href="/article/16672.html" class="post-img " style="background-size: cover; 
+              <a href="/article/10671.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-24</span>
+                  <span class="post-date">07-07</span>
                 
               </div>
-              <a class="post-title" href="/article/16672.html">电脑自动重启的尝试解决办法记录</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/article/46793.html" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-23</span>
-                
-              </div>
-              <a class="post-title" href="/article/46793.html">【Hacking With Swift】project7_iExpense</a>
+              <a class="post-title" href="/article/10671.html">【Hacking With Swift】Project12_SwiftData</a>
             </div>
           </div>
         

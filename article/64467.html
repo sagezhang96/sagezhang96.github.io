@@ -591,8 +591,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> 分类：
           
-            <a href="/categories/Learning/" class="post-detail-header_category">
-              Learning
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-detail-header_category">
+              技术
             </a>
           
         </span>
@@ -641,7 +641,7 @@
 <p>想到应该是前端问题，而且主题是完全开源的，所以就尝试着分析代码自己来解决这个问题。</p>
 <h1 id="问题具体表现"><a href="#问题具体表现" class="headerlink" title="问题具体表现"></a>问题具体表现</h1><p>博客里使用菜单功能之后，可以从菜单进入到首页、归档、标签、分类等特定页面的，在web端这些操作都没问题，但是在移动端（或者在谷歌浏览器里把窗口调小），如果从菜单进入其他页面后，就无法滚动了。</p>
 <p>但是如果在新打开的页面里，手动展开菜单，再点击旁边区域收起菜单，就能够正常滚动了。</p>
-<h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><h2 id="修改Header-ejs文件"><a href="#修改Header-ejs文件" class="headerlink" title="修改Header.ejs文件"></a>修改Header.ejs文件</h2><p>第一时间想到的是这个菜单控件虽然在打开新页面时候看不见了，实际上还停留在顶部图层。这么想是因为我在Axure画图里，可以把一些控件隐藏掉，再通过一些按钮或是其他交互把它显示出来。但是隐藏的控件是不会影响其他控件的操作的，只有在显示的时候才会有效果，所以这个想法不太实际。</p>
+<h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><h2 id="修改Header-ejs文件"><a href="#修改Header-ejs文件" class="headerlink" title="修改Header.ejs文件"></a>修改Header.ejs文件</h2><p>第一时间想到的是这个菜单控件虽然在打开新页面时候看不见了，实际上还停留在顶部图层。这么想，是因为我在Axure画图里，可以把一些控件隐藏掉，再通过一些按钮或是其他交互把它显示出来。但是隐藏的控件是不会影响其他控件的操作的，只有在显示的时候才会有效果，所以这个想法不太实际。</p>
 <p>到作者的演示界面发现是不存在这个问题的，于是在谷歌浏览器里F12，对比了一下两个页面有何区别。</p>
 <p>出bug的代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/archives&quot;</span> <span class="attr">class</span>=<span class="string">&quot;drawer-menu-item-link&quot;</span> <span class="attr">data-pjax-state</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span> <span class="attr">class</span>=<span class="string">&quot;fas fa-archive&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>归档<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -666,8 +666,12 @@
         
         <div class="tags">
           
-            <a href="/tags/codeing/" class="">
-              codeing
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="">
+              编程
+            </a>
+          
+            <a href="/tags/Hexo/" class="">
+              Hexo
             </a>
           
         </div>
@@ -727,13 +731,13 @@
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/article/dfd22a7f.html" class="post-nav-link">
+    <a href="/article/12325.html" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Swift中section的header用法</div>
+        <div class="title-text">写在十一旅游回来之后</div>
       </div>
       <!-- <div class="content">
-        基本用法12345678910111213import SwiftUI    struct ContentView: V
+        写在十一旅游回来之后旅游之前9月29号放国庆假，我们是9月中旬十几号才定的要去云南。一方面是女朋友的加班时间没有确定，最
       </div> -->
     </a>
   </div>
@@ -989,9 +993,30 @@
             
 
             <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-30</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1010,9 +1035,9 @@
             
 
             <div class="post-img-box">
-              <a href="/article/c04d1fa7.html" class="post-img " style="background-size: cover; 
+              <a href="/article/63779.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115631.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115631.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1021,7 +1046,7 @@
                   <span class="post-date">09-26</span>
                 
               </div>
-              <a class="post-title" href="/article/c04d1fa7.html">说说（也就是碎碎念）</a>
+              <a class="post-title" href="/article/63779.html">说说（也就是碎碎念）</a>
             </div>
           </div>
         
@@ -1031,18 +1056,18 @@
             
 
             <div class="post-img-box">
-              <a href="/article/53249.html" class="post-img " style="background-size: cover; 
+              <a href="/article/11062.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-25</span>
+                  <span class="post-date">07-07</span>
                 
               </div>
-              <a class="post-title" href="/article/53249.html">【Hacking With Swift】project8_MoonShot</a>
+              <a class="post-title" href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
             </div>
           </div>
         
@@ -1052,39 +1077,18 @@
             
 
             <div class="post-img-box">
-              <a href="/article/16672.html" class="post-img " style="background-size: cover; 
+              <a href="/article/10671.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">06-24</span>
+                  <span class="post-date">07-07</span>
                 
               </div>
-              <a class="post-title" href="/article/16672.html">电脑自动重启的尝试解决办法记录</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/article/46793.html" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">06-23</span>
-                
-              </div>
-              <a class="post-title" href="/article/46793.html">【Hacking With Swift】project7_iExpense</a>
+              <a class="post-title" href="/article/10671.html">【Hacking With Swift】Project12_SwiftData</a>
             </div>
           </div>
         
