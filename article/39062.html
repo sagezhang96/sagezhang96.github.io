@@ -22,9 +22,9 @@
 </script>
 
 
-  <title>【Hacking With Swift】Project10_CupcakeCorner | 🍁晨霜攀黛瓦🍁</title>
+  <title>【Hacking With Swift】Project10_CupcakeCorner | Sage自留地😎</title>
 
-  <link rel="icon" type="image/svg+xml" href="/spiderman.svg">
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
   <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
         
     
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="🍁晨霜攀黛瓦🍁" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 
   
@@ -206,8 +206,8 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
-      <h3 class="drawer-box-head_title">🍁晨霜攀黛瓦🍁</h3>
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
       <h5 class="drawer-box-head_desc"></h5>
     </div>
     
@@ -355,10 +355,10 @@
     <div class="blog-title" id="author-avatar">
       
         <div class="avatar">
-          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
         </div>
       
-      <a href="/" class="logo">🍁晨霜攀黛瓦🍁</a>
+      <a href="/" class="logo">Sage自留地😎</a>
     </div>
     <nav class="navbar">
       <ul class="menu">
@@ -696,7 +696,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>我创建的图片高度为 1200 像素，但当它显示出来时，你会发现它要大得多。这直接涉及到使用 AsyncImage 的基本复杂性之一：在运行我们的代码并下载图片之前，SwiftUI 对图片一无所知，因此无法提前适当调整图片大小。</p>
-<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#108;&#x6f;&#103;&#111;&#x40;&#51;&#x78;&#46;&#x70;&#110;&#103;">&#108;&#x6f;&#103;&#111;&#x40;&#51;&#x78;&#46;&#x70;&#110;&#103;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#108;&#111;&#x67;&#111;&#x40;&#50;&#x78;&#x2e;&#112;&#x6e;&#x67;">&#108;&#111;&#x67;&#111;&#x40;&#50;&#x78;&#x2e;&#112;&#x6e;&#x67;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
+<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#108;&#x6f;&#x67;&#111;&#64;&#x33;&#120;&#46;&#x70;&#x6e;&#103;">&#108;&#x6f;&#x67;&#111;&#64;&#x33;&#120;&#46;&#x70;&#x6e;&#103;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#108;&#111;&#103;&#x6f;&#x40;&#50;&#120;&#x2e;&#112;&#x6e;&#103;">&#108;&#111;&#103;&#x6f;&#x40;&#50;&#120;&#x2e;&#112;&#x6e;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
 <p>为了解决这个问题，我们可以提前告诉 SwiftUI 我们正在尝试加载 3 倍比例的图像，就像这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>), scale: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
@@ -1173,7 +1173,7 @@
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
+          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -2283,7 +2283,7 @@
       emoji: walineEmoji,
       avatar: 'retro',
       path: window.location.pathname,
-      login: 'enable',
+      login: 'disable',
       pageSize: '10',
       reaction: true,
       copyright: true
