@@ -22,7 +22,7 @@
 </script>
 
 
-  <title>分类: 书影音 | Sage自留地😎</title>
+  <title>归档: 2024/11 | Sage自留地😎</title>
 
   <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -555,22 +555,56 @@
     
 </header>
         <!-- 内容区域 -->
-        
-
+        <!-- 设置深色和浅色背景层 -->
 <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-categoryDetail" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
 
-<div class="category-header"  style="background-image:url('https://pic3.zhimg.com/80/v2-98dcd81cb0d1fee52a807c13cedb8338_1440w.jpg?source=1940ef5c')">
-  <div class="category-header-title">
-    category
+<!-- 定义带有背景图片的页面头部 -->
+<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
+  <!-- 显示归档页面的标题 -->
+  <div class="archive-header-title">
+    archive
   </div>
-  <div class="category-header-desc">
-    
-      <span class="title" id="category-header-desc"></span>
+  <!-- 显示归档页面的描述，支持typed.js打字机效果 -->
+  <div class="archive-header-desc">
+  
+  <span class="title" id="archive-header-desc"></span>
+  <script>
+  function typedFn() {
+    const el = '#archive-header-desc';
+    const type = 'archive';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
+  }
+  typedFn();
+</script>
+  
+  </div>
+  <div class="mask-box"></div>
+</div>
+
+<!-- 可选的视频背景功能 -->
+<div class="archive-video">
+  <video class="full-video" autoplay loop muted>
+      <source style="width: 100%;height: 100vh;" src="/">
+  </video>
+  <div class="video-header-title">
+    archive
+  </div>
+  <div class="video-header-desc">
+  
+      <span class="title" id="archive-video-header-desc"></span>
       <script>
   function typedFn() {
-    const el = '#category-header-desc';
-    const type = 'categoryDetail';
+    const el = '#archive-video-header-desc';
+    const type = 'archive';
     let desc = '愿你如风，被人温柔以待'
     var typed = new Typed(el, {
       strings: [desc],
@@ -588,84 +622,49 @@
   <div class="mask-box"></div>
 </div>
 
+<!-- 哈希算法：用于为没有指定缩略图的文章随机分配图片 -->
 
-<div class="category">
-  <div class="category-name">
-    <div class="name" style="background-color: #85C1E9;">书影音 分类</div>
+
+<!-- 主要的归档内容区域 -->
+<div class="archive-main">
+  <section class="archive">
+    <div class="archive-content">
+      <ul class="post-archive">
+        
+        
+        
+          
+            
+            
+            <div class="year" data-aos="zoom-in-up">
+                <div class="bullet"></div>
+                <a href="/archives/2024/11">2024年11月</a>
+            </div>
+          
+          <!-- 为每篇文章显示日期、标题和缩略图 -->
+          <li class="post-item" data-aos="fade-left">
+            
+            <div class="post-img-box">
+              <a href="/article/24289.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                <span class="post-date">11-01</span>
+              </div>
+              <a class="post-title" href="/article/24289.html">近一年个人支出及家庭财务支出小结</a>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </section>
+  <!-- 包含分页组件 -->
+  <div class="w-70">
+    
   </div>
-  <!-- 每一篇文章卡片 -->
-  <section class="posts">
-  
-  
-    <article class="post">
-      <a href="/article/32835.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="《拖延心理学》读书笔记">
-          <div class="post-excerpt">
-            <p>《拖延心理学》-向与生俱来的行为顽症宣战前言本文为AI根据读书时做的摘要总结，非个人理解，仅供参考。之后有时间我会自己在做总结，敬请期待和关注。
-1. 拖延的本质拖延并非简单的时间管理问题或道德缺陷,而是一个复杂的心理问题。它深深根植于我们的自尊和对自我的认知中。作者指出,拖延反映了一个人如何与自己...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">《拖延心理学》读书笔记</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/" class="post-category">
-            <i class="fas fa-folder"></i> 书影音
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E8%87%AA%E5%BE%8B/" class="post-tag">#自律</a>
-          
-            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-tag">#读书笔记</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-10-11</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/1191.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="《自控力》读书笔记">
-          <div class="post-excerpt">
-            <p>自控力01什么是意志力摘抄
-意志力就是驾驭“我要做”、“我不要”和“我想要”这三种力量。
-核心思想：意志力实际上是“我要做”、“我不要”和“我想要”这三种力量。它们协同努力，让我们变成更好的自己。
-
-深入剖析
-更难的事是什么？想象你正面临一个意志力的挑战。更难的事是什么？为什么它如此困难？
-认清两个...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">《自控力》读书笔记</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/" class="post-category">
-            <i class="fas fa-folder"></i> 书影音
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E8%87%AA%E5%BE%8B/" class="post-tag">#自律</a>
-          
-            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-tag">#读书笔记</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2023-11-30</div>
-    </article>
-  
-</section>
-</div>
-<div class="w-70">
-  
 </div>
 
       </main>
