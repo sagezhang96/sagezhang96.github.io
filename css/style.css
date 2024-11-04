@@ -178,7 +178,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: #fff;
 }
 .bg-floor {
-  background: url("https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/blogbgfloor1.jpg");
+  background: url("https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/blogbgfloor1.jpg");
   background-size: cover;
   transition: all 0.3s;
 }

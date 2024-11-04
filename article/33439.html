@@ -569,7 +569,7 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png')">
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -722,7 +722,7 @@
 
 <p>现在我们可以从 ContentView 中呈现它，从初始值 0 开始，但每次显示新整数时导航到新的 DetailView ：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> path <span class="operator">=</span> [<span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span>(path: <span class="variable">$path</span>) &#123;</span><br><span class="line">            <span class="type">DetailView</span>(number: <span class="number">0</span>)</span><br><span class="line">                .navigationDestination(for: <span class="type">Int</span>.<span class="keyword">self</span>) &#123; i <span class="keyword">in</span></span><br><span class="line">                    <span class="type">DetailView</span>(number: i)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果是这样的：<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/navigationrandom.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/navigationrandom.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>效果是这样的：<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/navigationrandom.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/navigationrandom.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>现在，如果您深入其中 10 次查看并决定回家，您有两个选择：</p>
 <ol>
 <li>如果您使用简单的数组作为路径，就像我们在上面的代码中所做的那样，您可以在该数组上调用 removeAll() 来删除路径中的所有内容，然后返回到根视图。</li>
@@ -772,7 +772,7 @@
 <p>SwiftUI 让我们可以稍微自定义一下：我们可以指定用于该背景的替代颜色。请记住，只有当列表在导航栏下方滚动时，此信息才可见，因此您一开始不会看到它。</p>
 <p>要尝试一下，请在 navigationBarTitleDisplayMode() 下面添加以下内容：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.toolbarBackground(.blue)</span><br></pre></td></tr></table></figure>
-<p>效果如图<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>效果如图<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>当您运行应用程序并稍微滚动时，您会看到导航栏变成纯蓝色。您还会发现标题可能难以阅读，因为在浅色模式下它会是黑色文本。您可以通过在前一个修饰符下方添加另一个修饰符来解决此问题，强制导航栏始终使用深色模式，这又意味着标题文本将为白色：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.toolbarColorScheme(.dark)</span><br></pre></td></tr></table></figure>
 
@@ -780,7 +780,7 @@
 <p>自定义导航栏还有最后一种方法：您可以始终隐藏它或根据应用程序中的当前状态隐藏它。</p>
 <p>为此，请将 toolbar() 修饰符设置为 .hidden ，对于所有栏或仅导航栏：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.toolbar(.hidden, for: .navigationBar)</span><br></pre></td></tr></table></figure>
-<p>隐藏工具栏不会阻止您导航到新视图，但可能会导致滚动视图位于时钟等系统信息下 - 请小心！<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240702113522.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240702113522.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>隐藏工具栏不会阻止您导航到新视图，但可能会导致滚动视图位于时钟等系统信息下 - 请小心！<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240702113522.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240702113522.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="将工具栏按钮放置在某个特定位置"><a href="#将工具栏按钮放置在某个特定位置" class="headerlink" title="将工具栏按钮放置在某个特定位置"></a>将工具栏按钮放置在某个特定位置</h2><p>如果您将按钮放置在 NavigationStack 工具栏中，SwiftUI 将根据您的代码运行的平台自动放置它们。我们在这里构建 iOS 应用程序，这意味着我们的按钮将放置在导航栏的右侧，并且使用从左到右阅读的语言（例如英语）。</p>
 <p>如果需要，您可以使用 ToolbarItem 进行自定义。它围绕着您的工具栏按钮，允许您通过从多个选项之一中进行选择，将它们准确地放置在您想要的位置。</p>
 <p>例如，我们可以要求像这样的左侧放置：</p>
@@ -802,7 +802,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.toolbar &#123;</span><br><span class="line">    <span class="type">ToolbarItem</span>(placement: .topBarLeading) &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Tap Me&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">// button action here</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">ToolbarItem</span>(placement: .topBarLeading) &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Or Tap Me&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">// button action here</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>或者您可以使用 ToolbarItemGroup ，如下所示：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.toolbar &#123;</span><br><span class="line">    <span class="type">ToolbarItemGroup</span>(placement: .topBarLeading) &#123;</span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Tap Me&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">// button action here</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">Button</span>(<span class="string">&quot;Tap Me 2&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">// button action here</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240702114020.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240702114020.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240702114020.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240702114020.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="使您的导航标题可编辑"><a href="#使您的导航标题可编辑" class="headerlink" title="使您的导航标题可编辑"></a>使您的导航标题可编辑</h2><p>基本的 navigationTitle() 修饰符让我们在导航栏中显示一个字符串，如下所示：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Hello, world!&quot;</span>)</span><br><span class="line">                .navigationTitle(<span class="string">&quot;SwiftUI&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但如果您使用 .inline 标题显示模式，您还可以将绑定传递给 navigationTitle() 。然后，这将像往常一样显示，但有一个重要的补充：iOS 将在您的标题旁边显示一个小箭头，显示一个“重命名”按钮来更改标题。代码如下：</p>
@@ -859,7 +859,7 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/article/39062.html" class="post-nav-link">
       <div class="title">
@@ -880,7 +880,7 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
     <a href="/article/53249.html" class="post-nav-link">
       <div class="title">
@@ -1030,7 +1030,7 @@
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -1210,7 +1210,7 @@
             <div class="post-img-box">
               <a href="/article/16060.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1231,7 +1231,7 @@
             <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -2066,16 +2066,25 @@
 <!-- 评论所需js -->
 
   
-        <script src="/js/waline/waline.min.js"></script>
-<script type="text/javascript">
-  comment_el = '#waline-comment';
-  var waline;
-  loadWaline = function () {
-    if (!$(comment_el).length) {
-      return;
-    }
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const comment_el = '#waline-comment';
 
     const locale = {
       nick: '昵称',
@@ -2130,7 +2139,7 @@
         reactionTitle: '你认为这篇文章怎么样？'
     }
 
-    waline = Waline({
+    init({
       el: comment_el,
       serverURL: 'walinecomments.five2fire.top',
       lang: 'zh-CN',
@@ -2138,87 +2147,15 @@
       locale,
       wordLimit: '140',
       emoji: walineEmoji,
-      avatar: 'retro',
+      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
       path: window.location.pathname,
-      login: 'disable',
+      login: 'enable',
       pageSize: '10',
       reaction: true,
       copyright: true
     });
-
-    console.log('Waline initialized:', waline);
-
-    // 添加评论按钮的点击事件
-    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
-    commentButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const time = this.getAttribute('data-time');
-        const text = this.getAttribute('data-text');
-        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
-        
-        console.log('Quote content:', quoteContent);
-
-        // 滚动到评论区
-        window.scrollTo({
-          top: document.querySelector(comment_el).offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 尝试设置评论内容
-        const setCommentContent = () => {
-          console.log('Attempting to set comment content');
-          const editor = document.querySelector('#waline-edit');
-          if (editor) {
-            console.log('Editor found:', editor);
-            if (typeof editor.value !== 'undefined') {
-              editor.value = quoteContent;
-              console.log('Editor value set');
-              // 触发输入事件
-              const event = new Event('input', { bubbles: true });
-              editor.dispatchEvent(event);
-              console.log('Input event dispatched');
-              
-              // 设置光标位置到引用内容之前
-              editor.setSelectionRange(0, 0);
-              editor.focus();
-            } else {
-              console.error('Editor value is undefined');
-            }
-          } else {
-            console.error('Editor not found');
-          }
-        };
-
-        // 使用 setTimeout 和重试机制
-        let attempts = 0;
-        const maxAttempts = 5;
-        const attemptInterval = 500; // 毫秒
-
-        const attemptSetContent = () => {
-          if (attempts < maxAttempts) {
-            setTimeout(() => {
-              console.log(`Attempt ${attempts + 1} to set content`);
-              setCommentContent();
-              if (!document.querySelector('#waline-edit')) {
-                attempts++;
-                attemptSetContent();
-              }
-            }, attemptInterval);
-          } else {
-            console.error('Max attempts reached, unable to set comment content');
-          }
-        };
-
-        attemptSetContent();
-      });
-    });
-  }
-  
-  $(document).ready(loadWaline);
-  document.addEventListener('pjax:complete', function () {
-    loadWaline();
-  });
-</script>
+  </script>
+</body>
       
 
 

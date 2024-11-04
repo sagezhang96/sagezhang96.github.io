@@ -569,7 +569,7 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png')">
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -696,7 +696,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>我创建的图片高度为 1200 像素，但当它显示出来时，你会发现它要大得多。这直接涉及到使用 AsyncImage 的基本复杂性之一：在运行我们的代码并下载图片之前，SwiftUI 对图片一无所知，因此无法提前适当调整图片大小。</p>
-<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#x6c;&#x6f;&#103;&#x6f;&#64;&#x33;&#x78;&#x2e;&#112;&#x6e;&#x67;">&#x6c;&#x6f;&#103;&#x6f;&#64;&#x33;&#x78;&#x2e;&#112;&#x6e;&#x67;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#x6c;&#111;&#x67;&#111;&#64;&#50;&#120;&#46;&#x70;&#x6e;&#x67;">&#x6c;&#111;&#x67;&#111;&#64;&#50;&#120;&#46;&#x70;&#x6e;&#x67;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
+<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#108;&#111;&#x67;&#x6f;&#64;&#x33;&#x78;&#x2e;&#x70;&#110;&#x67;">&#108;&#111;&#x67;&#x6f;&#64;&#x33;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#x6c;&#111;&#x67;&#x6f;&#64;&#50;&#x78;&#x2e;&#x70;&#x6e;&#103;">&#x6c;&#111;&#x67;&#x6f;&#64;&#50;&#x78;&#x2e;&#x70;&#x6e;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
 <p>为了解决这个问题，我们可以提前告诉 SwiftUI 我们正在尝试加载 3 倍比例的图像，就像这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>), scale: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
@@ -719,7 +719,7 @@
 <p>看起来是这样的</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/bad.png&quot;</span>)) &#123; phase <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> image <span class="operator">=</span> phase.image &#123;</span><br><span class="line">        image</span><br><span class="line">            .resizable()</span><br><span class="line">            .scaledToFit()</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> phase.error <span class="operator">!=</span> <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(<span class="string">&quot;There was an error loading the image.&quot;</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">ProgressView</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.frame(width: <span class="number">200</span>, height: <span class="number">200</span>)</span><br></pre></td></tr></table></figure>
 
-<p>因此，如果可以，它会显示我们的图像；如果下载因故失败，则会显示错误信息；如果下载仍在进行中，则会显示一个旋转的活动指示器。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/sayncimage.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/sayncimage.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>因此，如果可以，它会显示我们的图像；如果下载因故失败，则会显示错误信息；如果下载仍在进行中，则会显示一个旋转的活动指示器。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/sayncimage.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/sayncimage.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="验证和禁用表单"><a href="#验证和禁用表单" class="headerlink" title="验证和禁用表单"></a>验证和禁用表单</h2><p>SwiftUI 的 Form 视图可以让我们以一种非常快速、方便的方式存储用户输入，但有时还需要更进一步–在继续操作前检查输入是否有效。</p>
 <p>为此，我们有一个修改器： disabled() 。这个修改器需要一个条件来检查，如果条件为真，那么它所连接的任何东西都不会响应用户的输入–按钮不能被点击，滑块不能被拖动，等等。这里可以使用简单的属性，但任何条件都可以：读取计算属性、调用方法等、</p>
 <p>为了演示这一点，这里有一个接受用户名和电子邮件地址的表单：</p>
@@ -1002,7 +1002,7 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/article/12347.html" class="post-nav-link">
       <div class="title">
@@ -1023,7 +1023,7 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
     <a href="/article/33439.html" class="post-nav-link">
       <div class="title">
@@ -1173,7 +1173,7 @@
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -1353,7 +1353,7 @@
             <div class="post-img-box">
               <a href="/article/16060.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1374,7 +1374,7 @@
             <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -2209,16 +2209,25 @@
 <!-- 评论所需js -->
 
   
-        <script src="/js/waline/waline.min.js"></script>
-<script type="text/javascript">
-  comment_el = '#waline-comment';
-  var waline;
-  loadWaline = function () {
-    if (!$(comment_el).length) {
-      return;
-    }
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const comment_el = '#waline-comment';
 
     const locale = {
       nick: '昵称',
@@ -2273,7 +2282,7 @@
         reactionTitle: '你认为这篇文章怎么样？'
     }
 
-    waline = Waline({
+    init({
       el: comment_el,
       serverURL: 'walinecomments.five2fire.top',
       lang: 'zh-CN',
@@ -2281,87 +2290,15 @@
       locale,
       wordLimit: '140',
       emoji: walineEmoji,
-      avatar: 'retro',
+      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
       path: window.location.pathname,
-      login: 'disable',
+      login: 'enable',
       pageSize: '10',
       reaction: true,
       copyright: true
     });
-
-    console.log('Waline initialized:', waline);
-
-    // 添加评论按钮的点击事件
-    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
-    commentButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const time = this.getAttribute('data-time');
-        const text = this.getAttribute('data-text');
-        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
-        
-        console.log('Quote content:', quoteContent);
-
-        // 滚动到评论区
-        window.scrollTo({
-          top: document.querySelector(comment_el).offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 尝试设置评论内容
-        const setCommentContent = () => {
-          console.log('Attempting to set comment content');
-          const editor = document.querySelector('#waline-edit');
-          if (editor) {
-            console.log('Editor found:', editor);
-            if (typeof editor.value !== 'undefined') {
-              editor.value = quoteContent;
-              console.log('Editor value set');
-              // 触发输入事件
-              const event = new Event('input', { bubbles: true });
-              editor.dispatchEvent(event);
-              console.log('Input event dispatched');
-              
-              // 设置光标位置到引用内容之前
-              editor.setSelectionRange(0, 0);
-              editor.focus();
-            } else {
-              console.error('Editor value is undefined');
-            }
-          } else {
-            console.error('Editor not found');
-          }
-        };
-
-        // 使用 setTimeout 和重试机制
-        let attempts = 0;
-        const maxAttempts = 5;
-        const attemptInterval = 500; // 毫秒
-
-        const attemptSetContent = () => {
-          if (attempts < maxAttempts) {
-            setTimeout(() => {
-              console.log(`Attempt ${attempts + 1} to set content`);
-              setCommentContent();
-              if (!document.querySelector('#waline-edit')) {
-                attempts++;
-                attemptSetContent();
-              }
-            }, attemptInterval);
-          } else {
-            console.error('Max attempts reached, unable to set comment content');
-          }
-        };
-
-        attemptSetContent();
-      });
-    });
-  }
-  
-  $(document).ready(loadWaline);
-  document.addEventListener('pjax:complete', function () {
-    loadWaline();
-  });
-</script>
+  </script>
+</body>
       
 
 

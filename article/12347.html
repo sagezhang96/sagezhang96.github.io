@@ -569,7 +569,7 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png')">
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -662,7 +662,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rememberMe <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">PushButton</span>(title: <span class="string">&quot;Remember Me&quot;</span>, isOn: rememberMe)</span><br><span class="line">            <span class="type">Text</span>(rememberMe <span class="operator">?</span> <span class="string">&quot;On&quot;</span> : <span class="string">&quot;Off&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>按钮下方有一个文本视图，这样我们就可以跟踪按钮的状态–试试运行你的代码，看看效果如何。</p>
-<p>你会发现，点击按钮确实会影响它的显示方式，但我们的文本视图却没有反映出这种变化–它总是显示 “关闭”。显然，有什么东西正在发生变化，因为按下按钮时，按钮的外观会发生变化，但这种变化并没有反映在 ContentView 中。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/nobinding.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/nobinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这里发生的情况是，我们定义了一个单向数据流： ContentView 有其 rememberMe 布尔值，该布尔值用于创建 PushButton - 该按钮的初始值由 ContentView 提供。但是，一旦创建了按钮，它就接管了对值的控制：它在按钮内部切换 isOn 属性的 true 或 false，但不会将变化传回 ContentView 。</p>
+<p>你会发现，点击按钮确实会影响它的显示方式，但我们的文本视图却没有反映出这种变化–它总是显示 “关闭”。显然，有什么东西正在发生变化，因为按下按钮时，按钮的外观会发生变化，但这种变化并没有反映在 ContentView 中。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/nobinding.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/nobinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这里发生的情况是，我们定义了一个单向数据流： ContentView 有其 rememberMe 布尔值，该布尔值用于创建 PushButton - 该按钮的初始值由 ContentView 提供。但是，一旦创建了按钮，它就接管了对值的控制：它在按钮内部切换 isOn 属性的 true 或 false，但不会将变化传回 ContentView 。</p>
 <p>这是一个问题，因为我们现在有两个真相来源： ContentView 存储的是一个值，而 PushButton 存储的是另一个值。幸运的是，这正是 @Binding 的用武之地：它允许我们在 PushButton 和使用它的任何东西之间建立双向连接，这样，当一个值发生变化时，另一个也会发生变化。</p>
 <p>要切换到 @Binding ，我们只需做两处修改。首先，在 PushButton 中将其 isOn 属性改为以下内容：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Binding</span> <span class="keyword">var</span> isOn: <span class="type">Bool</span></span><br></pre></td></tr></table></figure>
@@ -671,7 +671,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PushButton</span>(title: <span class="string">&quot;Remember Me&quot;</span>, isOn: <span class="variable">$rememberMe</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这就在 rememberMe 前添加了一个美元符号–我们传递的是绑定本身，而不是绑定中的布尔值。</p>
-<p>现在再次运行代码，你会发现一切正常：切换按钮现在也能正确更新文本视图。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/hasbinding.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/hasbinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这就是 @Binding 的威力：就按钮而言，它只是在切换一个布尔值–它并不知道有其他东西在监控该布尔值并根据变化采取行动。</p>
+<p>现在再次运行代码，你会发现一切正常：切换按钮现在也能正确更新文本视图。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/hasbinding.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/hasbinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这就是 @Binding 的威力：就按钮而言，它只是在切换一个布尔值–它并不知道有其他东西在监控该布尔值并根据变化采取行动。</p>
 <h2 id="使用-TextEditor-接受多行文本输入"><a href="#使用-TextEditor-接受多行文本输入" class="headerlink" title="使用 TextEditor 接受多行文本输入"></a>使用 TextEditor 接受多行文本输入</h2><p>我们已经多次使用 SwiftUI 的 TextField 视图，它非常适合用户输入短文本。不过，如果要输入较长的文本，您可能需要改用 TextEditor 视图：该视图也需要与文本字符串进行双向绑定，但它的另一个好处是允许输入多行文本–它更适合为用户提供大量的工作空间。</p>
 <p>主要是因为它没有什么特别的配置选项，使用 TextEditor 实际上比使用 TextField 更简单–你不能调整它的样式或添加占位符文本，你只需将它绑定到一个字符串上。不过，你确实需要注意确保它不会超出安全区域，否则输入会很麻烦；可以将它嵌入 NavigationStack 、 Form 或类似内容中。</p>
 <p>例如，我们可以将 TextEditor 与 @AppStorage 相结合，创建世界上最简单的笔记应用程序，就像这样：</p>
@@ -987,7 +987,7 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/article/10671.html" class="post-nav-link">
       <div class="title">
@@ -1008,7 +1008,7 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
     <a href="/article/39062.html" class="post-nav-link">
       <div class="title">
@@ -1158,7 +1158,7 @@
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -1338,7 +1338,7 @@
             <div class="post-img-box">
               <a href="/article/16060.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1359,7 +1359,7 @@
             <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -2194,16 +2194,25 @@
 <!-- 评论所需js -->
 
   
-        <script src="/js/waline/waline.min.js"></script>
-<script type="text/javascript">
-  comment_el = '#waline-comment';
-  var waline;
-  loadWaline = function () {
-    if (!$(comment_el).length) {
-      return;
-    }
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const comment_el = '#waline-comment';
 
     const locale = {
       nick: '昵称',
@@ -2258,7 +2267,7 @@
         reactionTitle: '你认为这篇文章怎么样？'
     }
 
-    waline = Waline({
+    init({
       el: comment_el,
       serverURL: 'walinecomments.five2fire.top',
       lang: 'zh-CN',
@@ -2266,87 +2275,15 @@
       locale,
       wordLimit: '140',
       emoji: walineEmoji,
-      avatar: 'retro',
+      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
       path: window.location.pathname,
-      login: 'disable',
+      login: 'enable',
       pageSize: '10',
       reaction: true,
       copyright: true
     });
-
-    console.log('Waline initialized:', waline);
-
-    // 添加评论按钮的点击事件
-    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
-    commentButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const time = this.getAttribute('data-time');
-        const text = this.getAttribute('data-text');
-        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
-        
-        console.log('Quote content:', quoteContent);
-
-        // 滚动到评论区
-        window.scrollTo({
-          top: document.querySelector(comment_el).offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 尝试设置评论内容
-        const setCommentContent = () => {
-          console.log('Attempting to set comment content');
-          const editor = document.querySelector('#waline-edit');
-          if (editor) {
-            console.log('Editor found:', editor);
-            if (typeof editor.value !== 'undefined') {
-              editor.value = quoteContent;
-              console.log('Editor value set');
-              // 触发输入事件
-              const event = new Event('input', { bubbles: true });
-              editor.dispatchEvent(event);
-              console.log('Input event dispatched');
-              
-              // 设置光标位置到引用内容之前
-              editor.setSelectionRange(0, 0);
-              editor.focus();
-            } else {
-              console.error('Editor value is undefined');
-            }
-          } else {
-            console.error('Editor not found');
-          }
-        };
-
-        // 使用 setTimeout 和重试机制
-        let attempts = 0;
-        const maxAttempts = 5;
-        const attemptInterval = 500; // 毫秒
-
-        const attemptSetContent = () => {
-          if (attempts < maxAttempts) {
-            setTimeout(() => {
-              console.log(`Attempt ${attempts + 1} to set content`);
-              setCommentContent();
-              if (!document.querySelector('#waline-edit')) {
-                attempts++;
-                attemptSetContent();
-              }
-            }, attemptInterval);
-          } else {
-            console.error('Max attempts reached, unable to set comment content');
-          }
-        };
-
-        attemptSetContent();
-      });
-    });
-  }
-  
-  $(document).ready(loadWaline);
-  document.addEventListener('pjax:complete', function () {
-    loadWaline();
-  });
-</script>
+  </script>
+</body>
       
 
 

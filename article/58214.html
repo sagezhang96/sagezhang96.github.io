@@ -637,22 +637,22 @@
   
   
 
-        <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171225.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171225.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+        <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171225.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171225.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="首先看自己的电脑是否是公网ipv6"><a href="#首先看自己的电脑是否是公网ipv6" class="headerlink" title="首先看自己的电脑是否是公网ipv6"></a>首先看自己的电脑是否是公网ipv6</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>打开下面这个测试链接 <a target="_blank" rel="noopener" href="http://test-ipv6.com/">http://test-ipv6.com/</a></p>
-<p>如果是10&#x2F;10，表示你的设<img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171125.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171125.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp">备已经接入ipv6网络了，这时候查看网页中显示的公网IPV6地址：</p>
+<p>如果是10&#x2F;10，表示你的设<img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171125.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171125.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp">备已经接入ipv6网络了，这时候查看网页中显示的公网IPV6地址：</p>
 <p>你的公网 IPv6 地址是 240e:3b7:xxxxxxxxxx</p>
 <p>如果是240x开头的，即是公网ip（不同运行商x可能会不同，电信是240e，联通是2408，移动是2409）</p>
 <p>如果是ff08开头的，或者其他ffxx开头的，就是局域网IPv6，需要去路由器或者光猫的管理页面设置IPv6。</p>
 <h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>windows用户，win+r并输入CMD打开命令行，输入ipconfig可以查看ip。</p>
 <p>mac用户，打开终端输入ifconfig可以查看ip。</p>
 <h2 id="路由器光猫开启IPv6"><a href="#路由器光猫开启IPv6" class="headerlink" title="路由器光猫开启IPv6"></a>路由器光猫开启IPv6</h2><h3 id="小米路由器（上级是光猫并开启了IPv6）"><a href="#小米路由器（上级是光猫并开启了IPv6）" class="headerlink" title="小米路由器（上级是光猫并开启了IPv6）"></a>小米路由器（上级是光猫并开启了IPv6）</h3><ul>
-<li><p>登录管理页面后在【常用设置】-【网络设置】-【IPv6设置】<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170850.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170850.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<li><p>登录管理页面后在【常用设置】-【网络设置】-【IPv6设置】<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304170850.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304170850.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 </li>
-<li><p>选择上网方式为Native，自动配置DNS<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170922.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304170922.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<li><p>选择上网方式为Native，自动配置DNS<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304170922.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304170922.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 </li>
 </ul>
 <h3 id="光猫开启IPv6"><a href="#光猫开启IPv6" class="headerlink" title="光猫开启IPv6"></a>光猫开启IPv6</h3><p>现在各大运营商的光猫都默认开启了ipv6，如果没开启，咨询网络售后人员开启。</p>
-<p>以电信天翼网关为例，进入管理页面后，在【高级设置】-【网关信息】中，确认WAN IPv6为240x开头即可。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171019.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240304171019.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>以电信天翼网关为例，进入管理页面后，在【高级设置】-【网关信息】中，确认WAN IPv6为240x开头即可。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171019.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171019.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 
       </div>
       <div class="post-tags-categories">
@@ -717,7 +717,7 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930121428.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930121428.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930121428.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930121428.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
     <a href="/article/61888.html" class="post-nav-link">
       <div class="title">
@@ -867,7 +867,7 @@
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -1047,7 +1047,7 @@
             <div class="post-img-box">
               <a href="/article/16060.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1068,7 +1068,7 @@
             <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1903,16 +1903,25 @@
 <!-- 评论所需js -->
 
   
-        <script src="/js/waline/waline.min.js"></script>
-<script type="text/javascript">
-  comment_el = '#waline-comment';
-  var waline;
-  loadWaline = function () {
-    if (!$(comment_el).length) {
-      return;
-    }
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const comment_el = '#waline-comment';
 
     const locale = {
       nick: '昵称',
@@ -1967,7 +1976,7 @@
         reactionTitle: '你认为这篇文章怎么样？'
     }
 
-    waline = Waline({
+    init({
       el: comment_el,
       serverURL: 'walinecomments.five2fire.top',
       lang: 'zh-CN',
@@ -1975,87 +1984,15 @@
       locale,
       wordLimit: '140',
       emoji: walineEmoji,
-      avatar: 'retro',
+      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
       path: window.location.pathname,
-      login: 'disable',
+      login: 'enable',
       pageSize: '10',
       reaction: true,
       copyright: true
     });
-
-    console.log('Waline initialized:', waline);
-
-    // 添加评论按钮的点击事件
-    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
-    commentButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const time = this.getAttribute('data-time');
-        const text = this.getAttribute('data-text');
-        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
-        
-        console.log('Quote content:', quoteContent);
-
-        // 滚动到评论区
-        window.scrollTo({
-          top: document.querySelector(comment_el).offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 尝试设置评论内容
-        const setCommentContent = () => {
-          console.log('Attempting to set comment content');
-          const editor = document.querySelector('#waline-edit');
-          if (editor) {
-            console.log('Editor found:', editor);
-            if (typeof editor.value !== 'undefined') {
-              editor.value = quoteContent;
-              console.log('Editor value set');
-              // 触发输入事件
-              const event = new Event('input', { bubbles: true });
-              editor.dispatchEvent(event);
-              console.log('Input event dispatched');
-              
-              // 设置光标位置到引用内容之前
-              editor.setSelectionRange(0, 0);
-              editor.focus();
-            } else {
-              console.error('Editor value is undefined');
-            }
-          } else {
-            console.error('Editor not found');
-          }
-        };
-
-        // 使用 setTimeout 和重试机制
-        let attempts = 0;
-        const maxAttempts = 5;
-        const attemptInterval = 500; // 毫秒
-
-        const attemptSetContent = () => {
-          if (attempts < maxAttempts) {
-            setTimeout(() => {
-              console.log(`Attempt ${attempts + 1} to set content`);
-              setCommentContent();
-              if (!document.querySelector('#waline-edit')) {
-                attempts++;
-                attemptSetContent();
-              }
-            }, attemptInterval);
-          } else {
-            console.error('Max attempts reached, unable to set comment content');
-          }
-        };
-
-        attemptSetContent();
-      });
-    });
-  }
-  
-  $(document).ready(loadWaline);
-  document.addEventListener('pjax:complete', function () {
-    loadWaline();
-  });
-</script>
+  </script>
+</body>
       
 
 

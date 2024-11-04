@@ -569,7 +569,7 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png')">
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
@@ -649,22 +649,22 @@
 <p>你也可以将“example”替换成<code>.example </code>，这在SwiftUI中将会更安全。</p>
 <p>此时你想要修改这个图像的大小，因为他看起来有些大。图像是一个视图，它和其他视图一样都有<code>frame() </code>修饰符，所以可以尝试添加这个修饰符</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Image</span>(.example)</span><br><span class="line">    .frame(width: <span class="number">300</span>, height: <span class="number">300</span>)</span><br></pre></td></tr></table></figure>
-<p>然而，这是行不通的——你的图像仍然会显示为完整尺寸。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111438.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111438.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>如果您想知道原因，请将 Xcode 的预览模式从“实时”更改为“可选”——查找 Xcode 预览左下角的三个按钮，然后单击其中有鼠标光标的按钮。</p>
+<p>然而，这是行不通的——你的图像仍然会显示为完整尺寸。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111438.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111438.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>如果您想知道原因，请将 Xcode 的预览模式从“实时”更改为“可选”——查找 Xcode 预览左下角的三个按钮，然后单击其中有鼠标光标的按钮。</p>
 <p>启用可选模式后，仔细查看预览窗口：您会看到图像是全尺寸的，但现在有一个 300x300 的框位于中间。图像视图的框架已正确设置，但图像内容仍按其原始大小显示</p>
 <p>这样更改</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Image</span>(.example)</span><br><span class="line">    .frame(width: <span class="number">300</span>, height: <span class="number">300</span>)</span><br><span class="line">    .clipped()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111555.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111555.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>现在你会看得更清楚了：我们的图像视图确实是 300x300，但这并不是我们真正想要的。</p>
+<p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111555.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111555.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>现在你会看得更清楚了：我们的图像视图确实是 300x300，但这并不是我们真正想要的。</p>
 <p>也许你需要添加<code>.resizable() </code>修饰符，就像这样</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Image</span>(.example)</span><br><span class="line">    .resizable()</span><br><span class="line">    .frame(width: <span class="number">300</span>, height: <span class="number">300</span>)</span><br></pre></td></tr></table></figure>
-<p>但是现在你会看到，图像现在已正确调整大小，但它可能看起来被压扁了。我的图像不是方形的，所以现在它被调整为方形后看起来扭曲了。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111804.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111804.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
-<p>这里给出两个方案，<code>scaledToFit() </code>以及<code>scaledToFill() </code>，你可以看到他的不同效果<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111951.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625111951.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>但是现在你会看到，图像现在已正确调整大小，但它可能看起来被压扁了。我的图像不是方形的，所以现在它被调整为方形后看起来扭曲了。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111804.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111804.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>这里给出两个方案，<code>scaledToFit() </code>以及<code>scaledToFill() </code>，你可以看到他的不同效果<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111951.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625111951.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>如果我们想要固定大小的图像，那么所有这些都非常有用，但通常您希望图像能够自动放大以在一维或两个维度上填充更多屏幕。也就是说，您真正想说的是“使该图像填充屏幕宽度的 80%”，而不是硬编码宽度 300。、</p>
 <p>wiftUI 没有强制使用特定的框架，而是有一个专用的 <code>containerRelativeFrame() </code> 修饰符，可以让我们准确地获得我们想要的结果。 “容器”部分可能是整个屏幕，但也可能只是该视图的直接父级占据的屏幕部分 - 也许我们的图像与其他视图一起显示在 VStack 内。</p>
 <p>这是个占屏幕宽度80%的图像的例子</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Image</span>(.example)</span><br><span class="line">    .resizable()</span><br><span class="line">    .scaledToFit()</span><br><span class="line">    .containerRelativeFrame(.horizontal) &#123; size, axis <span class="keyword">in</span></span><br><span class="line">        size <span class="operator">*</span> <span class="number">0.8</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625112214.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625112214.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625112214.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625112214.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>我们不需要在这里指定高度。这是因为我们已经给了 SwiftUI 足够的信息，它可以自动计算出高度：它知道原始宽度，它知道我们的目标宽度，它知道我们的内容模式，所以它知道图像的目标高度将如何与目标宽度成正比。</p>
-<h2 id="滚动视图"><a href="#滚动视图" class="headerlink" title="滚动视图"></a>滚动视图</h2><p>首先创建一个1——100的滚动列表<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625112358.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625112358.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h2 id="滚动视图"><a href="#滚动视图" class="headerlink" title="滚动视图"></a>滚动视图</h2><p>首先创建一个1——100的滚动列表<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625112358.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625112358.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ScrollView</span> &#123;</span><br><span class="line">    <span class="type">VStack</span>(spacing: <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span><span class="number">100</span>) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Item <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">                .font(.title)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>这些视图会立即创建，也就是说，在你还没有滚动到第100行的时候，它已经被创建好了，SwiftUI 不会等到你向下滚动才能看到它们，它只会立即创建它们。</p>
@@ -672,13 +672,13 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">CustomText</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> text: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(text)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="keyword">_</span> <span class="params">text</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Creating a new CustomText&quot;</span>)</span><br><span class="line">        <span class="keyword">self</span>.text <span class="operator">=</span> text</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span><span class="number">100</span>) &#123;</span><br><span class="line">    <span class="type">CustomText</span>(<span class="string">&quot;Item <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">        .font(.title)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你会看到“Creating a new CustomText”在 Xcode 日志中打印了一百次</p>
 <p>如果您想避免这种情况发生，可以为 VStack 和 HStack 提供一个替代方案，分别称为 <code> LazyVStack</code> 和 <code>LazyHStack </code> 。它们的使用方式与常规堆栈完全相同，但会按需加载其内容 - 在实际显示之前它们不会创建视图，因此最大限度地减少了所使用的系统资源量。</p>
-<p>最后，可以在创建 ScrollView 时通过传递 .horizontal 作为参数来创建水平滚动视图，传递.vertical参数创建垂直滚动视图（默认的）<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625113144.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625113144.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>最后，可以在创建 ScrollView 时通过传递 .horizontal 作为参数来创建水平滚动视图，传递.vertical参数创建垂直滚动视图（默认的）<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625113144.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625113144.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="使用-NavigationLink-将新视图推送到堆栈上"><a href="#使用-NavigationLink-将新视图推送到堆栈上" class="headerlink" title="使用 NavigationLink 将新视图推送到堆栈上"></a>使用 NavigationLink 将新视图推送到堆栈上</h2><p>SwiftUI 的 NavigationStack 在视图顶部显示一个导航栏，但还执行其他操作：它允许我们将视图推送到视图堆栈上。事实上，这确实是 iOS 导航的最基本形式 - 当您点击 Wi-Fi 或常规时，您可以在“设置”中看到它，或者当您点击某人的名字时，您可以在“消息”中看到它。</p>
 <p>这个视图堆栈系统与我们之前使用的工作表（.sheet）非常不同。是的，两者都显示了某种新视图，但它们的呈现方式存在差异，影响了用户对它们的思考方式。</p>
 <p>对比一下这两个代码</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Tap Me&quot;</span>)</span><br><span class="line">                .navigationTitle(<span class="string">&quot;SwiftUI&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">NavigationLink</span>(<span class="string">&quot;Tap Me&quot;</span>) &#123;</span><br><span class="line">                <span class="type">Text</span>(<span class="string">&quot;Detail View&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(<span class="string">&quot;SwiftUI&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/navigationlink.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/navigationlink.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>您会看到“点击我”现在看起来像一个按钮，点击它会使一个新视图从右侧滑入，显示“详细信息视图”。更好的是，您会看到“SwiftUI”标题向下动画变成后退按钮，您可以点击该按钮或从左边缘滑动以返回。</p>
-<p>如果您想要简单文本视图以外的其他内容作为标签，则可以在 NavigationLink 中使用两个尾随闭包。例如，我们可以用多个文本视图和图像制作标签：<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625114527.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625114527.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/navigationlink.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/navigationlink.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>您会看到“点击我”现在看起来像一个按钮，点击它会使一个新视图从右侧滑入，显示“详细信息视图”。更好的是，您会看到“SwiftUI”标题向下动画变成后退按钮，您可以点击该按钮或从左边缘滑动以返回。</p>
+<p>如果您想要简单文本视图以外的其他内容作为标签，则可以在 NavigationLink 中使用两个尾随闭包。例如，我们可以用多个文本视图和图像制作标签：<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625114527.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625114527.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>因此， sheet() 和 NavigationLink 都允许我们显示当前视图的新视图，但它们的方式不同，您应该仔细选择它们：</p>
 <pre><code>    NavigationLink 用于显示有关用户选择的详细信息，就像您正在深入研究某个主题一样。
     sheet() 用于显示不相关的内容，例如设置或撰写窗口。
@@ -704,10 +704,10 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ScrollView</span> &#123;</span><br><span class="line">    <span class="type">LazyVGrid</span>(columns: layout) &#123;</span><br><span class="line">        <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span><span class="number">1000</span>) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Item <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>还可以创建自适应各种屏幕尺寸的网格，同时指定每一列的最小宽度和最大宽度。SwiftUI会根据屏幕大小自动填充列数。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> layout <span class="operator">=</span> [</span><br><span class="line">    <span class="type">GridItem</span>(.adaptive(minimum: <span class="number">80</span>, maximum: <span class="number">120</span>)),</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>可以比较一下指定列宽以及自适应列数的效果<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625141930.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625141930.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>可以比较一下指定列宽以及自适应列数的效果<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625141930.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625141930.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>在我们完成之前，我想简要向您展示如何制作水平网格。该过程几乎相同，您只需使 ScrollView 水平工作，然后使用行而不是列创建 LazyHGrid 。同样的，如果你使用了自适应视图，那会自动填充行数</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ScrollView</span>(.horizontal) &#123;</span><br><span class="line">    <span class="type">LazyHGrid</span>(rows: layout) &#123;</span><br><span class="line">        <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span><span class="number">1000</span>) &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Item <span class="subst">\(<span class="variable">$0</span>)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625142250.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625142250.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625142250.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625142250.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h1 id="正式开始构建项目"><a href="#正式开始构建项目" class="headerlink" title="正式开始构建项目"></a>正式开始构建项目</h1><h2 id="加载特定类型的可编码数据"><a href="#加载特定类型的可编码数据" class="headerlink" title="加载特定类型的可编码数据"></a>加载特定类型的可编码数据</h2><p>在此应用程序中，我们将把两种不同类型的 JSON 加载到 Swift 结构中：一种用于宇航员，一种用于任务。以一种易于维护且不会使我们的代码混乱的方式实现这一点需要一些思考，但我们将逐步努力实现这一目标。</p>
 <p>将两个JSON文件拖入项目内，分别是astronauts.json 和missions.json。</p>
 <p>接下来让我们将宇航员数据转换为 Swift 结构 - 按 Cmd+N 创建一个新文件，选择 Swift 文件，然后将其命名为 Astronaut.swift。（根据json文件中的格式来创建）</p>
@@ -771,7 +771,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> astronauts: [<span class="type">String</span>: <span class="type">Astronaut</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;astronauts.json&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> missions: [<span class="type">Mission</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;missions.json&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="格式化任务视图"><a href="#格式化任务视图" class="headerlink" title="格式化任务视图"></a>格式化任务视图</h2><p>现在我们已经有了所有数据，我们可以看看第一个屏幕的设计：所有任务的网格，位于任务徽章旁边。</p>
-<p>我们之前添加的资产包含名为“<a href="mailto:&#x61;&#112;&#111;&#x6c;&#108;&#111;&#x31;&#x40;&#x32;&#x78;&#46;&#x70;&#110;&#x67;">&#x61;&#112;&#111;&#x6c;&#108;&#111;&#x31;&#x40;&#x32;&#x78;&#46;&#x70;&#110;&#x67;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
+<p>我们之前添加的资产包含名为“<a href="mailto:&#97;&#x70;&#111;&#x6c;&#x6c;&#x6f;&#x31;&#64;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;">&#97;&#x70;&#111;&#x6c;&#x6c;&#x6f;&#x31;&#64;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
 <p>不过，在这里，我们将采取不同的方法：我们将向 Mission 结构添加一些计算属性以发回相同的数据。结果将是相同的 - “apollo1”和“Apollo 1” - 但现在代码位于一个位置：我们的 Mission 结构体。这意味着任何其他视图都可以使用相同的数据，而不必重复我们的字符串插值代码，这反过来意味着如果我们改变这些东西的格式化方式 - 即我们将图像名称更改为“apollo-1”或其他东西 - 那么我们只需更改 Mission 中的属性即可更新所有代码。</p>
 <p>因此，请立即将这两个属性添加到 Mission 结构中：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> displayName: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;Apollo <span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;apollo<span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -793,7 +793,7 @@
 <p>它尝试在文本视图中使用可选的 Date ，或者如果日期为空，则将其替换为“N&#x2F;A”。这是计算属性效果更好的另一个地方：我们可以要求任务本身提供格式化的启动日期，将可选日期转换为格式整齐的字符串，或者针对缺失的日期发回“N&#x2F;A”。</p>
 <p>这使用了我们之前使用过的相同的 formatted() 方法，所以这对你来说应该有点熟悉。现在将此计算属性添加到 Mission 中：然后将<code>Text(mission.launchDate ?? &quot;N/A&quot;) </code>替换为<code>Text(mission.formattedLaunchDate) </code></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formattedLaunchDate: <span class="type">String</span> &#123;</span><br><span class="line">    launchDate<span class="operator">?</span>.formatted(date: .abbreviated, time: .omitted) <span class="operator">??</span> <span class="string">&quot;N/A&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>通过这一更改，我们的日期将以更自然的方式呈现，甚至更好，将以适合用户区域的任何方式呈现 - 您看到的不一定是我看到的。<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625161122.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240625161122.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>通过这一更改，我们的日期将以更自然的方式呈现，甚至更好，将以适合用户区域的任何方式呈现 - 您看到的不一定是我看到的。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625161122.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240625161122.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <p>现在让我们关注更大的问题：我们的布局非常乏味！</p>
 <p>为了稍微美化一下，我想向您介绍两个有用的功能：如何轻松共享自定义应用程序颜色，以及如何为我们的应用程序强制使用深色主题。</p>
 <p>首先，颜色。有两种方法可以做到这一点，两种方法都很有用：您可以使用特定名称将颜色添加到资产目录中，或者可以将它们添加为 Swift 扩展。它们都有各自的优点——使用资产目录可以让您直观地工作，但使用代码可以更轻松地使用 GitHub 等工具来监控更改。</p>
@@ -816,7 +816,7 @@
 <p>在布局方面，这个东西需要有一个滚动 VStack 和一个可调整大小的任务徽章图像，然后是一个文本视图。我们将使用 containerRelativeFrame() 来设置任务图像的宽度 - 通过一些试验和错误，我发现任务徽章在不是全宽时效果最好 - 看起来宽度在 50% 到 70% 之间更好的是，避免它在屏幕上变得异常大。</p>
 <p>现在将此代码放入 MissionView.swift 中：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">MissionView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> mission: <span class="type">Mission</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">ScrollView</span> &#123;</span><br><span class="line">            <span class="type">VStack</span> &#123;</span><br><span class="line">                <span class="type">Image</span>(mission.image)</span><br><span class="line">                    .resizable()</span><br><span class="line">                    .scaledToFit()</span><br><span class="line">                    .containerRelativeFrame(.horizontal) &#123; width, axis <span class="keyword">in</span></span><br><span class="line">                        width <span class="operator">*</span> <span class="number">0.6</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    .padding(.top)</span><br><span class="line"></span><br><span class="line">                <span class="type">VStack</span>(alignment: .leading) &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Mission Highlights&quot;</span>)</span><br><span class="line">                        .font(.title.bold())</span><br><span class="line">                        .padding(.bottom, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">                    <span class="type">Text</span>(mission.description)</span><br><span class="line">                &#125;</span><br><span class="line">                .padding(.horizontal)</span><br><span class="line">            &#125;</span><br><span class="line">            .padding(.bottom)</span><br><span class="line">        &#125;</span><br><span class="line">        .navigationTitle(mission.displayName)</span><br><span class="line">        .navigationBarTitleDisplayMode(.inline)</span><br><span class="line">        .background(.darkBackground)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/moonshot.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/moonshot.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>效果如下：<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/moonshot.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/moonshot.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 <h2 id="合并可编码结构"><a href="#合并可编码结构" class="headerlink" title="合并可编码结构"></a>合并可编码结构</h2><p>在我们的任务描述下方，我们希望显示每个机组成员的图片、姓名和角色，这意味着匹配来自两个不同 JSON 文件的数据。</p>
 <p>如果您还记得，我们的 JSON 数据分为 Mission.json 和 astronauts.json。这消除了数据中的重复，因为一些宇航员参加了多次任务，但这也意味着我们需要编写一些代码将我们的数据连接在一起 - 例如，将“阿姆斯特朗”解析为“尼尔·阿姆斯特朗”。你看，一方面我们的任务知道机组成员“阿姆斯特朗”的角色是“指挥官”，但不知道“阿姆斯特朗”是谁，而另一方面我们有“尼尔·阿姆斯特朗”和描述他，但不知道他是阿波罗 11 号的指挥官。</p>
 <p>因此，我们需要做的是让我们的 MissionView 接受被点击的任务，以及我们完整的宇航员字典，然后让它找出哪些宇航员实际参加了发射。</p>
@@ -847,7 +847,7 @@
 <p>现在我们可以从 MissionView 内的 NavigationLink 来呈现它。现在它指向 Text(“Astronaut details”) ，但我们可以将其更新为指向新的 AstronautView ：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AstronautView</span>(astronaut: crewMember.astronaut)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>这很容易，对吧？但是，如果您现在运行该应用程序，您会发现它使我们的用户界面感觉多么自然 - 我们从最广泛的信息级别开始，显示我们的所有任务，然后点击以选择一项特定任务，然后点击以选择一名特定宇航员。 iOS 负责新视图中的动画，但也提供后退按钮和滑动以返回到以前的视图。</p>
-<h1 id="最终效果图"><a href="#最终效果图" class="headerlink" title="最终效果图"></a>最终效果图</h1><p><img src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/moonshot2.gif" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/moonshot2.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h1 id="最终效果图"><a href="#最终效果图" class="headerlink" title="最终效果图"></a>最终效果图</h1><p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/moonshot2.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/moonshot2.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 
       </div>
       <div class="post-tags-categories">
@@ -899,7 +899,7 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
     <a href="/article/33439.html" class="post-nav-link">
       <div class="title">
@@ -1086,7 +1086,7 @@ DOTA2游戏
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
         </a>
       
     
@@ -1266,7 +1266,7 @@ DOTA2游戏
             <div class="post-img-box">
               <a href="/article/16060.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -1287,7 +1287,7 @@ DOTA2游戏
             <div class="post-img-box">
               <a href="/article/3999.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" class="lazyload placeholder" data-srcset="https://raw.githubusercontent.com/sagezhang96/imgbed/main/img/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
@@ -2122,16 +2122,25 @@ DOTA2游戏
 <!-- 评论所需js -->
 
   
-        <script src="/js/waline/waline.min.js"></script>
-<script type="text/javascript">
-  comment_el = '#waline-comment';
-  var waline;
-  loadWaline = function () {
-    if (!$(comment_el).length) {
-      return;
-    }
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline"></div>
+  <script type="module">
+    
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
     var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
     walineEmoji = walineEmoji.split(',')
+
+    const comment_el = '#waline-comment';
 
     const locale = {
       nick: '昵称',
@@ -2186,7 +2195,7 @@ DOTA2游戏
         reactionTitle: '你认为这篇文章怎么样？'
     }
 
-    waline = Waline({
+    init({
       el: comment_el,
       serverURL: 'walinecomments.five2fire.top',
       lang: 'zh-CN',
@@ -2194,87 +2203,15 @@ DOTA2游戏
       locale,
       wordLimit: '140',
       emoji: walineEmoji,
-      avatar: 'retro',
+      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
       path: window.location.pathname,
-      login: 'disable',
+      login: 'enable',
       pageSize: '10',
       reaction: true,
       copyright: true
     });
-
-    console.log('Waline initialized:', waline);
-
-    // 添加评论按钮的点击事件
-    const commentButtons = document.querySelectorAll('.weibo-comment-btn');
-    commentButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const time = this.getAttribute('data-time');
-        const text = this.getAttribute('data-text');
-        const quoteContent = `\n> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
-        
-        console.log('Quote content:', quoteContent);
-
-        // 滚动到评论区
-        window.scrollTo({
-          top: document.querySelector(comment_el).offsetTop,
-          behavior: 'smooth'
-        });
-        
-        // 尝试设置评论内容
-        const setCommentContent = () => {
-          console.log('Attempting to set comment content');
-          const editor = document.querySelector('#waline-edit');
-          if (editor) {
-            console.log('Editor found:', editor);
-            if (typeof editor.value !== 'undefined') {
-              editor.value = quoteContent;
-              console.log('Editor value set');
-              // 触发输入事件
-              const event = new Event('input', { bubbles: true });
-              editor.dispatchEvent(event);
-              console.log('Input event dispatched');
-              
-              // 设置光标位置到引用内容之前
-              editor.setSelectionRange(0, 0);
-              editor.focus();
-            } else {
-              console.error('Editor value is undefined');
-            }
-          } else {
-            console.error('Editor not found');
-          }
-        };
-
-        // 使用 setTimeout 和重试机制
-        let attempts = 0;
-        const maxAttempts = 5;
-        const attemptInterval = 500; // 毫秒
-
-        const attemptSetContent = () => {
-          if (attempts < maxAttempts) {
-            setTimeout(() => {
-              console.log(`Attempt ${attempts + 1} to set content`);
-              setCommentContent();
-              if (!document.querySelector('#waline-edit')) {
-                attempts++;
-                attemptSetContent();
-              }
-            }, attemptInterval);
-          } else {
-            console.error('Max attempts reached, unable to set comment content');
-          }
-        };
-
-        attemptSetContent();
-      });
-    });
-  }
-  
-  $(document).ready(loadWaline);
-  document.addEventListener('pjax:complete', function () {
-    loadWaline();
-  });
-</script>
+  </script>
+</body>
       
 
 
