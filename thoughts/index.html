@@ -604,6 +604,15 @@
 
         <p class='p center large info'>计划每周五更新一次该页面，敬请期待</p>
 
+<h2 id="2024年11月"><a href="#2024年11月" class="headerlink" title="2024年11月"></a>2024年11月</h2><div class="weibo-post">
+                    <div class="weibo-header">
+                      <div class="weibo-time">2024-11-05 11:54:25</div>
+                      <button class="weibo-comment-btn" data-time="2024-11-05 11:54:25" data-text="看到了一个比较喜欢的简约Hexo主题，但是又缺少一些想要的功能。而且发现自己做一个Hexo主题没有想象中的简单，即使有AI的帮助，也还是很难。">评论</button>
+                    </div>
+                    <div class="weibo-text">看到了一个比较喜欢的简约Hexo主题，但是又缺少一些想要的功能。而且发现自己做一个Hexo主题没有想象中的简单，即使有AI的帮助，也还是很难。</div>
+                    <div class="weibo-gallery"><p><a target="_blank" rel="noopener" href="https://saicaca.github.io/vivia-preview/" title="Vivia">Vivia</a></p>
+</div>
+                  </div>
 <h2 id="2024年10月"><a href="#2024年10月" class="headerlink" title="2024年10月"></a>2024年10月</h2><div class="weibo-post">
                     <div class="weibo-header">
                       <div class="weibo-time">2024-10-28 16:18:06</div>
@@ -1016,7 +1025,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E5%B9%B410%E6%9C%88"><span class="toc-text">2024年10月</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E5%B9%B49%E6%9C%88"><span class="toc-text">2024年9月</span></a></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E5%B9%B411%E6%9C%88"><span class="toc-text">2024年11月</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E5%B9%B410%E6%9C%88"><span class="toc-text">2024年10月</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E5%B9%B49%E6%9C%88"><span class="toc-text">2024年9月</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1061,27 +1070,6 @@
                 
               </div>
               <a class="post-title" href="/article/24289.html">近一年个人支出及家庭财务支出小结</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/article/28771.html" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">10-15</span>
-                
-              </div>
-              <a class="post-title" href="/article/28771.html">每日产品小思</a>
             </div>
           </div>
         
@@ -1145,6 +1133,27 @@
                 
               </div>
               <a class="post-title" href="/article/3999.html">短暂的两个月副业总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/11062.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">07-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
             </div>
           </div>
         
@@ -2072,6 +2081,9 @@
           copyright: true
         });
 
+        // 清空编辑器内容
+        clearWalineEditor();
+
         // 等待Waline初始化完成后再绑定事件
         setTimeout(() => {
           bindCommentEvents();
@@ -2080,6 +2092,21 @@
       } catch (error) {
         console.error('Waline initialization failed:', error);
       }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
     }
 
     // 将评论事件绑定逻辑抽取为单独的函数
@@ -2132,6 +2159,7 @@
     // 支持PJAX
     document.addEventListener('pjax:complete', () => {
       console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
       initWaline();
     });
   </script>

@@ -1498,6 +1498,9 @@
           copyright: true
         });
 
+        // 清空编辑器内容
+        clearWalineEditor();
+
         // 等待Waline初始化完成后再绑定事件
         setTimeout(() => {
           bindCommentEvents();
@@ -1506,6 +1509,21 @@
       } catch (error) {
         console.error('Waline initialization failed:', error);
       }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
     }
 
     // 将评论事件绑定逻辑抽取为单独的函数
@@ -1558,6 +1576,7 @@
     // 支持PJAX
     document.addEventListener('pjax:complete', () => {
       console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
       initWaline();
     });
   </script>

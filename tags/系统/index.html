@@ -601,7 +601,7 @@
     <article class="post">
       <a href="/article/16673.html" class="post-link">
         <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="电脑自动重启的尝试解决办法记录">
+          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="电脑自动重启的尝试解决办法记录">
           <div class="post-excerpt">
             <p>主机配置
 
@@ -1410,6 +1410,9 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
           copyright: true
         });
 
+        // 清空编辑器内容
+        clearWalineEditor();
+
         // 等待Waline初始化完成后再绑定事件
         setTimeout(() => {
           bindCommentEvents();
@@ -1418,6 +1421,21 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
       } catch (error) {
         console.error('Waline initialization failed:', error);
       }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
     }
 
     // 将评论事件绑定逻辑抽取为单独的函数
@@ -1470,6 +1488,7 @@ DOTA2游戏，回到主菜单时（包括但不仅限于直接点击主菜单按
     // 支持PJAX
     document.addEventListener('pjax:complete', () => {
       console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
       initWaline();
     });
   </script>

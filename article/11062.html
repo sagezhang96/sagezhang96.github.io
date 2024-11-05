@@ -1015,20 +1015,17 @@ processedImage = Image(uiImage: uiImage)
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115631.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115631.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/article/63779.html" class="post-nav-link">
+    <a href="/article/3999.html" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">说说（也就是碎碎念）</div>
+        <div class="title-text">短暂的两个月副业总结</div>
       </div>
       
       <!-- <div class="content">
-        
-
-
-  该部分已迁移至随想
-
+        前言这篇文章，从我刚开始做这个副业，就已经决定要写，到9.15号停止接单，再到今天开始写，拖了快一个月了。
+其实到上个月
       </div> -->
     </a>
   </div>
@@ -1325,27 +1322,6 @@ processedImage = Image(uiImage: uiImage)
             
 
             <div class="post-img-box">
-              <a href="/article/28771.html" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">10-15</span>
-                
-              </div>
-              <a class="post-title" href="/article/28771.html">每日产品小思</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
               <a href="/article/32835.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1400,6 +1376,27 @@ processedImage = Image(uiImage: uiImage)
                 
               </div>
               <a class="post-title" href="/article/3999.html">短暂的两个月副业总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/11062.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">07-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
             </div>
           </div>
         
@@ -2327,6 +2324,9 @@ processedImage = Image(uiImage: uiImage)
           copyright: true
         });
 
+        // 清空编辑器内容
+        clearWalineEditor();
+
         // 等待Waline初始化完成后再绑定事件
         setTimeout(() => {
           bindCommentEvents();
@@ -2335,6 +2335,21 @@ processedImage = Image(uiImage: uiImage)
       } catch (error) {
         console.error('Waline initialization failed:', error);
       }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
     }
 
     // 将评论事件绑定逻辑抽取为单独的函数
@@ -2387,6 +2402,7 @@ processedImage = Image(uiImage: uiImage)
     // 支持PJAX
     document.addEventListener('pjax:complete', () => {
       console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
       initWaline();
     });
   </script>
