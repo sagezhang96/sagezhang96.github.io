@@ -2013,83 +2013,159 @@
 </head>
 <body>
   <!-- ... -->
-  <div id="waline"></div>
+  <div id="waline-comment"></div>
   <script type="module">
-    
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    let walineInstance = null;
 
-    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
-    walineEmoji = walineEmoji.split(',')
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
 
-    const comment_el = '#waline-comment';
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
 
-    const locale = {
-      nick: '昵称',
-        nickError: '昵称不能少于3个字符',
-        mail: '邮箱',
-        mailError: '请填写正确的邮件地址',
-        link: '网址',
-        optional: '可选',
-        placeholder: '欢迎评论',
-        sofa: '快来抢沙发吧~',
-        submit: '提交',
-        like: '喜欢',
-        cancelLike: '取消喜欢',
-        reply: '回复',
-        cancelReply: '取消回复',
-        comment: '评论',
-        refresh: '刷新',
-        more: '加载更多...',
-        preview: '预览',
-        emoji: '表情',
-        uploadImage: '上传图片',
-        seconds: '秒前',
-        minutes: '分钟前',
-        hours: '小时前',
-        days: '天前',
-        now: '刚刚',
-        uploading: '正在上传',
-        login: '登录',
-        logout: '退出',
-        admin: '博主',
-        admin: '博主',    //这里可以更改管理员的标签
-        sticky: '置顶',
-        word: '字',
-        wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
-        anonymous: '匿名',
-        level0: '潜水',
-        level1: '冒泡',
-        level2: '吐槽',
-        level3: '活跃',
-        level4: '话痨',
-        level5: '传说',
-        gif: '表情包',
-        gifSearchPlaceholder: '搜索表情包',
-        profile: '个人资料',
-        approved: '通过',
-        waiting: '待审核',
-        spam: '垃圾',
-        unsticky: '取消置顶',
-        oldest: '按倒序',
-        latest: '按正序',
-        hottest: '按热度',
-        reactionTitle: '你认为这篇文章怎么样？'
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
     }
 
-    init({
-      el: comment_el,
-      serverURL: 'walinecomments.five2fire.top',
-      lang: 'zh-CN',
-      vistor: '',
-      locale,
-      wordLimit: '140',
-      emoji: walineEmoji,
-      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
-      path: window.location.pathname,
-      login: 'enable',
-      pageSize: '10',
-      reaction: true,
-      copyright: true
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      initWaline();
     });
   </script>
 </body>

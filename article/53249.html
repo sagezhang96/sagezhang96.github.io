@@ -771,7 +771,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> astronauts: [<span class="type">String</span>: <span class="type">Astronaut</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;astronauts.json&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> missions: [<span class="type">Mission</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;missions.json&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="格式化任务视图"><a href="#格式化任务视图" class="headerlink" title="格式化任务视图"></a>格式化任务视图</h2><p>现在我们已经有了所有数据，我们可以看看第一个屏幕的设计：所有任务的网格，位于任务徽章旁边。</p>
-<p>我们之前添加的资产包含名为“<a href="mailto:&#97;&#x70;&#111;&#x6c;&#x6c;&#x6f;&#x31;&#64;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;">&#97;&#x70;&#111;&#x6c;&#x6c;&#x6f;&#x31;&#64;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
+<p>我们之前添加的资产包含名为“<a href="mailto:&#x61;&#x70;&#111;&#108;&#x6c;&#111;&#49;&#x40;&#x32;&#x78;&#46;&#112;&#x6e;&#103;">&#x61;&#x70;&#111;&#108;&#x6c;&#111;&#49;&#x40;&#x32;&#x78;&#46;&#112;&#x6e;&#103;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
 <p>不过，在这里，我们将采取不同的方法：我们将向 Mission 结构添加一些计算属性以发回相同的数据。结果将是相同的 - “apollo1”和“Apollo 1” - 但现在代码位于一个位置：我们的 Mission 结构体。这意味着任何其他视图都可以使用相同的数据，而不必重复我们的字符串插值代码，这反过来意味着如果我们改变这些东西的格式化方式 - 即我们将图像名称更改为“apollo-1”或其他东西 - 那么我们只需更改 Mission 中的属性即可更新所有代码。</p>
 <p>因此，请立即将这两个属性添加到 Mission 结构中：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> displayName: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;Apollo <span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;apollo<span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -2132,83 +2132,159 @@ DOTA2游戏
 </head>
 <body>
   <!-- ... -->
-  <div id="waline"></div>
+  <div id="waline-comment"></div>
   <script type="module">
-    
-    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    let walineInstance = null;
 
-    var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
-    walineEmoji = walineEmoji.split(',')
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
 
-    const comment_el = '#waline-comment';
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
 
-    const locale = {
-      nick: '昵称',
-        nickError: '昵称不能少于3个字符',
-        mail: '邮箱',
-        mailError: '请填写正确的邮件地址',
-        link: '网址',
-        optional: '可选',
-        placeholder: '欢迎评论',
-        sofa: '快来抢沙发吧~',
-        submit: '提交',
-        like: '喜欢',
-        cancelLike: '取消喜欢',
-        reply: '回复',
-        cancelReply: '取消回复',
-        comment: '评论',
-        refresh: '刷新',
-        more: '加载更多...',
-        preview: '预览',
-        emoji: '表情',
-        uploadImage: '上传图片',
-        seconds: '秒前',
-        minutes: '分钟前',
-        hours: '小时前',
-        days: '天前',
-        now: '刚刚',
-        uploading: '正在上传',
-        login: '登录',
-        logout: '退出',
-        admin: '博主',
-        admin: '博主',    //这里可以更改管理员的标签
-        sticky: '置顶',
-        word: '字',
-        wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
-        anonymous: '匿名',
-        level0: '潜水',
-        level1: '冒泡',
-        level2: '吐槽',
-        level3: '活跃',
-        level4: '话痨',
-        level5: '传说',
-        gif: '表情包',
-        gifSearchPlaceholder: '搜索表情包',
-        profile: '个人资料',
-        approved: '通过',
-        waiting: '待审核',
-        spam: '垃圾',
-        unsticky: '取消置顶',
-        oldest: '按倒序',
-        latest: '按正序',
-        hottest: '按热度',
-        reactionTitle: '你认为这篇文章怎么样？'
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
     }
 
-    init({
-      el: comment_el,
-      serverURL: 'walinecomments.five2fire.top',
-      lang: 'zh-CN',
-      vistor: '',
-      locale,
-      wordLimit: '140',
-      emoji: walineEmoji,
-      avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
-      path: window.location.pathname,
-      login: 'enable',
-      pageSize: '10',
-      reaction: true,
-      copyright: true
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      initWaline();
     });
   </script>
 </body>
