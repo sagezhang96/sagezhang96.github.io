@@ -718,7 +718,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>我创建的图片高度为 1200 像素，但当它显示出来时，你会发现它要大得多。这直接涉及到使用 AsyncImage 的基本复杂性之一：在运行我们的代码并下载图片之前，SwiftUI 对图片一无所知，因此无法提前适当调整图片大小。</p>
-<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#108;&#x6f;&#x67;&#x6f;&#x40;&#x33;&#x78;&#x2e;&#x70;&#110;&#x67;">&#108;&#x6f;&#x67;&#x6f;&#x40;&#x33;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#108;&#x6f;&#103;&#111;&#x40;&#50;&#x78;&#x2e;&#112;&#110;&#103;">&#108;&#x6f;&#103;&#111;&#x40;&#50;&#x78;&#x2e;&#112;&#110;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
+<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#108;&#x6f;&#x67;&#x6f;&#x40;&#x33;&#120;&#x2e;&#112;&#110;&#103;">&#108;&#x6f;&#x67;&#x6f;&#x40;&#x33;&#120;&#x2e;&#112;&#110;&#103;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#108;&#x6f;&#103;&#x6f;&#x40;&#50;&#x78;&#x2e;&#x70;&#x6e;&#103;">&#108;&#x6f;&#103;&#x6f;&#x40;&#50;&#x78;&#x2e;&#x70;&#x6e;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
 <p>为了解决这个问题，我们可以提前告诉 SwiftUI 我们正在尝试加载 3 倍比例的图像，就像这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>), scale: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
@@ -1310,6 +1310,27 @@
             
 
             <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/article/40210.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1385,27 +1406,6 @@
                 
               </div>
               <a class="post-title" href="/article/24289.html">近一年个人支出及家庭财务支出小结</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/article/32835.html" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/3s_4qzRR0tE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD-LMtoFQfojCDmECXw6Si9WRZCcQ" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/3s_4qzRR0tE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD-LMtoFQfojCDmECXw6Si9WRZCcQ" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">10-11</span>
-                
-              </div>
-              <a class="post-title" href="/article/32835.html">《拖延心理学》读书笔记</a>
             </div>
           </div>
         

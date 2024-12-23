@@ -22,7 +22,7 @@
 </script>
 
 
-  <title>标签: CloudFlare | Sage自留地😎</title>
+  <title>归档: 2024/12 | Sage自留地😎</title>
 
   <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -577,22 +577,24 @@
     
 </header>
         <!-- 内容区域 -->
-        
-
+        <!-- 设置深色和浅色背景层 -->
 <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-tagDetail" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
 
-<div class="tag-header" style="background-image: url('https://pic1.zhimg.com/80/v2-604a15cef201cf177943af2d915eb2e7_1440w.jpg?source=1940ef5c');">
-  <div class="tag-header-title">
-    tag
+<!-- 定义带有背景图片的页面头部 -->
+<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
+  <!-- 显示归档页面的标题 -->
+  <div class="archive-header-title">
+    archive
   </div>
-  <div class="tag-header-desc">
+  <!-- 显示归档页面的描述，支持typed.js打字机效果 -->
+  <div class="archive-header-desc">
   
-    <span class="title" id="tag-header-desc"></span>
-    <script>
+  <span class="title" id="archive-header-desc"></span>
+  <script>
   function typedFn() {
-    const el = '#tag-header-desc';
-    const type = 'tagDetail';
+    const el = '#archive-header-desc';
+    const type = 'archive';
     let desc = '愿你如风，被人温柔以待'
     var typed = new Typed(el, {
       strings: [desc],
@@ -605,55 +607,86 @@
   }
   typedFn();
 </script>
-    
+  
   </div>
   <div class="mask-box"></div>
 </div>
 
-
-
-<div class="tag">
-  <div class="tag-name">
-    <div class="name" style="background-color: #82E0AA;">CloudFlare 分类</div>
+<!-- 可选的视频背景功能 -->
+<div class="archive-video">
+  <video class="full-video" autoplay loop muted>
+      <source style="width: 100%;height: 100vh;" src="/">
+  </video>
+  <div class="video-header-title">
+    archive
   </div>
-  <!-- 每一篇文章卡片 -->
-  <section class="posts">
+  <div class="video-header-desc">
   
-  
-    <article class="post">
-      <a href="/article/40210.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="利用CloudFlare自建无服务器导航站">
-          <div class="post-excerpt">
-            <p>利用CloudFlare自建无服务器导航站看到这两篇文章记录了利用CloudFlare自建无服务器导航站的过程，但是CloudFlare更新比较快，现在有些操作可能和教程中不太一样，所以这里我简单记录一下。
-利用Cloudflare Worker是可以零成本部署个人导航的！
-如何利用Cloudfla...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">利用CloudFlare自建无服务器导航站</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/CloudFlare/" class="post-tag">#CloudFlare</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-11-15</div>
-    </article>
-  
-</section>
+      <span class="title" id="archive-video-header-desc"></span>
+      <script>
+  function typedFn() {
+    const el = '#archive-video-header-desc';
+    const type = 'archive';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
+  }
+  typedFn();
+</script>
+      
+  </div>
+  <div class="mask-box"></div>
 </div>
 
-<div class="w-70">
-  
+<!-- 哈希算法：用于为没有指定缩略图的文章随机分配图片 -->
+
+
+<!-- 主要的归档内容区域 -->
+<div class="archive-main">
+  <section class="archive">
+    <div class="archive-content">
+      <ul class="post-archive">
+        
+        
+        
+          
+            
+            
+            <div class="year" data-aos="zoom-in-up">
+                <div class="bullet"></div>
+                <a href="/archives/2024/12">2024年12月</a>
+            </div>
+          
+          <!-- 为每篇文章显示日期、标题和缩略图 -->
+          <li class="post-item" data-aos="fade-left">
+            
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                <span class="post-date">12-23</span>
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </section>
+  <!-- 包含分页组件 -->
+  <div class="w-70">
+    
+  </div>
 </div>
 
       </main>
