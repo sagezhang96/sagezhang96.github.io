@@ -1,0 +1,2587 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPKR1PWXJN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-TPKR1PWXJN');
+</script>
+
+
+  <title>【Hacking With Swift】Project13_Instafilter | Sage自留地😎</title>
+
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+
+    <!-- 谷歌自动广告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664449399292469"
+     crossorigin="anonymous"></script>
+
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
+</head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_2" id="loader">
+  <div class="loader"></div>
+</div>
+
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/messageboard" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Sage自留地😎</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="menu-item-link" title="导航站">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/messageboard" class="menu-item-link" title="留言板">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        【Hacking With Swift】Project13_Instafilter
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2024-07-07 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-detail-header_category">
+              技术
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 13.2k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 48分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+<p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>在这个项目中，我们将构建一个应用程序，允许用户从他们的库中导入照片，然后使用各种图像效果对其进行修改。我们将涵盖许多新技术，但在所有这些技术的中心是一个有用的应用程序开发技能 - 使用苹果的核心图像框架 - 以及一个重要的 SwiftUI 技能 - 与 UIKit 集成。还有其他事情，但这两个是最重要的收获。</p>
+<p>核心图像是苹果用于操作图像的高性能框架，非常强大。苹果为我们设计了数十种示例图像滤镜，提供模糊、颜色偏移、像素化等功能，所有这些都经过优化，充分利用了 iOS 设备上的图形处理单元（GPU）。</p>
+<p>提示：虽然您可以在模拟器中运行 Core Image 应用程序，但如果大多数事情运行得很慢，不要感到惊讶 - 只有在物理设备上运行时才能获得出色的性能。</p>
+<p>关于与 UIKit 集成，您可能会想为什么需要这样做 - 毕竟，SwiftUI 旨在取代 UIKit，对吧？嗯，有点。在 SwiftUI 推出之前，几乎每个 iOS 应用都是使用 UIKit 构建的，这意味着可能有数十亿行 UIKit 代码存在。因此，如果您想将 SwiftUI 集成到现有项目中，您需要学习如何使这两者良好地协同工作。</p>
+<p>但还有另一个原因，我希望这不会永远是一个原因：Apple 的框架的许多部分尚未有 SwiftUI 包装器，这意味着如果您想集成 MapKit、Safari 或其他重要的 API，您需要知道如何包装它们的代码以供 SwiftUI 使用。坦率地说，使这项工作正常运转所需的代码并不美观，但在您的 SwiftUI 职业生涯中，您已经做好了准备。</p>
+<p>一如既往，我们在开始项目之前有一些技术要讲解，请使用应用模板创建一个名为“Instafilter”的新 iOS 应用。</p>
+<h2 id="属性包装器如何变成结构体"><a href="#属性包装器如何变成结构体" class="headerlink" title="属性包装器如何变成结构体"></a>属性包装器如何变成结构体</h2><p>您已经看到了 SwiftUI 如何通过使用 @State 属性包装器在视图结构中存储变化的数据，我们如何可以将该状态绑定到 UI 控件的值使用 $ ，以及如何更改该状态会自动导致 SwiftUI 重新调用我们视图的 body 属性。</p>
+<p>所有这些结合在一起，让我们能够编写这样的代码：</p>
+<p>struct ContentView: View {<br>    @State private var blurAmount &#x3D; 0.0</p>
+<pre><code>var body: some View &#123;
+    VStack &#123;
+        Text(&quot;Hello, World!&quot;)
+            .blur(radius: blurAmount)
+
+        Slider(value: $blurAmount, in: 0...20)
+
+        Button(&quot;Random Blur&quot;) &#123;
+            blurAmount = Double.random(in: 0...20)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>如果您运行该程序，您会发现拖动滑块左右会调整文本标签的模糊程度，就像您期望的那样，点击按钮会立即跳转到随机的模糊程度。</p>
+<p>现在，假设我们希望该绑定不仅仅处理模糊效果的半径。也许我们想要运行一个方法，或者只是为了调试目的打印出该值。您可以尝试像这样更新属性：</p>
+<p>@State private var blurAmount &#x3D; 0.0 {<br>    didSet {<br>        print(“New value is (blurAmount)”)<br>    }<br>}<br>如果你运行那段代码，你会感到失望：当你拖动滑块时，你会看到模糊程度发生变化，但你不会看到我们的 print() 语句被触发 - 实际上，根本不会有任何输出。但如果你尝试按下按钮，你会看到打印出的消息。</p>
+<p>为了理解这里发生的事情，我希望你能稍微探索一下 @State 的功能，以及属性包装器实际上为我们做了什么。</p>
+<p>属性包装器之所以被称为这个名字，是因为它们将我们的属性包裹在另一个结构体内部。这意味着当我们使用 @State 来包装一个字符串时，我们最终得到的属性类型是 State<String> 。同样，当我们使用 @Environment 等等时，我们最终得到的是一个包含其他值的 Environment 类型的结构体。</p>
+<p>之前我解释过，我们无法在视图中修改属性，因为它们是结构体，因此是固定的。然而，现在你知道 @State 本身产生一个结构体，所以我们面临一个难题：这个结构体怎么能被修改呢？</p>
+<p>Xcode 有一个非常有用的命令叫做“快速打开”（使用 Cmd+Shift+O 访问），它可以让您在项目中或任何导入的框架中找到任何文件或类型。现在激活它，然后输入“State” - 希望第一个结果下面显示 SwiftUI，如果不是，请找到并选择它。</p>
+<p>您将被带到一个为 SwiftUI 生成的界面，这实质上是 SwiftUI 向我们公开的所有部分。里面没有实现代码，只有大量协议、结构体、修饰符等的定义。</p>
+<p>我们要求查看 State ，因此您应该已被带到此行：</p>
+<p>@propertyWrapper public struct State<Value> : DynamicProperty {<br>那个 @propertyWrapper 属性是我们使用这个 @State 的关键。</p>
+<p>现在往下看几行，您应该会看到这个：</p>
+<p>public var wrappedValue: Value { get nonmutating set }<br>封装的值是我们试图存储的实际值，比如一个字符串。生成的接口告诉我们的是，该属性可以被读取（ get ），并且可以被写入（ set ），但是当我们设置值时，它实际上不会改变结构体本身。在幕后，它将该值发送到 SwiftUI 进行存储，可以在那里自由修改，因此结构体本身永远不会改变。</p>
+<p>现在你知道了所有这些，让我们回到我们有问题的代码：</p>
+<p>@State private var blurAmount &#x3D; 0.0 {<br>    didSet {<br>        print(“New value is (blurAmount)”)<br>    }<br>}<br>表面上，这表示“当 blurAmount 更改时，打印出其新值。”然而，因为 @State 实际上包装了其内容，它实际上是在说当包装 blurAmount 的 State 结构更改时，打印出新的模糊量。</p>
+<p>还跟得上吗？现在让我们再深入一步：您刚刚看到了 State 如何使用非变异设置器包装其值，这意味着 blurAmount 或 State 包装它的结构体都没有发生变化 - 我们的绑定直接改变了内部存储的值，这意味着属性观察器从未被触发。</p>
+<p>因此，通过按钮直接更改属性是有效的，因为它经过非突变的设置器并触发 didSet 观察者，但使用绑定则不行，因为它绕过设置器并直接调整值。</p>
+<p>那么我们如何解决这个问题 - 如何确保无论发生何种更改，都会运行一些代码？嗯，有一个专门用于此目的的修饰符..</p>
+<h2 id="使用-onChange-响应状态更改"><a href="#使用-onChange-响应状态更改" class="headerlink" title="使用 onChange()响应状态更改"></a>使用 onChange()响应状态更改</h2><p>由于 SwiftUI 将绑定更新发送给属性包装器的方式，与属性包装器一起使用的属性观察器通常不会按照您的预期工作，这意味着即使模糊半径发生变化，这种代码也不会打印任何内容：</p>
+<p>struct ContentView: View {<br>    @State private var blurAmount &#x3D; 0.0 {<br>        didSet {<br>            print(“New value is (blurAmount)”)<br>        }<br>    }</p>
+<pre><code>var body: some View &#123;
+    VStack &#123;
+        Text(&quot;Hello, World!&quot;)
+            .blur(radius: blurAmount)
+
+        Slider(value: $blurAmount, in: 0...20)
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>要修复这个问题，我们需要使用 onChange() 修饰符，它告诉 SwiftUI 在特定值更改时运行我们选择的函数。SwiftUI 会自动将旧值和新值传递给您附加的任何函数，因此我们会像这样使用它：</p>
+<p>struct ContentView: View {<br>    @State private var blurAmount &#x3D; 0.0</p>
+<pre><code>var body: some View &#123;
+    VStack &#123;
+        Text(&quot;Hello, World!&quot;)
+            .blur(radius: blurAmount)
+
+        Slider(value: $blurAmount, in: 0...20)
+            .onChange(of: blurAmount) &#123; oldValue, newValue in
+                print(&quot;New value is \(newValue)&quot;)
+            &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>现在，由于 onChange() 正在监视它，该代码将在滑块更改时正确打印出值。请注意，大多数其他内容都保持不变：我们仍然使用 @State private var 来声明 blurAmount 属性，并且我们仍然使用 blur(radius: blurAmount) 作为文本视图的修饰符。</p>
+<p>提示：您可以将 onChange() 附加到视图层次结构中的任何位置，但我更喜欢将其放在实际发生变化的地方附近。</p>
+<p>所有这些意味着你可以在 onChange() 函数内做任何你想做的事情：你可以调用方法，运行算法来确定如何应用更改，或者其他任何你可能需要的操作。</p>
+<p>onChange() 修饰符有另外两种常见变体：</p>
+<p>一个完全不接受任何参数的函数，用于当您只想在值更改时运行函数，但实际上并不关心新值是什么时。<br>只接受新值，而不传入旧值的函数。这在 iOS 17 中已被弃用，这是苹果的说法，意思是“除非需要支持 iOS 16 及更早版本，请不要使用此功能”。</p>
+<h2 id="使用-confirmationDialog-显示多个选项"><a href="#使用-confirmationDialog-显示多个选项" class="headerlink" title="使用 confirmationDialog()显示多个选项"></a>使用 confirmationDialog()显示多个选项</h2><p>SwiftUI 为我们提供了 alert() 来呈现重要选择，以及 sheet() 来在当前视图之上呈现整个视图，但它还为我们提供了 confirmationDialog() ：一种替代 alert() 的方法，让我们添加许多按钮。</p>
+<p>视觉警报和确认对话框非常不同：在 iPhone 上，警报出现在屏幕中央，必须通过选择按钮积极地解除，而确认对话框从底部滑出，可以包含许多按钮，并且可以通过点击“取消”或点击选项之外的地方来解除。</p>
+<p>虽然它们看起来非常不同，但确认对话框和警报几乎是以相同的方式创建的：</p>
+<p>两者都是通过将修饰符附加到我们的视图层次结构上创建的 - 用于警报的 alert() 和用于确认对话框的 confirmationDialog() 。<br>当条件为真时，SwiftUI 会自动显示两者。<br>两者都可以填充按钮以执行各种操作。<br>两者都可以附加第二个封闭以提供额外的消息。<br>为了演示确认对话框的使用，我们首先需要一个基本按钮，用于切换某种条件：</p>
+<p>struct ContentView: View {<br>    @State private var showingConfirmation &#x3D; false<br>    @State private var backgroundColor &#x3D; Color.white</p>
+<pre><code>var body: some View &#123;
+    Button(&quot;Hello, World!&quot;) &#123;
+        showingConfirmation = true
+    &#125;
+    .frame(width: 300, height: 300)
+    .background(backgroundColor)
+&#125;
+</code></pre>
+<p>}<br>现在是重要的部分：我们需要向按钮添加另一个修饰符，在我们准备好时创建并显示确认对话框。</p>
+<p>就像 alert() 一样，我们有一个 confirmationDialog() 修饰符，它接受三个参数：一个标题，一个决定对话框当前是否显示的绑定，以及一个提供应显示的按钮的闭包 - 通常作为尾随闭包提供。</p>
+<p>我们为确认对话框提供标题，可选地也提供消息，然后是一个按钮数组。这些按钮按垂直顺序堆叠在屏幕上，通常最好在最后包括一个取消按钮 - 是的，您可以通过在屏幕其他地方轻击来取消，但最好给用户明确的选项。</p>
+<p>因此，请将此修改器添加到您的文本视图中：</p>
+<p>.confirmationDialog(“Change background”, isPresented: $showingConfirmation) {<br>    Button(“Red”) { backgroundColor &#x3D; .red }<br>    Button(“Green”) { backgroundColor &#x3D; .green }<br>    Button(“Blue”) { backgroundColor &#x3D; .blue }<br>    Button(“Cancel”, role: .cancel) { }<br>} message: {<br>    Text(“Select a new color”)<br>}<br>当您运行应用程序时，您应该发现点击文本会导致确认对话框滑过来，并且点击其选项应该会导致文本的背景颜色发生变化。</p>
+<h2 id="将-Core-Image-与-SwiftUI-集成"><a href="#将-Core-Image-与-SwiftUI-集成" class="headerlink" title="将 Core Image 与 SwiftUI 集成"></a>将 Core Image 与 SwiftUI 集成</h2><p>核心图像是苹果用于操作图像的框架。这不是绘图，或者至少在大多数情况下不是绘图，而是改变现有图像：应用锐化、模糊、晕影、像素化等效果。如果您曾经使用过苹果的照片展台应用程序中提供的各种照片效果，那么您应该对核心图像的用途有一个很好的了解！</p>
+<p>然而，Core Image 与 SwiftUI 集成并不是很好。事实上，我甚至不会说它与苹果较旧的 UIKit 框架集成得很好 - 他们做了一些工作来提供帮助，但仍需要相当多的思考。不过，请跟着我走：一旦你理解了它的工作原理，结果会非常出色，你会发现它为你的应用程序未来开启了一整套功能。</p>
+<p>首先，我们将放入一些代码，以便为我们提供一个基本图像。我将以稍微奇怪的方式构建这个结构，但一旦我们混入核心图像，这将会变得合理：我们将创建 Image 视图作为一个可选的 @State 属性，让它调整大小以与屏幕大小相同，然后添加一个 onAppear() 修饰符来实际加载图像。</p>
+<p>将示例图像添加到您的资源目录，然后将您的 ContentView 结构修改为这样：</p>
+<p>struct ContentView: View {<br>    @State private var image: Image?</p>
+<pre><code>var body: some View &#123;
+    VStack &#123;
+        image?
+            .resizable()
+            .scaledToFit()
+    &#125;
+    .onAppear(perform: loadImage)
+&#125;
+
+func loadImage() &#123;
+    image = Image(.example)
+&#125;
+</code></pre>
+<p>}<br>首先，注意 SwiftUI 如何流畅地处理可选视图 - 它只是有效果！但是，请注意我如何将 onAppear() 修饰符附加到图像周围的 VStack ，因为如果可选图像是 nil ，那么它不会触发 onAppear() 函数。</p>
+<p>无论如何，当该代码运行时，应该显示您添加的示例图像，经过整齐缩放以适应屏幕。</p>
+<p>现在是复杂的部分： Image 到底是什么？正如您所知，它是一个视图，这意味着它是我们可以在 SwiftUI 视图层次结构中定位和调整大小的东西。它还负责从我们的资源目录和 SF Symbols 加载图像，并且还能够从其他几个来源加载。然而，最终它是一个被显示的东西 - 我们无法将其内容写入磁盘或以其他方式转换它们，只能应用一些简单的 SwiftUI 滤镜。</p>
+<p>如果我们想要使用核心图像，SwiftUI 的 Image 视图是一个很好的终点，但在其他地方使用并不实用。也就是说，如果我们想要动态创建图像，应用核心图像滤镜等等，那么 SwiftUI 的图像就不够用了。</p>
+<p>苹果为我们提供了另外三种图像类型供我们使用，巧妙地，如果我们想要使用 Core Image，我们需要同时使用这三种类型。它们听起来可能相似，但它们之间有一些微妙的区别，如果你想从 Core Image 中获得有意义的结果，那么正确地使用它们是非常重要的。</p>
+<p>除了 SwiftUI 的 Image 视图外，另外三种图像类型是：</p>
+<p>UIImage ，来自于 UIKit。这是一种非常强大的图像类型，能够处理各种图像类型，包括位图（如 PNG）、矢量图（如 SVG）甚至形成动画的序列。 UIImage 是 UIKit 的标准图像类型，而在这三种类型中，它与 SwiftUI 的 Image 类型最接近。<br>CGImage ，来自核心图形。这是一种更简单的图像类型，实际上只是一个像素的二维数组。<br>CIImage ，来自核心图像。这存储了生成图像所需的所有信息，但除非被要求，否则不会将其转换为像素。苹果将 CIImage 称为“图像配方”，而不是实际图像。<br>各种图像类型之间存在一定的互操作性：</p>
+<p>我们可以从 CGImage 创建 UIImage ，并从 UIImage 创建 CGImage 。<br>我们可以从 UIImage 和 CGImage 创建 CIImage ，也可以从 CIImage 创建 CGImage 。<br>我们可以从 UIImage 和 CGImage 创建一个 SwiftUI Image 。<br>I know, I know: it’s confusing, but hopefully once you see the code you’ll feel better. What matters is that these image types are pure data – we can’t place them into a SwiftUI view hierarchy, but we can manipulate them freely then present the results in a SwiftUI Image. </p>
+<p>我们将更改 loadImage() ，使其从我们的示例图像中创建一个 UIImage ，然后使用核心图像进行操作。更具体地说，我们将从两个任务开始：</p>
+<p>我们需要将示例图像加载到一个 UIImage 中，该 UIImage 具有一个名为 UIImage(resource:) 的初始化程序，用于从我们的资源目录加载图像。<br>我们将把它转换为 CIImage ，这是 Core Image 想要处理的内容。<br>所以，首先用这个替换您当前的 loadImage() 实现：</p>
+<p>func loadImage() {<br>    let inputImage &#x3D; UIImage(resource: .example)<br>    let beginImage &#x3D; CIImage(image: inputImage)</p>
+<pre><code>// more code to come
+</code></pre>
+<p>}<br>下一步将是创建一个核心图像上下文和一个核心图像滤镜。滤镜是实际执行转换图像数据工作的东西，比如模糊、锐化、调整颜色等，而上下文处理将处理后的数据转换为我们可以使用的 CGImage 。</p>
+<p>这两种数据类型都来自核心图像，因此您需要添加两个导入才能使它们对我们可用。因此，请从在 ContentView.swift 顶部附近添加这些开始：</p>
+<p>import CoreImage<br>import CoreImage.CIFilterBuiltins<br>接下来我们将创建上下文和滤镜。在这个示例中，我们将使用一个棕褐色调滤镜，它会应用一种棕色调，使照片看起来像是很久以前拍摄的。</p>
+<p>所以，请用这个替换 &#x2F;&#x2F; more code to come 注释：</p>
+<p>let context &#x3D; CIContext()<br>let currentFilter &#x3D; CIFilter.sepiaTone()<br>我们现在可以自定义我们的滤镜以改变其工作方式。棕褐色是一个简单的滤镜，因此它只有两个有趣的属性： inputImage 是我们想要更改的图像， intensity 是应用棕褐色效果的强度，指定在范围 0（原始图像）和 1（完全棕褐色）之间。</p>
+<p>因此，在前两行代码下面添加这两行代码：</p>
+<p>currentFilter.inputImage &#x3D; beginImage<br>currentFilter.intensity &#x3D; 1<br>这些都不是特别困难，但在这里发生变化：我们需要将来自过滤器的输出转换为我们可以在视图中显示的 SwiftUI Image 。这就是我们需要同时依赖所有四种图像类型的地方，因为最容易做的事情是：</p>
+<p>从我们的过滤器中读取输出图像，这将是一个 CIImage 。这可能会失败，因此它返回一个可选项。<br>要求我们的上下文从该输出图像中创建一个 CGImage 。这也可能失败，因此再次返回一个可选项。<br>将 CGImage 转换为 UIImage 。<br>将 UIImage 转换为 SwiftUI Image 。<br>您可以直接从 CGImage 转换为 SwiftUI Image ，但需要额外的参数，这只会增加更多的复杂性！</p>
+<p>这是 loadImage() 的最终代码：</p>
+<p>&#x2F;&#x2F; get a CIImage from our filter or exit if that fails<br>guard let outputImage &#x3D; currentFilter.outputImage else { return }</p>
+<p>&#x2F;&#x2F; attempt to get a CGImage from our CIImage<br>guard let cgImage &#x3D; context.createCGImage(outputImage, from: outputImage.extent) else { return }</p>
+<p>&#x2F;&#x2F; convert that to a UIImage<br>let uiImage &#x3D; UIImage(cgImage: cgImage)</p>
+<p>&#x2F;&#x2F; and convert that to a SwiftUI image<br>image &#x3D; Image(uiImage: uiImage)<br>如果再次运行应用程序，您应该会看到您的示例图像现在应用了一个棕褐色效果，这都归功于核心图像。</p>
+<p>现在，您可能会认为这是一项相当繁重的工作，只是为了获得一个相当简单的结果，但是现在您已经掌握了所有核心图像的基础知识，切换到不同的滤镜相对容易。</p>
+<p>话虽如此，Core Image 有点…… 嗯…… 可以说是“创造性”的。它早在 iOS 5.0 中就被引入了，而那时 Swift 已经在苹果内部开发了，但你真的不会知道 - 在很长一段时间里，它的 API 是你能想象到的最不符合 Swift 风格的东西，尽管苹果已经慢慢地清理了它的混乱，但有时你别无选择，只能深入挖掘它的底层。</p>
+<p>首先，让我们看一下现代 API - 我们可以用像这样的像素化滤镜来替换我们的棕褐色调：</p>
+<p>let currentFilter &#x3D; CIFilter.pixellate()<br>currentFilter.inputImage &#x3D; beginImage<br>currentFilter.scale &#x3D; 100<br>当运行时，您会看到我们的图像呈像素化。100 的比例应该意味着像素横跨 100 个点，但由于我的图像太大，像素相对较小。</p>
+<p>现在让我们尝试一下这样的水晶效果：</p>
+<p>let currentFilter &#x3D; CIFilter.crystallize()<br>currentFilter.inputImage &#x3D; beginImage<br>currentFilter.radius &#x3D; 200<br>或者我们可以添加一个类似这样的旋转扭曲滤镜：</p>
+<p>let currentFilter &#x3D; CIFilter.twirlDistortion()<br>currentFilter.inputImage &#x3D; beginImage<br>currentFilter.radius &#x3D; 1000<br>currentFilter.center &#x3D; CGPoint(x: inputImage.size.width &#x2F; 2, y: inputImage.size.height &#x2F; 2)<br>因此，我们可以仅使用现代 API 来完成很多工作。但是对于这个项目，我们将使用旧的 API 来设置诸如 radius 和 scale 这样的值，因为它允许我们动态设置值 - 我们可以直接询问当前过滤器支持哪些值，然后将它们发送过去。</p>
+<p>这是它的外观：</p>
+<p>let currentFilter &#x3D; CIFilter.twirlDistortion()<br>currentFilter.inputImage &#x3D; beginImage</p>
+<p>let amount &#x3D; 1.0</p>
+<p>let inputKeys &#x3D; currentFilter.inputKeys</p>
+<p>if inputKeys.contains(kCIInputIntensityKey) {<br>    currentFilter.setValue(amount, forKey: kCIInputIntensityKey) }<br>if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(amount * 200, forKey: kCIInputRadiusKey) }<br>if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(amount * 10, forKey: kCIInputScaleKey) }<br>有了这个设置，您现在可以将旋转失真更改为任何其他滤镜，代码将继续工作 - 只有在支持的情况下才会发送每个调整值。</p>
+<p>请注意，这取决于为键设置值，这可能会让你想起 UserDefaults 的工作方式。实际上，所有这些 kCIInput 键都是作为字符串在后台实现的，所以它甚至比你意识到的更相似！</p>
+<p>如果您正在实施精确的 Core Image 调整，您应该绝对使用使用确切属性名称和类型的新 API，但在这个项目中，旧 API 也很有用，因为它允许我们发送调整，而不管实际使用的滤镜是什么。</p>
+<h2 id="使用-ContentUnavailableView-显示空状态"><a href="#使用-ContentUnavailableView-显示空状态" class="headerlink" title="使用 ContentUnavailableView 显示空状态"></a>使用 ContentUnavailableView 显示空状态</h2><p>SwiftUI 的 ContentUnavailableView 显示了一个标准的用户界面，用于当您的应用程序没有任何内容可显示时。我知道，这听起来有些多余，对吧？毕竟，如果没有内容可显示，那就是没有内容可显示！</p>
+<p>但是 ContentUnavailableView 非常适合在您的应用程序依赖尚未提供的用户信息的情况下使用，例如当用户尚未创建任何数据，或者当他们正在搜索某些内容但没有结果时。</p>
+<p>例如，如果您正在开发一个应用程序，让用户记录他们想要记住的 Swift 代码片段，它可能默认不包含任何代码片段。因此，您可以像这样使用 ContentUnavailableView ：</p>
+<p>ContentUnavailableView(“No snippets”, systemImage: “swift”)<br>这将显示一个来自 SF Symbols 的大 Swift 图标，下方的标题文本显示为“无片段”。</p>
+<p>您还可以添加一行额外的描述文本，指定为 Text 视图，以便您可以添加额外的样式，如自定义字体或自定义颜色：</p>
+<p>ContentUnavailableView(“No snippets”, systemImage: “swift”, description: Text(“You don’t have any saved snippets yet.”))<br>如果您想要完全控制，您可以为标题和描述提供单独的视图，以及一些按钮来显示，以帮助用户开始使用：</p>
+<p>ContentUnavailableView {<br>    Label(“No snippets”, systemImage: “swift”)<br>} description: {<br>    Text(“You don’t have any saved snippets yet.”)<br>} actions: {<br>    Button(“Create Snippet”) {<br>        &#x2F;&#x2F; create a snippet<br>    }<br>    .buttonStyle(.borderedProminent)<br>}<br>这是一个非常简单易用的视图，比起用户第一次打开应用时只显示空白屏幕要好得多！</p>
+<h2 id="从用户的照片库加载照片"><a href="#从用户的照片库加载照片" class="headerlink" title="从用户的照片库加载照片"></a>从用户的照片库加载照片</h2><p>SwiftUI 的 PhotosPicker 视图为我们提供了一种简单的方式从用户的相册中导入一张或多张照片。为了避免造成任何性能问题,数据以一种称为 PhotosPickerItem 的特殊类型提供给我们,我们可以异步加载它,将数据转换为 SwiftUI 图像。</p>
+<p>这总共需要五个步骤,首先是添加一个 PhotosUI 的 import,与你的常规 SwiftUI import 一起,像这样:</p>
+<p>import PhotosUI<br>import SwiftUI<br>其次，我们需要创建两个属性：一个用于存储被选择的项目，另一个用于将该选择的项目存储为 SwiftUI 图像。这种区别很重要,因为选择的项目只是用户照片库中照片的引用,直到我们实际要求将其加载。</p>
+<p>加这两个现在:</p>
+<p>@State private var pickerItem: PhotosPickerItem?<br>@State private var selectedImage: Image?<br>第三步是在你的 SwiftUI 视图层次结构中添加一个 PhotosPicker 视图。这必须创建一个标题来向用户显示, 一个绑定来存储所选的图像, 以及要显示的数据类型 - 最后一部分允许我们使用 PhotosPicker 来加载视频、实时照片和更多内容。</p>
+<p>将当前视图的 body 属性替换为以下内容:</p>
+<p>VStack {<br>    PhotosPicker(“Select a picture”, selection: $pickerItem, matching: .images)<br>}<br>提示:这是有意在 VStack 中的 - 我们稍后会详细讨论这一点。</p>
+<p>第四步是监视 pickerItem 的变化,因为当它发生变化时意味着用户已选择一张图片让我们加载。完成这一步后,我们就可以在拾取器项目上调用 loadTransferable(type:) ,这是一种告诉 SwiftUI 我们希望从拾取器项目中加载实际的基础数据到 SwiftUI 图像的方法。如果成功,我们就可以将得到的值赋给 selectedImage 属性。</p>
+<p>将此修饰符添加到 VStack 中:</p>
+<p>.onChange(of: pickerItem) {<br>    Task {<br>        selectedImage &#x3D; try await pickerItem?.loadTransferable(type: Image.self)<br>    }<br>}<br>提示：调用 loadTransferable(type:) 可能需要数秒钟才能完成，尤其是对于大型图片如全景图。</p>
+<p>现在第五步是将加载的 SwiftUI 图像显示在某个位置。将其添加到 VStack 中,可以放在 PhotosPicker 之前或之后:</p>
+<p>selectedImage?<br>    .resizable()<br>    .scaledToFit()<br>现在尝试一下吧!模拟器带有几个内置图像,您可以用它们进行测试。如果选择其中一个,您应该会在 Image 视图中看到它被加载并显示在屏幕上。</p>
+<p>有许多其他方式 PhotosPicker 可以使用,这取决于您的需求。例如,您可以将它传递给一个拾取器项目数组的绑定,并让用户选择多个。这意味着创建一个作为属性的拾取器项目数组:</p>
+<p>@State private var pickerItems &#x3D; <a href="">PhotosPickerItem</a><br>然后像以前一样传递该数组:</p>
+<p>PhotosPicker(“Select images”, selection: $pickerItems, matching: .images)<br>更困难的部分是处理这些图像,然后以某种方式显示它们,因为我们不能再观看单个照片选择器项目。</p>
+<p>相反,您应该创建一个数组来存储加载的图像,像这样:</p>
+<p>@State private var selectedImages &#x3D; <a href="">Image</a><br>然后使用 ForEach 或类似的方式显示它们,像这样:</p>
+<p>ScrollView {<br>    ForEach(0..&lt;selectedImages.count, id: .self) { i in<br>        selectedImages[i]<br>            .resizable()<br>            .scaledToFit()<br>    }<br>}<br>最后更新您的 onChange() ，以便在选择新项目时清除该数组，然后单独加载新的集合</p>
+<p>.onChange(of: pickerItems) {<br>    Task {<br>        selectedImages.removeAll()</p>
+<pre><code>    for item in pickerItems &#123;
+        if let loadedImage = try await item.loadTransferable(type: Image.self) &#123;
+            selectedImages.append(loadedImage)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>如果您允许用户选择多张照片,我建议您通过添加 maxSelectionCount 参数来限制一次最多可选择的照片数量,如下所示:</p>
+<p>PhotosPicker(“Select images”, selection: $pickerItems, maxSelectionCount: 3, matching: .images)<br>有两种最后的方式可以自定义照片导入,首先是标签。与许多 SwiftUI 视图一样,如果您愿意,您可以提供完全自定义的标签,这可能是一个 Label 视图或完全自定义的内容。</p>
+<p>PhotosPicker(selection: $pickerItems, maxSelectionCount: 3, matching: .images) {<br>    Label(“Select a picture”, systemImage: “photo”)<br>}<br>最后一种方式是限制可以导入的图片类型。我们在这里全部使用 .images ，这意味着我们将获得常规照片、屏幕截图、全景图等。您可以使用 .any() 、 .all() 和 .not() 应用更高级的过滤器，并传递一个数组。例如，这将匹配除屏幕截图之外的所有图像：</p>
+<p>PhotosPicker(selection: $pickerItems, maxSelectionCount: 3, matching: .any(of: [.images, .not(.screenshots)])) {<br>    Label(“Select a picture”, systemImage: “photo”)<br>}</p>
+<h2 id="如何让用户使用分享链接分享内容"><a href="#如何让用户使用分享链接分享内容" class="headerlink" title="如何让用户使用分享链接分享内容"></a>如何让用户使用分享链接分享内容</h2><p>SwiftUI 的 ShareLink 视图允许用户从我们的应用中导出内容以进行分享，例如将图片保存到他们的照片库，使用信息应用程序将链接发送给朋友等等。</p>
+<p>我们提供我们想要分享的内容，iOS 会显示所有可以处理我们发送的数据的应用。例如，我们可以分享以下 URL： ## Additional Notes: * The source text is already concise, and the translated version is also direct and to the point. * The meaning of the text is accurately conveyed in the translation.</p>
+<p>ShareLink(item: URL(string: “<a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com</a>“)!)<br>这将创建一个带有“分享”图标的按钮，点击它将打开 iOS 分享面板。如果您使用的是模拟器，您将只看到一些示例内容，其中一些甚至可能无法正常工作，但如果您使用的是真机，您将看到您可以正常分享该 URL。</p>
+<p>如果您希望对数据有更多控制，您可以选择以下几种方式。</p>
+<p>首先，您可以像这样将主题和消息附加到共享数据：</p>
+<p>ShareLink(item: URL(string: “<a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com</a>“)!, subject: Text(“Learn Swift here”), message: Text(“Check out the 100 Days of SwiftUI!”))<br>这些信息如何使用取决于应用程序的用户分享给谁——URL 将始终附加，因为它是最重要的。但是，有些应用程序将使用主题，有些将使用消息，还有一些将同时使用两者。</p>
+<p>其次，您可以通过提供您想要的任何标签来自定义按钮本身：</p>
+<p>ShareLink(item: URL(string: “<a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com</a>“)!) {<br>    Label(“Spread the word about Swift”, systemImage: “swift”)<br>}<br>您可以提供一个预览附件，这对于分享更复杂内容非常重要，因为您可以在此处分享完全自定义的数据，因此预览可以帮助收件人了解内容。</p>
+<p>令人讨厌的是，即使对于作为其自身预览的数据（例如图像）也需要这样做。为了避免使您的代码重复，我建议将图像分配给一个局部常量，然后使用它：</p>
+<p>let example &#x3D; Image(.example)</p>
+<p>ShareLink(item: example, preview: SharePreview(“Singapore Airport”, image: example)) {<br>    Label(“Click to share”, systemImage: “airplane”)<br>}<br>让用户分享来自您应用的数据非常重要，因为没有它，您的数据就会与他们的其他生活隔绝！</p>
+<h2 id="如何要求用户留下-App-Store-评论"><a href="#如何要求用户留下-App-Store-评论" class="headerlink" title="如何要求用户留下 App Store 评论"></a>如何要求用户留下 App Store 评论</h2><p>SwiftUI 提供了一个名为 .requestReview 的特殊环境键，让我们可以要求用户在 App Store 上为我们的应用程序留下评论。苹果负责显示整个用户界面，确保如果用户已经留下评论，则不会显示，并且还限制请求显示的频率 - 我们只需要在准备好时发出请求。</p>
+<p>这个过程分为三个步骤，从为 StoreKit 导入新内容开始：</p>
+<p>import StoreKit<br>第二步，您需要添加一个属性来从 SwiftUI 的环境中读取审阅请求者：</p>
+<p>@Environment(.requestReview) var requestReview<br>第三，当您准备好时，需要请求审查。当您刚开始时，您可能会认为将审查附加到按钮按下是一个好主意，就像这样：</p>
+<p>Button(“Leave a review”) {<br>    requestReview()<br>}<br>然而，这远非理想，至少因为我们只是请求显示一个审查提示 - 用户可能已在整个系统中禁用了这些警报，或者他们可能已经达到了允许的审查请求的最大数量，在这种情况下，您的按钮将无效。</p>
+<p>相反，最好在您认为是正确时机时自动调用 requestReview() 。一个很好的起点是当用户已经完成了一些重要任务的次数，因为这样可以清楚地表明他们已经意识到您的应用程序的好处。</p>
+<h1 id="开始构建"><a href="#开始构建" class="headerlink" title="开始构建"></a>开始构建</h1><h2 id="构建我们的基本用户界面"><a href="#构建我们的基本用户界面" class="headerlink" title="构建我们的基本用户界面"></a>构建我们的基本用户界面</h2><p>我们项目的第一步是构建基本用户界面，对于这个应用程序来说将是：</p>
+<p>一个 NavigationStack ，这样我们就可以在顶部显示我们应用程序的名称。<br>一个提示用户选择照片的框，我们将在其上放置他们导入的图片。<br>一个“强度”滑块，将影响我们应用核心图像滤镜的强度，存储为从 0.0 到 1.0 的值。<br>一个分享按钮，用于从应用程序中导出处理过的图像。<br>我们不会一开始就把所有这些位放在一起；只放足够的部分让您看到事物是如何组合在一起的。</p>
+<p>最初用户尚未选择图像，因此我们将使用 @State 可选图像属性来表示。</p>
+<p>首先将这两个属性添加到 ContentView ：</p>
+<p>@State private var processedImage: Image?<br>@State private var filterIntensity &#x3D; 0.5<br>现在将其 body 属性的内容修改为这样：</p>
+<p>NavigationStack {<br>    VStack {<br>        Spacer()</p>
+<pre><code>    // image area
+
+    Spacer()
+
+    HStack &#123;
+        Text(&quot;Intensity&quot;)
+        Slider(value: $filterIntensity)
+    &#125;
+    .padding(.vertical)
+
+    HStack &#123;
+        Button(&quot;Change Filter&quot;) &#123;
+            // change filter
+        &#125;
+
+        Spacer()
+
+        // share the picture
+    &#125;
+&#125;
+.padding([.horizontal, .bottom])
+.navigationTitle(&quot;Instafilter&quot;)
+</code></pre>
+<p>}<br>使用两个间距，以便我们始终在图像区域上方和下方获得空间，这也确保滤镜控件始终固定在屏幕底部。</p>
+<p>关于应该放在 &#x2F;&#x2F; image area 注释位置的内容，将是以下两种情况之一：如果我们已经选择了一张图片，那么我们应该展示它，否则我们将显示一个简单的 ContentUnavailableView ，以便用户知道这个空间不是无意间留空的</p>
+<p>if let processedImage {<br>    processedImage<br>        .resizable()<br>        .scaledToFit()<br>} else {<br>    ContentUnavailableView(“No Picture”, systemImage: “photo.badge.plus”, description: Text(“Tap to import a photo”))<br>}<br>我喜欢能够将可选视图放置在 SwiftUI 布局中，并且我认为它与 ContentUnavailableView 特别配合得很好，因为一次只有一个是可见的。是的，点击视图目前不会有任何作用，但我们很快会解决这个问题。</p>
+<p>现在，由于我们的代码在这里相当简单，我想简要探讨一下清理一下我们的 body 属性是什么样子的 - 我们在那里有很多布局代码，但里面也有一个按钮操作。</p>
+<p>是的，更改过滤器按钮内部不会有很多复杂功能，但这是将按钮操作拆分的良好实践。</p>
+<p>现在这意味着向 ContentView 添加一个空方法，就像这样：</p>
+<p>func changeFilter() {<br>}<br>然后从“更改过滤器”按钮中调用它，就像这样：</p>
+<p>Button(“Change Filter”, action: changeFilter)<br>当你在学习时，直接在视图中编写按钮操作和类似内容是非常常见的，但一旦你开始进行真实项目，花额外时间保持代码整洁是个好主意 - 这会让你的生活在长期内变得更轻松，相信我！</p>
+<p>我将会继续添加类似这样的小清理技巧，以便在您接近课程结束时，您会越来越有信心，您的代码质量良好。</p>
+<h2 id="使用-PhotosPicker-将图像导入-SwiftUI"><a href="#使用-PhotosPicker-将图像导入-SwiftUI" class="headerlink" title="使用 PhotosPicker 将图像导入 SwiftUI"></a>使用 PhotosPicker 将图像导入 SwiftUI</h2><p>为了让这个项目变为现实，我们需要让用户从他们的库中选择一张照片，然后在 ContentView 中显示它。这需要一点思考，主要是因为 Core Image 的工作方式与 SwiftUI 相比有些绕。</p>
+<p>首先，我们需要在 ContentView 的顶部添加一个 PhotosUI 导入，然后给它添加一个额外的 @State 属性来跟踪用户选择的任何图片：</p>
+<p>@State private var selectedItem: PhotosPickerItem?<br>其次，我们需要在想要触发图像选择的位置放置一个 PhotosPicker 视图。在这个应用中，我们实际上可以在整个 if let processedImage 检查周围放置一个视图 - 我们可以使用所选图像或 ContentUnavailableView 作为 PhotosPicker 的标签。</p>
+<p>这是它的外观：</p>
+<p>PhotosPicker(selection: $selectedItem) {<br>    if let processedImage {<br>        processedImage<br>            .resizable()<br>            .scaledToFit()<br>    } else {<br>        ContentUnavailableView(“No Picture”, systemImage: “photo.badge.plus”, description: Text(“Import a photo to get started”))<br>    }<br>}<br>提示：这会向 ContentUnavailableView 添加蓝色着色，以表示它是可交互的，但如果您喜欢，您可以通过向 PhotosPicker 添加 .buttonStyle(.plain) 来禁用该功能。</p>
+<p>第三，我们需要一个在选择了图像后将被调用的方法。</p>
+<p>之前我向您展示了如何从 PhotosPicker 选择加载数据，另外我也向您展示了如何将 UIImage 馈送到核心图像进行过滤。在这里，我们需要将这两件事情结合起来：我们无法加载一个简单的 SwiftUI 图像，因为它们无法被馈送到核心图像，所以我们加载一个纯 Data 对象，然后将其转换为 UIImage 。</p>
+<p>现在将此方法添加到 ContentView 中：</p>
+<p>func loadImage() {<br>    Task {<br>        guard let imageData &#x3D; try await selectedItem?.loadTransferable(type: Data.self) else { return }<br>        guard let inputImage &#x3D; UIImage(data: imageData) else { return }</p>
+<pre><code>    // more code to come
+&#125;
+</code></pre>
+<p>}<br>我们可以在 ContentView 的某个地方附加一个 onChange() 修饰符，这样每当我们的 selectedItem 属性发生变化时，就可以调用它 - 实际上，附加到 PhotosPicker 似乎是明智的。</p>
+<p>.onChange(of: selectedItem, loadImage)<br>请继续运行该应用程序 - 尽管它实际上不会对您的选择做太多事情，但您至少可以打开照片选择界面并浏览选项。</p>
+<h2 id="使用核心图像进行基本图像过滤"><a href="#使用核心图像进行基本图像过滤" class="headerlink" title="使用核心图像进行基本图像过滤"></a>使用核心图像进行基本图像过滤</h2><p>现在我们的项目已经有了用户选择的图像，下一步是让用户对其应用不同的核心图像滤镜。首先，我们将只使用一个滤镜，但很快我们将使用确认对话框来扩展功能。</p>
+<p>如果我们想在我们的应用程序中使用核心图像，我们首先需要在 ContentView.swift 的顶部添加两个导入：</p>
+<p>import CoreImage<br>import CoreImage.CIFilterBuiltins<br>接下来，我们需要一个上下文和一个滤镜。Core Image 上下文是一个负责将 CIImage 渲染为 CGImage 的对象，或者更实际的说法是将图像的配方转换为我们可以处理的实际像素系列的对象。</p>
+<p>上下文的创建成本很高，因此，如果您打算渲染许多图像，最好是创建一个上下文并保持其活动状态。至于过滤器，我们将使用 CIFilter.sepiaTone() 作为默认值，但由于稍后我们将使其更灵活，所以我们将使过滤器使用 @State ，以便进行更改。</p>
+<p>因此，请将这两个属性添加到 ContentView ：</p>
+<p>@State private var currentFilter &#x3D; CIFilter.sepiaTone()<br>let context &#x3D; CIContext()<br>有了这两个设置，我们现在可以编写一个方法来处理导入的任何图像 - 这意味着它将根据 filterIntensity 中的值设置我们的深褐色滤镜的强度，从滤镜中读取输出图像，要求我们的 CIContext 来渲染它，然后将结果放入我们的 processedImage 属性中，以便在屏幕上显示。</p>
+<p>func applyProcessing() {<br>    currentFilter.intensity &#x3D; Float(filterIntensity)</p>
+<pre><code>guard let outputImage = currentFilter.outputImage else &#123; return &#125;
+guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else &#123; return &#125;
+
+let uiImage = UIImage(cgImage: cgImage)
+processedImage = Image(uiImage: uiImage)
+</code></pre>
+<p>}<br>提示：遗憾的是，古铜色调滤镜背后的核心图像希望值为 Float 而不是 Double 。这让核心图像感觉更老了，我知道，但不要担心 - 我们很快就会让它消失！</p>
+<p>下一个任务是改变 loadImage() 的工作方式。现在它以 &#x2F;&#x2F; more code to come 注释结束，但实际上它应该将选择的任何图像发送到棕褐色调滤镜中，然后调用 applyProcessing() 来实现魔法。</p>
+<p>核心图像滤镜有一个专用的 inputImage 属性，让我们发送一个 CIImage 给滤镜使用，但通常这会彻底破坏并导致应用程序崩溃 - 使用滤镜的 setValue() 方法与关键 kCIInputImageKey 更安全。</p>
+<p>所以，请用这个替换 &#x2F;&#x2F; more code to come 注释：</p>
+<p>let beginImage &#x3D; CIImage(image: inputImage)<br>currentFilter.setValue(beginImage, forKey: kCIInputImageKey)<br>applyProcessing()<br>如果现在运行代码，您会看到我们的基本应用程序流程运行良好：我们可以选择一张图片，然后看到它应用了一个深褐色效果。但是我们添加的强度滑块没有任何作用，尽管它绑定到与我们的滤镜正在读取的相同 filterIntensity 值。</p>
+<p>这里发生的事情不应该太令人惊讶：即使滑块正在改变 filterIntensity 的值，改变该属性不会自动再次触发我们的 applyProcessing() 方法。相反，我们需要通过手动告诉 SwiftUI 用 onChange() 监视 filterIntensity 来实现这一点。</p>
+<p>再次，这些 onChange() 修饰符可以放在我们的 SwiftUI 视图层次结构的任何位置，但由于滑块直接更改值，我会将其附加在那里：</p>
+<p>Slider(value: $filterIntensity)<br>    .onChange(of: filterIntensity, applyProcessing)<br>提示：如果多个视图调整相同的值，或者不太确定是什么在改变该值，那么我会在视图的末尾添加修饰符。</p>
+<p>你现在可以运行应用程序了，但要警告你：尽管 Core Image 在所有 iPhone 上非常快，但在模拟器上通常非常慢。这意味着你可以尝试运行它以确保一切正常，但如果你的代码运行速度极慢也不要感到惊讶。</p>
+<h2 id="使用-confirmationDialog-自定义我们的过滤器"><a href="#使用-confirmationDialog-自定义我们的过滤器" class="headerlink" title="使用 confirmationDialog()自定义我们的过滤器"></a>使用 confirmationDialog()自定义我们的过滤器</h2><p>到目前为止，我们已经将 SwiftUI 和 Core Image 结合在一起，但该应用程序仍然不是很有用——毕竟，棕褐色调效果并不是那么有趣。</p>
+<p>为了使整个应用程序变得更好，我们将让用户自定义他们想要应用的过滤器，我们将使用确认对话框来完成此操作。在 iPhone 上，这是一个从屏幕底部向上滑动的按钮列表，您可以添加任意数量的按钮 - 如果您确实需要，它甚至可以滚动。</p>
+<p>首先，我们需要一个属性来存储是否应显示确认对话框，因此将其添加到 ContentView ：</p>
+<p>@State private var showingFilters &#x3D; false<br>现在我们可以使用 confirmationDialog() 修饰符添加按钮。这与 alert() 的工作原理相同：我们提供要监视的标题和条件，一旦条件变为真，就会显示确认对话框。</p>
+<p>首先在导航标题下方添加此修饰符：</p>
+<p>.confirmationDialog(“Select a filter”, isPresented: $showingFilters) {<br>    &#x2F;&#x2F; dialog here<br>}<br>现在用以下内容填充 changeFilter() 方法：</p>
+<p>showingFilters &#x3D; true<br>关于在确认对话框中显示的内容，我们可以创建一组要显示的按钮和一条可选消息。这些按钮的工作方式与 alert() 类似：我们提供文本标题和选择时要运行的操作。</p>
+<p>对于此应用程序中的确认对话框，我们希望用户从一系列不同的 Core Image 过滤器中进行选择，当他们选择一个过滤器时，应该激活并立即应用它。为了完成这项工作，我们将编写一个方法，将 currentFilter 修改为他们选择的任何新过滤器，然后立即调用 loadImage() 。</p>
+<p>我们的计划有一个问题，这是 Apple 包装 Core Image API 以使它们对 Swift 更友好的方式造成的。你看，底层的 Core Image API 完全是字符串类型的——它使用字符串来设置值，而不是固定的属性——所以苹果并没有发明所有新的类来让我们使用，而是创建了一系列协议。</p>
+<p>当我们将 CIFilter.sepiaTone() 分配给属性时，我们会得到 CIFilter 类的对象，该对象恰好符合名为 CISepiaTone 的协议。然后该协议公开我们一直在使用的 intensity 参数，但在内部它只会将其映射到对 setValue(_:forKey:) 的调用。</p>
+<p>这种灵活性实际上对我们有利，因为它意味着我们可以编写适用于所有过滤器的代码，只要我们小心不要发送无效值即可。</p>
+<p>那么，让我们开始解决问题吧。请将您的 currentFilter 属性更改为：</p>
+<p>@State private var currentFilter: CIFilter &#x3D; CIFilter.sepiaTone()<br>因此， CIFilter.sepiaTone() 返回一个符合 CISepiaTone 协议的 CIFilter 对象。添加显式类型注释意味着我们将丢弃一些数据：我们说过滤器必须是 CIFilter 但不必再符合 CISepiaTone 。</p>
+<p>由于此更改，我们失去了对 intensity 属性的访问权限，这意味着此代码将不再有效：</p>
+<p>currentFilter.intensity &#x3D; Float(filterIntensity)<br>相反，我们需要将其替换为对 setValue(:_forKey:) 的调用。无论如何，这就是协议所做的全部事情，但它确实提供了有价值的额外类型安全性。</p>
+<p>将那行断线的代码替换为：</p>
+<p>currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)<br>kCIInputIntensityKey 是另一个Core Image常量值，它与设置棕褐色色调滤镜的 intensity 参数具有相同的效果。</p>
+<p>完成此更改后，我们可以返回确认对话框：我们希望能够将该过滤器更改为其他内容，然后调用 loadImage() 重置所有内容并应用初始处理。因此，将此方法添加到 ContentView 中：</p>
+<p>func setFilter(_ filter: CIFilter) {<br>    currentFilter &#x3D; filter<br>    loadImage()<br>}<br>提示：这意味着每次过滤器更改时都会触发图像加载。如果您想让运行速度更快一点，可以将 beginImage 存储在另一个 @State 属性中，以避免每次过滤器更改时重新加载图像。</p>
+<p>完成后，我们现在可以用一系列尝试各种 Core Image 过滤器的按钮替换 &#x2F;&#x2F; dialog here 注释。</p>
+<p>把它放在它的位置：</p>
+<p>Button(“Crystallize”) { setFilter(CIFilter.crystallize()) }<br>Button(“Edges”) { setFilter(CIFilter.edges()) }<br>Button(“Gaussian Blur”) { setFilter(CIFilter.gaussianBlur()) }<br>Button(“Pixellate”) { setFilter(CIFilter.pixellate()) }<br>Button(“Sepia Tone”) { setFilter(CIFilter.sepiaTone()) }<br>Button(“Unsharp Mask”) { setFilter(CIFilter.unsharpMask()) }<br>Button(“Vignette”) { setFilter(CIFilter.vignette()) }<br>Button(“Cancel”, role: .cancel) { }<br>我从大量的核心图像过滤器中挑选了这些过滤器，但欢迎您尝试使用代码完成来尝试其他东西 - 输入 CIFilter. 并看看会出现什么！</p>
+<p>继续运行应用程序，选择一张图片，然后尝试将棕褐色色调更改为晕影 - 这会在照片边缘周围应用变暗效果。 （如果您使用模拟器，请记住给它一点时间，因为它很慢！）</p>
+<p>现在尝试将其更改为高斯模糊，这应该会模糊图像，但会导致我们的应用程序崩溃。通过放弃过滤器的 CISepiaTone 限制，我们现在被迫使用 setValue(_:forKey:) 发送值，这根本不提供安全性。在这种情况下，高斯模糊滤镜没有强度值，因此应用程序会崩溃。</p>
+<p>为了解决这个问题 - 也为了让我们的单个滑块做更多的工作 - 我们将添加一些更多的代码来读取我们可以与 setValue(_:forKey:) 一起使用的所有有效键，并且仅在以下情况下设置强度键当前过滤器支持它。使用这种方法，我们实际上可以查询任意数量的键，并设置所有支持的键。因此，对于棕褐色调，这将设置强度，但对于高斯模糊，它将设置半径（模糊的大小），依此类推。</p>
+<p>这种条件方法适用于您选择应用的任何过滤器，这意味着您可以安全地与其他过滤器进行实验。您唯一需要注意的是确保将 filterIntensity 放大一个有意义的数字 - 例如，1 像素模糊几乎是不可见的，所以我将乘以它200 使其更加明显。</p>
+<p> 替换这一行：</p>
+<p>currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)<br> 有了这个：</p>
+<p>let inputKeys &#x3D; currentFilter.inputKeys</p>
+<p>if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }<br>if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }<br>if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }<br>完成后，您现在可以安全地运行应用程序，导入您选择的图片，然后尝试所有各种过滤器 - 不会再出现任何崩溃。尝试尝试不同的过滤器和键，看看你能找到什么！</p>
+<h2 id="使用-ShareLink-共享图像"><a href="#使用-ShareLink-共享图像" class="headerlink" title="使用 ShareLink 共享图像"></a>使用 ShareLink 共享图像</h2><p>为了完成这个项目，我们将添加两个更重要的功能：让用户使用 SwiftUI 的 ShareLink 视图分享他们的图像，然后添加一个提示，鼓励他们在 App Store 上查看我们的应用程序 – 一旦当然，已经过去了适当的时间。</p>
+<p>这些都没有挑战性，所以让我们直接进入代码。</p>
+<p>SwiftUI 的 ShareLink 按钮让我们只需一行代码即可共享文本、URL 和图像等内容，并且它会自动使用系统标准共享表，以便用户看到支持该功能的所有应用程序。我们发送的数据。</p>
+<p>在我们的例子中，我们已经有一个 &#x2F;&#x2F; share the picture 注释，但需要将其替换为检查是否有要共享的图像，如果有，则需要一个 ShareLink 按钮使用它。</p>
+<p>将评论替换为：</p>
+<p>if let processedImage {<br>    ShareLink(item: processedImage, preview: SharePreview(“Instafilter image”, image: processedImage))<br>}<br>这已经是完成的第一步，但请记住在真实设备上尝试，以便您可以看到各种真实应用程序如何响应图像。</p>
+<p>现在剩下的就是要求用户评论我们的应用程序。请记住，只有在用户真正感受到应用程序的好处之后才最好显示这一点，因为如果您问得太早，他们更有可能忽略该请求。</p>
+<p>因此，我们不会总是显示请求，而是要等到用户更改过滤器至少 20 次——这足以让他们不止一次地浏览所有选项，所以希望他们很乐意提供帮助回顾。</p>
+<p>首先，我们需要添加两个新属性：一个用于从 SwiftUI 环境获取审阅者请求者，另一个用于跟踪发生了多少个过滤器更改。添加另一个导入到 ContentView.swift，这次是 StoreKit，然后将这两个属性添加到 ContentView&#96;：</p>
+<p>@AppStorage(“filterCount”) var filterCount &#x3D; 0<br>@Environment(.requestReview) var requestReview<br>现在我们需要在 setFilter() 方法的末尾添加一些代码，以便为每个过滤器更改增加 filterCount ，然后在至少有 20 个过滤器更改时激活审核请求。将其放在方法的末尾：</p>
+<p>filterCount +&#x3D; 1</p>
+<p>if filterCount &gt;&#x3D; 20 {<br>    requestReview()<br>}<br>这将在 Xcode 中触发错误：请求审核必须在 Swift 的主要参与者上完成，这是我们应用程序中能够与用户界面配合使用的部分。尽管我们目前正在 SwiftUI 视图中编写代码，但 Swift 无法保证此代码将在主要参与者上运行，除非我们特别强制这样做。</p>
+<p>这听起来很复杂，但实际上它只是意味着将方法更改为：</p>
+<p>@MainActor func setFilter(_ filter: CIFilter) {<br>现在，Swift 将确保代码始终在主要参与者上运行，并且编译错误将消失。</p>
+<p>提示：出于测试目的，您或许应该将审核条件从 20 个更改为 5 个左右，以确保您的代码按照您期望的方式工作！</p>
+<p>最后一步完成了我们的应用程序，因此请继续再次运行它并从头到尾尝试 - 导入图片，应用过滤器，然后将其共享到其他应用程序。做得好！</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>们在本教程中介绍了很多内容，尤其是了解如何依靠 Core Image 等强大的框架来引入令人印象深刻的图形效果。是的，它从未顺利过渡到 Swift - 如果您想充分利用它，您需要知道它的怪癖。不过，您现在已经度过了最糟糕的时期，所以希望您可以尝试在自己的代码中使用它！</p>
+<p>同时，我们还学习了一些很棒的 SwiftUI 东西，包括确认对话框、 onChange() 、 ContentUnavailableView 和 App Store 评论，所有这些都非常常见并且将继续有用未来几年。</p>
+<p>回顾你所学到的内容<br>任何人都可以听完教程，但需要实际工作才能记住所教的内容。我的工作是确保您从这些教程中获得尽可能多的知识，因此我准备了一篇简短的评论来帮助您检查您的学习情况。</p>
+<p>单击此处查看您在此项目中学到的内容。</p>
+<p> 挑战<br>最好的学习方法之一是尽可能多地编写自己的代码，因此您应该尝试扩展此应用程序，以确保您完全理解正在发生的事情，可以通过以下三种方法。</p>
+<p>如果没有选择图像，请尝试禁用“滑块”和“更改过滤器”按钮。<br>尝试使用多个滑块来控制您关心的每个输入键。例如，您可能有一个用于半径，一个用于强度。<br>探索可用的 Core Image 滤镜范围，并将您选择的任意三个添加到应用程序中。<br>提示：最后一个可能比您预期的要棘手一些。为什么？也许想一下 10 秒钟！</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="">
+              编程
+            </a>
+          
+            <a href="/tags/Swift/" class="">
+              Swift
+            </a>
+          
+            <a href="/tags/Hacking-with-Swift/" class="">
+              Hacking with Swift
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/11062.html" target="_blank" title="【Hacking With Swift】Project13_Instafilter">https://blog.five2fire.top/article/11062.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/3999.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">短暂的两个月副业总结</div>
+      </div>
+      
+      <!-- <div class="content">
+        前言这篇文章，从我刚开始做这个副业，就已经决定要写，到9.15号停止接单，再到今天开始写，拖了快一个月了。
+其实到上个月
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/10671.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">【Hacking With Swift】Project12_SwiftData</div>
+      </div>
+      <!-- <div class="content">
+        英文原博博主是   Paul Hudson     @twostraws
+本文是学习Swift过程中翻译该网站的内容: 
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
+        
+        
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%8C%85%E8%A3%85%E5%99%A8%E5%A6%82%E4%BD%95%E5%8F%98%E6%88%90%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">属性包装器如何变成结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-onChange-%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E6%9B%B4%E6%94%B9"><span class="toc-text">使用 onChange()响应状态更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-confirmationDialog-%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E9%80%89%E9%A1%B9"><span class="toc-text">使用 confirmationDialog()显示多个选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86-Core-Image-%E4%B8%8E-SwiftUI-%E9%9B%86%E6%88%90"><span class="toc-text">将 Core Image 与 SwiftUI 集成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-ContentUnavailableView-%E6%98%BE%E7%A4%BA%E7%A9%BA%E7%8A%B6%E6%80%81"><span class="toc-text">使用 ContentUnavailableView 显示空状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E7%94%A8%E6%88%B7%E7%9A%84%E7%85%A7%E7%89%87%E5%BA%93%E5%8A%A0%E8%BD%BD%E7%85%A7%E7%89%87"><span class="toc-text">从用户的照片库加载照片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB%E9%93%BE%E6%8E%A5%E5%88%86%E4%BA%AB%E5%86%85%E5%AE%B9"><span class="toc-text">如何让用户使用分享链接分享内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A6%81%E6%B1%82%E7%94%A8%E6%88%B7%E7%95%99%E4%B8%8B-App-Store-%E8%AF%84%E8%AE%BA"><span class="toc-text">如何要求用户留下 App Store 评论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA"><span class="toc-text">开始构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%88%91%E4%BB%AC%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">构建我们的基本用户界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-PhotosPicker-%E5%B0%86%E5%9B%BE%E5%83%8F%E5%AF%BC%E5%85%A5-SwiftUI"><span class="toc-text">使用 PhotosPicker 将图像导入 SwiftUI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A0%B8%E5%BF%83%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%83%8F%E8%BF%87%E6%BB%A4"><span class="toc-text">使用核心图像进行基本图像过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-confirmationDialog-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%88%91%E4%BB%AC%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">使用 confirmationDialog()自定义我们的过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-ShareLink-%E5%85%B1%E4%BA%AB%E5%9B%BE%E5%83%8F"><span class="toc-text">使用 ShareLink 共享图像</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-02</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/40210.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-15</span>
+                
+              </div>
+              <a class="post-title" href="/article/40210.html">利用CloudFlare自建无服务器导航站</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/12599.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-12</span>
+                
+              </div>
+              <a class="post-title" href="/article/12599.html">不要掉入完美主义的陷阱</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/4248.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/4248.html">《姥姥的外孙》影评</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(50, 155, 230, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline-comment"></div>
+  <script type="module">
+    let walineInstance = null;
+
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
+
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
+
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 清空编辑器内容
+        clearWalineEditor();
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
+    }
+
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
+      initWaline();
+    });
+  </script>
+</body>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

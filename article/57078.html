@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPKR1PWXJN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-TPKR1PWXJN');
+</script>
+
+
+  <title>Preparation for Hackingwithswift | Sage自留地😎</title>
+
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+
+    <!-- 谷歌自动广告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664449399292469"
+     crossorigin="anonymous"></script>
+
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
+</head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_2" id="loader">
+  <div class="loader"></div>
+</div>
+
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/messageboard" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Sage自留地😎</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="menu-item-link" title="导航站">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/messageboard" class="menu-item-link" title="留言板">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Preparation for Hackingwithswift
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2024-05-22 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-detail-header_category">
+              技术
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 3.4k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 18分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这部分是Swift的基础知识，学习以为后续SwiftUI做准备</p>
+<h2 id="变量、常量、字符串和数字"><a href="#变量、常量、字符串和数字" class="headerlink" title="变量、常量、字符串和数字"></a>变量、常量、字符串和数字</h2><p>创建变量：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> greeting <span class="operator">=</span> <span class="string">&quot;Hello, playground&quot;</span></span><br></pre></td></tr></table></figure>
+<p>创建常量：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> character <span class="operator">=</span> <span class="string">&quot;Daphne&quot;</span></span><br></pre></td></tr></table></figure>
+<p>多行字符串： </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> movie <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">asdasd</span></span><br><span class="line"><span class="string">asdasdsa</span></span><br><span class="line"><span class="string">asdasd</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>字符串拼接：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">actor</span> = &quot;<span class="title class_">Denzel</span> <span class="title class_">Wash</span>&quot;</span><br><span class="line"><span class="title class_">let</span> <span class="title class_">message2</span> = &quot;<span class="title class_">dfd</span>&quot; + <span class="title class_">String</span>(<span class="title class_">number111</span>) + &quot;123213&quot;</span><br><span class="line"><span class="title class_">let</span> <span class="title class_">filename</span> = &quot;<span class="title class_">this</span> <span class="title class_">is</span> <span class="title class_">a</span>&quot;</span><br><span class="line"><span class="title class_">var</span> <span class="title class_">addString</span> = <span class="title class_">actor</span> + &quot;   123&quot; + <span class="title class_">filename</span></span><br><span class="line"><span class="title class_">let</span> <span class="title class_">luggageCode</span> = &quot;1&quot; + &quot;2&quot; + &quot;3&quot; + &quot;4&quot; + &quot;5&quot;</span><br><span class="line"><span class="title class_">let</span> <span class="title class_">result</span> = &quot;⭐️&quot;</span><br><span class="line"><span class="title class_">var</span> <span class="title class_">message</span> = <span class="title class_">actor</span> + &quot;<span class="title class_">sakjdhkd</span> \(<span class="title class_">name</span>) <span class="title class_">asd</span>  &quot;</span><br></pre></td></tr></table></figure>
+<p>数字的几种表示形式：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> payAmount <span class="operator">=</span> <span class="number">1_000_000_111</span></span><br><span class="line"><span class="keyword">var</span> payMount <span class="operator">=</span> <span class="number">10000</span></span><br><span class="line">payMount <span class="operator">=</span> <span class="number">100_00_000</span></span><br><span class="line">payMount <span class="operator">=</span> <span class="number">100_00_______000</span></span><br><span class="line"><span class="keyword">var</span> count <span class="operator">=</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```swift</span><br><span class="line">let name = &quot;Sage&quot;</span><br><span class="line">print(&quot;My name is \(name)&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组、字典、集合"><a href="#数组、字典、集合" class="headerlink" title="数组、字典、集合"></a>数组、字典、集合</h2><p>创建空变量时候，声明变量的数据类型</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vaName <span class="operator">=</span> <span class="type">Int</span>()<span class="comment">//Double()……</span></span><br><span class="line"><span class="keyword">var</span> vaName <span class="operator">=</span> [类型名]()</span><br><span class="line"><span class="keyword">var</span> vaName <span class="operator">=</span> [类型名]()</span><br></pre></td></tr></table></figure>
+
+<p>创建数组</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scores2 <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line"><span class="keyword">var</span> bettles <span class="operator">=</span> [<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Paul&quot;</span>, <span class="string">&quot;George&quot;</span>, <span class="string">&quot;Ringo&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>数组加值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> anArray <span class="operator">=</span> [<span class="string">&quot;23sdd&quot;</span>]</span><br><span class="line">anArray.append(<span class="string">&quot;asd&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>创建字典</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> anEmpty <span class="operator">=</span> [<span class="type">String</span>: <span class="type">Int</span>]()</span><br><span class="line"><span class="keyword">var</span> employee <span class="operator">=</span> [<span class="string">&quot;name&quot;</span>: <span class="string">&quot;Sage&quot;</span>,</span><br><span class="line">                <span class="string">&quot;job&quot;</span>: <span class="string">&quot;Product Manager&quot;</span>,</span><br><span class="line">                <span class="string">&quot;age&quot;</span>: <span class="string">&quot;13&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>字典读取值，没有值可以设置默认值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(employee[<span class="string">&quot;name&quot;</span>, default: <span class="string">&quot;UnKnown&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+
+<p>创建集合</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friends <span class="operator">=</span> <span class="type">Set</span>([<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;f&quot;</span>])</span><br><span class="line"><span class="keyword">var</span> friendsSet <span class="operator">=</span> <span class="type">Set</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">friendsSet.insert(<span class="string">&quot;asd&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>创建变量的不同写法（swift强制检查类型）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> surname: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Lasso&quot;</span></span><br><span class="line"><span class="keyword">var</span> score: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> scores: <span class="type">Double</span> <span class="operator">=</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> playerName: <span class="type">String</span> <span class="operator">=</span> <span class="string">&quot;Roy&quot;</span> <span class="comment">//String</span></span><br><span class="line"><span class="keyword">var</span> luckyNumber: <span class="type">Int</span> <span class="operator">=</span> <span class="number">13</span>       <span class="comment">//Int</span></span><br><span class="line"><span class="keyword">let</span> pi: <span class="type">Double</span> <span class="operator">=</span> <span class="number">3.141</span>          <span class="comment">//Double</span></span><br><span class="line"><span class="keyword">var</span> isAuthenticated: <span class="type">Bool</span> <span class="operator">=</span> <span class="literal">true</span><span class="comment">//Bool</span></span><br><span class="line"><span class="keyword">var</span> albums: [<span class="type">String</span>] <span class="operator">=</span> [<span class="string">&quot;Red&quot;</span>, <span class="string">&quot;Fearless&quot;</span>]<span class="comment">//Array</span></span><br><span class="line"><span class="keyword">var</span> user: [<span class="type">String</span>: <span class="type">String</span>] <span class="operator">=</span> [<span class="string">&quot;id&quot;</span>: <span class="string">&quot;@twostraws&quot;</span>] <span class="comment">//Dictionary</span></span><br><span class="line"><span class="keyword">var</span> books: <span class="type">Set</span>&lt;<span class="type">String</span>&gt; <span class="operator">=</span> <span class="type">Set</span>([<span class="string">&quot;The Bluest Eye&quot;</span>, <span class="string">&quot;Foundation&quot;</span>, <span class="string">&quot;Girl, Woman, Other&quot;</span>]) <span class="comment">//Set</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> team1: [<span class="type">String</span>] <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line"><span class="keyword">var</span> team2 <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line"><span class="keyword">var</span> team3: [<span class="type">String</span>] <span class="operator">=</span> []</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Weekday</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> monday</span><br><span class="line">    <span class="keyword">case</span> tuesday</span><br><span class="line">    <span class="keyword">case</span> wednesday</span><br><span class="line">    <span class="keyword">case</span> thursday</span><br><span class="line">    <span class="keyword">case</span> friday</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> day <span class="operator">=</span> <span class="type">Weekday</span>.monday</span><br><span class="line">day <span class="operator">=</span> .thursday</span><br></pre></td></tr></table></figure>
+<h2 id="If、switch-和三元运算符"><a href="#If、switch-和三元运算符" class="headerlink" title="If、switch 和三元运算符"></a>If、switch 和三元运算符</h2><p>条件语句</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isShownAlarm <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> isShownAlarm &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;show alarm&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myName <span class="operator">=</span> <span class="string">&quot;Sage&quot;</span></span><br><span class="line"><span class="keyword">let</span> wifeName <span class="operator">=</span> <span class="string">&quot;Haiming&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> myName <span class="operator">&lt;=</span> wifeName &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;i love <span class="subst">\(wifeName)</span>&quot;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(wifeName)</span> loves me&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>条件语句多重判断</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Transoption</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> plane</span><br><span class="line">    <span class="keyword">case</span> heli</span><br><span class="line">    <span class="keyword">case</span> bike</span><br><span class="line">    <span class="keyword">case</span> car</span><br><span class="line">    <span class="keyword">case</span> tabanche</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> transport <span class="operator">=</span> <span class="type">Transoption</span>.plane</span><br><span class="line"><span class="keyword">if</span> transport <span class="operator">==</span> .plane <span class="operator">||</span> transport <span class="operator">==</span> .heli&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;lets fly&quot;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> transport <span class="operator">==</span> . bike &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;i want a bike road&quot;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> transport <span class="operator">==</span> .car &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;time to stuck&quot;</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;now go to rent a tabanche&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>switch语句（配合枚举或具体值）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Weather</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> sun, rain, wind, snow, unknown</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> forecast <span class="operator">=</span> <span class="type">Weather</span>.wind</span><br><span class="line"><span class="keyword">switch</span> forecast &#123;</span><br><span class="line"><span class="keyword">case</span> .rain :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> .snow :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;2&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> .wind :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;3&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> .sun:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;4&quot;</span>)</span><br><span class="line"><span class="keyword">case</span> .unknown:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> day <span class="operator">=</span> <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;My true love gave to me…&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> day &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;5 golden rings&quot;</span>)</span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;4 calling birds&quot;</span>)</span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;3 French hens&quot;</span>)</span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;2 turtle doves&quot;</span>)</span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;A partridge in a pear tree&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>三元运算符</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age <span class="operator">=</span> <span class="number">17</span></span><br><span class="line"><span class="keyword">let</span> canVote <span class="operator">=</span> age <span class="operator">&gt;=</span> <span class="number">18</span> <span class="operator">?</span> <span class="string">&quot;yes&quot;</span> : <span class="string">&quot;No&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="循环、总结和检查点-3"><a href="#循环、总结和检查点-3" class="headerlink" title="循环、总结和检查点 3"></a>循环、总结和检查点 3</h2><p>循环</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> platforms <span class="operator">=</span> [<span class="string">&quot;iOS&quot;</span>, <span class="string">&quot;macOS&quot;</span>, <span class="string">&quot;tvOS&quot;</span>, <span class="string">&quot;watchOS&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> os <span class="keyword">in</span> platforms &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Swift works great on <span class="subst">\(os)</span>.&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环嵌套</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">12</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The <span class="subst">\(i)</span> times table:&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">12</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;  <span class="subst">\(j)</span> x <span class="subst">\(i)</span> is <span class="subst">\(j <span class="operator">*</span> i)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>while 循环、break和continue语句</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> id <span class="operator">=</span> <span class="number">20</span></span><br><span class="line"><span class="keyword">var</span> result <span class="operator">=</span> <span class="type">Int</span>()</span><br><span class="line"><span class="keyword">while</span> result <span class="operator">!=</span> id &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(result)</span>&quot;</span>)</span><br><span class="line">    result <span class="operator">=</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">20</span>)</span><br><span class="line">    <span class="keyword">if</span> result <span class="operator">&lt;</span> <span class="number">5</span> &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="函数、参数和返回值"><a href="#函数、参数和返回值" class="headerlink" title="函数、参数和返回值"></a>函数、参数和返回值</h2><p>基本用法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">showWelcome</span>() &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;Welcome to my app!&quot;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;By default This prints out a conversion&quot;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;chart from centimeters to inches, but you&quot;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;can also set a custom range if you want.&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">showWelcome()</span><br></pre></td></tr></table></figure>
+<p>带参数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">mulNumbers</span>(<span class="params">number</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">9</span> &#123;</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(i)</span> * <span class="subst">\(number)</span> = <span class="subst">\(number <span class="operator">*</span> i)</span>&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">9</span> &#123;</span><br><span class="line">   mulNumbers(number: i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带返回值（一行的函数可以省略return）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">rollDice</span>(<span class="params">number</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span>number) <span class="comment">//&quot;return can be deleted&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result <span class="operator">=</span> rollDice(number: <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<p>双参数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">isSameString</span>(<span class="params">string1</span>: <span class="type">String</span>, <span class="params">string2</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> temp1 <span class="operator">=</span> string1.sorted()</span><br><span class="line">   <span class="keyword">let</span> temp2 <span class="operator">=</span> string2.sorted()</span><br><span class="line">   <span class="keyword">return</span> temp1 <span class="operator">==</span> temp2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数附上默认值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">isSameString3(string1: <span class="string">&quot;afrsdf&quot;</span>, string2: <span class="string">&quot;frsfad&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">calRectangle</span>(<span class="params">a</span>: <span class="type">Double</span>, <span class="params">b</span>: <span class="type">Double</span>) -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">   sqrt(a <span class="operator">*</span> a <span class="operator">+</span> b <span class="operator">*</span> b)</span><br><span class="line">&#125;</span><br><span class="line">calRectangle(a: <span class="number">3.0</span>, b: <span class="number">4.0</span>)</span><br></pre></td></tr></table></figure>
+<p>以元组的形式返回多个值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">getUserName</span>() -&gt; (firstname: <span class="type">String</span>, lastname: <span class="type">String</span>) &#123;</span><br><span class="line">   (firstname: <span class="string">&quot;Zhang&quot;</span>, lastname: <span class="string">&quot;Sage&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">func</span> <span class="title function_">getUserName2</span>() -&gt; (firstname: <span class="type">String</span>, lastname: <span class="type">String</span>) &#123;</span><br><span class="line">   (<span class="string">&quot;Zhang&quot;</span>, <span class="string">&quot;Sage&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> user <span class="operator">=</span> getUserName2()</span><br><span class="line"><span class="keyword">let</span> (a, <span class="keyword">_</span>) <span class="operator">=</span> getUserName()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Name is <span class="subst">\(a)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>外参</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">printTimesTables</span>(<span class="params">giveanumber</span> <span class="params">number</span>: <span class="type">Int</span> <span class="operator">=</span> <span class="number">4</span>) &#123;</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">9</span> &#123;</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(i)</span> x <span class="subst">\(number)</span> is <span class="subst">\(i <span class="operator">*</span> number)</span>&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数的参数中引用函数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">doImportantWork</span>(<span class="params">first</span>: () -&gt; <span class="type">Void</span>, <span class="params">second</span>: () -&gt; <span class="type">Void</span>, <span class="params">third</span>: () -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;About to start first work&quot;</span>)</span><br><span class="line">   first()</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;About to start second work&quot;</span>)</span><br><span class="line">   second()</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;About to start third work&quot;</span>)</span><br><span class="line">   third()</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;Done!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">doImportantWork &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;This is the first work&quot;</span>)</span><br><span class="line">&#125; second: &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;This is the second work&quot;</span>)</span><br><span class="line">&#125; third: &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;This is the third work&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="结构体、计算属性和属性观察器"><a href="#结构体、计算属性和属性观察器" class="headerlink" title="结构体、计算属性和属性观察器"></a>结构体、计算属性和属性观察器</h2><p>创建结构体（含有函数）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Album</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> artist: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> year: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printSummary</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(title)</span> (<span class="subst">\(year)</span>) by <span class="subst">\(artist)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> red <span class="operator">=</span> <span class="type">Album</span>(title: <span class="string">&quot;Red&quot;</span>, artist: <span class="string">&quot;Taylor Swift&quot;</span>, year: <span class="number">2012</span>)</span><br><span class="line"><span class="comment">//print(red.title)</span></span><br><span class="line"><span class="comment">//red.printSummary()</span></span><br></pre></td></tr></table></figure>
+
+<p>修改结构体中的变量（<strong>需要用mutating关键字</strong>）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> vacationRemaining: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">takeVacation</span>(<span class="params">days</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> vacationRemaining <span class="operator">&gt;</span> days &#123;</span><br><span class="line">            vacationRemaining <span class="operator">-=</span> days</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;blablabla&quot;</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;aaaaaabla&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>动态计算属性值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Employee2</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> vacationAllocated <span class="operator">=</span>  <span class="number">14</span></span><br><span class="line">    <span class="keyword">var</span> vacationTaken <span class="operator">=</span>  <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> vacationRemaining: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            vacationAllocated <span class="operator">-</span> vacationTaken</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            vacationAllocated <span class="operator">=</span> vacationTaken <span class="operator">+</span> newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> archer <span class="operator">=</span> <span class="type">Employee2</span>(name: <span class="string">&quot;sage&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(archer.vacationAllocated)</span><br><span class="line">archer.vacationTaken <span class="operator">+=</span> <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(archer.vacationRemaining)</span><br><span class="line"><span class="built_in">print</span>(archer.vacationAllocated)</span><br><span class="line">archer.vacationRemaining <span class="operator">=</span> <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(archer.vacationAllocated)</span><br></pre></td></tr></table></figure>
+
+<p>属性观察器（属性变化时做相关操作）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Game</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> score <span class="operator">=</span> <span class="number">0</span>&#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;score now is <span class="subst">\(score)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> game <span class="operator">=</span> <span class="type">Game</span>()</span><br><span class="line">game.score <span class="operator">+=</span> <span class="number">10</span></span><br><span class="line"><span class="comment">//print(&quot;score now is \(game.score)&quot;)</span></span><br><span class="line">game.score <span class="operator">-=</span> <span class="number">3</span></span><br><span class="line"><span class="comment">//print(&quot;score now is \(game.score)&quot;)</span></span><br><span class="line">game.score <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line"><span class="comment">//print(&quot;score now is \(game.score)&quot;)</span></span><br></pre></td></tr></table></figure>
+<p>结构体初始化</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Player</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name : <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> number : <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(<span class="params">name</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.name <span class="operator">=</span> name</span><br><span class="line"><span class="comment">//        self.number = number</span></span><br><span class="line">        number <span class="operator">=</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">99</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> player1 <span class="operator">=</span> <span class="type">Player</span>(name: <span class="string">&quot;Sage&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用访问控制限制对结构体内部数据的访问</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">BankAccount</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> funds <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    <span class="comment">// var funds = 0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">deposit</span>(<span class="params">amout</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        funds <span class="operator">+=</span> amout</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">withdraw</span>(<span class="params">amout</span>: <span class="type">Int</span>) -&gt; <span class="type">Bool</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> funds <span class="operator">&gt;=</span> amout &#123;</span><br><span class="line">            funds <span class="operator">-=</span> amout</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> account <span class="operator">=</span> <span class="type">BankAccount</span>()</span><br><span class="line">account.deposit(amout: <span class="number">100</span>)</span><br><span class="line"><span class="keyword">let</span> success <span class="operator">=</span> account.withdraw(amout: <span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<p>静态属性和方法</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">School</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> studentCount <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span>  <span class="title function_">add</span>(<span class="params">student</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(student)</span> joined the school&quot;</span>)</span><br><span class="line">        studentCount <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">School</span>.add(student: <span class="string">&quot;Sage&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AppDate</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> version <span class="operator">=</span> <span class="string">&quot;1.2.3&quot;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> saveFilename <span class="operator">=</span> <span class="string">&quot;Setting.json&quot;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> homeURL <span class="operator">=</span> <span class="string">&quot;fivetofire.com&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="type">AppDate</span>.version)</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Userinfo</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> username: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> password: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> example <span class="operator">=</span> <span class="type">Userinfo</span>(username: <span class="string">&quot;cfederighi&quot;</span>, password: <span class="string">&quot;hairforceone&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="type">Userinfo</span>.example) <span class="comment">//创建SwiftUI的预览示例</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="类、继承和检查点-7"><a href="#类、继承和检查点-7" class="headerlink" title="类、继承和检查点 7"></a>类、继承和检查点 7</h2><p>创建类（和结构一样）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Game</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> score <span class="operator">=</span> <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Score is now <span class="subst">\(score)</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newGame <span class="operator">=</span> <span class="type">Game</span>()</span><br><span class="line">newGame.score <span class="operator">+=</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>类的继承</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//类的继承</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> hours: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printSummary</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;i work <span class="subst">\(hours)</span> hours a day.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(<span class="params">hours</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.hours <span class="operator">=</span> hours</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Developer</span>: <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">work</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;i&#x27;m writing code for <span class="subst">\(hours)</span> hours.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">printSummary</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I&#x27;m a developer who will sometimes work <span class="subst">\(hours)</span> hours a day, but other times spend hours arguing about whether code should be indented using tabs or spaces.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Manager</span>: <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">work</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I&#x27;m going to meetings for <span class="subst">\(hours)</span> hours. &quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> robert <span class="operator">=</span> <span class="type">Developer</span>(hours: <span class="number">8</span>)</span><br><span class="line"><span class="keyword">let</span> joseph <span class="operator">=</span> <span class="type">Manager</span>(hours: <span class="number">10</span>)</span><br><span class="line">robert.work()</span><br><span class="line">joseph.work()</span><br></pre></td></tr></table></figure>
+<p>为类添加初始化程序</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> isElectric: <span class="type">Bool</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">isElectric</span>: <span class="type">Bool</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.isElectric <span class="operator">=</span> isElectric</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>子类会继承父类的属性</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> isElectric: <span class="type">Bool</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">isElectric</span>: <span class="type">Bool</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.isElectric <span class="operator">=</span> isElectric</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>: <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> isConvertible : <span class="type">Bool</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(<span class="params">isElectric</span>: <span class="type">Bool</span>, <span class="params">isConvertible</span>: <span class="type">Bool</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.isConvertible <span class="operator">=</span> isConvertible</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(isElectric: isElectric)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car2</span>: <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">work</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I&#x27;m going to meetings for  hours. &quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> ccc <span class="operator">=</span> <span class="type">Car2</span>(isElectric: <span class="literal">true</span>)</span><br><span class="line"><span class="keyword">let</span> teslaX <span class="operator">=</span> <span class="type">Car</span>(isElectric: <span class="literal">true</span>, isConvertible: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<p>复制类</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">User</span> &#123;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">   <span class="keyword">var</span> username <span class="operator">=</span> <span class="string">&quot;Anonymous&quot;</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">func</span> <span class="title function_">copy</span>() -&gt; <span class="type">User</span> &#123;</span><br><span class="line">       <span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User</span>()</span><br><span class="line">       user.username <span class="operator">=</span> username</span><br><span class="line">       <span class="keyword">return</span> user</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> user1 <span class="operator">=</span> <span class="type">User</span>()</span><br><span class="line"><span class="keyword">var</span> user2 <span class="operator">=</span> user1</span><br><span class="line">user2.username <span class="operator">=</span> <span class="string">&quot;Sage&quot;</span></span><br><span class="line"><span class="built_in">print</span>(user1.username)</span><br><span class="line"><span class="built_in">print</span>(user2.username)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user3 <span class="operator">=</span> user2.copy()</span><br><span class="line">user3.username <span class="operator">=</span> <span class="string">&quot;Haiming&quot;</span></span><br><span class="line"><span class="built_in">print</span>(user3.username)</span><br><span class="line"><span class="built_in">print</span>(user2.username)</span><br></pre></td></tr></table></figure>
+
+<p>反初始化器（这个里面有个作用域的概念很关键）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User2</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> id: <span class="type">Int</span></span><br><span class="line">   <span class="keyword">init</span>(<span class="params">id</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">       <span class="keyword">self</span>.id <span class="operator">=</span> id</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">deinit</span> &#123;</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&quot;im dead !&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">3</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User2</span>(id: i)</span><br><span class="line"><span class="comment">//    print(&quot;User \(user.id): I&#x27;m in control!&quot;)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> users <span class="operator">=</span> [<span class="type">User2</span>]()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">3</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> user <span class="operator">=</span> <span class="type">User2</span>(id: i)<span class="comment">//循环中的作用域，只在一次迭代中生效</span></span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;User <span class="subst">\(user.id)</span>: I&#x27;m in control!&quot;</span>)</span><br><span class="line">   users.append(user)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Loop is finished!&quot;</span>)</span><br><span class="line">users.removeAll()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Array is clear!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="协议、扩展和检查点-8"><a href="#协议、扩展和检查点-8" class="headerlink" title="协议、扩展和检查点 8"></a>协议、扩展和检查点 8</h2><p>协议的定义，符合该协议的结构都必须包含协议中定义好的变量或函数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">estimateTime</span>(<span class="params">for</span> <span class="params">distance</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">travel</span>(<span class="params">distance</span>: <span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> currentPassengers: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>扩展的定义（注意，mutating的关键字表示，有变量被修改了）</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> quote <span class="operator">=</span> <span class="string">&quot;   The truth is rarely pure and never simple   &quot;</span></span><br><span class="line"><span class="keyword">let</span> trimmed <span class="operator">=</span> quote.trimmingCharacters(in: .whitespacesAndNewlines)</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">String</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">trimmed</span>() -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.trimmingCharacters(in: .whitespacesAndNewlines)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">trim</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span> <span class="operator">=</span> <span class="keyword">self</span>.trimmed()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> lines: [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">self</span>.components(separatedBy: .newlines)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">quote.trim()</span><br><span class="line"><span class="keyword">let</span> lyrics <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>可以使用拓展给结构初始化</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> pageCount: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> readingHours: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">init</span>(<span class="params">title</span>: <span class="type">String</span>, <span class="params">pageCount</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.title <span class="operator">=</span> title</span><br><span class="line">        <span class="keyword">self</span>.pageCount <span class="operator">=</span> pageCount</span><br><span class="line">        <span class="keyword">self</span>.readingHours <span class="operator">=</span> pageCount <span class="operator">/</span> <span class="number">50</span>    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> lotr <span class="operator">=</span> <span class="type">Book</span>(title: <span class="string">&quot;Lord of the Rings&quot;</span>, pageCount: <span class="number">1178</span>, readingHours: <span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> asdas <span class="operator">=</span> <span class="type">Book</span>(title: <span class="string">&quot;sdfsdf&quot;</span>, pageCount: <span class="number">2000</span>)</span><br><span class="line"><span class="built_in">print</span>(lotr.readingHours)</span><br><span class="line"><span class="built_in">print</span>(asdas.readingHours)</span><br></pre></td></tr></table></figure>
+
+<p>给自定义协议做拓展</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义协议拓展</span></span><br><span class="line"><span class="keyword">protocol</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">sayHello</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">sayHello</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hi, im <span class="subst">\(name)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Employee</span>: <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> name : <span class="type">String</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="type">Sage</span> <span class="operator">=</span> <span class="type">Employee</span>(name: <span class="string">&quot;Sage&quot;</span>)</span><br><span class="line"><span class="type">Sage</span>.sayHello()</span><br></pre></td></tr></table></figure>
+
+<h2 id="可选、零合并和检查点-9"><a href="#可选、零合并和检查点-9" class="headerlink" title="可选、零合并和检查点 9"></a>可选、零合并和检查点 9</h2><p>可选值是什么，可选值就是nil，表示不存在，nil不是空值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> opposites <span class="operator">=</span> [</span><br><span class="line">    <span class="string">&quot;Mario&quot;</span>: <span class="string">&quot;Wario&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Luigi&quot;</span>: <span class="string">&quot;Waluigi&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> peachOpposite : <span class="type">String</span>? <span class="operator">=</span> opposites[<span class="string">&quot;Peach&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>可选值的解包</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number: <span class="type">Int</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line"><span class="built_in">print</span>(square(number: number <span class="operator">??</span> <span class="number">4</span>))</span><br><span class="line"><span class="comment">// if let 解包</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> number <span class="operator">=</span> number&#123;</span><br><span class="line">    <span class="built_in">print</span>(square(number: number))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// guard解包</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">printSquare</span>(<span class="params">of</span> <span class="params">number</span>: <span class="type">Int</span>?) &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> number <span class="operator">=</span> number <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Missing input&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(number)</span> x <span class="subst">\(number)</span> is <span class="subst">\(number <span class="operator">*</span> number)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printSquare(of: <span class="type">Int</span>(<span class="string">&quot;123&quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// ??解包，其实上面已经展示了</span></span><br><span class="line"><span class="keyword">let</span> captains <span class="operator">=</span> [</span><br><span class="line">    <span class="string">&quot;Enterprise&quot;</span>: <span class="string">&quot;Picard&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Voyager&quot;</span>: <span class="string">&quot;Janeway&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Defiant&quot;</span>: <span class="string">&quot;Sisko&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> new <span class="operator">=</span> captains[<span class="string">&quot;Serenity&quot;</span>] <span class="operator">??</span> <span class="string">&quot;N/A&quot;</span> <span class="comment">//相当于给一个默认值</span></span><br></pre></td></tr></table></figure>
+<p>使用可选链处理多个可选值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">let</span> author: <span class="type">String</span>?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book: <span class="type">Book</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line"><span class="keyword">let</span> author <span class="operator">=</span> book<span class="operator">?</span>.author<span class="operator">?</span>.first<span class="operator">?</span>.uppercased() <span class="operator">??</span> <span class="string">&quot;A&quot;</span></span><br><span class="line"><span class="built_in">print</span>(author)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">UserError</span>: <span class="title class_">Error</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> badID, networkFailed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">getUser</span>(<span class="params">id</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="type">UserError</span>.networkFailed</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user <span class="operator">=</span> (<span class="keyword">try?</span> getUser(id: <span class="number">23</span>)) <span class="operator">??</span> <span class="string">&quot;Anonymous&quot;</span></span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Checkpoint-1"><a href="#Checkpoint-1" class="headerlink" title="Checkpoint 1"></a>Checkpoint 1</h3><p>您的目标是编写一个 Swift 游乐场：</p>
+<p>创建一个保持任意摄氏度温度的常数。<br>将其乘以 9、除以 5，然后加 32，转换为华氏度。<br>为用户打印结果，显示摄氏度和华氏度值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> temproche <span class="operator">=</span> <span class="number">27.4</span></span><br><span class="line"><span class="keyword">let</span> huashidu <span class="operator">=</span> temproche <span class="operator">*</span> <span class="number">9</span> <span class="operator">/</span> <span class="number">5.0</span> <span class="operator">+</span> <span class="number">32</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;摄氏度<span class="subst">\(temproche)</span>℃ 是华氏度的<span class="subst">\(huashidu)</span>℉&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Checkpoint-5"><a href="#Checkpoint-5" class="headerlink" title="Checkpoint 5"></a>Checkpoint 5</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Zhang&#x27;s code</span></span><br><span class="line"><span class="keyword">let</span> luckyNumbers <span class="operator">=</span> [<span class="number">7</span>, <span class="number">4</span>, <span class="number">38</span>, <span class="number">21</span>, <span class="number">16</span>, <span class="number">15</span>, <span class="number">12</span>, <span class="number">33</span>, <span class="number">31</span>, <span class="number">49</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">fillterOdd</span>(<span class="params">array</span>: [<span class="type">Int</span>]) -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">    <span class="keyword">var</span> tempArray <span class="operator">=</span> [<span class="type">Int</span>]()</span><br><span class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> array &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="operator">!</span>number.isMultiple(of: <span class="number">2</span>) &#123;</span><br><span class="line">            tempArray.append(number)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">sortArray</span>(<span class="params">array</span>: [<span class="type">Int</span>]) -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">    <span class="keyword">return</span> array.sorted &#123;</span><br><span class="line">        <span class="variable">$0</span> <span class="operator">&lt;</span> <span class="variable">$1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">intToString</span>(<span class="params">array</span>: [<span class="type">Int</span>]) -&gt; [<span class="type">String</span>] &#123;</span><br><span class="line">    <span class="keyword">let</span> tempArray <span class="operator">=</span> array</span><br><span class="line">    <span class="keyword">var</span> resultArray <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> tempArray &#123;</span><br><span class="line">        <span class="keyword">var</span> appendString <span class="operator">=</span> <span class="type">String</span>(item) <span class="operator">+</span> <span class="string">&quot;is a lucky number&quot;</span></span><br><span class="line">        resultArray.append(appendString)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resultArray</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">resultFunction</span>(<span class="params">array</span>: [<span class="type">Int</span>], <span class="params">function1</span>: ([<span class="type">Int</span>]) -&gt; [<span class="type">Int</span>], <span class="params">function2</span>: ([<span class="type">Int</span>]) -&gt; [<span class="type">Int</span>], <span class="params">function3</span>: ([<span class="type">Int</span>]) -&gt; [<span class="type">String</span>]) -&gt; [<span class="type">String</span>]&#123;</span><br><span class="line"><span class="comment">//    print(&quot;guolv oushu&quot;)</span></span><br><span class="line">    <span class="keyword">let</span> t1 <span class="operator">=</span> function1(array)</span><br><span class="line"><span class="comment">//    print(&quot;paixu&quot;)</span></span><br><span class="line">    <span class="keyword">let</span> t2 <span class="operator">=</span> function2(t1)</span><br><span class="line"><span class="comment">//    print(&quot;yingshe&quot;)</span></span><br><span class="line">    <span class="keyword">let</span> reslut <span class="operator">=</span> function3(t2)</span><br><span class="line">    <span class="keyword">return</span> reslut</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> finalResult <span class="operator">=</span> resultFunction(array: luckyNumbers,</span><br><span class="line">                                 function1: fillterOdd,</span><br><span class="line">                                 function2: sortArray,</span><br><span class="line">                                 function3: intToString)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a <span class="operator">=</span> intToString(array: sortArray(array: fillterOdd(array: luckyNumbers)))</span><br><span class="line"></span><br><span class="line"><span class="comment">// other&#x27;s code</span></span><br><span class="line"><span class="keyword">let</span> filterNumber <span class="operator">=</span> luckyNumbers.filter &#123; <span class="operator">!</span>(<span class="variable">$0</span>.isMultiple(of: <span class="number">2</span>)) &#125;.sorted().map &#123; <span class="type">String</span>(<span class="variable">$0</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> filterNumber &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;<span class="subst">\(i)</span> is a lucky number&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="checkpoint-6"><a href="#checkpoint-6" class="headerlink" title="checkpoint 6"></a>checkpoint 6</h3><p>创建一个结构来存储有关汽车的信息，包括其型号、座位数和当前档位，然后添加一个升档或降档的方法。考虑一下变量和访问控制：哪些数据应该是变量而不是常量，哪些数据应该公开？换档方法是否应该以某种方式验证其输入？</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> dangwei <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> chexing <span class="operator">=</span> <span class="string">&quot;bentian&quot;</span></span><br><span class="line">    <span class="keyword">let</span> zuoweishu <span class="operator">=</span> <span class="number">5</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">changeDangwei</span>() &#123;</span><br><span class="line">        dangwei <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;dangwei now is <span class="subst">\(dangwei)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car1 <span class="operator">=</span> <span class="type">Car</span>()</span><br><span class="line">car1.changeDangwei()</span><br><span class="line">car1.changeDangwei()</span><br><span class="line"><span class="comment">//print(car1.dangwei)</span></span><br><span class="line"><span class="built_in">print</span>(car1.zuoweishu)</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查点7"><a href="#检查点7" class="headerlink" title="检查点7"></a>检查点7</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> legs <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Animal talk&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>: <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;dog bark&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Corgi</span>: <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Corgi bark&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Poodle</span>: <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Poodle bark&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>: <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> isTame : <span class="type">Bool</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Cat miaowu&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(<span class="params">isTame</span>: <span class="type">Bool</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.isTame <span class="operator">=</span> isTame</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Persian</span>: <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Persian miawo&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lion</span>: <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">talk</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Lion miawo&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a <span class="operator">=</span> <span class="type">Animal</span>()</span><br><span class="line"><span class="keyword">let</span> b <span class="operator">=</span> <span class="type">Corgi</span>()</span><br><span class="line"><span class="keyword">let</span> c <span class="operator">=</span> <span class="type">Poodle</span>()</span><br><span class="line"><span class="keyword">let</span> d <span class="operator">=</span> <span class="type">Persian</span>(isTame: <span class="literal">true</span>)</span><br><span class="line"><span class="keyword">let</span> e <span class="operator">=</span> <span class="type">Lion</span>(isTame: <span class="literal">false</span>)</span><br><span class="line">a.talk()</span><br><span class="line">b.talk()</span><br><span class="line">c.talk()</span><br><span class="line">d.talk()</span><br><span class="line">e.talk()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a.legs, b.legs, c.legs, d.legs, e.legs)</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查点8"><a href="#检查点8" class="headerlink" title="检查点8"></a>检查点8</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Struction</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> roomAmout: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> structValue: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> zhongjieName: <span class="type">String</span> &#123;<span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printStateInfo</span>() -&gt; <span class="type">Void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">House</span>: <span class="title class_">Struction</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> roomAmout <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    <span class="keyword">var</span> structValue: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> zhongjieName: <span class="type">String</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printStateInfo</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This is a house&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(<span class="params">roomAmout</span>: <span class="type">Int</span>, <span class="params">structValue</span>: <span class="type">Int</span>, <span class="params">zhongjieName</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.roomAmout <span class="operator">=</span> roomAmout</span><br><span class="line">        <span class="keyword">self</span>.structValue <span class="operator">=</span> structValue</span><br><span class="line">        <span class="keyword">self</span>.zhongjieName <span class="operator">=</span> zhongjieName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Office</span>: <span class="title class_">Struction</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> roomAmout <span class="operator">=</span> <span class="number">10</span></span><br><span class="line">    <span class="keyword">var</span> structValue: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> zhongjieName: <span class="type">String</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printStateInfo</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This is an office&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(<span class="params">roomAmout</span>: <span class="type">Int</span>, <span class="params">structValue</span>: <span class="type">Int</span>, <span class="params">zhongjieName</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.roomAmout <span class="operator">=</span> roomAmout</span><br><span class="line">        <span class="keyword">self</span>.structValue <span class="operator">=</span> structValue</span><br><span class="line">        <span class="keyword">self</span>.zhongjieName <span class="operator">=</span> zhongjieName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">Struction</span> &#123;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">soldOut</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Have been sold out&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ahouse <span class="operator">=</span> <span class="type">House</span>(roomAmout: <span class="number">3</span>, structValue: <span class="number">100_000_000</span>, zhongjieName: <span class="string">&quot;Liheng&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> anofice <span class="operator">=</span> <span class="type">Office</span>(roomAmout: <span class="number">20</span>, structValue: <span class="number">234000321</span>, zhongjieName: <span class="string">&quot;Anonymous&quot;</span>)</span><br><span class="line">ahouse.printStateInfo()</span><br><span class="line">anofice.printStateInfo()</span><br><span class="line">ahouse.soldOut()</span><br><span class="line"><span class="comment">//print(ahouse.zhongjieName)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="检查点-9"><a href="#检查点-9" class="headerlink" title="检查点 9"></a>检查点 9</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">randomInt</span>(<span class="params">numbers</span> : [<span class="type">Int</span>]<span class="operator">?</span>) -&gt; <span class="type">Int</span> &#123; numbers<span class="operator">?</span>.randomElement() <span class="operator">??</span> <span class="type">Int</span>.random(in: <span class="number">1</span><span class="operator">...</span><span class="number">100</span>) &#125;</span><br><span class="line"><span class="built_in">print</span>(randomInt(numbers: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="">
+              编程
+            </a>
+          
+            <a href="/tags/Swift/" class="">
+              Swift
+            </a>
+          
+            <a href="/tags/Hacking-with-Swift/" class="">
+              Hacking with Swift
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/57078.html" target="_blank" title="Preparation for Hackingwithswift">https://blog.five2fire.top/article/57078.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/11442.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">【Hacking With Swift】Project1_Wesplit_problems</div>
+      </div>
+      
+      <!-- <div class="content">
+        英文原博博主是   Paul Hudson     @twostraws
+本文是学习Swift过程中翻译该网站的内容: 
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/47367.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">《积极心理课》彭凯平</div>
+      </div>
+      <!-- <div class="content">
+        清华大学积极心理学课程笔记人类的本能是消极的？人类进化本能让人更容易关注消极情绪积极心理学是一种理性的选择，而不是感性的
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
+        
+        
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E3%80%81%E5%B8%B8%E9%87%8F%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97"><span class="toc-text">变量、常量、字符串和数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E3%80%81%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88"><span class="toc-text">数组、字典、集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If%E3%80%81switch-%E5%92%8C%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">If、switch 和三元运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E3%80%81%E6%80%BB%E7%BB%93%E5%92%8C%E6%A3%80%E6%9F%A5%E7%82%B9-3"><span class="toc-text">循环、总结和检查点 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E3%80%81%E5%8F%82%E6%95%B0%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">函数、参数和返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E3%80%81%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E5%B1%9E%E6%80%A7%E8%A7%82%E5%AF%9F%E5%99%A8"><span class="toc-text">结构体、计算属性和属性观察器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E3%80%81%E7%BB%A7%E6%89%BF%E5%92%8C%E6%A3%80%E6%9F%A5%E7%82%B9-7"><span class="toc-text">类、继承和检查点 7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E3%80%81%E6%89%A9%E5%B1%95%E5%92%8C%E6%A3%80%E6%9F%A5%E7%82%B9-8"><span class="toc-text">协议、扩展和检查点 8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E3%80%81%E9%9B%B6%E5%90%88%E5%B9%B6%E5%92%8C%E6%A3%80%E6%9F%A5%E7%82%B9-9"><span class="toc-text">可选、零合并和检查点 9</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Checkpoint-1"><span class="toc-text">Checkpoint 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Checkpoint-5"><span class="toc-text">Checkpoint 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkpoint-6"><span class="toc-text">checkpoint 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%82%B97"><span class="toc-text">检查点7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%82%B98"><span class="toc-text">检查点8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%82%B9-9"><span class="toc-text">检查点 9</span></a></li></ol></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-02</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/40210.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-15</span>
+                
+              </div>
+              <a class="post-title" href="/article/40210.html">利用CloudFlare自建无服务器导航站</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/12599.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-12</span>
+                
+              </div>
+              <a class="post-title" href="/article/12599.html">不要掉入完美主义的陷阱</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/4248.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/4248.html">《姥姥的外孙》影评</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(50, 155, 230, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline-comment"></div>
+  <script type="module">
+    let walineInstance = null;
+
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
+
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
+
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 清空编辑器内容
+        clearWalineEditor();
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
+    }
+
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
+      initWaline();
+    });
+  </script>
+</body>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

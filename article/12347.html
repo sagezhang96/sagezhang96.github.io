@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPKR1PWXJN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-TPKR1PWXJN');
+</script>
+
+
+  <title>【Hacking With Swift】Project11_Bookworm | Sage自留地😎</title>
+
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+
+    <!-- 谷歌自动广告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664449399292469"
+     crossorigin="anonymous"></script>
+
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
+</head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_2" id="loader">
+  <div class="loader"></div>
+</div>
+
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/messageboard" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Sage自留地😎</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="menu-item-link" title="导航站">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/messageboard" class="menu-item-link" title="留言板">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        【Hacking With Swift】Project11_Bookworm
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2024-07-04 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-detail-header_category">
+              技术
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 11.8k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 43分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+<p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在这个项目中，我们将制作一个应用程序来跟踪你读过的书以及你对这些书的看法，它将遵循与项目 10 类似的主题：让我们利用你已经掌握的所有技能，然后添加一些额外的新技能，将它们提升到一个新的水平。</p>
+<p>这一次，你将见到 SwiftData，它是苹果用于处理数据库的框架。本项目将作为 SwiftData 的入门介绍，但我们很快就会详细介绍。</p>
+<p>与此同时，我们还将构建第一个自定义用户界面组件–一个星级评价小部件，用户可以点击该部件为每本书打分。这意味着要向你介绍另一个名为 @Binding 的属性包装器，相信我，这一切都会有意义的。</p>
+<p>像往常一样，我们将首先讲解本项目所需的所有新技术，因此请使用 App 模板创建一个名为 Bookworm 的新 iOS 应用程序。</p>
+<p>重要提示：我知道这很诱人，但请不要触碰存储选项，尽管我知道其中有一个 SwiftData 选项。它会给你的项目添加一大堆无用的代码，你只需删除它就能跟上进度了。</p>
+<h2 id="使用-Binding-创建自定义组件"><a href="#使用-Binding-创建自定义组件" class="headerlink" title="使用 @Binding 创建自定义组件"></a>使用 @Binding 创建自定义组件</h2><p>您已经看到 SwiftUI 的 @State 属性包装器如何让我们使用本地值类型，以及 @Bindable 如何让我们绑定可观察类内部的属性。现在还有第三个选项，它的名字很容易让人混淆： @Binding 。它可以让我们与另一个视图共享一个简单的 @State 属性，因此它们都指向相同的整数、字符串、布尔等。</p>
+<p>想想看：当我们创建一个拨动开关时，我们会发送某种可以更改的布尔属性，就像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rememberMe <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">    <span class="type">Toggle</span>(<span class="string">&quot;Remember Me&quot;</span>, isOn: <span class="variable">$rememberMe</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此，当用户与切换器交互时，切换器需要更改布尔值，但它如何记住应该更改的值呢？</p>
+<p>这就是 @Binding 的作用所在：它可以让我们在视图中存储一个单一的可变值，而这个值实际上指向其他地方的其他值。在 Toggle 的例子中，开关会将自己的本地绑定值更改为布尔值，但这实际上是在幕后操纵我们视图中的 @State 属性–它们都在读写同一个布尔值。</p>
+<p>@Bindable 和 @Binding 之间的区别一开始会让人非常困惑，但最终会让人明白。</p>
+<p>明确地说， @Bindable 是在访问使用 @Observable 宏的共享类时使用的：在一个视图中使用 @State 创建共享类，这样就可以在该视图中创建绑定，但在与其他视图共享时使用 @Bindable ，这样 SwiftUI 也可以在该视图中创建绑定。</p>
+<p>另一方面， @Binding 用于简单的值类型数据，而不是单独的类。例如，您有一个 @State 属性，该属性存储布尔值、 Double 、字符串数组等，您希望将这些数据传递出去。这并没有使用 @Observable 宏，所以我们不能使用 @Bindable 。相反，我们可以使用 @Binding ，这样就可以在多个地方共享该布尔值或整数。</p>
+<p>这种行为使得 @Binding 对创建自定义用户界面组件极为重要。用户界面组件的核心是 SwiftUI 视图，与其他所有视图一样，但 @Binding 是它们与众不同的地方：虽然它们可能有自己的本地 @State 属性，但它们也暴露了 @Binding 属性，使它们可以直接与其他视图接口。</p>
+<p>为了演示这一点，我们将查看创建一个按下时保持向下的自定义按钮所需的代码。我们的基本实现都是你以前见过的东西：一个带填充的按钮、一个线性渐变的背景、一个 Capsule 剪贴形状，等等–现在就把这些添加到 ContentView.swift 中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">PushButton</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> title: <span class="type">String</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">var</span> isOn: <span class="type">Bool</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> onColors <span class="operator">=</span> [<span class="type">Color</span>.red, <span class="type">Color</span>.yellow]</span><br><span class="line">    <span class="keyword">var</span> offColors <span class="operator">=</span> [<span class="type">Color</span>(white: <span class="number">0.6</span>), <span class="type">Color</span>(white: <span class="number">0.4</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">Button</span>(title) &#123;</span><br><span class="line">            isOn.toggle()</span><br><span class="line">        &#125;</span><br><span class="line">        .padding()</span><br><span class="line">        .background(<span class="type">LinearGradient</span>(colors: isOn <span class="operator">?</span> onColors : offColors, startPoint: .top, endPoint: .bottom))</span><br><span class="line">        .foregroundStyle(.white)</span><br><span class="line">        .clipShape(.capsule)</span><br><span class="line">        .shadow(radius: isOn <span class="operator">?</span> <span class="number">0</span> : <span class="number">5</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中唯一令人兴奋的是，我为两种渐变色使用了属性，这样它们就可以由创建按钮的人自定义。</p>
+<p>现在我们可以创建一个这样的按钮，作为主用户界面的一部分：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rememberMe <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">PushButton</span>(title: <span class="string">&quot;Remember Me&quot;</span>, isOn: rememberMe)</span><br><span class="line">            <span class="type">Text</span>(rememberMe <span class="operator">?</span> <span class="string">&quot;On&quot;</span> : <span class="string">&quot;Off&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>按钮下方有一个文本视图，这样我们就可以跟踪按钮的状态–试试运行你的代码，看看效果如何。</p>
+<p>你会发现，点击按钮确实会影响它的显示方式，但我们的文本视图却没有反映出这种变化–它总是显示 “关闭”。显然，有什么东西正在发生变化，因为按下按钮时，按钮的外观会发生变化，但这种变化并没有反映在 ContentView 中。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/nobinding.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/nobinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这里发生的情况是，我们定义了一个单向数据流： ContentView 有其 rememberMe 布尔值，该布尔值用于创建 PushButton - 该按钮的初始值由 ContentView 提供。但是，一旦创建了按钮，它就接管了对值的控制：它在按钮内部切换 isOn 属性的 true 或 false，但不会将变化传回 ContentView 。</p>
+<p>这是一个问题，因为我们现在有两个真相来源： ContentView 存储的是一个值，而 PushButton 存储的是另一个值。幸运的是，这正是 @Binding 的用武之地：它允许我们在 PushButton 和使用它的任何东西之间建立双向连接，这样，当一个值发生变化时，另一个也会发生变化。</p>
+<p>要切换到 @Binding ，我们只需做两处修改。首先，在 PushButton 中将其 isOn 属性改为以下内容：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Binding</span> <span class="keyword">var</span> isOn: <span class="type">Bool</span></span><br></pre></td></tr></table></figure>
+
+<p>其次，在 ContentView 中，将我们创建按钮的方式改为这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PushButton</span>(title: <span class="string">&quot;Remember Me&quot;</span>, isOn: <span class="variable">$rememberMe</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这就在 rememberMe 前添加了一个美元符号–我们传递的是绑定本身，而不是绑定中的布尔值。</p>
+<p>现在再次运行代码，你会发现一切正常：切换按钮现在也能正确更新文本视图。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/hasbinding.gif" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/hasbinding.gif" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>这就是 @Binding 的威力：就按钮而言，它只是在切换一个布尔值–它并不知道有其他东西在监控该布尔值并根据变化采取行动。</p>
+<h2 id="使用-TextEditor-接受多行文本输入"><a href="#使用-TextEditor-接受多行文本输入" class="headerlink" title="使用 TextEditor 接受多行文本输入"></a>使用 TextEditor 接受多行文本输入</h2><p>我们已经多次使用 SwiftUI 的 TextField 视图，它非常适合用户输入短文本。不过，如果要输入较长的文本，您可能需要改用 TextEditor 视图：该视图也需要与文本字符串进行双向绑定，但它的另一个好处是允许输入多行文本–它更适合为用户提供大量的工作空间。</p>
+<p>主要是因为它没有什么特别的配置选项，使用 TextEditor 实际上比使用 TextField 更简单–你不能调整它的样式或添加占位符文本，你只需将它绑定到一个字符串上。不过，你确实需要注意确保它不会超出安全区域，否则输入会很麻烦；可以将它嵌入 NavigationStack 、 Form 或类似内容中。</p>
+<p>例如，我们可以将 TextEditor 与 @AppStorage 相结合，创建世界上最简单的笔记应用程序，就像这样：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@AppStorage</span>(<span class="string">&quot;notes&quot;</span>) <span class="keyword">private</span> <span class="keyword">var</span> notes <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">TextEditor</span>(text: <span class="variable">$notes</span>)</span><br><span class="line">                .navigationTitle(<span class="string">&quot;Notes&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>提示： @AppStorage 并非用于存储安全信息，因此切勿将其用于任何私人用途。</p>
+<p>现在，我说你可能想改用 TextEditor ，而不是说你应该改用，这是有原因的：SwiftUI 提供了第三种选择，在某些情况下效果更好。</p>
+<p>在创建 TextField 时，我们可以选择提供一个轴，让它可以沿着轴增长。这意味着文本字段一开始是一个普通的单行文本字段，但随着用户的输入，它可以像 iMessage 文本框一样增长。</p>
+<p>看起来是这样的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@AppStorage</span>(<span class="string">&quot;notes&quot;</span>) <span class="keyword">private</span> <span class="keyword">var</span> notes <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;Enter your text&quot;</span>, text: <span class="variable">$notes</span>, axis: .vertical)</span><br><span class="line">                .textFieldStyle(.roundedBorder)</span><br><span class="line">                .navigationTitle(<span class="string">&quot;Notes&quot;</span>)</span><br><span class="line">                .padding()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值得一试，看看你的想法如何。</p>
+<p>这两种方法您都会用到，只是时间不同而已。虽然我喜欢 TextField 自动展开的方式，但有时向用户显示一个较大的文本空间也很有帮助，这样他们就能预先知道可以在这里输入很多内容。</p>
+<p>提示：SwiftUI 进入 Form 后往往会改变事物的外观，因此一定要在 Form 内外都试一试，看看它们有什么不同。</p>
+<h2 id="SwiftData-和-SwiftUI-简介"><a href="#SwiftData-和-SwiftUI-简介" class="headerlink" title="SwiftData 和 SwiftUI 简介"></a>SwiftData 和 SwiftUI 简介</h2><p>SwiftUI 是一个功能强大的现代框架，用于在所有 Apple 平台上构建出色的应用程序，而 SwiftData 则是一个功能强大的现代框架，用于存储、查询和过滤数据。如果它们能以某种方式结合在一起，岂不美哉？</p>
+<p>它们不仅配合得天衣无缝，而且只需要很少的代码，你几乎不会相信其结果–你可以在短短几分钟内创造出非凡的东西。</p>
+<p>首先是基础知识：SwiftData 是一个对象图和持久化框架，说得通俗一点，就是让我们定义对象和这些对象的属性，然后让我们从永久存储中读写它们。</p>
+<p>从表面上看，这听起来就像使用 Codable 和 UserDefaults ，但它比这先进得多：SwiftData 可以对我们的数据进行排序和过滤，还能处理更大的数据–它能存储的数据量实际上是无限的。更棒的是，SwiftData 还能实现各种更高级的功能，以备不时之需：iCloud 同步、懒加载数据、撤销和重做等等。</p>
+<p>在这个项目中，我们将只使用 SwiftData 的一小部分功能，但它很快就会扩展，我只是想先让大家体验一下。</p>
+<p>在您创建 Xcode 项目时，我曾要求您不要启用 SwiftData 支持，因为这样做虽然可以省去一些枯燥的设置代码，但同时也会增加一大堆额外的示例代码，而这些代码毫无意义，只需删除即可。</p>
+<p>因此，你将学习如何手动设置 SwiftData。这需要三个步骤，首先我们要定义要在应用程序中使用的数据。</p>
+<p>在此之前，我们通过创建一个名为 Student.swift 的 Swift 文件来描述数据，然后为该文件提供以下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Observable</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> id: <span class="type">UUID</span></span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">id</span>: <span class="type">UUID</span>, <span class="params">name</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.id <span class="operator">=</span> id</span><br><span class="line">        <span class="keyword">self</span>.name <span class="operator">=</span> name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们只需做两处很小的改动，就能将其转化为 SwiftData 对象，它可以保存在数据库中、与 iCloud 同步、搜索、排序等。</p>
+<p>首先，我们需要在文件顶部添加另一个导入：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftData</span><br></pre></td></tr></table></figure>
+
+<p>这就告诉 Swift，我们要引入 SwiftData 的所有功能。</p>
+<p>现在，我们想改变这种状况：把下面这个代码</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Observable</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Model</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br></pre></td></tr></table></figure>
+
+
+<p>……仅此而已。这就是 SwiftData 加载和保存学生所需的全部信息。现在，SwiftData 还可以查询、删除、将学生与其他对象链接等。</p>
+<p>该类称为 SwiftData 模型：它定义了我们希望在应用程序中使用的某种数据。在幕后， @Model 构建在与 @Observable 相同的观察系统之上，这意味着它能与 SwiftUI 完美配合。</p>
+<p>既然我们已经定义了要处理的数据，就可以开始设置 SwiftData 的第二步：编写一段 Swift 代码来加载模型。这段代码将告诉 SwiftData 在 iPhone 上为我们准备一些存储空间，它将在这里读写 Student 对象。</p>
+<p>这项工作最好在 App 结构中完成。每个项目都有一个这样的结构体，包括我们迄今为止制作的所有项目，它是我们正在运行的整个应用程序的启动板。</p>
+<p>由于本项目名为 “书虫”，我们的 App 结构将位于文件 BookwormApp.swift 中。它应该是这样的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">@main</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BookwormApp</span>: <span class="title class_">App</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">Scene</span> &#123;</span><br><span class="line">        <span class="type">WindowGroup</span> &#123;</span><br><span class="line">            <span class="type">ContentView</span>()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可以看到它看起来有点像我们的常规视图代码：我们仍然有一个 import SwiftUI ，我们仍然使用结构体来创建自定义类型，我们的 ContentView 就在那里。其余部分都是新的，我们真正关心的是两个部分：</p>
+<p>@main 行告诉 Swift 这就是启动我们应用程序的程序。在内部，当用户从 iOS 主屏幕启动我们的应用程序时，它将引导整个程序。<br>WindowGroup 部分告诉 SwiftUI，我们的应用程序可以在多个窗口中显示。这在 iPhone 上作用不大，但在 iPad 和 macOS 上就变得非常重要了。<br>在这里，我们需要告诉 SwiftData 设置所有存储供我们使用，这同样只需要两个很小的改动。</p>
+<p>首先，我们需要在 import SwiftUI 旁边添加 import SwiftData 。我非常喜欢按字母顺序对导入进行排序，但这并不是必须的。</p>
+<p>其次，我们需要在 WindowGroup 中添加一个修饰符，这样 SwiftData 就可以在应用程序中的任何地方使用：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.modelContainer(for: <span class="type">Student</span>.<span class="keyword">self</span>) </span><br></pre></td></tr></table></figure>
+<p>模型容器是 SwiftData 用来存储数据的地方。首次运行应用程序时，这意味着 SwiftData 必须创建底层数据库文件，但在以后的运行中，它将加载之前创建的数据库。</p>
+<p>至此，您已经了解了如何使用 @Model 创建数据模型，并了解了如何使用 modelContainer() 修改器创建模型容器。拼图的第三个部分称为模型上下文，它实际上是数据的 “实时 “版本–当您加载对象并更改它们时，这些更改只存在于内存中，直到它们被保存。因此，模型上下文的作用就是让我们在内存中处理所有数据，这比不断读写数据到磁盘要快得多。</p>
+<p>每个 SwiftData 应用程序都需要一个模型上下文来使用，而我们已经创建了我们的上下文–它是在我们使用 modelContainer() 修改器时自动创建的。SwiftData 会自动为我们创建一个模型上下文，称为主上下文，并将其存储在 SwiftUI 的环境中、</p>
+<p>至此，我们完成了 SwiftData 的所有配置，现在该进入有趣的部分了：读取数据并写入数据。</p>
+<p>从 SwiftData 中检索信息是通过查询完成的–我们描述我们想要什么、如何排序以及是否需要使用任何过滤器，然后 SwiftData 会发回所有匹配的数据。我们需要确保该查询随着时间的推移保持更新，这样当学生创建或删除时，我们的用户界面也能保持同步。</p>
+<p>SwiftUI 有一个解决方案，你猜对了，就是另一个属性包装器。这次它的名字叫 @Query ，只要将 import SwiftData 添加到文件中，它就可以使用了。</p>
+<p>因此，请在 ContentView.swift 顶部添加 SwiftData 的导入，然后在 ContentView 结构中添加此属性：</p>
+<p>@Query var students: [Student]<br>这看起来就像一个普通的 Student 数组，但只要在开头添加 @Query 就足以让 SwiftData 从其模型容器中加载学生–它会自动找到放置到环境中的主上下文，并通过那里查询容器。我们没有指定要加载哪些学生，也没有指定如何对结果进行排序，因此我们将得到所有学生。</p>
+<p>从这里开始，我们可以像使用普通 Swift 数组一样使用 students - 将此代码放入视图正文中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NavigationStack</span> &#123;</span><br><span class="line">    <span class="type">List</span>(students) &#123; student <span class="keyword">in</span></span><br><span class="line">        <span class="type">Text</span>(student.name)</span><br><span class="line">    &#125;</span><br><span class="line">    .navigationTitle(<span class="string">&quot;Classroom&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你愿意，可以运行代码，但实际上没有什么意义–列表将是空的，因为我们还没有添加任何数据，所以我们的数据库是空的。为了解决这个问题，我们将在列表下方创建一个按钮，每次点击它都会随机添加一个新学生，但首先我们需要一个新属性来访问之前创建的模型上下文。</p>
+<p>立即将此属性添加到 ContentView ：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Environment</span>(\.modelContext) <span class="keyword">var</span> modelContext</span><br></pre></td></tr></table></figure>
+
+<p>有了这些，下一步就是添加一个按钮，生成随机学生并保存在模型上下文中。为了帮助学生脱颖而出，我们将通过创建 firstNames 和 lastNames 数组来分配随机名称，然后使用 randomElement() 从每一个数组中任选一个。</p>
+<p>首先将此工具栏添加到 List ：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.toolbar &#123;</span><br><span class="line">    <span class="type">Button</span>(<span class="string">&quot;Add&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> firstNames <span class="operator">=</span> [<span class="string">&quot;Ginny&quot;</span>, <span class="string">&quot;Harry&quot;</span>, <span class="string">&quot;Hermione&quot;</span>, <span class="string">&quot;Luna&quot;</span>, <span class="string">&quot;Ron&quot;</span>]</span><br><span class="line">        <span class="keyword">let</span> lastNames <span class="operator">=</span> [<span class="string">&quot;Granger&quot;</span>, <span class="string">&quot;Lovegood&quot;</span>, <span class="string">&quot;Potter&quot;</span>, <span class="string">&quot;Weasley&quot;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> chosenFirstName <span class="operator">=</span> firstNames.randomElement()<span class="operator">!</span></span><br><span class="line">        <span class="keyword">let</span> chosenLastName <span class="operator">=</span> lastNames.randomElement()<span class="operator">!</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// more code to come</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：难免有人会抱怨我强行解包了对 randomElement() 的调用，但我们只是手工创建了数组的值–它总是会成功的。如果你非常讨厌强制解包，也许可以用 nil coalescing 和默认值来代替它们。</p>
+<p>现在开始有趣的部分：我们将创建一个 Student 对象。将其添加到 &#x2F;&#x2F; more code to come 注释中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> student <span class="operator">=</span> <span class="type">Student</span>(id: <span class="type">UUID</span>(), name: <span class="string">&quot;<span class="subst">\(chosenFirstName)</span> <span class="subst">\(chosenLastName)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后，我们需要请求模型上下文添加该学生，这意味着将保存该学生。将最后一行添加到按钮的操作中：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelContext.insert(student)</span><br></pre></td></tr></table></figure>
+
+<p>最后，您现在应该可以运行应用程序并进行试用了–点击几次 “添加 “按钮随机生成一些学生，然后您就会看到他们滑入我们的列表中。更妙的是，如果你重新启动应用程序，你会发现你的学生还在那里，因为 SwiftData 会自动保存他们。</p>
+<p>现在，你可能会认为这只是花了很少的时间却学了很多东西，但你现在已经知道了什么是模型、模型容器和模型上下文，也知道了如何插入和查询数据。在本项目的后续部分，我们将更多地了解 SwiftData，但现在你已经走得很远了。</p>
+<p>这是本项目概述的最后一部分，因此请继续重置您的项目，准备开始真正的工作。这意味着重新设置 ContentView.swift、BookwormApp.swift，同时删除 Student.swift。</p>
+<h1 id="开始创建"><a href="#开始创建" class="headerlink" title="开始创建"></a>开始创建</h1><h2 id="使用-SwiftData-创建图书"><a href="#使用-SwiftData-创建图书" class="headerlink" title="使用 SwiftData 创建图书"></a>使用 SwiftData 创建图书</h2><p>在这个项目中，我们的首要任务是为书籍设计一个 SwitData 模型，然后创建一个新的视图将书籍添加到数据库中。</p>
+<p>首先是模型：创建一个名为 Book.swift 的新文件，为 SwiftData 添加一个导入，然后添加以下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Model</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> author: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> genre: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> review: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> rating: <span class="type">Int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该类需要一个初始化器来为其所有属性提供值，但这里有一个小提示：如果您在类内开始键入 “in”，Xcode 会自动为您完成整个初始化器。</p>
+<p>该类足以存储书名、作者姓名、流派、用户对该书的简要看法以及用户对该书的数字评分。</p>
+<p>现在我们有了数据模型，可以让 SwiftData 为其创建一个模型容器。这意味着打开 BookwormApp.swift，在文件顶部添加 import SwiftData ，然后在 WindowGroup 中添加此修改器：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.modelContainer(for: <span class="type">Book</span>.<span class="keyword">self</span>)</span><br></pre></td></tr></table></figure>
+
+<p>我们的下一步是编写一个可以创建新条目的表单。这将结合您目前所学到的许多技能： Form , @State , @Environment , TextField , TextEditor , Picker , sheet() , 等等，再加上所有新的 SwiftData 知识。</p>
+<p>首先创建一个名为 “AddBookView “的新 SwiftUI 视图。在属性方面，我们需要一个环境属性来访问模型上下文：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Environment</span>(\.modelContext) <span class="keyword">var</span> modelContext</span><br></pre></td></tr></table></figure>
+
+<p>由于该表单将存储组成一本书所需的所有数据，我们需要为每本书的值设置 @State 属性。因此，接下来要添加这些属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> title <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> author <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rating <span class="operator">=</span> <span class="number">3</span></span><br><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> genre <span class="operator">=</span> <span class="string">&quot;Fantasy&quot;</span></span><br><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> review <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后，我们还需要一个属性来存储所有可能的流派选项，这样我们就可以使用 ForEach 制作一个拾取器。现在将最后一个属性添加到 AddBookView ：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> genres <span class="operator">=</span> [<span class="string">&quot;Fantasy&quot;</span>, <span class="string">&quot;Horror&quot;</span>, <span class="string">&quot;Kids&quot;</span>, <span class="string">&quot;Mystery&quot;</span>, <span class="string">&quot;Poetry&quot;</span>, <span class="string">&quot;Romance&quot;</span>, <span class="string">&quot;Thriller&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们可以对表单本身进行初步处理–我们很快就会对其进行改进，但现在这样就足够了。用以下内容替换当前的 body ：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">NavigationStack</span> &#123;</span><br><span class="line">    <span class="type">Form</span> &#123;</span><br><span class="line">        <span class="type">Section</span> &#123;</span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;Name of book&quot;</span>, text: <span class="variable">$title</span>)</span><br><span class="line">            <span class="type">TextField</span>(<span class="string">&quot;Author&#x27;s name&quot;</span>, text: <span class="variable">$author</span>)</span><br><span class="line"></span><br><span class="line">            <span class="type">Picker</span>(<span class="string">&quot;Genre&quot;</span>, selection: <span class="variable">$genre</span>) &#123;</span><br><span class="line">                <span class="type">ForEach</span>(genres, id: \.<span class="keyword">self</span>) &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="variable">$0</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">Section</span>(<span class="string">&quot;Write a review&quot;</span>) &#123;                </span><br><span class="line">            <span class="type">TextEditor</span>(text: <span class="variable">$review</span>)</span><br><span class="line"></span><br><span class="line">            <span class="type">Picker</span>(<span class="string">&quot;Rating&quot;</span>, selection: <span class="variable">$rating</span>) &#123;</span><br><span class="line">                <span class="type">ForEach</span>(<span class="number">0</span><span class="operator">..&lt;</span><span class="number">6</span>) &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="type">String</span>(<span class="variable">$0</span>))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;                </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">Section</span> &#123;</span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Save&quot;</span>) &#123;</span><br><span class="line">                <span class="comment">// add the book</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .navigationTitle(<span class="string">&quot;Add Book&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在填写按钮操作时，我们将使用表单中的所有值创建 Book 类的实例，然后将该对象插入模型上下文。</p>
+<p>在 &#x2F;&#x2F; add the book 注释的位置添加此代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newBook <span class="operator">=</span> <span class="type">Book</span>(title: title, author: author, genre: genre, review: review, rating: rating)</span><br><span class="line">modelContext.insert(newBook)</span><br></pre></td></tr></table></figure>
+
+<p>这样表单就完成了，但我们仍然需要一种方法，在添加书籍时显示或隐藏表单。</p>
+<p>要显示 AddBookView ，需要返回 ContentView.swift，并遵循工作表的常规步骤：</p>
+<p>添加 @State 属性，以跟踪工作表是否显示。<br>在工具栏中添加某种按钮来切换该属性。<br>sheet() 修改器，当属性变为 true 时显示 AddBookView 。<br>废话少说，让我们开始编写更多代码吧。请先在 ContentView,swift 中添加 SwiftData 的导入，然后在 ContentView 结构中添加这些属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Environment</span>(\.modelContext) <span class="keyword">var</span> modelContext</span><br><span class="line"><span class="meta">@Query</span> <span class="keyword">var</span> books: [<span class="type">Book</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> showingAddScreen <span class="operator">=</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就有了一个模型上下文，可以在以后用来删除图书；有了一个查询，可以读取我们拥有的所有图书（这样我们就可以测试一切是否正常）；有了一个布尔值，可以跟踪添加屏幕是否显示。</p>
+<p>对于 ContentView 主体，我们将使用一个导航堆栈，这样就可以在其右上角添加一个标题和一个按钮，除此之外，它将只包含一些显示 books 数组中有多少个项目的文本–这样我们就可以确保一切正常。请记住，我们需要在这里添加 sheet() 修改器，以便根据需要显示 AddBookView 。</p>
+<p>用 ContentView 替换现有的 body 属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="type">NavigationStack</span> &#123;</span><br><span class="line">    <span class="type">Text</span>(<span class="string">&quot;Count: <span class="subst">\(books.count)</span>&quot;</span>)</span><br><span class="line">        .navigationTitle(<span class="string">&quot;Bookworm&quot;</span>)</span><br><span class="line">        .toolbar &#123;</span><br><span class="line">            <span class="type">ToolbarItem</span>(placement: .topBarTrailing) &#123;</span><br><span class="line">                <span class="type">Button</span>(<span class="string">&quot;Add Book&quot;</span>, systemImage: <span class="string">&quot;plus&quot;</span>) &#123;</span><br><span class="line">                    showingAddScreen.toggle()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        .sheet(isPresented: <span class="variable">$showingAddScreen</span>) &#123;</span><br><span class="line">            <span class="type">AddBookView</span>()</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>提示：这明确指定了按钮的尾部位置，以便我们稍后添加第二个按钮。</p>
+<p>请耐心等待–我们就快完成了！现在我们已经设计了 SwiftData 模型，创建了一个用于添加数据的表单，然后更新了 ContentView ，以便在需要时显示表单。最后一步是让表单在用户添加书籍时自动关闭。</p>
+<p>我们以前做过这样的操作，所以希望你知道该怎么做。首先，我们需要在 AddBookView 中添加另一个环境属性，以便能够取消当前视图：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Environment</span>(\.dismiss) <span class="keyword">var</span> dismiss</span><br></pre></td></tr></table></figure>
+
+<p>最后，在 “保存 “按钮的操作闭合末尾添加一个调用 dismiss() 。</p>
+<p>您现在应该可以运行应用程序并添加示例图书了。当 AddBookView 滑动离开时，计数标签应自行更新为 1。</p>
+<h2 id="添加自定义星级组件"><a href="#添加自定义星级组件" class="headerlink" title="添加自定义星级组件"></a>添加自定义星级组件</h2><p>SwiftUI 让创建自定义 UI 组件变得非常容易，因为它们实际上就是视图，其中包含某种 @Binding ，供我们读取。</p>
+<p>为了演示这一点，我们将创建一个星级评分视图，让用户通过点击图片在 1 到 5 之间输入分数。虽然我们可以让这个视图足够简单，以满足我们的具体使用情况，但最好还是在适当的地方增加一些灵活性，以便在其他地方也能使用。在这里，这意味着我们要创建六个可自定义的属性：</p>
+<p>评级前的标签（默认：空字符串）<br>最大整数评级（默认值：5）<br>关闭图像和打开图像，决定了星形突出或不突出时使用的图像（默认情况下：关闭图像为 nil ，打开图像为填充星形；如果我们在关闭图像中找到 nil ，我们也会在那里使用打开图像）。<br>关闭和打开的颜色，决定了星形高亮或不高亮时使用的颜色（默认值：关闭为灰色，打开为黄色）<br>我们还需要一个额外的属性来存储 @Binding 整数，这样我们就可以将用户的选择反馈给使用星级的任何设备。</p>
+<p>因此，请创建一个名为 “RatingView “的新 SwiftUI 视图，并赋予它这些属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Binding</span> <span class="keyword">var</span> rating: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> label <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maximumRating <span class="operator">=</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> offImage: <span class="type">Image</span>?</span><br><span class="line"><span class="keyword">var</span> onImage <span class="operator">=</span> <span class="type">Image</span>(systemName: <span class="string">&quot;star.fill&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> offColor <span class="operator">=</span> <span class="type">Color</span>.gray</span><br><span class="line"><span class="keyword">var</span> onColor <span class="operator">=</span> <span class="type">Color</span>.yellow</span><br></pre></td></tr></table></figure>
+
+<p>在填写 body 属性之前，请尝试编译代码，您会发现编译失败，因为我们的 #Preview 代码没有为 rating 传递绑定。</p>
+<p>SwiftUI 为此提供了一种特殊而简单的解决方案，称为常量绑定。这些绑定具有固定值，一方面意味着它们不能在用户界面中更改，另一方面也意味着我们可以轻松创建它们–它们非常适合预览。</p>
+<p>因此，请用以下代码替换现有的预览代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">RatingView</span>(rating: .constant(<span class="number">4</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们来看看 body 属性。这将是一个 HStack ，其中包含所提供的任何标签，以及所要求的任意数量的星星–当然，他们可以选择任何想要的图片，所以可能根本就不是星星。</p>
+<p>选择显示哪张图片的逻辑非常简单，但却非常适合用自己的方法来减少代码的复杂性。逻辑是这样的</p>
+<p>如果传入的数字大于当前等级，则返回已设置的 “关闭 “图像，否则返回 “打开 “图像。<br>如果传入的数字等于或小于当前等级，则返回打开的图像。<br>我们可以将其封装在一个方法中，因此现在就将其添加到 RatingView ：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">image</span>(<span class="params">for</span> <span class="params">number</span>: <span class="type">Int</span>) -&gt; <span class="type">Image</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> number <span class="operator">&gt;</span> rating &#123;</span><br><span class="line">        offImage <span class="operator">??</span> onImage</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        onImage</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在，实现 body 属性出奇地简单：如果标签上有任何文本，就使用它，然后使用 ForEach 从 1 开始计数到最高评分加 1，并重复调用 image(for:) 。我们还将根据评分应用前景色，并将每颗星包裹在一个可调整评分的按钮内。</p>
+<p>用它取代现有的 body 属性：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HStack</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> label.isEmpty <span class="operator">==</span> <span class="literal">false</span> &#123;</span><br><span class="line">        <span class="type">Text</span>(label)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">ForEach</span>(<span class="number">1</span><span class="operator">..&lt;</span>maximumRating <span class="operator">+</span> <span class="number">1</span>, id: \.<span class="keyword">self</span>) &#123; number <span class="keyword">in</span></span><br><span class="line">        <span class="type">Button</span> &#123;</span><br><span class="line">            rating <span class="operator">=</span> number</span><br><span class="line">        &#125; label: &#123;</span><br><span class="line">            image(for: number)</span><br><span class="line">                .foregroundStyle(number <span class="operator">&gt;</span> rating <span class="operator">?</span> offColor : onColor)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们的评级视图就已经完成了，要将其付诸实施，请回到 AddBookView ，将第二部分替换为以下内容：</p>
+<p>Section(“Write a review”) {<br>    TextEditor(text: $review)<br>    RatingView(rating: $rating)<br>}<br>我们的默认值是合理的，因此开箱即可使用，现在就试试吧！</p>
+<p>你可能会发现事情不太对：无论你按哪个星级，它都会选择 5 星！</p>
+<p>我见过数以百计的人遇到过这个问题，无论他们有多少经验。问题在于，当我们在表单或列表中添加行时，SwiftUI 会假定行本身是可点击的。这让用户更容易选择，因为他们可以点击行中的任意位置来触发行中的按钮。</p>
+<p>在我们的例子中，我们有多个按钮，因此 SwiftUI 会按顺序点击所有按钮 - rating 被设置为 1，然后是 2，然后是 3、4 和 5，这就是为什么无论如何它最终都是 5。</p>
+<p>我们可以使用附加在整个 HStack 上的额外修改器来禁用整个 “点击行来触发其按钮 “的行为：</p>
+<p>.buttonStyle(.plain)<br>这使得 SwiftUI 可以单独处理每个按钮，因此一切都能按计划运行。而且使用起来也更顺手：在这里不需要使用拾取器进入细节视图，因为星级评分更自然、更常见。</p>
+<h2 id="使用-Query-创建列表"><a href="#使用-Query-创建列表" class="headerlink" title="使用 @Query 创建列表"></a>使用 @Query 创建列表</h2><p>现在，我们的 ContentView 有这样一个查询属性：</p>
+<p>@Query var books: [Book]<br>我们在 body 中使用它来查看这个简单的文本视图：</p>
+<p>Text(“Count: (books.count)”)<br>为了使该屏幕更加生动，我们将用一个 List 来取代文本视图，显示所有已添加的书籍，以及它们的评分和作者。</p>
+<p>我们可以在这里使用之前制作的星级评定视图，但尝试其他东西会更有趣。 RatingView 控件可用于任何类型的项目，而我们可以制作一个新的 EmojiRatingView ，专门用于显示本项目的评分。它所要做的就是根据评分显示五种不同表情符号中的一种，这也是 SwiftUI 中视图构成多么简单明了的一个很好的例子–通过这种方式只需取出视图的一小部分就可以了。</p>
+<p>因此，请创建一个名为 “EmojiRatingView “的新 SwiftUI 视图，并编写以下代码：</p>
+<p>struct EmojiRatingView: View {<br>    let rating: Int</p>
+<pre><code>var body: some View &#123;
+    switch rating &#123;
+    case 1:
+        Text(&quot;1&quot;)
+    case 2:
+        Text(&quot;2&quot;)
+    case 3:
+        Text(&quot;3&quot;)
+    case 4:
+        Text(&quot;4&quot;)
+    default:
+        Text(&quot;5&quot;)
+    &#125;
+&#125;
+</code></pre>
+<p>}</p>
+<p>#Preview {<br>    EmojiRatingView(rating: 3)<br>}<br>提示：我在文本中使用了数字，因为表情符号会给电子阅读器带来麻烦，但你应该用你认为代表各种评级的任何表情符号来代替数字。</p>
+<p>现在，我们可以返回 ContentView ，对其用户界面进行初步处理。这将用列表和 ForEach 取代现有的文本视图， books 。我们不需要为 ForEach 提供标识符，因为所有 SwiftData 模型都自动符合 Identifiable 。</p>
+<p>在列表中，我们将有一个指向当前图书的 NavigationLink ，在这个 中，我们将有新的 EmojiRatingView ，加上图书的标题和作者。因此，用这个替换现有的文本视图：</p>
+<p>List {<br>    ForEach(books) { book in<br>        NavigationLink(value: book) {<br>            HStack {<br>                EmojiRatingView(rating: book.rating)<br>                    .font(.largeTitle)</p>
+<pre><code>            VStack(alignment: .leading) &#123;
+                Text(book.title)
+                    .font(.headline)
+                Text(book.author)
+                    .foregroundStyle(.secondary)
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>小贴士：确保保留前面的修饰词 - navigationTitle() 等。</p>
+<p>由于我们还没有添加 navigationDestination() ，所以导航功能无法正常工作，不过没关系，我们很快就会回到这个界面。首先，让我们创建详细视图…</p>
+<h2 id="显示图书详细信息"><a href="#显示图书详细信息" class="headerlink" title="显示图书详细信息"></a>显示图书详细信息</h2><p>当用户点击 ContentView 中的一本书时，我们将显示一个包含更多信息的详细视图–书的类型、简短评论等。我们还将重复使用新的 RatingView ，甚至对其进行自定义，这样您就可以看到 SwiftUI 有多么灵活。</p>
+<p>为了让这个界面更有趣，我们将添加一些代表应用程序中每个类别的艺术作品。我已经从 Unsplash 挑选了一些图片，并将其放入本书的 project11-files 文件夹中，如果你还没有下载，请现在下载，然后将其拖入你的资产目录。</p>
+<p>Unsplash 的许可证允许我们以商业或非商业方式使用图片，无论是否注明出处，但我们都希望注明出处。我添加的图片来自 Ryan Wallace、Eugene Triguba、Jamie Street、Alvaro Serrano、Joao Silas、David Dilbert 和 Casey Horner - 如果你愿意，可以从 <a target="_blank" rel="noopener" href="https://unsplash.com/">https://unsplash.com</a> 上获取原件。</p>
+<p>接下来，创建一个名为 “DetailView “的新 SwiftUI 视图，然后导入 SwiftData。这个新视图只需要一个属性，即它应该显示的书籍，所以请现在就添加：</p>
+<p>let book: Book<br>即使只是拥有该属性，也足以破坏 DetailView.swift 底部的预览代码。以前这很容易解决，因为我们只需发送一个示例对象即可，但有了 SwiftData 的参与，事情就变得一团糟了：创建新书还意味着需要在视图上下文中创建新书。</p>
+<p>在 SwiftData 中，这是第一件非常棘手的事情；我们必须把事情处理得恰到好处，它才能正常工作：</p>
+<p>为了创建 Book 示例对象，我们必须首先创建一个模型上下文。<br>模型上下文来自于创建模型容器。<br>如果我们创建了一个模型容器，我们并不希望它实际存储任何东西，因此我们可以创建一个自定义配置，告诉 SwiftData 只在内存中存储信息。这意味着一切都是临时的。<br>我知道这听起来很费事，但实际上只需要几行代码–我们需要手工制作模型容器，并使用名为 ModelConfiguration 的新类型来完成，该类型允许我们请求临时内存存储。有了它之后，我们就可以像往常一样创建一个 Book 对象，然后将它与模型容器本身一起发送到 DetailView 。</p>
+<p>用以下代码替换当前的预览代码：</p>
+<p>#Preview {<br>    do {<br>        let config &#x3D; ModelConfiguration(isStoredInMemoryOnly: true)<br>        let container &#x3D; try ModelContainer(for: Book.self, configurations: config)<br>        let example &#x3D; Book(title: “Test Book”, author: “Test Author”, genre: “Fantasy”, review: “This was a great book; I really enjoyed it.”, rating: 4)</p>
+<pre><code>    return DetailView(book: example)
+        .modelContainer(container)
+&#125; catch &#123;
+    return Text(&quot;Failed to create preview: \(error.localizedDescription)&quot;)
+&#125;
+</code></pre>
+<p>}<br>是的，创建 Book 实例时并没有在任何地方提及模型容器或配置，但这确实很重要：在没有容器的情况下创建 SwiftData 模型对象很可能会导致代码崩溃。</p>
+<p>完成这些后，我们就可以将注意力转移到更有趣的问题上，即设计视图本身。首先，我们要把分类图片和流派放在 ZStack 中，这样就可以把一个很好地放在另一个的上面。我挑选了一些我认为看起来不错的样式，但也欢迎大家随意尝试这些样式–我唯一建议大家一定要保留的是 ScrollView ，它可以确保我们的评论完全适合屏幕，无论它有多长、用户使用的是什么设备，也无论他们是否调整了字体大小。</p>
+<p>用此属性替换当前的 body 属性：</p>
+<p>ScrollView {<br>    ZStack(alignment: .bottomTrailing) {<br>        Image(book.genre)<br>            .resizable()<br>            .scaledToFit()</p>
+<pre><code>    Text(book.genre.uppercased())
+        .font(.caption)
+        .fontWeight(.black)
+        .padding(8)
+        .foregroundStyle(.white)
+        .background(.black.opacity(0.75))
+        .clipShape(.capsule)
+        .offset(x: -5, y: -5)
+&#125;
+</code></pre>
+<p>}<br>.navigationTitle(book.title)<br>.navigationBarTitleDisplayMode(.inline)<br>.scrollBounceBehavior(.basedOnSize)<br>这样，流派名称就会出现在 ZStack 的右下角，并用背景色、粗体字和少量衬垫来突出它。</p>
+<p>在 ZStack 下方，我们将添加作者、评论和评分。我们不希望用户在这里调整评分，因此我们可以使用另一个常量绑定将其转换为简单的只读视图。更妙的是，由于我们使用 SF 符号创建了评分图片，因此我们可以使用简单的 font() 修改器将其无缝缩放，从而更好地利用我们的空间。</p>
+<p>因此，将这些视图直接添加到之前的 ZStack 下方：</p>
+<p>Text(book.author)<br>    .font(.title)<br>    .foregroundStyle(.secondary)</p>
+<p>Text(book.review)<br>    .padding()</p>
+<p>RatingView(rating: .constant(book.rating))<br>    .font(.largeTitle)<br>至此， DetailView ，我们可以返回 ContentView.swift 向 List 视图添加导航目标：</p>
+<p>.navigationDestination(for: Book.self) { book in<br>    DetailView(book: book)<br>}<br>现在再次运行应用程序，你就可以点击输入的任何书籍，在新的详细视图中显示它们。</p>
+<h2 id="使用排序描述符对-SwiftData-查询排序"><a href="#使用排序描述符对-SwiftData-查询排序" class="headerlink" title="使用排序描述符对 SwiftData 查询排序"></a>使用排序描述符对 SwiftData 查询排序</h2><p>当您使用 @Query 从 SwiftData 中提取对象时，您可以指定数据的排序方式–是按字段的字母顺序排序？还是按数字排序，先排最高的数字？无论您选择哪种排序方式，最好都能让用户获得可预测的体验。</p>
+<p>在这个项目中，我们有多个字段可能对排序有用：书名、作者或评分都很合理，是不错的选择，但我们不必只依赖一个字段–您可以指定多个字段，这样您就可以先询问评分最高的书，然后用它们的名字来决定胜负。</p>
+<p>查询排序有两种方式：一种是只允许使用一个排序字段的简单选项，另一种是允许使用名为 SortDescriptor 的新类型数组的高级版本。</p>
+<p>如果使用简单版本，我们可能会要求按照书名的字母顺序提供图书：</p>
+<p>@Query(sort: \Book.title) var books: [Book]<br>或者，我们可以要求按评分从高到低排序：</p>
+<p>@Query(sort: \Book.rating, order: .reverse) var books: [Book]<br>当您只需要一个字段时，这种方法很有效，但一般来说，我认为最好还能有一个备用字段–”按评分排序，然后按标题排序 “可以为您的应用程序增加额外的可预测性，这总是件好事。</p>
+<p>我们可以使用 SortDescriptor 类型创建它们，该类型可以由一个或两个值组成：我们要排序的属性，以及是否要反向排序。例如，我们可以这样按标题属性的字母顺序排序：</p>
+<p>@Query(sort: [SortDescriptor(\Book.title)]) var books: [Book]<br>与更简单的排序方法一样，使用 SortDescriptor 对结果进行排序的默认方式是升序，即文本按字母顺序排列，但如果想颠倒排序顺序，可以使用这个方法：</p>
+<p>@Query(sort: [SortDescriptor(\Book.title, order: .reverse)]) var books: [Book]<br>您可以指定多个排序描述符，它们将按照您提供的顺序应用。例如，如果用户添加了 Pete Hamill 的《Forever》一书，然后又添加了 Judy Blume 的《Forever》–一本完全不同的书，只是书名相同–那么指定第二个排序字段就很有帮助。</p>
+<p>因此，我们可能要求书名升序排序在前，书的作者升序排序在后，就像这样：</p>
+<p>@Query(sort: [<br>    SortDescriptor(\Book.title),<br>    SortDescriptor(\Book.author)<br>]) var books: [Book]<br>除非您有大量具有相似值的数据，否则第二个甚至第三个排序字段对性能几乎没有影响。以我们的书籍数据为例，几乎每本书都有一个唯一的书名，因此二级排序字段在性能方面或多或少无关紧要。</p>
+<h2 id="从-SwiftData-查询中删除"><a href="#从-SwiftData-查询中删除" class="headerlink" title="从 SwiftData 查询中删除"></a>从 SwiftData 查询中删除</h2><p>我们已经使用 @Query 将 SwiftData 对象放入 SwiftUI List ，只需再做一点工作，我们就能启用轻扫删除和专用的编辑&#x2F;完成按钮。</p>
+<p>就像普通的数据数组一样，大部分工作都是通过在 ForEach 中附加 onDelete(perform:) 修改器来完成的，但我们不需要直接从数组中删除项目，而是需要在查询中找到请求的对象，然后使用它在模型上下文中调用 delete() 。一旦删除了所有对象，SwiftData 的自动保存系统就会启动并永久应用更改。</p>
+<p>因此，首先将此方法添加到 ContentView ：</p>
+<p>func deleteBooks(at offsets: IndexSet) {<br>    for offset in offsets {<br>        &#x2F;&#x2F; find this book in our query<br>        let book &#x3D; books[offset]</p>
+<pre><code>    // delete it from the context
+    modelContext.delete(book)
+&#125;
+</code></pre>
+<p>}<br>我们可以通过在 ContentView 的 ForEach 上添加 onDelete(perform:) 修饰符来触发，但请记住：它必须位于 ForEach 上，而不是 List 上。</p>
+<p>立即添加此修改器：</p>
+<p>.onDelete(perform: deleteBooks)<br>这样我们就可以轻扫删除，还可以通过添加一个编辑&#x2F;删除按钮来做得更好。在 ContentView 中找到 toolbar() 修改器，然后再添加一个 ToolbarItem ：</p>
+<p>ToolbarItem(placement: .topBarLeading) {<br>    EditButton()<br>}<br>这就完成了 ContentView ，请尝试运行应用程序–现在应该可以自由添加和删除书籍了，可以通过轻扫删除或使用编辑按钮删除。</p>
+<h2 id="使用警报以编程方式弹出导航链接"><a href="#使用警报以编程方式弹出导航链接" class="headerlink" title="使用警报以编程方式弹出导航链接"></a>使用警报以编程方式弹出导航链接</h2><p>你已经看到 NavigationLink 如何让我们推送到细节界面，它可能是一个自定义视图，也可能是 SwiftUI 的内置类型之一，如 Text 或 Image 。因为我们是在 NavigationStack 中，所以 iOS 会自动提供一个 “返回 “按钮，让用户回到上一屏幕，用户也可以从左侧边缘轻扫返回。不过，有时以编程方式返回也很有用，即在我们需要时而不是在用户轻扫时返回上一屏幕。</p>
+<p>我们之前已经讨论过这个问题，所以希望这对你来说只是一个很好的练习：我们将在应用程序中添加最后一个功能，删除用户当前正在阅读的书籍。为此，我们需要显示一个提示，询问用户是否真的要删除这本书，然后从当前的模型上下文中删除这本书，如果这正是用户想要的。一旦这样做了，就没有必要再停留在当前屏幕上了，因为与其相关联的图书已经不存在了，所以我们要弹出当前视图–将其从 NavigationStack 堆栈的顶部移除，这样我们就回到了上一个屏幕。</p>
+<p>首先，我们需要在 DetailView 结构中添加三个新属性：一个用于保存 SwiftData 模型上下文（以便我们删除内容），一个用于保存删除操作（以便我们将视图从导航堆栈中弹出），还有一个用于控制是否显示删除确认提示。</p>
+<p>因此，首先将这三个新属性添加到 DetailView ：</p>
+<p>@Environment(.modelContext) var modelContext<br>@Environment(.dismiss) var dismiss<br>@State private var showingDeleteAlert &#x3D; false<br>第二步是编写一个方法，将当前图书从模型上下文中删除，并取消当前视图。使用导航链接而不是工作表显示该视图并不重要，我们仍然使用相同的 dismiss() 代码。</p>
+<p>立即将此方法添加到 DetailView ：</p>
+<p>func deleteBook() {<br>    modelContext.delete(book)<br>    dismiss()<br>}<br>第三步是添加 alert() 修改器，该修改器会监视 showingDeleteAlert ，并要求用户确认操作。到目前为止，我们一直在使用带有取消按钮的简单警报，但这里我们需要两个按钮：一个按钮用于删除图书，另一个用于取消。这两个按钮都有特定的按钮角色，可以自动使它们看起来正确，因此我们将使用它们。</p>
+<p>对于如何标注提示文本，苹果公司提供了非常明确的指导，但归根结底：如果是简单的 “我明白 “接受，那么 “OK “就很好，但如果你想让用户做出选择，那么就应该避免使用 “是 “和 “否 “这样的标题，而应使用 “忽略”、”回复 “和 “确认 “这样的动词。</p>
+<p>在本例中，我们将使用 “删除 “作为破坏性按钮，然后在其旁边提供一个取消按钮，以便用户可以根据自己的需要取消删除。因此，请在 DetailView 中的 ScrollView 添加此修改器：</p>
+<p>.alert(“Delete book”, isPresented: $showingDeleteAlert) {<br>    Button(“Delete”, role: .destructive, action: deleteBook)<br>    Button(“Cancel”, role: .cancel) { }<br>} message: {<br>    Text(“Are you sure?”)<br>}<br>最后一步是添加一个启动删除程序的工具栏项–这只需要翻转 showingDeleteAlert 布尔值，因为我们的 alert() 修改器已经在关注它了。因此，在 ScrollView 中添加最后一个修改器：</p>
+<p>.toolbar {<br>    Button(“Delete this book”, systemImage: “trash”) {<br>        showingDeleteAlert &#x3D; true<br>    }<br>}<br>现在，您可以在 ContentView 中使用 “轻扫删除 “或 “编辑 “按钮删除图书，或导航到 DetailView ，然后轻点其中的专用删除按钮–它应该会删除图书，更新 ContentView 中的列表，然后自动取消详细视图。</p>
+<p>又一个应用程序完成了–干得好！</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>恭喜您又完成了一个 SwiftUI 项目！有了 SwiftData 等技术的帮助，您现在已经能够构建一些与用户交互的重要应用程序，最重要的是，您还能记住用户输入的内容。虽然 SwiftData 只是浮出水面，但它的功能远不止于此，我期待苹果在未来的更新中继续扩展 SwiftData 和 SwiftUI 之间的联系。与此同时，下一个项目将深入关注 SwiftData，这其中有很多值得探索的地方！</p>
+<p>至于你学到的其他知识，你现在已经掌握了更多 SwiftUI 的属性包装器，我希望你已经了解了在什么时候应该选择哪个属性包装器。 @Binding 在构建自定义 UI 组件时尤其有用，因为它在视图之间共享数据的能力实在是太有用了。</p>
+<p>还有最后一件事我想留给大家，大家可能还没注意到。当我们创建一个星级评定组件时，我们创建了一个成为用户交互式控件的东西，就像 Button 和 Slider 一样。然而，我们并没有停下来考虑它是如何与可访问性结合在一起的，而这就是一个问题： Button , Slider , 以及其他的控件都能很好地工作，但当我们开始创建自己的组件时，我们就需要介入并自己完成这项工作。</p>
+<p>构建人人都能使用的应用程序是每个人都需要认真对待的事情，这也是为什么我在未来专门设立了一个完整的技术项目–我们将回顾之前的项目，看看如何改进它们。</p>
+<p>不管怎么说，先做第一件事–你有了新的评论和一些挑战。祝你好运！</p>
+<p>回顾所学知识<br>任何人都可以看完教程，但要记住教程的内容却需要付出实际的努力。我的工作就是确保你从这些教程中尽可能多地吸收知识，因此我准备了一份简短的复习资料，帮助你检查自己的学习情况。</p>
+<p>单击此处复习在本项目中学到的知识。</p>
+<p> 挑战<br>学习的最佳方法之一就是尽可能多地编写自己的代码，因此，以下三种方法是你应该尝试扩展此应用程序，以确保你完全理解发生了什么。</p>
+<p>现在可以不选择图书的标题、作者或流派，这会给详细视图带来问题。请通过强制默认设置、验证表单或为未知类型显示默认图片来解决这个问题–您可以自己选择。<br>修改 ContentView ，以某种方式突出显示被评为 1 星的图书，例如用红色显示其名称。<br>在图书类中添加一个新的 “日期 “属性，将 Date.now 赋值给它，这样它就能获得当前的日期和时间，然后在 DetailView 中的某个地方将其格式化。</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="">
+              编程
+            </a>
+          
+            <a href="/tags/Swift/" class="">
+              Swift
+            </a>
+          
+            <a href="/tags/Hacking-with-Swift/" class="">
+              Hacking with Swift
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/12347.html" target="_blank" title="【Hacking With Swift】Project11_Bookworm">https://blog.five2fire.top/article/12347.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/10671.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">【Hacking With Swift】Project12_SwiftData</div>
+      </div>
+      
+      <!-- <div class="content">
+        英文原博博主是   Paul Hudson     @twostraws
+本文是学习Swift过程中翻译该网站的内容: 
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/39062.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">【Hacking With Swift】Project10_CupcakeCorner</div>
+      </div>
+      <!-- <div class="content">
+        英文原博博主是   Paul Hudson     @twostraws
+本文是学习Swift过程中翻译该网站的内容: 
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
+        
+        
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Binding-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-text">使用 @Binding 创建自定义组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-TextEditor-%E6%8E%A5%E5%8F%97%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E8%BE%93%E5%85%A5"><span class="toc-text">使用 TextEditor 接受多行文本输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SwiftData-%E5%92%8C-SwiftUI-%E7%AE%80%E4%BB%8B"><span class="toc-text">SwiftData 和 SwiftUI 简介</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%88%9B%E5%BB%BA"><span class="toc-text">开始创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-SwiftData-%E5%88%9B%E5%BB%BA%E5%9B%BE%E4%B9%A6"><span class="toc-text">使用 SwiftData 创建图书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%98%9F%E7%BA%A7%E7%BB%84%E4%BB%B6"><span class="toc-text">添加自定义星级组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Query-%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="toc-text">使用 @Query 创建列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%BE%E4%B9%A6%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-text">显示图书详细信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8E%92%E5%BA%8F%E6%8F%8F%E8%BF%B0%E7%AC%A6%E5%AF%B9-SwiftData-%E6%9F%A5%E8%AF%A2%E6%8E%92%E5%BA%8F"><span class="toc-text">使用排序描述符对 SwiftData 查询排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-SwiftData-%E6%9F%A5%E8%AF%A2%E4%B8%AD%E5%88%A0%E9%99%A4"><span class="toc-text">从 SwiftData 查询中删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AD%A6%E6%8A%A5%E4%BB%A5%E7%BC%96%E7%A8%8B%E6%96%B9%E5%BC%8F%E5%BC%B9%E5%87%BA%E5%AF%BC%E8%88%AA%E9%93%BE%E6%8E%A5"><span class="toc-text">使用警报以编程方式弹出导航链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-02</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/40210.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-15</span>
+                
+              </div>
+              <a class="post-title" href="/article/40210.html">利用CloudFlare自建无服务器导航站</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/12599.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-12</span>
+                
+              </div>
+              <a class="post-title" href="/article/12599.html">不要掉入完美主义的陷阱</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/4248.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/4248.html">《姥姥的外孙》影评</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(50, 155, 230, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline-comment"></div>
+  <script type="module">
+    let walineInstance = null;
+
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
+
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
+
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 清空编辑器内容
+        clearWalineEditor();
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
+    }
+
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
+      initWaline();
+    });
+  </script>
+</body>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

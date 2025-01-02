@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPKR1PWXJN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-TPKR1PWXJN');
+</script>
+
+
+  <title>《拖延心理学》读书笔记 | Sage自留地😎</title>
+
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+
+    <!-- 谷歌自动广告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664449399292469"
+     crossorigin="anonymous"></script>
+
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
+</head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_2" id="loader">
+  <div class="loader"></div>
+</div>
+
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/messageboard" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Sage自留地😎</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="menu-item-link" title="导航站">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/messageboard" class="menu-item-link" title="留言板">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://i.ytimg.com/vi/3s_4qzRR0tE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD-LMtoFQfojCDmECXw6Si9WRZCcQ')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        《拖延心理学》读书笔记
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2024-10-11 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/" class="post-detail-header_category">
+              书影音
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 11.6k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 38分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h1 id="《拖延心理学》-向与生俱来的行为顽症宣战"><a href="#《拖延心理学》-向与生俱来的行为顽症宣战" class="headerlink" title="《拖延心理学》-向与生俱来的行为顽症宣战"></a>《拖延心理学》-向与生俱来的行为顽症宣战</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文为AI根据读书时做的摘要总结，非个人理解，仅供参考。<br>之后有时间我会自己在做总结，敬请期待和关注。</p>
+<h2 id="1-拖延的本质"><a href="#1-拖延的本质" class="headerlink" title="1. 拖延的本质"></a>1. 拖延的本质</h2><p>拖延并非简单的时间管理问题或道德缺陷,而是一个复杂的心理问题。它深深根植于我们的自尊和对自我的认知中。作者指出,拖延反映了一个人如何与自己相处,以及如何看待自己的能力和价值。拖延者常常害怕失败,担心自己的表现无法达到预期或他人的标准。这种恐惧导致他们不断推迟行动,以避免面对可能的失败和随之而来的自我否定。</p>
+<p>我认为,理解拖延的心理根源是克服拖延的第一步。当我们意识到拖延不仅仅是懒惰或缺乏纪律,而是一种自我保护机制时,我们就能以更加同理心和建设性的方式来应对它。这种认识让我们能够更深入地探讨自己的恐惧和不安全感,从而找到更健康的方式来维护自尊和应对挑战。</p>
+<h2 id="2-拖延的类型和原因"><a href="#2-拖延的类型和原因" class="headerlink" title="2. 拖延的类型和原因"></a>2. 拖延的类型和原因</h2><p>书中详细探讨了几种常见的拖延类型及其背后的原因。完美主义是一个主要的拖延诱因。完美主义者往往设定不切实际的高标准,害怕无法达到这些标准而选择拖延。另一种类型是源于对控制感的需求,有些人通过拖延来维护自己的独立性和自主权。还有一些人可能因为害怕成功而拖延,因为成功可能带来更多的责任和期望。</p>
+<p>我发现,识别自己属于哪种类型的拖延者非常有帮助。例如,作为一个倾向完美主义的人,我经常因为担心结果不够完美而推迟开始一项任务。认识到这一点后,我开始学习如何设定更现实的目标,并接受”足够好”的结果。这种自我认知不仅帮助我减少了拖延,还降低了日常生活中的压力和焦虑。</p>
+<h2 id="3-认识自己的拖延模式"><a href="#3-认识自己的拖延模式" class="headerlink" title="3. 认识自己的拖延模式"></a>3. 认识自己的拖延模式</h2><p>作者建议我们仔细观察自己的拖延行为,包括触发因素、具体表现以及后果。通过分析我们不拖延的领域,我们可以发现自己的优势和有效策略。同时,识别我们常用的拖延借口和理由也很重要,这有助于我们在未来更好地应对这些想法。</p>
+<p>在实践中,我发现保持一个”拖延日志”非常有效。每当我发现自己在拖延时,我会记录下当时的情况、我的想法和感受。经过一段时间,我开始看到一些模式,比如我常常在面对大型、复杂的项目时感到overwhelmed而拖延。认识到这一点后,我学会了将大项目分解成小任务,这大大减少了我的拖延行为。</p>
+<h2 id="4-设定可操作的目标"><a href="#4-设定可操作的目标" class="headerlink" title="4. 设定可操作的目标"></a>4. 设定可操作的目标</h2><p>书中强调了设定具体、可衡量、可实现的小目标的重要性。将大目标分解为小步骤不仅让任务看起来不那么令人生畏,还能提供更多的成功体验,增强我们的信心和动力。作者建议从最小的可行目标开始,逐步提高难度。</p>
+<p>我发现这个建议特别有用。以前我常常设定宏大但模糊的目标,结果往往是无从下手而拖延。现在我学会了设定”微小目标”,比如”写作10分钟”或”读一页书”。这些小目标很容易达成,给了我立即的成就感,often激发我继续工作的动力。同时,定期回顾和调整目标也很重要,这让我能够根据实际进展调整计划,保持目标的挑战性和可行性的平衡。</p>
+<h2 id="5-时间管理技巧"><a href="#5-时间管理技巧" class="headerlink" title="5. 时间管理技巧"></a>5. 时间管理技巧</h2><p>作者介绍了几种实用的时间管理技巧,其中”非计划”表格特别引起了我的注意。这种方法不仅帮助我们记录时间使用,还能让我们更清楚地看到可用于重要任务的时间。学会准确估计任务所需时间也是一个重要技能,这可以通过不断练习和记录来提高。</p>
+<p>我尝试使用”非计划”表格一段时间后,惊讶地发现自己实际上比想象中有更多的可用时间。这个发现让我重新审视了自己的时间分配,开始更有意识地利用那些原本被忽视的时间段。同时,我也学会了更好地利用零碎时间,比如在等待时阅读几页书或处理一些小任务。找出自己的最佳工作时间并在这些时段安排重要任务,也显著提高了我的工作效率。</p>
+<h2 id="6-克服拖延的策略"><a href="#6-克服拖延的策略" class="headerlink" title="6. 克服拖延的策略"></a>6. 克服拖延的策略</h2><p>书中提供了多种实用策略来克服拖延。预防和应对意外干扰是其中之一,这需要我们提前做好计划,并培养灵活应对变化的能力。学会委派任务不仅能减轻我们的负担,还能让我们专注于最重要的事情。对不重要的事情说”不”也是一个关键技能,这需要我们明确自己的优先事项。</p>
+<p>我发现,建立良好的工作习惯和使用执行提示点特别有效。例如,我开始在办公桌上放置视觉提醒,如待办事项清单或项目时间表。这些提示不断提醒我保持专注和行动。同时,我也尝试养成即时处理小事的习惯,这不仅让我的工作空间更整洁,也减少了未完成任务积累带来的心理压力。</p>
+<h2 id="7-寻求帮助和支持"><a href="#7-寻求帮助和支持" class="headerlink" title="7. 寻求帮助和支持"></a>7. 寻求帮助和支持</h2><p>作者强调了社交支持在克服拖延中的重要性。找到能够理解和支持我们的人,公开承诺我们的目标,甚至找一个工作伙伴,都能增加我们坚持的动力。与他人一起制定计划也能带来新的视角和想法。</p>
+<p>我个人发现,加入一个学习小组或找一个accountability partner极大地提高了我完成任务的概率。知道有人在关注我的进展,让我更有动力去行动。同时,我也学会了如何更好地寻求帮助,不再将其视为软弱的表现,而是看作提高效率和学习新技能的机会。</p>
+<h2 id="8-调整生活方式"><a href="#8-调整生活方式" class="headerlink" title="8. 调整生活方式"></a>8. 调整生活方式</h2><p>书中提到,克服拖延不仅需要改变工作习惯,还需要全面调整生活方式。增加运动、练习正念、减少电子产品使用等都能帮助我们保持良好的精神状态,从而更好地应对拖延。培养新的兴趣爱好和与积极的人相处也能增加生活的乐趣和动力。</p>
+<p>我开始每天进行短暂的冥想练习,这帮助我更好地管理压力和焦虑,也提高了我的注意力集中能力。同时,我也尝试限制社交媒体的使用时间,将这些时间用于更有意义的活动。这些改变虽然看似与拖延无关,但实际上对提高我的整体生活质量和工作效率产生了积极影响。</p>
+<h2 id="9-应对他人的拖延"><a href="#9-应对他人的拖延" class="headerlink" title="9. 应对他人的拖延"></a>9. 应对他人的拖延</h2><p>最后,书中还讨论了如何应对他人的拖延,这对于管理者或与拖延者共事的人特别有用。关键是不要代替拖延者完成任务,而是帮助他们设定小目标,提供适度的鼓励。在必要时,我们也需要学会采取单方面行动来保护自己的利益。</p>
+<p>这部分内容让我反思了自己作为团队成员或朋友时如何更好地支持他人。我学会了如何在不接管他人责任的前提下提供有效的帮助和支持。同时,我也认识到设定明确的界限的重要性,以确保他人的拖延不会对自己造成过大影响。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过阅读《拖延心理学》,我深刻认识到克服拖延是一个长期的过程,需要我们从根本上改变思维模式和行为习惯。书中提供的各种策略和技巧为我们提供了实用的工具,但真正的改变还是需要我们持续的努力和实践。</p>
+<p>我认为,克服拖延的关键在于自我认知和接纳。当我们能够以同理心和理解的态度看待自己的拖延行为时,我们就能更有效地应对它。同时,培养积极的心态,专注于进步而不是完美,也是克服拖延的重要一步。</p>
+<p>最后,我想强调的是,改变是渐进的过程。我们不应期望一夜之间彻底改变自己的行为模式。相反,我们应该庆祝每一个小进步,保持耐心和毅力,相信通过持续的努力,我们终能建立更高效、更充实的生活方式。</p>
+<h1 id="《拖延心理学》高亮笔记部分"><a href="#《拖延心理学》高亮笔记部分" class="headerlink" title="《拖延心理学》高亮笔记部分"></a>《拖延心理学》高亮笔记部分</h1><p>先做摘录，再做整理。</p>
+<p>人们通过拖延来安慰自己，让自己相信他们的能力要大于其表现，他们甚至还维护着这样一种信念：他们的潜在能力是出色的、不可限量的。通过拖延，你永远不会逼着自己去面对自己的能力限制在哪里。</p>
+<p>拖延从根本上来说并不是一个时间管理方面的问题，也不是一个道德问题，而是一个复杂的心理问题。根本而言，拖延的问题是一个人跟自身如何相处的问题，它反映的是一个人在自尊上的问题。</p>
+<p>阅读应对拖延的技巧或许是很有趣的一件事，但是阅读不能代替行动。</p>
+<p>对自己可以用多少时间将事情做完没有一个概念</p>
+<p>人们之所以产生拖延的不良习性，是因为他们害怕。他们害怕如果他们行动了，他们的行为会让他们陷入麻烦。他们担心如果展示了自己真实的一面，会有危险的结果等着他们。</p>
+<p>他们的担忧反映了一种恐惧失败的心理。我们相信拖延可能是应付这种恐惧的一个心理策略。</p>
+<p>成为一个伟大的律师就是我最大的追求。但是似乎我的时间都花在了担心自己能不能成就伟大上，而没有实实在在地去做事</p>
+<p>不管能力是如何被定义的，当它成了一个人自我价值感的单一决定因素时，问题就产生了。这个人表现如何成了唯一的衡量；其他方面都被忽略了。一个出色的表现意味着一个出色的人；一个平庸的表现意味着一个平庸的人。这成了一个定论。</p>
+<p>有些人宁愿承受拖延所带来的痛苦后果，也不愿意承受努力之后却没有如愿以偿所带来的羞辱。</p>
+<p>然而，一个适应不良的完美主义者对自己要求也很高，但是却对自己不抱希望。在适应不良型的完美主义中，你对自己的要求跟你对自己表现的期待之间存在着一种矛盾，所以你更容易去自责，也更容易感到消沉，你的自尊因而也处于较低的水平。</p>
+<p>一切都自己来。完美主义者常常觉得一切事情都应该自己来做，他们相信任何求助都是软弱的标志</p>
+<p>即便求助于人会让事情做得更有效率，他们也毅然决然地在隔绝孤单中做事和受折磨，他们甚至以此为自豪。</p>
+<p>完美主义者害怕一旦做出错误的决定，他们就会小看自己，而无法忍受到时候后悔自责的痛苦。</p>
+<p>这些“选择失败”的人喜欢拖延，以至于他们可以让失败万无一失，同时他们还是可以幻想：要是我尝试，我一定能赢</p>
+<p>很多完美主义者憎恨在竞争中失败，所以他们尽量避免参与到跟别人直接竞争的活动中。</p>
+<p>“自残”是一种间接保护你的自我和自尊的方式：我失败了，但是这是我自愿的。</p>
+<p>这种“要么全部要么没有”的观念会影响到一个人如何制定目标，会让他想要一下子做到所有事情，因为如果不这样的话，似乎总觉得不够</p>
+<p>成长心态。这种心态的核心信念是：能力是可以发展的；通过努力工作，你可以随着时间推移而变得更聪明、更优秀。在成长心态看来，努力可以让你更聪明或者更擅长于某件事情；努力可以激发你的能力并成就自己。在这样的心态看来，你没有必要立刻擅长某件事情。事实上，做一些你不擅长的事情反而更为有趣，因为通过做这样的事情，你可以拓展你自己，并从中学习。有成长心态的人不仅仅追求挑战，他们还以此充实和提升自己。失败可能会让你伤心和失望，但是成败并不决定一个人本身的好坏。实际上，失败是一个让你加倍努力的理由，而不是一个让你退缩、放弃和拖延的理由。</p>
+<p>下一次当你发现自己陷进完美主义者的心理瘫痪时，想想在那种情况下最糟糕的处境究竟是什么。你可以提醒自己：虽然这些幻想的处境是你所恐惧的，但是它们几乎无一例外地被夸大了。同时，如果你更进一步，将自己的固定心态转化为成长心态，那么，你或许会以全新的眼光来看待不完美——它是你提升自己、学习新知识的一个推动力，而并非致命打击。</p>
+<p>成功需要太多付出：这令我望而却步 有些人担心成功需要付出太多，远远超出了他们所能承受的程度。因为致力于成功需要付出很多时间、努力和专注，有些人认为他们达不到那样的要求，还是站在原地会比较安全。</p>
+<p>虽然对我们每个人来说，对自己的生活具有一定的掌控感是十分重要的一件事，但是同样重要的是，我们也必须学会去遵守那些不是我们自己所制定的规则，并顺应别人的需要。然而，那些对掌控感十分敏感的人或许不喜欢任何规则，他们会抗拒任何他人对自己的要求；对他们中的有些人而言，拖延成了他们获取掌控感的一种方式。</p>
+<p>拖延成了这场争夺战的一个策略——它成了争夺控制权以及赢得尊敬和独立自主的一场争夺战。</p>
+<p>你的拖延对你周围的人有什么影响。你的拖延是否给别人带来不便？当你落在后面的时候，你有没有请求别人重新安排日程？由于你没有及时完成自己的那一部分工作，你是否影响到别人的工作进度和工作计划？因为你没有完成自己的任务，你是否让别人承担了更多的工作？</p>
+<p>再想一想人们对你的拖延是怎么反应的。他们是否由于你的耽搁而感到烦躁不安？是否对你的种种借口感到泄气？是否由于你没有做到自己的承诺而对你大感愤怒？他们是否最终放弃了对你施加压力，只能让你按照自己的方式做事？如果你没有意识到这些问题，你可能会一直利用拖延来维护自己的独立感。你可能比自己设想的更加好斗，拖延就是你争夺控制权的一种方式。</p>
+<p>许多拖延者故意无视他们在当前的拖延会在将来造成什么样可能的后果，但是总有一个时刻，那时拖沓的此时变成了过去，而不去料想的将来变成了此时。</p>
+<p>第一个阶段是“无意识无行动力或前改变”（unconscious incompetence or prechange）阶段</p>
+<p>第二个阶段是“有意识无行动或醒悟”（conscious incompetence or waking up）阶段</p>
+<p>第三个阶段是“有意识有行动或者决心改变”（conscious competence or choosing change）阶段</p>
+<p>第四个阶段是“无意识有行动”（unconscious competence）阶段</p>
+<p>我们建议你为自己设立一个比较现实的、能够达成的、同时又容易衡量的目标。然后你把这个目标细分成可以容易操作的几个小单元，每个小单元你都可以在一个较短的时间内完成它，这样你就可以顺风顺水、一顺百顺了。</p>
+<p>某件事情令你不舒服是因为你将它跟你的内心恐惧或焦虑联系在了一起，正是这样的不快使你对一件事情产生反感，并想要躲避它。</p>
+<p>盘点你的内心挣扎</p>
+<p>外在的与内在的后果</p>
+<p>现在你已经回顾了你的拖延行为及其后果，注意一下你的感受是什么。悲伤？愤怒？宽慰？清醒？如果此刻你因为自己的愚蠢、道德软弱或者缺乏品味而陷入对自己的指责，请你退后一步，平息这种自责。启动你内心的辩护律师，寻找那一个对你友善的声音，试着想想从这些经历中你可以学到什么。</p>
+<p>没有一个拖延者是毫无希望的，即便你的拖延已经蔓延到很多领域，但是总有一些方面你是不拖延的。</p>
+<p>仔细思量一下，在你推迟的事情和你能够准时做到的事情之间，最关键的区分在哪里？</p>
+<p>想一想有没有什么时候你本来可以开始做一件事情而你又把它推迟了呢？</p>
+<p>你在拖延的时候会做什么？尽量多地观察你的种种表现，从最典型的行为模式，到最不显眼的拖延策略，你都要加以注意。</p>
+<p>拖延者在目标设定上也存在着困难，这一点或许并不明显，因为表面上看来拖延者一直在忙着设定和重新设定目标，但是，他们所设定的目标几乎总是模棱两可的</p>
+<p>分成几个小的步骤。不管一个目标是大还是小，达成任何目标的唯一办法就是一步一步来，就像有一句谚语讲的：“脚踏实地一步一步来，生活就会一帆风顺。</p>
+<p>我们将自己的目标看得太过宏观，以至于阻碍了我们的进展。</p>
+<p>就在你为自己的拖延找到一个理由之前，看看你能否发现究竟发生了什么事才会刺激你的拖延动机。在找到拖延理由之前，你在想什么？你有什么样的感受？或者，你在做什么？周围的环境又是怎样的？是什么触动了你？</p>
+<p>可操作目标</p>
+<p>一个具有可操作性的目标可以被分解成几个小的、明确的步骤，就像最终的目标一样，每一个小的步骤都应该是可观察的和具体的。</p>
+<p>请拖延者设想一个最小的目标。你可以设立一个什么样的目标，它既非常小，又可以给你带来进步感和成就感？</p>
+<p>你们中有些人可能不太情愿低头看脚下的路。那是完美主义在背后作祟！你对任何低于你理想的事情都看不上眼。虽然选择一个最小目标对你的骄傲是一种打击，但是从小事着手最终会让你尝到甜头。你可以通过一小步一小步地实现你的目标而最终成就你自己，而不是相反：光有空中楼阁，而没有实际行动。</p>
+<p>你愿意以学习的心态看待成功和失败，愿意张开双臂迎接挑战，明白努力并非软弱的标志，而是进步的必需，在你接近或回避目标的过程中去了解自己的拖延问题。注意去观察你是怎样设立目标、怎样处理问题，你什么时候取得了进步，什么时候又变得拖延。</p>
+<p>然而，世界上有些事情天生就是让人不快的或者单调乏味的</p>
+<p>在最初，当时间期限到了的时候，你绝对有必要停下来。这个时候，你会想：“我做得很好，我应该充分利用这股冲劲，继续做下去。”这是一个很有诱惑力的想法，但是如果你在第一次不知不觉就做了两个小时，在超出的时间内你也做得很好，那么在下一次你就会觉得自己应该可以再干两个小时。这是一个陷阱，最终会将你引入失望和逃避。</p>
+<p>记住，借口的出现意味着你处于选择的路口：你可以选择拖延，你可以选择行动。</p>
+<p>拖延者的危险不在于暂时从难题中撤离，而在于完全地放弃。</p>
+<p>确保你的奖赏要与成就的大小相匹配。</p>
+<p>奖赏是一种正面的激励，它加大了一种行为重复的可能性。你的大脑也有助于你重复成功的行为。当你达成了一个目标，大脑就会释放一种多巴胺，它是一种让人感觉良好的神经传递素。你的某些行为模式可以引导你获得成就，而多巴胺就将这些构成行为模式的神经元网络联系在了一起，这会让你在将来重复这种行为的可能性大大增加。这就是所谓的“成功吸引成功”。</p>
+<p>当你在迈向目标的过程中，你可能会发现你最初所做的现实性检查还是不那么切合实际。</p>
+<p>在某些情况下，你可能有必要改变你的目标。</p>
+<p>修正目标并不一定意味着失败。事实上，它意味着你足够灵活，而不是顽固不化，一个稳健而又成熟的人做事方能变通。</p>
+<p>无需完美。如果你是一个完美主义者，你可能会陷入一场要将所有事情都做得绝对圆满的挣扎之中，即便实际情况中没有必要坚持这样的高标准。</p>
+<p>如果你能在每一个环节都放下对于完美的执著，长远来看你一定能够做成更多的事情。当你在等待完美的时机、盼望完美结果的时候，你可以这样提醒自己：“万事无需完美，只要做到就行。”</p>
+<p>评估你的进步（也包括不足）</p>
+<p>观察你的感受。</p>
+<p>回想你的选择关口。</p>
+<p>当时你处于一个什么样的环境？什么样的念头、感受或者想象让你觉得很难继续前进？</p>
+<p>你学到了什么？回想一下，你是怎样处理实现目标的那一系列过程的？从让目标具有可操作性，到起步开始，再到跟进，在这个过程中，你想在下次有所改进的是什么事？</p>
+<p>我们希望在这一周里你对自己也有了不少新的认识。关于你自己，什么事情是你原先不了解而你现在了解的？不管你学到了什么，它们都应该可以帮助你为下一轮的拖延之战做好准备。所以，不要低估你的一周试验，因为不管你做了什么，或者没有做什么，你都可以从中学习。</p>
+<p>我们不认为委派是失败的表现，委派是一种技巧。真正的失败是生活中每件事你都要固执地亲力亲为，这样做只会有一个结果，那就是你只能完成其中的一半。 “我是能够最好做这件事的唯一人选。”这是又一个完美主义的陷阱。虽然可能有些事情确实只有你才能做好，但是难道在你没有完成的事务清单上的每件事都是如此吗？即便其他人不会按照你那种方式来做事，能够以另一个方式将事情做完总比拖着不做要好多了</p>
+<p>。我们不是建议你放弃你的自发性而成为一个准时的机器人，也不鼓励你花太多时间在计划上面，这有可能成为拖延的另一种方式，因为在某个时间点，你必须从计划中抽出身来，投入到实施中，但是我们建议你还是要花一点时间去想一想时间这个问题。</p>
+<p>由。计划并不意味着要让自己被每一天的每一个小时所占据，你必须预料到意外发生的事情，同时你也需要让自己有时间享有自发性活动的乐趣，并享受让自己焕然一新的放松体验。</p>
+<p>他们逼迫自己想有效利用每一分钟，结果却发现他们对自己的要求太高了，这不是一个计划的问题，而是一个压力的问题。</p>
+<p>计划是将未来带入到当下，这样你马上就可以做一些事情来创造未来。</p>
+<p>他知道很多制订日程表的人从来没能真正去实行，所以他们会变得失望，并最终放弃了这种做法。费雷博士发明了一种方法，用于追踪那些不属于必做事情的时间轨迹，他创造了“非计划”这个概念。我们发现“非计划”对我们的客户和拖延工作坊的参与者都很有帮助。</p>
+<p>非计划”是一个每周日程表，它列出所有你必须做的事情。它可以帮助你在两天内实现你的目标。首先，在提前了解你有多少时间已经安排给了必须做的事情之后，对还剩下多少时间可以用于实现你的目标，你就心中有数了。其次，它可以帮助你在每周结束的时候做一个回顾，看看你的时间实际上用在了哪些地方，这也有利于你进行自我监测。</p>
+<p>如果你确切地知道什么时候你会做什么事情，把它记在相应的空格内</p>
+<p>如果你不能确切地预料到做事的时间，那就估计一下它所占用的时间长度，然后在你可能会做这件事的那一天上标示出来</p>
+<p>。除此之外，还要将日常活动也标出来</p>
+<p>将你生活中的所有事项都考虑进去</p>
+<p>如果你经常观看晚间新闻、周一晚间足球赛或者其他喜欢的电视节目，也把它们记下来。</p>
+<p>只是要求你确认在即将到来的一周里已经安排好了哪些时间。</p>
+<p>当你眼看着自己接下来七天的安排，你有什么感受？</p>
+<p>在你观想自己如何度过这一周的时候，观察一下自己的感受，并思考这份日程表中有什么因素导致你产生那样的感受？</p>
+<p>从这张表格中，你可以了解自己有多少时间可以用于完成你的目标。这张“非计划”表格为你显示了你可以利用的最大时间，其中的空格反映的是你没有被安排掉的时间。当然，没有人会把所有这些未被安排掉的时间用于完成目标，但是“未列入”表格为你显示了你一共有多少时间是可以利用的。</p>
+<p>当你在实现你的可操作目标或任何其他项目的时候，使用“非计划”来记录你的进步。当你在达成目标的方向上工作了半个小时，就在“非计划”表格上涂掉相应的半格。如果你工作了一个小时，涂掉整个格子。</p>
+<p>将那个星期你花在完成目标上的时间加起来</p>
+<p>你涂掉的格子可能会出现在你原本安排做其他事情的时段里</p>
+<p>你记录下自己的进步，你就会把注意力放在你已经完成的事情上，</p>
+<p>而当你将你实际做的事情记录下来的时候，它更可能会给你一种成功的经验。以这种方式监测你的进步，使你能够看到事情积极的一面，</p>
+<p>当你一个星期只花一个小时在完成目标上，你就无法欺骗自己，认为自己已经做成了很多事情。而当你一周花四个小时在这上面，你也无法假装说你一事无成。</p>
+<p>可以让你认识到，即便是半个小时的努力也是有价值的</p>
+<p>你可以做10个小时的事而没有一点成就感。但是如果你将这些小时数记录下来，至少在你面前有一个有形的证据可以用来说服你失望的情绪。你可以用这种客观的方法对自己怎样运用时间的主观认识加以纠正。</p>
+<p>有一个办法可以克服时间的主观观念，提高你对时间的判断能力，那就是将你对完成时间的预测与实际使用时间做对比。</p>
+<p>练习判断时间。你能够精确地预测一件事需要花费多少时间完成吗？</p>
+<p>你的目标需要10个小时来完成并不意味着你要等到一整块时间的出现才能开始做事。</p>
+<p>学会利用零碎时间。</p>
+<p>任何一个步骤都比你回避的行为要更为有效，至少你又往前迈进了一步。</p>
+<p>时间限制也让一项任务显得更容易接受。</p>
+<p>另一方面，如果你利用上一小段时间，无意中你就有一个时间上的限制。为自己设定一个时间限制是针对拖延者的一个很好的练习，它有助于你去克服一些不切实际的想法，认为一旦自己有很多时间之后，就可以集中自己所有的精力去完成它</p>
+<p>如果你的拖延是因为你不喜欢被控制和挤压，拖延就成了你的一个声明：“你无法让我做这件事情。”如果你做了这件事情，你的自由感和独立感就会受到威胁</p>
+<p>非此即彼”的观念对拖延者而言始终是一个不断出现的障碍。如果你让自己认识到“小有所成”也有其价值，那么利用零碎时间会让你事半功倍。</p>
+<p>预防意外干扰</p>
+<p>为什么你没有为可能出错的事情做好准备呢？为什么认定你的个人努力是唯一要考虑的因素呢？一旦你最终克服自己的抗拒心理，准备好去做事，你或许就期待着一切都会顺顺利利。不幸的是，这个世界并不是围绕着你的设想运转的。</p>
+<p>如果你提前知道任何事情都会有意外情况发生，你就站在了一个有利位置，随时准备跨越障碍，而不会被困其中，手足无措，也不会埋怨运气不好，或者责备你自己。</p>
+<p>委派任务</p>
+<p>你最好将事情委派给那些有能力帮助你的人，那些对你不怀恶意的人，以及那些不是拖延者和完美主义者的人</p>
+<p>是将事情分出轻重缓急，然后把你的时间用于最重要的事情上。不那么重要的事情可以委派给其他人做（甚至先放在一边）</p>
+<p>但是如果你认定只有一种正确的委派方式，那么你就会从很多角度考虑这件事，寻找一个完美的解决方案，这都无助于你做出最后的决定。无论是平庸的事情还是重要的事情，一旦交付出去，你的负担就减轻了。</p>
+<p>过于忙碌本身是否就是拖延呢？如果像易生那样，你利用忙碌来逃避更为重要的事情，那么你可能就是在拖延。当你要做很多事情的时候，你不仅培植了一片使得拖延滋生的土壤，而且还为自己准备好了拖延的借口：“我并没有在拖延，我只是太忙了，无法及时干完每一件事。”</p>
+<p>不要太分散精力。</p>
+<p>我们每个人都有一个自然的生物节奏，想一想一天当中什么时候你的脑力最旺盛，什么时候你的体力最充沛，什么时候你最适合社交，还有什么时候你的精神最差。</p>
+<p>找出你的最佳时间</p>
+<p>找出你的最佳时间意味着承认有些时间不是最佳的</p>
+<p>学会在过去、现在和未来之间取得认知上的平衡。不要黏滞在时间中，这一点很重要。如果你黏滞在过去，你就无法享受现在，也不能为未来做打算；如果你黏滞在现在，你就处于当下时刻的控制之中，而失去了跟过去和未来的联系，你也无法从自己的经验中受益；如果你黏滞在未来，你就被锁定在一个幻想的世界，无论这个幻想是正面的还是负面的，你所能做的就只有计划或者担忧</p>
+<p>享受你的“自由”时间</p>
+<p>很多时候你也无法尽情享受，因为你知道自己是在利用娱乐来逃避某些事情</p>
+<p>对杂乱无序说不 “扔掉50件东西。</p>
+<p>学会拒绝那些没有意义的追求 对浪费时间和让你退步的人和事说不</p>
+<p>当我们不能直接拒绝的时候，我们可能会通过拖延来间接地拒绝。拖延还表示我们将窃取的时间用于我们不能公然接受的事情上</p>
+<p>学会接受有益于你的人和事</p>
+<p>与依靠拖延相反，我们觉得我们应该有意识地接受那些提高我们生活品质的事情，而拒绝那些对此无益的事情，并且应该直接地表达出来，而不应该通过拖延的方式来拒绝。</p>
+<p>你需要找到那些友善、能鼓舞人且不妄加判断的人，他们还必须务实，能够专注于你的任务。选择那些站在你一边的人，他们能够从你的角度看问题</p>
+<p>寻找帮助是利用你跟其他人的关系来帮助自己采取行动，并推动自己向前迈进。</p>
+<p>你可以跟一个支持你的人讨论你的拖延问题或者你的可操作目标。在聆听对方的想法和建议的时候，尽量放开心胸，不要处处为自己辩解</p>
+<p>做一个公开承诺。告诉人们你在做什么以及什么时候会完成</p>
+<p>一起制订计划。你可以通过跟另一个人交谈来制订行动计划</p>
+<p>与一个跟你优势互补的人交谈对你尤其有帮助。如果你擅长预见最后的结果，却不清楚怎么一步步达成目标，那就跟一个善于将事情落到实处的人聊一聊。如果你擅长把握细节，却缺乏宏观的视野，那就跟一个具有大视野的人聊一聊。</p>
+<p>你也会听到别人在面对你所面临的问题时是怎样设法解决的，这都会带给你有益的启示。</p>
+<p>从他对目标的清晰把握里，我们发现了应该如何去改变我们的原有观念。</p>
+<p>记住，当你在寻求帮助的时候，你没有必要一定采用它。还有，当别人很有洞察力，看到了一些你看不到的事情，你不必自卑</p>
+<p>拖延者对别人的目标总是能够保持非常清醒和务实的头脑，但是对他们自己的目标却一片糊涂，过于理想化。在你帮助别人理清达成目标的思路时，你或许会意外地发现自己对组织管理和时间管理有了很多新的想法</p>
+<p>在你被困住的时候寻求帮助。当你的大脑就像被锁住一样无法起作用的时候，你应该寻求外界的帮助</p>
+<p>共同工作。</p>
+<p>如果两个人共同为一个目标而奋斗，每一个人都会有更大的冲劲去实现目标。如果你不好好做，不仅自己的生活受到损害，而且另一个人的生活也将受到影响。</p>
+<p>有一个工作伙伴也有助于制订中间每一个阶段的最后期限，这样，离最后阶段越近，你采取行动的压力就越大。</p>
+<p>你也可以特意安排一个伙伴作为对你个人进展的检查者</p>
+<p>平行式做事法。</p>
+<p>同样地，你也可以安排自己跟一个独自做事的人一起做事</p>
+<p>社交奖赏。有时候进步本身就是一种奖赏，但是更多时候社交可以是一个更好的奖赏</p>
+<p>在通向目标的每一个阶段，你都可以运用社交奖赏</p>
+<p>跟你所爱的人相处。拖延经常会影响到跟你所珍重的人无忧无虑地相处。</p>
+<p>尝试新的挑战</p>
+<p>做更多你所热爱的事情</p>
+<p>什么是你想在生活减少或者消除的事情，什么又是你想要加入到生活中来的事情，这些都非常重要，值得你好好想一想</p>
+<p>更为重要的是，要决定什么是应该包括进来、什么应该排除出去本身就很困难，当你对自己的判断缺乏信任的时候，事情尤为如此。</p>
+<p>对空洞性事务说不</p>
+<p>如果你所做的事情无法让你向着自己的方向前进，那么你就不要去做它</p>
+<p>空洞性事务是指相对你当前的目标和价值观而言最微不足道的那些事情</p>
+<p>在时间管理中经常被引用的一个法则就是二八法则：你20%的事务非常重要，并会产生最大的影响，你80%的事务不太重要，做不做对你并没有多大影响。这被称为“关键的事情不会多，微不足道的事情却很多”。学会对许多微不足道的事务说不，将你80%的时间用来完成那些少数几个重要的事务。</p>
+<p>能够识别空洞性事务表明你知道什么重要什么不重要</p>
+<p>对不必要的事情说不</p>
+<p>有时候我们之所以答应去做事情，是因为我们想要取悦别人，或者我们担心如果拒绝就会冒犯他们。但是为了一个错误的理由而答应去做事情最终还是会让人不舒服，也可能会导致厌烦和拖延。对这些事情，你只需说不。</p>
+<p>对不适合你的人说不。随着你长大，你的父母或许曾经忠告你“明智地选择朋友”。很重要的一点是，要将时间花在那些能够对你坦诚相待、一起欢笑、相互信任、在困难的时候可以依靠的朋友</p>
+<p>你没有义务为每一个挤占你时间的人腾出时间。</p>
+<p>可能对有些对你产生负面影响的人，你根本没办法跟他们说不，尤其是当他们是你的同事或者家族成员的时候。你也许可以限制跟他们待在一起的时间，或者培养出一个内心的隔离带，这样他们的负面言行就无法影响到你</p>
+<p>当你对50件东西说不的时候，为你扔掉的东西做一张清单。以后当你回头看的时候，你会为所有被你丢弃的东西而感到自豪。</p>
+<p>对电子上瘾说不</p>
+<p>坚持信息减肥。</p>
+<p>通过运动启动你的状态</p>
+<p>将运动作为你调整拖延的一种方法，在这个方向上采取一定的行动。就像我们所有所建议的技巧一样，只要你付诸行动，运动一定会对你有好处。如果你发现你自己像拖延其他事情一样拖延运动，尽管你知道它的好处，那么你可以回顾一下我们在第一部分中对于恐惧的阐述。害怕失败和成功、害怕被控制会妨碍你将运动整合进自己的生活。</p>
+<p>从小事做起。</p>
+<p>做一会儿运动。当你发现自己做事时踟蹰不前的时候，或者，当你想要开始做事但是毫无头绪的时候，你可以做一个小小的休息。</p>
+<p>神圣停顿法。</p>
+<p>正念（mindfulness）指的是“在当下时刻对周遭环境不带判断地保持有意识的觉察”。</p>
+<p>它的要点在于：在从事一项活动或进入下一个阶段之前，刻意地、有意识地停顿片刻</p>
+<p>在我们学习一个新的行为模式和技巧的时候，典型的过程都是从很多外在支持开始的，随着我们将那个行为内化，外界的支持才渐渐消退，最后我们可以在没有外界指导或没有环境框架的情况下独立完成</p>
+<p>有策略地去减少干扰的数量</p>
+<p>执行提示点</p>
+<p>光有一个计划可能还不足以帮助你坚持到底。你需要自身之外的某些东西来提醒你在什么时候什么地方准备采取行动</p>
+<p>习惯性的架构和线路</p>
+<p>设定一个例行时间</p>
+<p>写一个清单</p>
+<p>利用一分钟时间。在非常短的一小段时间内为你的目标做一点点事。</p>
+<p>保持行动，在你走动的时候做清理，在下一桌端上来之前，将脏碗碟清理干净。这是利用你快速运转的大脑的一种方法，它有助于你不被那些堆积起来的事情弄得晕头转向。当事情出现，马上处理掉，然后转到下一件事，不要让待办事项堆积起来</p>
+<p>不要想在你的弱项上表现优异，而要在你的强项中更上一层楼。”</p>
+<p>如果你的大脑极为容易分散注意力，而自我约束对你是一场无边的挣扎</p>
+<p>拖延者对他们所做的或所没有做的事情经常含含糊糊，让你以为事情进展比真实情况要好得多。这是一件令人气馁的事情，拖延者要么不想告诉你实情，要么不敢。这让你感到受骗上当或者被人出卖，这就使得你们的关系陷入紧张与冲突之中</p>
+<p>不幸的是，拖延者往往并不将你的鼓励看做是一种支持，相反，当你试图控制局面的时候，鼓励可能会被当做是一种对他的压力或者干扰</p>
+<p>除了某些少有的情况，你决不能自己上阵代替一个拖延者去做事</p>
+<p>1.帮助你的孩子设定小目标。</p>
+<p>但是在你自己成为一个拯救者的同时，你只会让问题变得更加复杂，因为这强化了拖延者的期待，他们会更加指望在最后时分有人来拯救他们</p>
+<p>光是认清拖延的根源还是不够的，你还必须做一些事情以防止它主导你的生活</p>
+<p>在这样的处境下，你必须考虑怎样照顾好你自己。如果你做过了所有的尝试，你的拖延者的行为还是将你逼到危险的境地，那么，你可能必须采取单方面的行动——你要么自己去做那份工作，或雇用其他人去做；要么，在某些极端的情况下，结束你们之间的关系</p>
+<p>在工作场所，当人们感觉他们的工作缺乏足够的自主性，看不到自己所做事情的意义，不能取得工作上的相应反馈，或者对一项工作感到挫败、厌恶或者无聊的时候，人们就会拖延</p>
+<p>附录二 拖延处理技巧汇编</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E8%87%AA%E5%BE%8B/" class="">
+              自律
+            </a>
+          
+            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="">
+              读书笔记
+            </a>
+          
+            <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" class="">
+              心理学
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/32835.html" target="_blank" title="《拖延心理学》读书笔记">https://blog.five2fire.top/article/32835.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/24289.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">近一年个人支出及家庭财务支出小结</div>
+      </div>
+      
+      <!-- <div class="content">
+        个人支出总结23年4月—24年6月这部分是单独个人记账，房租也计算在内了，为公共账户建立之前的所有个人款项，共15个月。
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114240.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/3999.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">短暂的两个月副业总结</div>
+      </div>
+      <!-- <div class="content">
+        前言这篇文章，从我刚开始做这个副业，就已经决定要写，到9.15号停止接单，再到今天开始写，拖了快一个月了。
+其实到上个月
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
+        
+        
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E6%8B%96%E5%BB%B6%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B-%E5%90%91%E4%B8%8E%E7%94%9F%E4%BF%B1%E6%9D%A5%E7%9A%84%E8%A1%8C%E4%B8%BA%E9%A1%BD%E7%97%87%E5%AE%A3%E6%88%98"><span class="toc-text">《拖延心理学》-向与生俱来的行为顽症宣战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8B%96%E5%BB%B6%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-text">1. 拖延的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8B%96%E5%BB%B6%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9B%A0"><span class="toc-text">2. 拖延的类型和原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AE%A4%E8%AF%86%E8%87%AA%E5%B7%B1%E7%9A%84%E6%8B%96%E5%BB%B6%E6%A8%A1%E5%BC%8F"><span class="toc-text">3. 认识自己的拖延模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AE%BE%E5%AE%9A%E5%8F%AF%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-text">4. 设定可操作的目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%8A%80%E5%B7%A7"><span class="toc-text">5. 时间管理技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%8B%E6%9C%8D%E6%8B%96%E5%BB%B6%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">6. 克服拖延的策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AF%BB%E6%B1%82%E5%B8%AE%E5%8A%A9%E5%92%8C%E6%94%AF%E6%8C%81"><span class="toc-text">7. 寻求帮助和支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%B0%83%E6%95%B4%E7%94%9F%E6%B4%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">8. 调整生活方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%BA%94%E5%AF%B9%E4%BB%96%E4%BA%BA%E7%9A%84%E6%8B%96%E5%BB%B6"><span class="toc-text">9. 应对他人的拖延</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E6%8B%96%E5%BB%B6%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E9%AB%98%E4%BA%AE%E7%AC%94%E8%AE%B0%E9%83%A8%E5%88%86"><span class="toc-text">《拖延心理学》高亮笔记部分</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-02</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/40210.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-15</span>
+                
+              </div>
+              <a class="post-title" href="/article/40210.html">利用CloudFlare自建无服务器导航站</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/12599.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-12</span>
+                
+              </div>
+              <a class="post-title" href="/article/12599.html">不要掉入完美主义的陷阱</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/4248.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/4248.html">《姥姥的外孙》影评</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(50, 155, 230, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline-comment"></div>
+  <script type="module">
+    let walineInstance = null;
+
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
+
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
+
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 清空编辑器内容
+        clearWalineEditor();
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
+    }
+
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
+      initWaline();
+    });
+  </script>
+</body>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>

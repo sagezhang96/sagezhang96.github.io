@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TPKR1PWXJN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-TPKR1PWXJN');
+</script>
+
+
+  <title>《自控力》读书笔记 | Sage自留地😎</title>
+
+  <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+    
+<link rel="stylesheet" href="/js/shareJs/share.min.css">
+
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+
+    <!-- 谷歌自动广告 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4664449399292469"
+     crossorigin="anonymous"></script>
+
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
+</head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_2" id="loader">
+  <div class="loader"></div>
+</div>
+
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/js/swiper/swiper.min.js"></script>
+<script src="/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Sage自留地😎</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/thoughts" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/about" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/messageboard" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+        
+          <li class="drawer-box-content_item">
+            <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">
+              <i class="fas fa-github" aria-hidden="true"></i>
+              <span>Github</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/medias/sagelogo.jpg" class="lazyload placeholder" data-srcset="/medias/sagelogo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/" class="logo">Sage自留地😎</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/" class="menu-item-link" title="首页">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">首页</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/archives" class="menu-item-link" title="归档">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">归档</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/tags" class="menu-item-link" title="标签">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">标签</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/categories" class="menu-item-link" title="分类">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">分类</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/thoughts" class="menu-item-link" title="随感">
+                  
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  
+                  <span class="name">随感</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a target="_blank" rel="noopener" href="https://links.five2fire.top/" class="menu-item-link" title="导航站">
+                  
+                    <i class="fas fa-map-signs" aria-hidden="true"></i>
+                  
+                  <span class="name">导航站</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/about" class="menu-item-link" title="关于">
+                  
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                  
+                  <span class="name">关于</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/messageboard" class="menu-item-link" title="留言板">
+                  
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                  
+                  <span class="name">留言板</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">本地搜索</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="请输入关键字"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+    <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="github-corner color-primary" aria-label="View source on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+  
+    <div id="he-plugin-simple"></div>
+    <script defer>
+      WIDGET = {
+        CONFIG: {
+          "modules": "012",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "auto",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "center",
+          "key": "2784dd3fcb1e4f0f9a9b579bf69641f2"
+        }
+      }
+    </script>
+    <script defer src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script> 
+    
+</header>
+        <!-- 内容区域 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        《自控力》读书笔记
+      </span>
+    </div>
+    
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-11-30 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/" class="post-detail-header_category">
+              书影音
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 8.8k |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 29分钟 |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
+</div>
+
+
+
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h1 id="自控力"><a href="#自控力" class="headerlink" title="自控力"></a>自控力</h1><h2 id="01什么是意志力"><a href="#01什么是意志力" class="headerlink" title="01什么是意志力"></a>01什么是意志力</h2><h3 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>意志力就是驾驭“我要做”、“我不要”和“我想要”这三种力量。</li>
+<li>核心思想：意志力实际上是“我要做”、“我不要”和“我想要”这三种力量。它们协同努力，让我们变成更好的自己。</li>
+</ul>
+<h3 id="深入剖析"><a href="#深入剖析" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>更难的事是什么？想象你正面临一个意志力的挑战。更难的事是什么？为什么它如此困难？</li>
+<li>认清两个自我。你的意志力挑战是，如何描述相抗衡的两个自我？冲动的你想要什么？明智的你又想要什么？</li>
+</ul>
+<h3 id="意志力实验"><a href="#意志力实验" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>意志力实验：回忆一下你的决定<ul>
+<li>请至少选一天，把你作的决定都记下来。在这一天结束的时候，回想你作的决定，分析哪些有利于你实现目标，哪些会消磨你的意志。坚持记录你的决定，还有助于减少在注意力分散时作决定，同时增强你的意志力。</li>
+</ul>
+</li>
+<li>意志力实验：5分钟训练大脑冥想<ul>
+<li>1.原地不动，安静坐好。<ul>
+<li>坐在椅子上，双脚平放在地上，或盘腿坐在垫子上。背挺直，双手放在膝盖上。冥想时一定不能烦躁，这是自控力的基本保证。如果你想挠痒的话，可以调整一下胳膊的位置，腿交叉或伸直，看自己是否有冲动但能克制。简单的静坐对于意志力的冥想训练至关重要。你将学会，不再屈服于大脑和身体产生的冲动。</li>
+</ul>
+</li>
+<li>2.注意你的呼吸。<ul>
+<li>闭上眼睛。要是怕睡着，你可以盯着某处看，比如盯着一面白墙，但不要看家庭购物频道。注意你的呼吸。吸气时在脑海中默念“吸”，呼气时在脑海中默念“呼”。当你发现自己有点走神的时候，重新将注意力集中到呼吸上。这种反复的注意力训练，能让前额皮质开启高速模式，让大脑中处理压力和冲动的区域更加稳定。</li>
+</ul>
+</li>
+<li>3.感受呼吸，弄清自己是怎么走神的。<ul>
+<li>几分钟后，你就可以不再默念“呼”、“吸”了。试着专注于呼吸本身。你会注意到空气从鼻子和嘴巴进入和呼出的感觉，感觉到吸气时胸腹部的扩张和呼气时胸腹部的收缩。不再默念“呼”、“吸”后，你可能更容易走神。像之前一样，当你发现自己在想别的事情时，重新将注意力集中到呼吸上。如果你觉得很难重新集中注意力，就在心里多默念几遍“呼”和“吸”。这部分的训练能锻炼你的自我意识和自控能力。</li>
+</ul>
+</li>
+<li>每天都做，宁短不拖。再短也要做</li>
+</ul>
+</li>
+</ul>
+<h2 id="02意志力的本能"><a href="#02意志力的本能" class="headerlink" title="02意志力的本能"></a>02意志力的本能</h2><h3 id="摘抄-1"><a href="#摘抄-1" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>三思而后行</li>
+<li>放弃对意志力的完美控制。即便你增强了自己的意志力，你也不可能完全控制自己想什么、感觉什么、说什么或者做什么。你需要明智地使用意志力的能量。</li>
+<li>核心思想：意志力是种生理本能，它和压力一样，通过不断进化来保护我们不受自身伤害。</li>
+</ul>
+<h3 id="深入剖析-1"><a href="#深入剖析-1" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>什么是威胁？对你的意志力挑战来说，什么是需要克制的内在冲动？</li>
+<li>压力和自控。试着找出持续一整天或一整周的压力，看看它对你的自控力产生怎样的影响。你有过强烈的欲望吗？你发脾气了吗？你把要做的事拖到了明天吗？</li>
+</ul>
+<h3 id="意志力实验-1"><a href="#意志力实验-1" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>意志力实验：通过呼吸实现自控<ul>
+<li>快速提高意志力的方法：将呼吸频率降低到每分钟4-6次，也就是每次呼吸用10-15秒时间，比平常呼吸要慢一些。</li>
+</ul>
+</li>
+<li>意志力实验：5分钟给意志力加油<ul>
+<li>以下是一些你在5分钟“绿色锻炼”中可以尝试的活动：</li>
+<li>走出办公室，找到最近的一片绿色空间。</li>
+<li>用iPod播放一首你最喜欢的歌曲，在附近街区慢跑。</li>
+<li>和你的宠物狗在室外玩耍（你可以追着玩具跑）。</li>
+<li>在自家花园里找点事情做。</li>
+<li>出去呼吸新鲜空气，做些简单的伸展活动。</li>
+<li>在后院里和孩子做游戏。</li>
+</ul>
+</li>
+<li>意志力实验：呼噜呼噜睡个觉</li>
+<li>意志力实验：放松能让你恢复意志力储备<ul>
+<li>想要激发这种放松反应，你需要躺下来，用枕头垫着膝盖，腿稍稍抬起（或者，你可以选择任何一个你觉得舒服的姿势）。闭上眼睛，做几次深呼吸，感觉你的腹部有起伏。如果你觉得身体某处很紧张，你可以有意识地挤压或收缩肌肉，然后就不要再去管它了。</li>
+</ul>
+</li>
+</ul>
+<h2 id="03-累到无力抵抗"><a href="#03-累到无力抵抗" class="headerlink" title="03　累到无力抵抗"></a>03　累到无力抵抗</h2><h3 id="摘抄-2"><a href="#摘抄-2" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>意志力是有限的</li>
+<li>一个重要的意志力规则：如果你觉得自己没有时间和精力去处理“我想要”做的事，那就把它安排在你意志力最强的时候做。</li>
+<li>资源不足时，大脑会选择满足当下的需求；资源充足时，大脑则会转向选择长期的投资。</li>
+<li>控制自己以前不会去控制的小事，以此来训练自控力肌肉<ul>
+<li>在一些小事上持续自控会提高整体的意志力<ul>
+<li>不是为了让你在规定期限前完成任务、用左手开门或不说脏话，而是让你养成习惯、关注自己正在做的事情、选择更难的而不是最简单的事。通过每一次意志力练习，大脑开始习惯于三思而后行。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>核心思想：自控力就像肌肉一样有极限。自控力用得太多会疲惫，但坚持训练能增强自控力。</li>
+</ul>
+<h3 id="深入剖析-2"><a href="#深入剖析-2" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>意志力的上下波动。本周，记录你的自控力，特别注意什么时候你的意志力最强，什么时候你最容易放弃。</li>
+<li>你的疲惫感是真的吗？下次你觉得自己太“疲惫”而无法自控的时候，看看自己能不能挺过第一波疲惫的感觉，向前迈出一步。</li>
+</ul>
+<h3 id="意志力实验-2"><a href="#意志力实验-2" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>意志力实验：意志力饮食方案<ul>
+<li>低血糖食品包括瘦肉蛋白、坚果和豆类、粗纤维谷类和麦片、大多数的水果和蔬菜。</li>
+<li>只要是看起来处于自然状态的食物，以及没有大量添加糖类、脂肪和化学物品的食物都行。</li>
+</ul>
+</li>
+<li>意志力实验：锻炼意志力<ul>
+<li>增强“我不要”的力量：不随便发誓（或者不说某些口头禅）、坐下的时候不跷脚、用不常用的手进行日常活动，比如吃饭和开门。</li>
+<li>增强“我想要”的力量：每天都做一些事（但不是你已经在做的事），用来养成习惯或不再找借口。你可以给母亲打电话、冥想5分钟，或是每天在家里找出一件需要扔掉或再利用的东西。</li>
+<li>增强自我监控能力：认真记录一件你平常不关注的事，可以是你的支出、饮食，也可以是你花在上网和看电视上的时间。你不需要太先进的工具，铅笔和纸就够了。但如果你需要一些激励的话，“量化自我”运动（<a target="_blank" rel="noopener" href="http://www.quantifiedself.com)已经把“自我记录”变成了一门科学和一种艺术./">www.quantifiedself.com）已经把“自我记录”变成了一门科学和一种艺术。</a></li>
+</ul>
+</li>
+<li>意志力实验：你的“我想要”的力量是什么？<ul>
+<li>当你的意志力告急时，你可以挖掘你的“我想要”的力量，让自己恢复能量。面对你最大的意志力挑战时，你可以考虑以下动机。</li>
+<li>1.如果挑战成功，你会收获什么？你个人会有什么回报？你会更健康、更幸福、更自由、更有钱，还是会更成功？</li>
+<li>2.如果挑战成功，还有谁会获益？肯定有人依赖于你，你的选择会影响到他们。你的行为会如何影响你的家人、朋友、同事、雇主或雇员、街坊邻居？你的成功会怎样帮到他们？</li>
+<li>3.如果你现在愿意做困难的事，那么一段时间后，这个挑战将会变容易。你能想象出，如果你在这个挑战中取得进步，你的生活会是什么样子，你自己会变成什么样子吗？如果你知道你还有更大的进步空间，现在的不适是不是变得值得了呢？</li>
+</ul>
+</li>
+</ul>
+<h2 id="04-容忍罪恶"><a href="#04-容忍罪恶" class="headerlink" title="04　容忍罪恶"></a>04　容忍罪恶</h2><h3 id="摘抄-3"><a href="#摘抄-3" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>当说到孰是孰非时，我们都能毫不费力地作出符合道德标准的选择。我们只想让自己感觉良好，而这就为自己的胡作非为开了绿灯。<ul>
+<li>因为我们很容易认为，纵容自己就是对美德最好的奖励。我们忘记了自己真正的目标，向诱惑屈服了。</li>
+</ul>
+</li>
+<li>为了避免“道德许可”的陷阱，我们要把真正的道德困境和普通的困难区分开来。</li>
+<li>想要做到始终如一，我们就需要认同目标本身，而不是我们做善事时的光环。</li>
+<li>核心思想：当我们将意志力挑战看成衡量道德水平的标准时，善行就会允许我们做坏事。为了能更好地自控，我们需要忘掉美德，关注目标和价值观。</li>
+</ul>
+<h3 id="深入剖析-3"><a href="#深入剖析-3" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>善与恶：当你的意志力挑战成功时，你会不会告诉自己你很“好”，然后允许自己做一些“坏”事？</li>
+<li>你是否在向明天赊账？你是不是告诉自己明天会弥补今天的过错？如果是这样的话，你是否真的弥补上了？光环效应：你是不是只看到了坏东西好的一面，如折扣省钱、零脂肪、保护环境？</li>
+<li>你觉得自己是谁？当你想到你的意志力挑战时，你觉得哪部分的你才是“真实”的你？是想追求目标的你，还是需要被控制的你？</li>
+</ul>
+<h3 id="意志力实验-3"><a href="#意志力实验-3" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>明天和今天毫无区别。当你想改变行为的时候，试着减少行为的变化性，而不是减少某种行为。</li>
+<li>取消许可，牢记理由。下一回，当你发现自己在用曾经的善行为放纵辩护的时候，停下来想一想你做“好”事的原因，而不是你应不应该得到奖励。</li>
+</ul>
+<h2 id="05-误把渴望当幸福"><a href="#05-误把渴望当幸福" class="headerlink" title="05 误把渴望当幸福"></a>05 误把渴望当幸福</h2><h3 id="摘抄-4"><a href="#摘抄-4" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>多巴胺会促使人们期待得到奖励，但不能感觉到获得奖励时的快乐</li>
+<li>如果奖励迟迟没有到来的话，奖励的承诺（和一想到要停下来就不断增长的焦虑）足以让我们一直上瘾</li>
+<li>欲望是大脑的行动战略。正如我们看到的，它可能对自控构成威胁，也可能是意志力的来源。当多巴胺让我们屈服于诱惑的时候，我们必须区分渴望和快乐。我们也可以利用多巴胺和奖励的承诺来激励自己和他人。最后，欲望没有绝对的好坏之分，重要的是欲望将我们引向哪个方向，以及我们是否足够明智，知道什么时候该听从欲望的声音。</li>
+<li>核心思想：我们的大脑错把奖励的承诺当做快乐的保证，所以，我们会从不可能带来满足的事物中寻找满足感。</li>
+</ul>
+<h3 id="深入剖析-4"><a href="#深入剖析-4" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>深入剖析：是什么让你的多巴胺神经元不停燃烧？<ul>
+<li>你知道什么会刺激你的多巴胺分泌？食物？酒精？购物？Facebook？还是其他东西？这一周，试着观察是什么吸引了你的注意力。是什么给了你奖励的承诺，强迫你去寻求满足感？是什么让你像巴甫洛夫的狗一样垂涎欲滴，或是像奥尔兹和米尔纳的小白鼠一样欲罢不能？</li>
+</ul>
+</li>
+<li>深入剖析：谁在控制你的多巴胺神经元？<ul>
+<li>让我们来观察一下，零售商和营销人员究竟是如何刺激奖励承诺的。把逛商店或看广告当做一种游戏。你闻到了什么？看到了什么？听到了什么？当你知道这些暗示都是经过精心设计，专门要诱惑你上钩的时候，你就能看清它们到底是什么，也就能成功抵御它们了。</li>
+</ul>
+</li>
+<li>深入剖析：欲望的压力<ul>
+<li>大部分人会更关注对快乐的承诺，而不关注多巴胺刺激欲望时感觉到的不快乐。这一周，看看你能否发现渴望会引发压力和焦虑。如果你屈服于诱惑的话，你觉得这是自己对奖励承诺的反应？还是在缓解焦虑？</li>
+</ul>
+</li>
+</ul>
+<h3 id="意志力实验-4"><a href="#意志力实验-4" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>测试奖励的承诺。<ul>
+<li>做那些大脑告诉你你会快乐、但似乎无法让你满足的事，比如吃零食、购物、电视以及与网络相关的、浪费时间的事，注意观察自己放纵时的感受。现实和大脑的承诺相符吗？</li>
+</ul>
+</li>
+<li>为了你的“我愿意”挑战分泌多巴胺<ul>
+<li>如果有什么事让你觉得很不愉快，所以你总是拖延着不去做，你能不能把它和能让多巴胺神经元燃烧的事联系在一起，从而促使自己去做呢？</li>
+</ul>
+</li>
+</ul>
+<h2 id="06-那又如何"><a href="#06-那又如何" class="headerlink" title="06 那又如何"></a>06 那又如何</h2><h3 id="摘抄-5"><a href="#摘抄-5" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>为什么压力会勾起欲望？<ul>
+<li>因为这是大脑援救任务的一部分<ul>
+<li>压力把我们引向了错误的方向，让我们失去了理性，被本能支配了。这就是压力和多巴胺“强强联手”的力量。我们一次又一次地败下阵来，采用那些不起作用的应对策略，而我们简单的大脑还固执地认为那就是获得幸福的正确途径。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>有没有什么东西能提醒面对压力的你，到底什么才能让你感到更快乐？在你感到压力之前，你能不能先想出一些鼓励自己的方法？</li>
+<li>“那又如何”效应：为什么罪恶感不起作用？<ul>
+<li>无论是什么样的意志力挑战，模式都是一样的。屈服会让你对自己失望，会让你想做一些改善心情的事。那么，最廉价、最快捷的改善心情的方法是什么？往往是做导致你情绪低落的事。</li>
+<li>关键是，导致更多堕落的行为并不是第一次的放弃，而是第一次放弃后产生的羞耻感、罪恶感、失控感和绝望感。</li>
+</ul>
+</li>
+<li>自我批评会降低积极性和自控力，而且也是最容易导致抑郁的因素。它不仅耗尽了“我要做”的力量，还耗尽了“我想要”的力量。相反，自我同情则会提升积极性和自控力，比如，在压力和挫折面前支持自己、对自己好一些<ul>
+<li>出人意料的是，增强责任感的不是罪恶感，而是自我谅解。研究人员发现，在个人挫折面前，持自我同情态度的人比持自我批评的态度的人更愿意承担责任。他们也更愿意接受别人的反馈和建议，更可能从这种经历中学到东西。<ul>
+<li>我们都倾向于相信自我怀疑和自我批评，但这并不会让我们离目标更近。实际上，我们可以尝试从良师益友的角度来看待问题。他们都信任你、想要你变得更好、愿意在你失意的时候鼓励你，你也可以这么做。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>下定决心会让我们立刻有了放松感和控制感。我们不再觉得自己是个犯错的人，只觉得自己能变成一个完全不同的人。<ul>
+<li>不幸的是，就像奖励的承诺和缓解压力的承诺一样，改变的承诺也很少能朝我们希望的方向发展。不切实际的乐观可能给我们一时的快乐，但接下来我们就会感到失落。</li>
+</ul>
+</li>
+</ul>
+<h3 id="深入剖析-5"><a href="#深入剖析-5" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>缓解压力的承诺<ul>
+<li>当你感到压力、焦虑或心情低落的时候，你会怎么做呢？你生气时会不会更容易受到诱惑？你是不是会更难集中注意力，或更容易拖延呢？情绪低落是如何影响你的意志力挑战的？</li>
+</ul>
+</li>
+<li>是什么吓到了你？<ul>
+<li>这一周，请注意观察什么事情会引发你大脑里的“恐惧管理”。</li>
+<li>看看商家怎么利用你的恐惧宣传他们的产品。它们和你的意志力挑战有关系吗？</li>
+<li>别人还可能怎么利用你的恐惧，让你产生对安慰的渴望？</li>
+</ul>
+</li>
+<li>遇到挫折时<ul>
+<li>这一周，请特别留意你是如何应对意志力失效的。你会责备自己，告诉自己你永远不会改变吗？你会觉得这样的挫折暴露了你的问题——懒惰、愚蠢、贪婪或无能吗？你会感到绝望、罪恶、羞愧、愤怒或不知所措吗？你会以挫折为借口，更加放纵自己吗？</li>
+</ul>
+</li>
+<li>决定改善心情<ul>
+<li>请花一点时间，仔细想一想你改变自己的动力和期望。你只有在情绪低落时才会有动力改变吗？想象成功改变生活时的快乐，是不是你作出改变的唯一动力？你会通过幻想未来的自己来改善现在的心情，而不是采取实际行动改善自己的行为吗？</li>
+</ul>
+</li>
+</ul>
+<h3 id="意志力实验-5"><a href="#意志力实验-5" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>尝试一种有效的解压方法<ul>
+<li>最有效的解压方法包括：锻炼或参加体育活动、祈祷或参加宗教活动、阅读、听音乐、与家人朋友相处、按摩、外出散步、冥想或做瑜伽，以及培养有创意的爱好。</li>
+<li>最没效果的缓解压力的方法则包括：赌博、购物、抽烟、喝酒、暴饮暴食、玩游戏、上网、花两小时以上看电视或电影。</li>
+</ul>
+</li>
+<li>失败的时候，请原谅自己<ul>
+<li>每个人都会犯错误，都会遭遇挫折。既然失败无法避免，更重要的就是我们如何应对失败。想象一个你屈服于诱惑或拖延的情况，试验从以下三个角度思考这次失败。当你遭遇挫折时，你也可以用同样的角度思考，使自己避免再次陷入罪恶感、羞愧感和屈服的泥淖。<ul>
+<li>1.你感觉如何？当你想到挫折时，花一点时间关注并描述你此刻的感觉。你现在情绪如何？你有什么感觉？你是否记得自己失败后的第一感觉？你会怎样描述那种感觉？注意一下那种感觉是不是自我责备。如果是的话，你对自己说了什么？自知的视角让你看清自己的感受，而且不会急于逃避。</li>
+<li>2.你只是个凡人。每个人都会遇到意志力挑战，每个人都有失去自控的时候。这只是人性的组成部分，挫折并不意味着你本身有问题。想一想这些说法是不是真的。你能想象你尊敬、关心的其他人也经历过同样的抗争和挫折吗？这个视角会让自我批评和自我怀疑的声音变得不那么尖锐。</li>
+<li>3.你会跟朋友说什么？想一想，如果你的好朋友经历了同样的挫折，你会怎么安慰他？你会说哪些鼓励的话？你会如何鼓励他继续追求自己的目标？这个视角会为你指明重归正途之路。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>乐观的悲观主义者更可能成功<ul>
+<li>预测你什么时候、会怎样受到诱惑和违背承诺，想象一个不让自己放弃抗争的具体方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="07-及时享乐的经济学"><a href="#07-及时享乐的经济学" class="headerlink" title="07   及时享乐的经济学"></a>07   及时享乐的经济学</h2><h3 id="摘抄-6"><a href="#摘抄-6" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>经济学家称之为“延迟折扣”。也就是说，等待奖励的时间越长，奖励对你来说价值越低。很小的延迟就能大幅降低你感知到的价值。</li>
+<li>像对待另一个人一样，逐步预测并约束那个自我</li>
+<li>我们会把未来的自己想象成完全不同的一个人——这是个令人费解但却不难预测的错误。我们把未来的自己理想化了，希望未来的自己可以做到现在的自己做不了的事。<ul>
+<li>这种错误的想象让我们像对待陌生人一样对待未来的自己。</li>
+<li>我们会给未来的自己增加负担，就好像那时的自己是个陌生人一样。</li>
+</ul>
+</li>
+<li>如果我们真的指望未来的自己能这么崇高，我们确实可以相信，未来的自己能做好所有的事。但更典型的情况是，当我们到了未来，理想中“未来的自己”却不见了，最后作决定的还是毫无改变的曾经的自己。即便我们现在已经失去了自控力，我们仍然愚蠢地希望未来的自己不会面临冲突。</li>
+<li>为什么我们会把未来的自己视为另一个人呢？原因在于，我们不知道未来自己的想法和感受。当我们想到未来的自己时，我们的欲望不会像现在一样紧迫，情绪不会像现在一样真切。直到我们真的需要选择的时候，我们才会知道当下的想法和感受。</li>
+<li>当我们思考未来时，我们能预测到未来的自己和想象中有什么不同。未来的奖励似乎并不那么有诱惑力，所以我们选择了即时的满足感。我们无法预测自己会怎么受到诱惑、怎么被分散注意力，所以我们无法坚定自己的目标。如果我们想作出更明智的决定，就要更好地理解和支持未来的自己。我们还需要记住，为现在的行为承担后果的，看似是未来的自己，实际上还是我们自己。未来的自己会对我们现在的付出感激不尽。</li>
+</ul>
+<h3 id="深入剖析-6"><a href="#深入剖析-6" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>你给未来的奖励打了几折？<ul>
+<li>对你的意志力挑战来说，当你屈服于诱惑或拖延的时候，你是把哪些未来的奖励出售了？放弃抗争的即时回报是什么？长期的代价是什么？这是公平交易吗？如果理性的你说“不，那是个叫人讨厌的买卖”，那么，请你试着去捕捉自己改变选择的时刻。是什么想法和感觉让你出售了未来？</li>
+</ul>
+</li>
+<li>你在等待未来的自己吗？<ul>
+<li>你是否在推迟重要的变化或任务，等待自控力更强的未来的自己出现？你是不是乐观地让自己承担过多的责任，最后却被不可能的任务打倒了？你今天有没有不去做什么事，因为明天你会更想去做那件事？</li>
+</ul>
+</li>
+<li>为了你自己好，你是不是太“高瞻远瞩”了？<ul>
+<li>你是否有过这样的感觉：因为总有更多的事情要做，似乎没办法放下工作休息一下？你是否对花钱产生了太多的罪恶感和焦虑感，以至于除了购买生活必需品，你觉得自己很难再去买别的东西？你有没有回头看过，自己是怎样花费时间和金钱的？你会不会希望当时你能更关注即时的快乐，而不是总去推迟享受？如果是这样的话，试一试本章提到的意志力实验，把它们当做放纵自己的方法。</li>
+</ul>
+</li>
+</ul>
+<h3 id="意志力实验-6"><a href="#意志力实验-6" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>等待10分钟<ul>
+<li>想获得一个冷静明智的头脑，我们就需要在所有诱惑面前安排10分钟的等待时间。如果10分钟后你仍旧想要，你就可以拥有它。但在10分钟之内，你一定要时刻想着长远的奖励，以此抵抗诱惑。如果可以的话，你也可以创造一些物理上（或视觉上）的距离。</li>
+<li>如果你的意志力挑战需要“我要做”的力量，你仍旧可以使用这个“10分钟法则”，以此来克服诱惑和拖延。你可以把法则改成“坚持做10分钟，然后就可以放弃”。当10分钟结束后，你就可以允许自己停下来。不过你会发现，只要一开始，你就会想继续做下去。</li>
+</ul>
+</li>
+<li>降低你的折扣率<ul>
+<li>1.当你受到诱惑要做与长期利益相悖的事时，请想象一下，这个选择就意味着，你为了即时的满足感放弃了更好的长期奖励。</li>
+<li>2.想象你已经得到了长期的奖励。想象未来的你正在享受自控的成果。</li>
+<li>3.然后扪心自问：你愿意放弃它，来换取正在诱惑你的短暂快感吗？</li>
+</ul>
+</li>
+<li>对未来的自己作预先承诺<ul>
+<li>这一周，为未来某一刻的自己作出承诺。从以下策略中挑选一个，在你的意志力挑战中用上它。<ul>
+<li>1.作好拒绝诱惑的准备。在未来的自我被诱惑蒙蔽之前，提前作出选择。</li>
+<li>2.让改变偏好变得更难。就像科尔蒂斯“破釜沉舟”一样，不要让自己轻易屈服于诱惑。</li>
+<li>3.激励未来的自己。如果你在用胡萝卜或大棒督促自己获得健康和快乐，那么你不用觉得羞愧。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>遇见未来的自己<ul>
+<li>把自己送到未来，帮助自己作出更明智的选择。下面三种方法能让未来变得真实可信，让你认识未来的自己。<ul>
+<li>1.创造一个未来的记忆。</li>
+<li>2.给未来的自己发条信息。</li>
+<li>3.想象一下未来的自己。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="08-为什么意志力会传染？"><a href="#08-为什么意志力会传染？" class="headerlink" title="08  为什么意志力会传染？"></a>08  为什么意志力会传染？</h2><h3 id="摘抄-7"><a href="#摘抄-7" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>实际在很大程度上，那些我们通常认为受自控力影响的行为，也会受社会控制力的影响。</li>
+<li>我们发现了三种形式，这三种形式都会使我们的社会脑（social brain）出现意志力失效。<ul>
+<li>第一种形式是无意识的模仿。</li>
+<li>大脑让我们误入迷途的第二种形式是传染情绪。</li>
+<li>最后，当我们看到别人屈服于诱惑时，我们的大脑也可能受到诱惑。</li>
+</ul>
+</li>
+<li>研究发现，我们很容易感染别人的目标，从而改变自己的行为。</li>
+<li>行为就是这样传染的。和地理上的亲近程度比起来，社会关系上的亲密程度更重要。</li>
+<li>我们的大脑会把别人的目标、信念和行为整合到自己的决策中。当我们跟别人在一起时，或者只是简单地想到他们时，在我们的脑海里，别人就会成为另一个“自我”，并且和“自我”比赛自控。反之亦然：我们的行为也影响了其他无数人，我们做的每个选择对别人来说也是一种鼓舞或诱惑。</li>
+</ul>
+<h3 id="深入剖析-7"><a href="#深入剖析-7" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>你的社交<ul>
+<li>在你的社交圈中，有没有其他人有和你一样的意志力挑战？</li>
+<li>回想一下，你有没有从朋友或家人身上学到过某种习惯？</li>
+<li>和某些人在一起的时候，你会不会更容易放纵自己？</li>
+<li>在你的社交圈中，最近有没有其他人也在尝试应对这个意志力问题？</li>
+</ul>
+</li>
+<li>你在模仿谁？<ul>
+<li>这一周，仔细观察你是否在模仿别人的行为，尤其是和你的意志力挑战有关的行为。同样放纵自己的行为是不是维持关系的社会黏合剂？当看到周围的人在做同样的事时，你会不会变本加厉地去做这件事？</li>
+</ul>
+</li>
+<li>你最可能被谁感染？<ul>
+<li>花一点时间去想一想，谁是和你关系密切的人。你和谁在一起的时间最长？你最尊重谁？你觉得谁和自己最像？谁的意见对你来说最重要？你最信任谁，最关心谁？你能不能想到哪些行为（无论是有益的还是有害的）是你从他们身上学来的，或是他们从你身上学到的？</li>
+</ul>
+</li>
+<li>可别人都这么做！<ul>
+<li>质疑它的最好方法就是找到一群人，他们正在做你渴望做到的事。</li>
+<li>置身于和你共享承诺与目标的人们当中，会让你觉得自己的目标才是社会规范。</li>
+</ul>
+</li>
+</ul>
+<h3 id="意志力实验-7"><a href="#意志力实验-7" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>增强你的免疫系统<ul>
+<li>当你面对别人的目标时，增强免疫系统的最佳途径就是：在每天刚开始的时候花几分钟想想自己的目标，想想你会怎么受到诱惑，想要改变自己的目标。这就像疫苗一样，能保护你不受别人的感染。回想自己的目标能强化这个目标，避免你感染他人的目标。</li>
+</ul>
+</li>
+<li>自豪的力量<ul>
+<li>想象一下你在意志力挑战中取得成功后会多么自豪。这样，你就能充分利用“被认可”这个人类的基本需求。</li>
+<li>当你作出一个让自己感到自豪的选择时，你可以更新Facebook的个人状态，或是在Twitter上发布信息。如果你不喜欢高科技产品，你也可以和人们面对面地分享自己的故事。</li>
+</ul>
+</li>
+<li>把它变成集体项目<ul>
+<li>你无须单独面对你的意志力挑战。有没有朋友、家人或同事可以和你一起实现意志力目标？你们不必有相同的目标，只需要相互记录和鼓励。</li>
+</ul>
+</li>
+</ul>
+<h2 id="09-“我不要”力量的局限性"><a href="#09-“我不要”力量的局限性" class="headerlink" title="09 “我不要”力量的局限性"></a>09 “我不要”力量的局限性</h2><h3 id="摘抄-8"><a href="#摘抄-8" class="headerlink" title="摘抄"></a>摘抄</h3><ul>
+<li>越是不让我们想一件事，我们就会越去想它<ul>
+<li>当人们试着不去想某件事时，反而会比没有控制自己的思维时想得更多，比自己有意去想的时候还要多。这个效应在人处于紧张、疲劳或烦乱状态时最为严重。韦格纳把这个效应称为“讽刺性反弹”</li>
+</ul>
+</li>
+<li>一旦允许研究对象把压抑的想法表达出来，这个想法就不太容易被激活了，因此进入意识的可能性也变小了。这件事说起来有点矛盾——允许你去想一件事，反而会减少你想起它的可能性。</li>
+<li>研究显示，越是压抑消极情绪，人越可能变得抑郁。<ul>
+<li>如果想让自己远离精神痛苦，人们就需要与这些想法和平相处，而不是把它们推到一边。</li>
+</ul>
+</li>
+<li>越想通过抑制想法来抵抗诱惑，受到的不良影响就越大</li>
+<li>试着控制自己的思想和感受，反而会对我们原先的目标产生反面效果。但是我们大多数人在犯下这个战略性错误后，并不会在反省失败时认识到这一点。我们反倒会认为是自己自制力不够，从而会定下更多“下次一定要控制住自己”的目标。为了让我们的头脑远离有害的思想和感受，我们努力去摆脱它们，但往往事倍功半。相反，如果我们想要获得心灵的平静和足够的自控力，我们就需要认识到，控制自己的思想是件不可能的事。我们能做的就是，选择自己相信什么，选择自己要做什么。</li>
+</ul>
+<h3 id="深入剖析-8"><a href="#深入剖析-8" class="headerlink" title="深入剖析"></a>深入剖析</h3><ul>
+<li>讽刺性反弹调查<ul>
+<li>你是否想忘记某些东西？如果是，请检验一下讽刺性反弹理论。压抑有用吗？试图忘记某些东西是否让它回来时变得更强烈？</li>
+</ul>
+</li>
+<li>你最渴望什么？<ul>
+<li>你是否曾经被禁止做什么事呢？被禁止做某件事会消除你对它的欲望，还是会激起你更大的渴望？</li>
+</ul>
+</li>
+</ul>
+<h3 id="意志力实验-8"><a href="#意志力实验-8" class="headerlink" title="意志力实验"></a>意志力实验</h3><ul>
+<li>忠于你的感受，但别相信你所有的想法<ul>
+<li>遇到烦恼的时候，不妨尝试一下戈尔丁教给患者的方法。关注自己的想法，而不是试着转移注意力。<ul>
+<li>这些想法会像脑海里的歌曲一样突然出现。它们不知从何而来，但一旦出现就无法摆脱。</li>
+<li>接下来，把注意力转移到你的身体感受上</li>
+<li>一旦观察到这些想法和感觉，就把注意力转移到呼吸上。</li>
+<li>不要停下呼吸，想象这些浮云不断消散或飘过。把呼吸想象成一阵风，它毫不费力地将这些浮云吹散、吹走。你无须让这些想法离开，只需保持呼吸的感觉。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>直面自身欲望，但不要付诸行动<ul>
+<li>1.承认自己脑海中的欲望，以及渴望某种事物的感觉。</li>
+<li>2.不要马上试着转移注意力或与之争论。接受这种想法或感觉，提醒自己“白熊”现象和“反弹”理论。</li>
+<li>3.退一步考虑，意识到这种想法和感觉并不受你控制，但你可以选择是否将这些想法付诸实践。</li>
+<li>4.记住你的目标，提醒自己预先作出的承诺。正如那些学生会提醒自己，他们答应过不偷吃巧克力。</li>
+</ul>
+</li>
+<li>把“我不要”变成“我想要”<ul>
+<li>除了“我不要”，你还能做什么来满足同样的需求？</li>
+<li>如果没有了坏习惯，你还能做些什么？</li>
+<li>可以通过重新定义“我不要”的挑战，把它变成“我想要”的挑战吗？<ul>
+<li>如果你关注自己想做什么，而不是自己不想做什么，你就可以避免“反弹”效应带来的危害。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>驾驭冲动<ul>
+<li>无论你对什么上瘾，“驾驭冲动”的技巧都能帮你抵抗诱惑，而不是屈服于它。当冲动占据你的头脑时，花至少一分钟去感觉自己的身体。你的冲动是什么样的？</li>
+<li>保持这个状态至少一分钟。看看这些感觉在强度或特性上有什么变化。</li>
+<li>如果你在最初几次尝试中失败了，别灰心，这并不意味着这种方法是无效的。</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E8%87%AA%E5%BE%8B/" class="">
+              自律
+            </a>
+          
+            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="">
+              读书笔记
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/1191.html" target="_blank" title="《自控力》读书笔记">https://blog.five2fire.top/article/1191.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/article/12775.html" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">产品经理方法论</div>
+      </div>
+      
+      <!-- <div class="content">
+        产品愿景和战略规划
+制定明确的产品愿景，包括产品的长期目标和愿景陈述。
+确定产品的使命和核心价值主张。
+定义产品的目标受
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20231018165710.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20231018165710.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/64467.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Hexo解决bamboo主题移动端部分情况下无法滚屏的问题</div>
+      </div>
+      <!-- <div class="content">
+        背景自己的博客之前一直是用的比较简单的pure主题，最近选了一个比较好看，内容也很丰富的bamboo主题，真的不错。但是
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <section id="waline-box">
+  <div id="waline-comment"></div>
+</section>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/1999fe4d2ab6fa781651e50d4b01488.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Sage</h2>
+        
+        
+          <p>Product Manager</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:sagezhang96@gmail.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/sagezhang96"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E6%8E%A7%E5%8A%9B"><span class="toc-text">自控力</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#01%E4%BB%80%E4%B9%88%E6%98%AF%E6%84%8F%E5%BF%97%E5%8A%9B"><span class="toc-text">01什么是意志力</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02%E6%84%8F%E5%BF%97%E5%8A%9B%E7%9A%84%E6%9C%AC%E8%83%BD"><span class="toc-text">02意志力的本能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-1"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-1"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-1"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E7%B4%AF%E5%88%B0%E6%97%A0%E5%8A%9B%E6%8A%B5%E6%8A%97"><span class="toc-text">03　累到无力抵抗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-2"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-2"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-2"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E5%AE%B9%E5%BF%8D%E7%BD%AA%E6%81%B6"><span class="toc-text">04　容忍罪恶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-3"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-3"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-3"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-%E8%AF%AF%E6%8A%8A%E6%B8%B4%E6%9C%9B%E5%BD%93%E5%B9%B8%E7%A6%8F"><span class="toc-text">05 误把渴望当幸福</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-4"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-4"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-4"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E9%82%A3%E5%8F%88%E5%A6%82%E4%BD%95"><span class="toc-text">06 那又如何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-5"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-5"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-5"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#07-%E5%8F%8A%E6%97%B6%E4%BA%AB%E4%B9%90%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6"><span class="toc-text">07   及时享乐的经济学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-6"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-6"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-6"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#08-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%84%8F%E5%BF%97%E5%8A%9B%E4%BC%9A%E4%BC%A0%E6%9F%93%EF%BC%9F"><span class="toc-text">08  为什么意志力会传染？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-7"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-7"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-7"><span class="toc-text">意志力实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#09-%E2%80%9C%E6%88%91%E4%B8%8D%E8%A6%81%E2%80%9D%E5%8A%9B%E9%87%8F%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">09 “我不要”力量的局限性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E6%8A%84-8"><span class="toc-text">摘抄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90-8"><span class="toc-text">深入剖析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%BF%97%E5%8A%9B%E5%AE%9E%E9%AA%8C-8"><span class="toc-text">意志力实验</span></a></li></ol></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/16060.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-02</span>
+                
+              </div>
+              <a class="post-title" href="/article/16060.html">粤语学习笔记</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/9333.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241223172617.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">12-23</span>
+                
+              </div>
+              <a class="post-title" href="/article/9333.html">2024年终总结</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/40210.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-15</span>
+                
+              </div>
+              <a class="post-title" href="/article/40210.html">利用CloudFlare自建无服务器导航站</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/12599.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" class="lazyload placeholder" data-srcset="https://i.ytimg.com/vi/RzpVzHaoQgg/maxresdefault.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-12</span>
+                
+              </div>
+              <a class="post-title" href="/article/12599.html">不要掉入完美主义的陷阱</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/article/4248.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241108094149.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-07</span>
+                
+              </div>
+              <a class="post-title" href="/article/4248.html">《姥姥的外孙》影评</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+    
+  </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
+</div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(50, 155, 230, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+              
+                <a href="mailto:sagezhang96@gmail.com" class="social">
+                  
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a target="_blank" rel="noopener" href="https://github.com/sagezhang96" class="social">
+                  
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+              
+                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3248202303" class="social">
+                  
+                    <i class="fas fa-qq" aria-hidden="true"></i>
+                  
+                </a>
+              
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/sagezhang96">sagezhang96</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+
+    <script src="/js/utils/index.js"></script>
+    <script src="/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = '复制';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代码已复制，请遵守相关授权协议。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <head>
+  <!-- ... -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v3/dist/waline.css"
+  />
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="waline-comment"></div>
+  <script type="module">
+    let walineInstance = null;
+
+    async function initWaline() {
+      // 检查当前页面类型，只在文章页面显示评论
+      const isPostPage = document.querySelector('.post-detail');
+      if (!isPostPage) {
+        return;
+      }
+
+      try {
+        const { init } = await import('https://unpkg.com/@waline/client@v3/dist/waline.js');
+        
+        if (walineInstance) {
+          walineInstance.destroy();
+        }
+
+        var walineEmoji = 'https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/alus,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba,https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-weather';
+        walineEmoji = walineEmoji.split(',');
+
+        const comment_el = '#waline-comment';
+
+        const locale = {
+          nick: '昵称',
+            nickError: '昵称不能少于3个字符',
+            mail: '邮箱',
+            mailError: '请填写正确的邮件地址',
+            link: '网址',
+            optional: '可选',
+            placeholder: '欢迎评论',
+            sofa: '快来抢沙发吧~',
+            submit: '提交',
+            like: '喜欢',
+            cancelLike: '取消喜欢',
+            reply: '回复',
+            cancelReply: '取消回复',
+            comment: '评论',
+            refresh: '刷新',
+            more: '加载更多...',
+            preview: '预览',
+            emoji: '表情',
+            uploadImage: '上传图片',
+            seconds: '秒前',
+            minutes: '分钟前',
+            hours: '小时前',
+            days: '天前',
+            now: '刚刚',
+            uploading: '正在上传',
+            login: '登录',
+            logout: '退出',
+            admin: '博主',
+            admin: '博主',    //这里可以更改管理员的标签
+            sticky: '置顶',
+            word: '字',
+            wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+            anonymous: '匿名',
+            level0: '潜水',
+            level1: '冒泡',
+            level2: '吐槽',
+            level3: '活跃',
+            level4: '话痨',
+            level5: '传说',
+            gif: '表情包',
+            gifSearchPlaceholder: '搜索表情包',
+            profile: '个人资料',
+            approved: '通过',
+            waiting: '待审核',
+            spam: '垃圾',
+            unsticky: '取消置顶',
+            oldest: '按倒序',
+            latest: '按正序',
+            hottest: '按热度',
+            reactionTitle: '你认为这篇文章怎么样？'
+        }
+
+        walineInstance = init({
+          el: comment_el,
+          serverURL: 'walinecomments.five2fire.top',
+          lang: 'zh-CN',
+          vistor: '',
+          locale,
+          wordLimit: '140',
+          emoji: walineEmoji,
+          avatar: 'https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20241104161645.png',
+          path: window.location.pathname,
+          login: 'enable',
+          pageSize: '10',
+          reaction: true,
+          copyright: true
+        });
+
+        // 清空编辑器内容
+        clearWalineEditor();
+
+        // 等待Waline初始化完成后再绑定事件
+        setTimeout(() => {
+          bindCommentEvents();
+        }, 1000);
+
+      } catch (error) {
+        console.error('Waline initialization failed:', error);
+      }
+    }
+
+    // 添加清空编辑器内容的函数
+    function clearWalineEditor() {
+      const waitForEditor = setInterval(() => {
+        const editor = document.querySelector('.wl-editor');
+        if (editor) {
+          clearInterval(waitForEditor);
+          editor.value = '';
+          editor.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }, 100);
+
+      // 设置超时以防止无限等待
+      setTimeout(() => clearInterval(waitForEditor), 5000);
+    }
+
+    // 将评论事件绑定逻辑抽取为单独的函数
+    function bindCommentEvents() {
+      const commentButtons = document.querySelectorAll('.weibo-comment-btn');
+      console.log('Found comment buttons:', commentButtons.length);
+      
+      commentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const time = this.getAttribute('data-time');
+          const text = this.getAttribute('data-text');
+          const quoteContent = `> 引用微博：\n> 时间: ${time}\n> 内容: ${text}\n\n`;
+          
+          console.log('Quote content:', quoteContent);
+
+          // 滚动到评论区
+          const commentEl = document.querySelector('#waline-comment');
+          if (commentEl) {
+            commentEl.scrollIntoView({ behavior: 'smooth' });
+            
+            // 等待评论区加载完成
+            const waitForEditor = setInterval(() => {
+              const editor = document.querySelector('.wl-editor');
+              if (editor) {
+                clearInterval(waitForEditor);
+                
+                // 设置编辑器内容
+                editor.value = quoteContent;
+                editor.focus();
+                
+                // 触发input事件以确保Waline识别内容变化
+                editor.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                // 将光标移动到引用内容后面
+                const cursorPosition = quoteContent.length;
+                editor.setSelectionRange(cursorPosition, cursorPosition);
+              }
+            }, 100);
+            
+            // 设置超时以防止无限等待
+            setTimeout(() => clearInterval(waitForEditor), 5000);
+          }
+        });
+      });
+    }
+
+    // 确保DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', initWaline);
+
+    // 支持PJAX
+    document.addEventListener('pjax:complete', () => {
+      console.log('PJAX complete, reinitializing Waline');
+      clearWalineEditor(); // 在 PJAX 完成时也清空编辑器
+      initWaline();
+    });
+  </script>
+</body>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+   
+    <script async src="/js/cursor/clicklove.js"></script> 
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>
