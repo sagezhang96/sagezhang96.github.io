@@ -22,7 +22,7 @@
 </script>
 
 
-  <title>Sage自留地😎</title>
+  <title>认真对待每一天，然后好好告别 | Sage自留地😎</title>
 
   <link rel="icon" type="image/svg+xml" href="/medias/ironman.svg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -577,833 +577,347 @@
     
 </header>
         <!-- 内容区域 -->
-        
-  <!-- 首页轮播 -->
+        <!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20250218122950.png')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-
-
-
-
-
-
-<div class="swiper-length" style="display: none;">0</div>
-<div id="appSwiper"
-  class="swiper-no-swiping"
-  @mouseenter="stopAutoPlay()" 
-  @mouseleave="startAutoPlay()"
->
-  <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        认真对待每一天，然后好好告别
+      </span>
+    </div>
     
-      <swiper-slide>
-        <div class="item swiper-lazy" data-background="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/blackhole.jpg" style="background-size: 300000px; 
-          background-position: left center;" style="position: relative;">
-          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
-            <div class="flag">
-              
-              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/blackhole.jpg" style="height: 100%; background-size: cover; 
-                background-position: center center;">
-                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
-              </div>
-              <div class="flag-text">
-                <div class="flag-text-content">
-                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
-                  
-                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">与其感慨路难行,不如马上出发</div>
-                    
-                </div>
-                <div style="display: flex;" class="flag-text-btns">
-                  
-                    <div class="ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/thoughts" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">随感</a></div>
-                  
-                  
-                    <div class="ani animated" style="margin-left: 10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/messageboard" class="read-more swiper-btn-color2" style="display: inline-block; z-index:1;border: 1px solid white;">留言板</a></div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-      </swiper-slide>
     
-  </swiper>
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2025-02-18 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-detail-header_category">
+              生活
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> 字数统计: 1.8k |
+          </span>
   
-  <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
+          <span class="min2read">
+            <i class="fas fa-clock"></i> 阅读时长: 6分钟 |
+          </span>
   
-    <svg class="hans-container" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="hans-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="hans-parallax"><use xlink:href="#hans-wave" x="50" y="0" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="3" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="6" fill="rgba(224,233,239,.5)"></use></g></svg>
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> 阅读量：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
     
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
 </div>
 
 
-<style>.hans-parallax>use{animation:hans-wave-move 12s linear infinite}.hans-parallax>use:nth-child(1){animation-delay:-2s}.hans-parallax>use:nth-child(2){animation-delay:-2s;animation-duration:5s}.hans-parallax>use:nth-child(3){animation-delay:-4s;animation-duration:3s}@keyframes hans-wave-move{0%{transform:translate(-90px,0)}100%{transform:translate(85px,0)}}</style>
-<style>
-  .hans-container {
-    position: absolute!important;
-    bottom: 0;
-    width: 100%;
-    height: 120px;
-    z-index: 100;
-    pointer-events:none;
-  }
-</style>
 
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        
+  
+  
+  
+
+        <h1 id="认真对待每一天，然后好好告别"><a href="#认真对待每一天，然后好好告别" class="headerlink" title="认真对待每一天，然后好好告别"></a>认真对待每一天，然后好好告别</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>我一直没能从我母亲突然离世的阴影中走出来</p>
+<p>我永远记得最后一次和她说话</p>
+<p>是在一个周五下班后，我吃着酸菜鱼和她微信视频</p>
+<p>手机平放在桌子上，她看不到我，我在吃饭也没有看她</p>
+<p>然后再见就是母亲躺在ICU里，再也没能多看我一眼</p>
+<p>母亲走了一年多了</p>
+<p>我的脑海里却时不时地出现其他亲人离我而去的场景</p>
+<p>我问AI，AI告诉我这是PTSD的一种典型症状， 那一刻我意识到，PTSD不应该是一个用来表达受伤的梗，而真的是一种让人痛苦的精神疾病</p>
+<p>应激也不只有猫咪哈气逃跑这样的生理反应，也有隐藏在内心深处偶尔闪现的心理反应</p>
+<p>这段时间，我对离别和死亡有了新的看法</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>看到很多次这样的场景</p>
+<p>孩子因为想要什么东西而家长不愿意给买，就把孩子仍在原地自己继续往前走，还跟孩子说“再不走就把你丢在这里了”</p>
+<p>让失去父母的恐惧去对抗对玩具的向往</p>
+<p>那一刻，孩子知道，自己离不开父母</p>
+<p>我第一次印象深刻的离别，应该是我第一天上幼儿园</p>
+<p>爷爷告诉我，我进去上课，他就在幼儿园门口等我放学</p>
+<p>结果我听课入迷了，再一转头发现外面没了他的身影</p>
+<p>后来上初中，我家从乡镇搬到了城里，没两年爷爷去世了</p>
+<p>过年不再回老家了，那是一次和童年的告别</p>
+<p>再后来高考分够不到省内985，北上求学，从此对故乡的印象只剩冬夏</p>
+<p>直至现在定居深圳，不知以后还会经历怎样的离别</p>
+<p>离别是一段关系的结束，但也可以是另一段关系的开始</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>《寻梦环游记》算是我接受的为数不多的对死亡的教育</p>
+<p>影片里讲，死亡有三个阶段</p>
+<p>第一阶段是，心跳停止，呼吸消逝，医学死亡</p>
+<p>第二阶段是，举行葬礼，亲朋吊唁，社会死亡</p>
+<p>最后，世界上最后一个记得你的人把你忘记，于是你就真正死去</p>
+<p>前段时间，琼瑶去世，留下一封遗书和告别视频，她将自己的离去形容为「雪花翩然落地」，是「快乐的『归去』」。</p>
+<blockquote>
+<p>以下为琼瑶遗书全文：</p>
+<p>各位亲爱的朋友知音们：</p>
+<p>不要哭，不要伤心，不要为我难过。我已经“翩然”的去了！</p>
+<p>“翩然”是我最喜欢的两个字，代表的是“自主、自在、自由”的“飞翔”，优美而“轻盈”，我摆脱了逐渐让我痛苦的躯壳，“翩然”的化为雪花飞去了！</p>
+<p>这是我的愿望，“死亡”是每个人必经之路，也是最后一件“大事”。我不想听天由命，不想慢慢枯萎凋零，我想为这最后的大事“作主”。</p>
+<p>上苍对于生命的过程，设计得不是很好。当人老了，都要经过一段很痛苦的“衰弱、退化、生病、出入医院、治疗、不治”的时间，这段时间，可长可短，对于必将老死的人，是多大的折磨！万一不幸，还可能成为依赖“插管维生”的“卧床老人”！我曾经目睹那种惨状。我不要那样的“死亡”。</p>
+<p>我是“火花”，我已尽力燃烧过。如今，当火焰将熄之前，我选择这种方式，翩然归去。我要说的话，都录在我《当雪花飘落》的视频里了。希望我的朋友们，多看几次视频，了解我想表达的一切。</p>
+<p>朋友们，不要为我的“死亡”悲哀，为我笑吧！生命的美好，就在于“能爱，能恨、能笑，能哭、能歌、能说、能跑、能动、能红尘作伴、活得潇潇洒洒，能嫉恶如仇，活得轰轰烈烈……”这些，我都在有生之年，拥有过了！我“活过”了，不曾辜负此生！</p>
+<p>我最放不下的，就是家人和你们。“爱”紧紧的系着我心，你们都是我最最不舍的。为了让我的灵魂（不知道人类有没有灵魂），也能“翩然”，大家为我笑、为我高歌、为我飞舞吧！我在天之灵，会与你们“共舞”的！</p>
+<p>别了！我至爱的你们！庆幸此生，曾经和你们相遇相知。</p>
+<p>注意，我“死亡”的方式，是在我生命的终站实行的！年轻的你们，千万不要轻易放弃生命，一时的挫折打击，可能是美好生命中的“磨练”，希望你们经得起磨练，像我一样，活到八十六、七岁，体力不支时，再来选择如何面对死亡。但愿那时，人类已经找到很人道的方式，来帮助“老人”们，快乐的“归去”！</p>
+<p>亲爱的你们，要勇敢，要活出强大的“自我”，不要辜负来世间一趟！这世间，虽然不是十全十美，也有各种意外的喜怒哀乐！别错过那些属于你的精彩！</p>
+<p>千言万语说不尽，最后，祝福大家健康快乐，活得潇潇洒洒！</p>
+<p>琼瑶写于淡水双映楼</p>
+<p>2024、12、3</p>
+<p>淑玲代发2024.12.04</p>
+</blockquote>
+<p>这也大致上是我追求的生死观，也是为什么会写这篇文章~~（可是拖到了现在）~</p>
+<p>就现在看来，我这29年不能如琼瑶一样说自己“尽力燃烧过”</p>
+<p>但我追求余生的每一天都不虚无地度过，每天开心只是美好的愿望，用心去感受每一秒的情绪，活在当下是我现阶段的生死观</p>
+<p>很多身边人或多或少也都“为他人而活“而很少为自己而活，这给自己增加了很多内耗</p>
+<p>有人说，“勇敢的人先享受世界，不要脸才是快意人生的开始。停止内耗自己，疯狂<em>外耗他人</em>。”</p>
+<p>我觉得，先做到不内耗最重要，至于外不外耗他人，也要看对象</p>
+<p>不仅要认真对待每天所做的事，更应该认真对待身边人，让想表达的爱真情流露出来，把心中的不满及时地宣泄出来</p>
+<p>在终会有的离别的一天到来之际，也不留遗憾</p>
+<p>这样才对得起自己，对得起他人，对得起这一辈子</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>以前会觉得毕业之后和以前的朋友联系渐少，慢慢得关系就淡了</p>
+<p>长期处于一个患得患失的状态，难过于握不住手中的沙</p>
+<p>直到今年过年回家那三天，约朋友出来打麻将</p>
+<p>朋友说，虽然一年不见，但再见聊起来也不尴尬，相处起来还是很舒服</p>
+<p>这完全打消了我前面的顾虑，这就是优质的联结，让你能从这段关系中源源不断地汲取能量，而不是让这段关系消耗你的心神</p>
+<p>把每次一离别都看作是积攒能量的机会，为下一次更好的重逢做好准备</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/%E9%9A%8F%E6%84%9F/" class="">
+              随感
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SageZhang</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/article/32181.html" target="_blank" title="认真对待每一天，然后好好告别">https://blog.five2fire.top/article/32181.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930114935.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/article/16060.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">粤语学习笔记</div>
+      </div>
+      <!-- <div class="content">
+        粤语学习Duolingo学习笔记第一章在喝早茶时点餐和询问价格
+
+
+#
+粤语字
+发音
+普通话
+
+
+
+1
+豉汁排骨
+si6
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
 
 <script>
-  var autoplay = JSON.parse('false');
-  var delay = '5000';
-  var loop = JSON.parse('false') ? false : JSON.parse('true');
-  var effect = 'slide';
-  var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  var defaultDesc = '与其感慨路难行,不如马上出发';
-  defaultDesc = defaultDesc.split(',');
-  var defaultDescTypedLoop = JSON.parse('true');
+  var body = document.body || document.documentElement || window;
   var vm = new Vue({
-    el: '#appSwiper',
+    el: '#appDonate',
     data: {
-      defaultDesc: defaultDesc,
-      defaultDescTypedLoop,
-      swiperOptions: {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true // 允许点击小圆点跳转
-        },
-        loop: loop ? true : false,
-        effect, // fade
-        autoplay: (autoplay && swiperLength > 1) ? {
-  　　　　delay,
-  　　　　disableOnInteraction: false // 手动切换之后继续自动轮播
-    　　} : false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        lazy: {
-          loadPrevNext: true,
-        },
-        on:{
-          init: function() {
-            swiperAnimateCache(this); //隐藏动画元素 
-            swiperAnimate(this); //初始化完成开始动画
-          }, 
-          slideChangeTransitionEnd: function(){ 
-            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-          } 
-        }
-        // Some Swiper option/callback...
-      }
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
     },
     computed: {
-      swiper() {
-        return this.$refs.mySwiper.$swiper
-      }
     },
     mounted() {
-      // console.log('Current Swiper instance object', this.swiper)
-      // this.swiper.slideTo(0, 1000, false)
     },
     methods: {
-      stopAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.stop();
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
       },
-      startAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.start();
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
       },
-      slideChangeTransitionEnd() {
-        console.log('1');
-      },
-      toPostContent() {
-        const fullHeight = $(window).height() - 60;
-        $('html,body').animate({scrollTop: fullHeight},500);
+      changeTabActive(name) {
+        this.tabActive = name;
       }
     },
     created() {}
   })
 </script>
+    
 
-  <script src="/js/bubble/homeBubble.js"></script>
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
 
 <style>
-#appSwiper {
-  position: relative;
-  user-select: none;
-  overflow: hidden;
-  font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
-}
-.default-excerpt {
-  font-size: 1.6em;
-  margin-top: 1em;
-  color: #eee;
-}
-.bottom-one-btn {
-  margin-top: 15px;
-}
-.swiper-container {
-  overflow: hidden;
-  z-index: 0;
-}
-.swiper-slide {
-  height: 350px;
-  position: relative;
-}
-.swiper-button-prev,
-.swiper-button-next {
-  padding: 10px 10px;
-  transition: background 0.2s;
-}
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-.swiper-slide .item {
-  width: 100%;
-  height: 100%;
-}
-.flag {
-  position: relative;
-  width: 70%;
-  margin: 0 auto;
-  color: #ffffff;
-  height: 100%;
-  background: #000;
-}
-.flag img {
-  min-height: 100%;
-}
-.flag-text {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 80%;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 9999;
-}
-.flag-text .title {
-  font-size: 1.8em;
-}
-.flag-text .title a {
-  color: #fff;
-  transition: color 0.3s;
-}
-.flag-text .title a:hover {
-  color: rgba(50, 155, 230, 0.8);
-}
-.flag-text .excerpt {
-  color: #eee;
-  width: 70%;
-  line-height: 30px;
-  height: 150px;
-  margin-top: 2%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-}
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background-color: #42b983;
-}
-.img-mask {
-  opacity:0.6; filter: alpha(opacity=60);
-}
-.flag-text .read-more {
-  margin-bottom: 30px;
-  padding: 5px 15px;
-  color: #ffffff;
-  border-radius: 20px;
-}
-#scroll-down {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5em;
-  color: #fff;
-  cursor: pointer;
-  z-index: 2;
-}
-#scroll-down a {
-  color: #fff;
-}
-@-webkit-keyframes rightan
-  {
-  
-  0%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
+  .social-share {
+    margin: 20px 0;
   }
-  50% {
-    transform: translateY(-30px);
-    opacity: 1;
-  }
-  100%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-}
-.scroll-down-effects {
-  animation: rightan 1.5s infinite;
-}
-/* 当头部导航设置为背景透明的时候 */
-.swiper-slide {
-  height: 400px;
-}
-.flag-text {
-  top: 80px;
-}
-
-@media (min-width: 992px) {
-  .swiper-button-prev {
-    margin-left: 15%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 15%;
-    transform: translateX(180%);
-  }
-  .flag-text .title {
-    width: 80%;
-    line-height: 35px;
-    max-height: 70px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-}
-@media screen and (max-width: 1200px) { 
-  .flag {
-    width: 80%;
-  }
-  .swiper-button-prev {
-    margin-left: 10%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 10%;
-    transform: translateX(180%);
-  }
-}
-@media (max-width: 992px) {
-  .flag {
-    width: 100%;
-  }
-  .flag-text .title {
-    font-size: 1.5em;
-    margin-top: 50px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-  .flag-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-  .flag-text .excerpt {
-    width: 100%;
-    line-height: 25px;
-    height: 125px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-  }
-  .flag-text .read-more {
-    margin-bottom: 80px;
-  }
-}
-@media (max-width: 992px) and (min-width: 551px) {
-  .flag-text .excerpt {
-    width: 70%;
-  }
-}
-@media (max-width: 551px) {
-  .swiper-slide {
-    height: 250px;
-  }
-  .flag-text .title {
-    line-height: 30px;
-    max-height: 60px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-top: 20px;
-  }
-  .flag-text .excerpt {
-    font-size: 1em;
-    line-height: 20px;
-    height: 80px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-  }
-  .flag-text .excerpt { 
-    margin-top: 10px;
-  }
-  .flag-text .read-more {
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    transform: scale(0.5);
-  }
-  .swiper-button-prev {
-    left: 0;
-  }
-  .swiper-button-next {
-    right: 0;
-  }
-}
-/* 当头部导航设置为背景透明的时候 */
-  @media (max-width: 992px) {
-    .flag-text {
-      top: 60px;
-      height: 80%;
-    }
-  }
-  @media (max-width: 551px) {
-    .swiper-slide {
-      height: 310px;
-    }
-  }
-
-/* 文字或者按钮居中显示 */
-
-
-
-
-/* 全屏显示 */
-
-
-/* video */
-.swiper-video {
-  width: 100%;
-  height: 100%;
-}
-.swiper-video video {
-  pointer-events: none;
-}
-.swiper-video-maskBox{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #000;
-  opacity: 0.2;
-  z-index: 1;
-}
-@media (min-width: 992px) {
-  
-    .swiper-video {
-      display: none;
-    }
-    .swiper-default-bgImg {
-      display: block;  
-    }
-  
-}
-@media (max-width: 992px) {
-  .swiper-video {
-    display: none;
-  }
-  .swiper-default-bgImg {
-    display: block;  
-  }
-}
-/* video-end */
 </style>
 
 
-<div id="l_main">
-  <div class="l_content">
-    <!-- 自定义的内容 -->
     
-  
-    <div class="widget my_github_container" id="my_github_container" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #0A9BD2" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-days fa-fw" aria-hidden="true"></i><span class='name'>博客更新频率</span></a>
-        
-      </header>
-      <div class="content">
-         <img no-lazy width="100%" hright="300px" src="https://ghchart.rshah.org/42b983/sagezhang96" alt="sagezhang96 github" /> 
-      </div>
-  </div>
-  
-
-    <!-- 首页座右铭 -->
     
-    <!-- 首页公告 -->
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
     
-    <!-- 首页文章置顶 -->
-    
-
-
-
-    <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-    <!-- 每一篇文章卡片 -->
-    <section class="posts">
-  
-  
-    <article class="post">
-      <a href="/article/41590.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project3_ViewsAndModels">
-          <div class="post-excerpt">
-            <p>英文原博博主是   Paul Hudson     @twostraws
-本文是学习Swift过程中翻译该网站的内容:   https://www.hackingwithswift.com/
-1.视图和修饰符的简介在这个项目中，我们将弄明白为什么Swift中使用结构体而不是用类来编程，以及为什么so...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project3_ViewsAndModels</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="post-tag">#编程</a>
-          
-            <a href="/tags/Swift/" class="post-tag">#Swift</a>
-          
-            <a href="/tags/Hacking-with-Swift/" class="post-tag">#Hacking with Swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-03</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/2890.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project2_GuessTheFlag">
-          <div class="post-excerpt">
-            <p>英文原博博主是   Paul Hudson     @twostraws
-本文是学习Swift过程中翻译该网站的内容:   https://www.hackingwithswift.com/
-猜旗子.alert用法12345@State private var showingScore = fals...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project2_GuessTheFlag</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="post-tag">#编程</a>
-          
-            <a href="/tags/Swift/" class="post-tag">#Swift</a>
-          
-            <a href="/tags/Hacking-with-Swift/" class="post-tag">#Hacking with Swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-06-01</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/11442.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="【Hacking With Swift】Project1_Wesplit_problems">
-          <div class="post-excerpt">
-            <p>英文原博博主是   Paul Hudson     @twostraws
-本文是学习Swift过程中翻译该网站的内容:   https://www.hackingwithswift.com/
-代码对比
-
-问题费率列表使用了@State private var而不是let@state中的S没有大写计算...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">【Hacking With Swift】Project1_Wesplit_problems</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="post-tag">#编程</a>
-          
-            <a href="/tags/Swift/" class="post-tag">#Swift</a>
-          
-            <a href="/tags/Hacking-with-Swift/" class="post-tag">#Hacking with Swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-05-28</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/57078.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930115204.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="Preparation for Hackingwithswift">
-          <div class="post-excerpt">
-            <p>简介这部分是Swift的基础知识，学习以为后续SwiftUI做准备
-变量、常量、字符串和数字创建变量：
-1var greeting = &amp;quot;Hello, playground&amp;quot;
-创建常量：
-1let character = &amp;quot;Daphne&amp;quot;
-多行字符串： 
-12...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">Preparation for Hackingwithswift</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E7%BC%96%E7%A8%8B/" class="post-tag">#编程</a>
-          
-            <a href="/tags/Swift/" class="post-tag">#Swift</a>
-          
-            <a href="/tags/Hacking-with-Swift/" class="post-tag">#Hacking with Swift</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-05-22</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/47367.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="《积极心理课》彭凯平">
-          <div class="post-excerpt">
-            <p>清华大学积极心理学课程笔记人类的本能是消极的？人类进化本能让人更容易关注消极情绪积极心理学是一种理性的选择，而不是感性的享受，不是鸡汤。积极是动词，需要付出行动。积极心理学是中国传统文化的智慧。
-积极心理学与幸福的关系幸福学科是个跨学科科学积极心理学教授如何获得幸福的状态，帮助人去创造幸福感受幸福等...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">《积极心理课》彭凯平</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-            <i class="fas fa-folder"></i> 学习
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" class="post-tag">#心理学</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-03-07</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/14194.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="给产品经理讲技术笔记">
-          <div class="post-excerpt">
-            <p>Web前端技术AJAX这种只让部分页面刷新的技术叫作AJAX（汉语读音为“阿贾克斯”或“额寨克思”），它是“Asynchronous JavaScript And XML”的首字母缩写，翻译为“异步JavaScript和XML”。
-AJAX可以发起网络请求，无需刷新即可动态操作网页。
-总结：AJAX...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">给产品经理讲技术笔记</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%BA%A7%E5%93%81/" class="post-category">
-            <i class="fas fa-folder"></i> 产品
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E9%AA%8C/" class="post-tag">#产品经验</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-03-07</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/46973.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-f6508d0561222c31962d613ef364fb72_b.webp?consumer=ZHI_MENG" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-f6508d0561222c31962d613ef364fb72_b.webp?consumer=ZHI_MENG" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="如何执行PDCA循环">
-          <div class="post-excerpt">
-            <p>什么是PDCAPDCA，是质量管理的四个阶段：Plan—Do—Check—Act。
-1. P (Plan) 计划，包括方针和目标的确定，以及活动规划的制定。
-
-2. D (Do) 执行，根据已知的信息，设计具体的方法、方案和计划布局；再根据设计和布局，进行具体运作，实现计划中的内容。
-
-3. C (...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">如何执行PDCA循环</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%BA%A7%E5%93%81/" class="post-category">
-            <i class="fas fa-folder"></i> 产品
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E9%AA%8C/" class="post-tag">#产品经验</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-03-06</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/58214.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="parsec通过公网IPV6实现远程连接">
-          <div class="post-excerpt">
-            <p>没有IPv4的公网IP就只好用IPv6咯~...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">parsec通过公网IPV6实现远程连接</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-            <i class="fas fa-folder"></i> 技术
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E8%BF%9C%E7%A8%8B/" class="post-tag">#远程</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-03-04</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/61888.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930121428.png" class="lazyload placeholder" data-srcset="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240930121428.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="非常好眼镜，使我身体旋转">
-          <div class="post-excerpt">
-            <p>非常好眼镜，使我身体旋转⭐综合评分：8.5分
-周末去少数派后海汇店参加了得物主办的Vison Pro线下体验活动，下面从几个方面评价一下Apple这款新产品。
-佩戴体验
-在我体验的20min里，基本没有因为重量分散注意力，可能是因为加了顶部支撑带的缘故，未加支撑带的小伙伴反映戴久了还是能感受到重量的...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">非常好眼镜，使我身体旋转</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
-            <i class="fas fa-folder"></i> 生活
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Apple/" class="post-tag">#Apple</a>
-          
-            <a href="/tags/%E8%AF%84%E6%B5%8B/" class="post-tag">#评测</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2024-03-04</div>
-    </article>
-  
-    <article class="post">
-      <a href="/article/12775.html" class="post-link">
-        <div class="post-img">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="产品经理方法论">
-          <div class="post-excerpt">
-            <p>产品愿景和战略规划
-制定明确的产品愿景，包括产品的长期目标和愿景陈述。
-确定产品的使命和核心价值主张。
-定义产品的目标受众和市场定位。
-
-
-分析市场、行业和用户趋势，以制定战略规划。
-研究市场规模、增长率和趋势，了解市场机会和威胁。
-分析行业竞争格局和竞争对手的产品特点。
-考虑技术发展和社会趋势的影...</p>
-          </div>
-        </div>
-        <div class="post-content">
-          <h2 class="post-title">产品经理方法论</h2>
-        </div>
-      </a>
-      <div class="post-info">
-        
-          <a href="/categories/%E4%BA%A7%E5%93%81/" class="post-category">
-            <i class="fas fa-folder"></i> 产品
-          </a>
-        
-        <div class="post-tags">
-          
-            <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E9%AA%8C/" class="post-tag">#产品经验</a>
-          
-        </div>
-      </div>
-      <div class="post-date">2023-12-18</div>
-    </article>
-  
+      <section id="waline-box">
+  <div id="waline-comment"></div>
 </section>
-    <!-- 翻页 -->
+
     
-  <!-- <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
-  </nav> -->
-  <div class="page-nav">
-    
-      <a href="/page/2/"
-         class="page-nav-pre">
-         <i class="fas fa-angle-left"></i><span class="ml-5">上一页</span>
-      </a>
-    
-    <div class="page-info">
-        <div class="page-info-text">3 / 5</div>
-    </div>
-    
-      <a href="/page/4/"
-         class="page-nav-next">
-          <span class="mr-5">下一页</span><i class="fas fa-angle-right"></i>
-      </a>
-      
   </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
 
   </div>
 
+  <!-- 目录 -->
   <aside id='l_side'>
   
     
@@ -1482,68 +996,29 @@ AJAX可以发起网络请求，无需刷新即可动态操作网页。
   <div class="layout_sticky">    
     
       
-        
-    <section class="widget side_category">
-      
+<section class="widget side_toc">
+  
   <header>
     
-      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
     
   </header>
 
 
-      <div class='content'>
-        <ul class="entry navigation">
-          
-            <li><a class="flat-box"
-              title="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/" href="/categories/%E4%B9%A6%E5%BD%B1%E9%9F%B3/"
-              id="categoriesE4B9A6E5BDB1E99FB3"
-              ><div class='name'>书影音</div><div class='badge'>(3)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E4%BA%A7%E5%93%81/" href="/categories/%E4%BA%A7%E5%93%81/"
-              id="categoriesE4BAA7E59381"
-              ><div class='name'>产品</div><div class='badge'>(6)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%AD%A6%E4%B9%A0/"
-              id="categoriesE5ADA6E4B9A0"
-              ><div class='name'>学习</div><div class='badge'>(2)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E6%8A%80%E6%9C%AF/" href="/categories/%E6%8A%80%E6%9C%AF/"
-              id="categoriesE68A80E69CAF"
-              ><div class='name'>技术</div><div class='badge'>(21)</div></a></li>
-          
-            <li><a class="flat-box"
-              title="/categories/%E7%94%9F%E6%B4%BB/" href="/categories/%E7%94%9F%E6%B4%BB/"
-              id="categoriesE7949FE6B4BB"
-              ><div class='name'>生活</div><div class='badge'>(8)</div></a></li>
-          
-        </ul>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E7%9C%9F%E5%AF%B9%E5%BE%85%E6%AF%8F%E4%B8%80%E5%A4%A9%EF%BC%8C%E7%84%B6%E5%90%8E%E5%A5%BD%E5%A5%BD%E5%91%8A%E5%88%AB"><span class="toc-text">认真对待每一天，然后好好告别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-text">4</span></a></li></ol></li></ol> -->
+        <div class="toc"></div>
       </div>
-    </section>
-  
-  
-      
-      
-        
-<section class="widget side_tagcloud">
-    
-  <header>
-    
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-    <a href="/tags/Apple/" style="font-size: 14px; color: #999">Apple</a> <a href="/tags/CloudFlare/" style="font-size: 14px; color: #999">CloudFlare</a> <a href="/tags/Hacking-with-Swift/" style="font-size: 21.14px; color: #686868">Hacking with Swift</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Swift/" style="font-size: 22.57px; color: #5f5f5f">Swift</a> <a href="/tags/%E4%BA%A7%E5%93%81/" style="font-size: 14px; color: #999">产品</a> <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E9%AA%8C/" style="font-size: 19.71px; color: #727272">产品经验</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 14px; color: #999">副业</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 14px; color: #999">反思</a> <a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 14px; color: #999">影评</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 16.86px; color: #868686">心理学</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 14px; color: #999">效率</a> <a href="/tags/%E7%B2%A4%E8%AF%AD/" style="font-size: 14px; color: #999">粤语</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 24px; color: #555">编程</a> <a href="/tags/%E8%87%AA%E5%BE%8B/" style="font-size: 15.43px; color: #8f8f8f">自律</a> <a href="/tags/%E8%AF%84%E6%B5%8B/" style="font-size: 14px; color: #999">评测</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 15.43px; color: #8f8f8f">读书笔记</a> <a href="/tags/%E8%B4%A2%E5%8A%A1/" style="font-size: 14px; color: #999">财务</a> <a href="/tags/%E8%BF%9C%E7%A8%8B/" style="font-size: 14px; color: #999">远程</a> <a href="/tags/%E9%9A%8F%E6%84%9F/" style="font-size: 18.29px; color: #7c7c7c">随感</a>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1669,146 +1144,165 @@ AJAX可以发起网络请求，无需刷新即可动态操作网页。
     </div>
   </section>
 
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">二月 2025</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">十一月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">9</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name' style="color: ">站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>41 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>144.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Tue Feb 18 2025 12:32:40 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2025-02-18 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2025-02-18 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-
     
   </div>
 </aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
 </div>
-<!-- 花瓣和雪花飘落 -->
-<!-- 雪花和花瓣特效 -->
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
 
 
 
-<!-- 灯笼 -->
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
+
 
 
       </main>
