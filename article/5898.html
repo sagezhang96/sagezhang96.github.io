@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】Project4_BetterRest</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-06-06
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】Project4_BetterRest</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-06-06
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>该项目主要用于了解IOS中一项很强大的功能——机器学习。</p>
 <p>运用机器学习，分析数据。从而通过每天摄入咖啡量，希望醒来的时刻以及所需睡眠量，来计算出何时应该上床睡觉了。</p>
@@ -158,32 +157,33 @@
 <p>这个项目就基本完成了！</p>
 <p>完整代码</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> CoreML</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> defaultWakeTime: <span class="type">Date</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> components <span class="operator">=</span> <span class="type">DateComponents</span>()</span><br><span class="line">        components.hour <span class="operator">=</span> <span class="number">7</span></span><br><span class="line">        components.minute <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> <span class="type">Calendar</span>.current.date(from: components) <span class="operator">??</span> .now</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> sleepAmount <span class="operator">=</span> <span class="number">8.0</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> wakeUp <span class="operator">=</span> defaultWakeTime</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> coffeeAmount <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> alertTitle <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> alertMessage <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> showingAlert <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">VStack</span>(alignment: .leading)&#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;When do you want to wake up?&quot;</span>)</span><br><span class="line">                                .font(.headline)</span><br><span class="line">                    <span class="type">DatePicker</span>(<span class="string">&quot;Please enter a time&quot;</span>, selection: <span class="variable">$wakeUp</span>, displayedComponents: .hourAndMinute)</span><br><span class="line">                        .labelsHidden()</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Desired amount of sleep&quot;</span>)</span><br><span class="line">                        .font(.headline)</span><br><span class="line"></span><br><span class="line">                    <span class="type">Stepper</span>(<span class="string">&quot;<span class="subst">\(sleepAmount.formatted())</span> hours&quot;</span>, value: <span class="variable">$sleepAmount</span>, in: <span class="number">4</span><span class="operator">...</span><span class="number">12</span>, step: <span class="number">0.25</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;Daily coffe intake&quot;</span>)</span><br><span class="line">                        .font(.headline)</span><br><span class="line"></span><br><span class="line">                    <span class="type">Stepper</span>(<span class="string">&quot;^[<span class="subst">\(coffeeAmount)</span> cup](inflect: true)&quot;</span>, value: <span class="variable">$coffeeAmount</span>, in: <span class="number">1</span><span class="operator">...</span><span class="number">10</span>, step: <span class="number">1</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">VStack</span>&#123;</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">VStack</span>&#123;</span><br><span class="line">                    </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            .alert(alertTitle, isPresented: <span class="variable">$showingAlert</span>) &#123;</span><br><span class="line">                <span class="type">Button</span>(<span class="string">&quot;OK&quot;</span>) &#123; &#125;</span><br><span class="line">            &#125; message: &#123;</span><br><span class="line">                <span class="type">Text</span>(alertMessage)</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(<span class="string">&quot;BetterRest&quot;</span>)</span><br><span class="line">            .toolbar&#123;</span><br><span class="line">                <span class="type">Button</span>(<span class="string">&quot;Calculate&quot;</span>, action: calculateBedtime)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">calculateBedtime</span>() &#123;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> config <span class="operator">=</span> <span class="type">MLModelConfiguration</span>()</span><br><span class="line">            <span class="keyword">let</span> model <span class="operator">=</span> <span class="keyword">try</span> <span class="type">SleepCalculator</span>(configuration: config)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> components <span class="operator">=</span> <span class="type">Calendar</span>.current.dateComponents([.hour, .minute], from: wakeUp)</span><br><span class="line">            <span class="keyword">let</span> hour <span class="operator">=</span> (components.hour <span class="operator">??</span> <span class="number">0</span>) <span class="operator">*</span> <span class="number">60</span> <span class="operator">*</span> <span class="number">60</span></span><br><span class="line">            <span class="keyword">let</span> minute <span class="operator">=</span> (components.minute <span class="operator">??</span> <span class="number">0</span>) <span class="operator">*</span> <span class="number">60</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> prediction <span class="operator">=</span> <span class="keyword">try</span> model.prediction(wake: <span class="type">Int64</span>(<span class="type">Double</span>(hour <span class="operator">+</span> minute)), estimatedSleep: sleepAmount, coffee: <span class="type">Int64</span>(<span class="type">Double</span>(coffeeAmount)))</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> sleepTime <span class="operator">=</span> wakeUp <span class="operator">-</span> prediction.actualSleep</span><br><span class="line">            </span><br><span class="line">            alertTitle <span class="operator">=</span> <span class="string">&quot;Your ideal bedtime is…&quot;</span></span><br><span class="line">            alertMessage <span class="operator">=</span> sleepTime.formatted(date: .omitted, time: .shortened)</span><br><span class="line">            showingAlert <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> &#123;</span><br><span class="line">            alertTitle <span class="operator">=</span> <span class="string">&quot;Error&quot;</span></span><br><span class="line">            alertMessage <span class="operator">=</span> <span class="string">&quot;Sorry, there was a problem calculating your bedtime.&quot;</span></span><br><span class="line">            showingAlert <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/41438.html">【Hacking With Swift】project5_WordScramble</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/41590.html">【Hacking With Swift】Project3_ViewsAndModels</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/41438.html">【Hacking With Swift】project5_WordScramble</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/41590.html">【Hacking With Swift】Project3_ViewsAndModels</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -192,15 +192,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -210,7 +209,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

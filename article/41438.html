@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】project5_WordScramble</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-06-14
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】project5_WordScramble</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-06-14
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>该项目会创建这样一个游戏，先向玩家展示一个随机的八个字母的单词，并要求他们将其拼成单词。例如，如果起始词是“alarming”，他们可能拼写为“alarm”、“ring”、“main”等。</p>
 <p>在这个过程中，我们会遇到如何处理List，如何处理String，如何读取文件（使用Bundle），以及如何处理错误（fatalError()）等问题。</p>
@@ -121,32 +120,33 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> isOriginal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word used already&quot;</span>, message: <span class="string">&quot;Be more original&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">guard</span> isPossible(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word not possible&quot;</span>, message: <span class="string">&quot;You can&#x27;t spell that word from &#x27;<span class="subst">\(rootWord)</span>&#x27;!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">guard</span> isReal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">    wordError(title: <span class="string">&quot;Word not recognized&quot;</span>, message: <span class="string">&quot;You can&#x27;t just make them up, you know!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最终所有代码如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> usedWords <span class="operator">=</span> [<span class="type">String</span>]()</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> rootWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> newWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//alarm</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> errorTitle <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> errorMessage <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> showingError <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span>&#123;</span><br><span class="line">            <span class="type">List</span>&#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">TextField</span>(<span class="string">&quot;Enter your word&quot;</span>, text: <span class="variable">$newWord</span>)</span><br><span class="line">                        .textInputAutocapitalization(.never)</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">ForEach</span>(usedWords, id: \.<span class="keyword">self</span>)&#123; word <span class="keyword">in</span></span><br><span class="line">                        <span class="type">HStack</span>&#123;</span><br><span class="line">                            <span class="type">Image</span>(systemName: <span class="string">&quot;<span class="subst">\(word.count)</span>.circle&quot;</span>)</span><br><span class="line">                            <span class="type">Text</span>(word)</span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .navigationTitle(rootWord)</span><br><span class="line">            .onSubmit(addNewWord)</span><br><span class="line">            .onAppear(perform:startGame)</span><br><span class="line">            .alert(errorTitle, isPresented: <span class="variable">$showingError</span>) &#123;</span><br><span class="line">                <span class="type">Button</span>(<span class="string">&quot;OK&quot;</span>) &#123; &#125;</span><br><span class="line">            &#125; message: &#123;</span><br><span class="line">                <span class="type">Text</span>(errorMessage)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">startGame</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> startWordURL <span class="operator">=</span> <span class="type">Bundle</span>.main.url(forResource: <span class="string">&quot;start&quot;</span>, withExtension: <span class="string">&quot;txt&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> startWords <span class="operator">=</span> <span class="keyword">try?</span> <span class="type">String</span>(contentsOf: startWordURL) &#123;</span><br><span class="line">                <span class="keyword">let</span> allWords <span class="operator">=</span> startWords.components(separatedBy: <span class="string">&quot;<span class="subst">\n</span>&quot;</span>)</span><br><span class="line">                rootWord <span class="operator">=</span> allWords.randomElement() <span class="operator">??</span> <span class="string">&quot;silkworm&quot;</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">fatalError</span>(<span class="string">&quot;Could not load start.txt from bundle.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">addNewWord</span>() &#123;</span><br><span class="line">        <span class="keyword">let</span> answer <span class="operator">=</span> newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)</span><br><span class="line">        <span class="keyword">guard</span> answer.count <span class="operator">&gt;</span> <span class="number">0</span> <span class="keyword">else</span> &#123;<span class="keyword">return</span>&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> isOriginal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word used already&quot;</span>, message: <span class="string">&quot;Be more original&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> isPossible(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word not possible&quot;</span>, message: <span class="string">&quot;You can&#x27;t spell that word from &#x27;<span class="subst">\(rootWord)</span>&#x27;!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> isReal(word: answer) <span class="keyword">else</span> &#123;</span><br><span class="line">            wordError(title: <span class="string">&quot;Word not recognized&quot;</span>, message: <span class="string">&quot;You can&#x27;t just make them up, you know!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        withAnimation &#123;</span><br><span class="line">            usedWords.insert(answer, at: <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        newWord <span class="operator">=</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isOriginal</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="operator">!</span>usedWords.contains(word)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isPossible</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> tempWord <span class="operator">=</span> rootWord</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> letter <span class="keyword">in</span> word &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> pos <span class="operator">=</span> tempWord.firstIndex(of: letter) &#123;</span><br><span class="line">                tempWord.remove(at: pos)</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isReal</span>(<span class="params">word</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> checker <span class="operator">=</span> <span class="type">UITextChecker</span>()</span><br><span class="line">        <span class="keyword">let</span> range <span class="operator">=</span> <span class="type">NSRange</span>(location: <span class="number">0</span>, length: word.utf16.count)</span><br><span class="line">        <span class="keyword">let</span> misspelledRange <span class="operator">=</span> checker.rangeOfMisspelledWord(in: word, range: range, startingAt: <span class="number">0</span>, wrap: <span class="literal">false</span>, language: <span class="string">&quot;en&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> misspelledRange.location <span class="operator">==</span> <span class="type">NSNotFound</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">wordError</span>(<span class="params">title</span>: <span class="type">String</span>, <span class="params">message</span>: <span class="type">String</span>) &#123;</span><br><span class="line">        errorTitle <span class="operator">=</span> title</span><br><span class="line">        errorMessage <span class="operator">=</span> message</span><br><span class="line">        showingError <span class="operator">=</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/57245.html">【Hacking With Swift】project6_Animation</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/5898.html">【Hacking With Swift】Project4_BetterRest</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/57245.html">【Hacking With Swift】project6_Animation</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/5898.html">【Hacking With Swift】Project4_BetterRest</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -155,15 +155,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -173,7 +172,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

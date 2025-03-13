@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】Project12_SwiftData</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-07-07
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】Project12_SwiftData</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-07-07
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本技术项目将更详细地探索 SwiftData，从总结一些基本技术开始，逐步解决一些更复杂的问题。</p>
 <p>正如您所看到的，SwiftData 着实推动了 Swift 和 SwiftUI 的高级功能，这一切都有助于我们轻松高效地存储数据。不过，这并不总是那么容易，有几处地方需要花点心思才能正确使用。</p>
@@ -298,32 +297,33 @@ user1.jobs.append(job2)
 <p>这三个挑战都与您的升级项目 7 iExpense 有关：</p>
 <p>首先将其升级为使用 SwiftData。<br>添加自定义排序选项：按名称或按金额排序。<br>添加过滤选项，以显示所有支出、个人支出或业务支出。</p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/12347.html">【Hacking With Swift】Project11_Bookworm</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/11062.html">【Hacking With Swift】Project13_Instafilter</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/12347.html">【Hacking With Swift】Project11_Bookworm</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -332,15 +332,14 @@ user1.jobs.append(job2)
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -350,7 +349,5 @@ user1.jobs.append(job2)
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

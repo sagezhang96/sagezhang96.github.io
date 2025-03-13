@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】project8_MoonShot</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-06-25
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】project8_MoonShot</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-06-25
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <!-- # MoonShotd登月项目 -->
 
@@ -219,7 +218,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> astronauts: [<span class="type">String</span>: <span class="type">Astronaut</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;astronauts.json&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> missions: [<span class="type">Mission</span>] <span class="operator">=</span> <span class="type">Bundle</span>.main.decode(<span class="string">&quot;missions.json&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="格式化任务视图"><a href="#格式化任务视图" class="headerlink" title="格式化任务视图"></a>格式化任务视图</h2><p>现在我们已经有了所有数据，我们可以看看第一个屏幕的设计：所有任务的网格，位于任务徽章旁边。</p>
-<p>我们之前添加的资产包含名为“<a href="mailto:&#97;&#112;&#111;&#108;&#108;&#111;&#49;&#x40;&#x32;&#120;&#46;&#112;&#x6e;&#x67;">&#97;&#112;&#111;&#108;&#108;&#111;&#49;&#x40;&#x32;&#120;&#46;&#112;&#x6e;&#x67;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
+<p>我们之前添加的资产包含名为“<a href="mailto:&#97;&#x70;&#x6f;&#108;&#108;&#x6f;&#49;&#64;&#50;&#120;&#46;&#112;&#110;&#103;">&#97;&#x70;&#x6f;&#108;&#108;&#x6f;&#49;&#64;&#50;&#120;&#46;&#112;&#110;&#103;</a>”和类似的图片，这意味着它们可以在资产目录中以“apollo1”、“apollo12”等形式访问。我们的 Mission 结构有一个 id 整数提供数字部分，因此我们可以使用字符串插值，例如 <code>&quot;apollo\(mission.id)&quot; </code> 来获取图像名称和 <code>&quot;Apollo \(mission.id)&quot; </code>来获取任务名称</p>
 <p>不过，在这里，我们将采取不同的方法：我们将向 Mission 结构添加一些计算属性以发回相同的数据。结果将是相同的 - “apollo1”和“Apollo 1” - 但现在代码位于一个位置：我们的 Mission 结构体。这意味着任何其他视图都可以使用相同的数据，而不必重复我们的字符串插值代码，这反过来意味着如果我们改变这些东西的格式化方式 - 即我们将图像名称更改为“apollo-1”或其他东西 - 那么我们只需更改 Mission 中的属性即可更新所有代码。</p>
 <p>因此，请立即将这两个属性添加到 Mission 结构中：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> displayName: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;Apollo <span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> image: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="string">&quot;apollo<span class="subst">\(id)</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -297,32 +296,33 @@
 <p>这很容易，对吧？但是，如果您现在运行该应用程序，您会发现它使我们的用户界面感觉多么自然 - 我们从最广泛的信息级别开始，显示我们的所有任务，然后点击以选择一项特定任务，然后点击以选择一名特定宇航员。 iOS 负责新视图中的动画，但也提供后退按钮和滑动以返回到以前的视图。</p>
 <h1 id="最终效果图"><a href="#最终效果图" class="headerlink" title="最终效果图"></a>最终效果图</h1><p><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/moonshot2.gif"></p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/33439.html">【Hacking With Swift】Project9_Navigation</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/16673.html">电脑自动重启的尝试解决办法记录</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/33439.html">【Hacking With Swift】Project9_Navigation</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/16673.html">电脑自动重启的尝试解决办法记录</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -331,15 +331,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -349,7 +348,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

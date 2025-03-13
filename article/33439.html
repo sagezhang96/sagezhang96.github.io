@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】Project9_Navigation</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-06-26
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】Project9_Navigation</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-06-26
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <p>今天启动另一个新技术项目，我们将重点关注导航。这是我们在上一个项目中简单触及的 SwiftUI 领域，但它确实是您将构建的几乎每个应用程序的核心。</p>
 <p>正如您将看到的，导航实际上分为两种主要类型：由用户交互驱动的导航和您自己触发的编程导航。两者都很重要，您会发现自己可以自由地混合两者。</p>
@@ -257,32 +256,33 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@State</span> <span class="keyword">private</span> <span class="keyword">var</span> title <span class="operator">=</span> <span class="string">&quot;SwiftUI&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">NavigationStack</span> &#123;</span><br><span class="line">            <span class="type">Text</span>(<span class="string">&quot;Hello, world!&quot;</span>)</span><br><span class="line">                .navigationTitle(<span class="variable">$title</span>)</span><br><span class="line">                .navigationBarTitleDisplayMode(.inline)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当标题反映用户输入的内容的名称时，这非常有用，因为这意味着您不需要在布局中添加额外的文本字段。</p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/39062.html">【Hacking With Swift】Project10_CupcakeCorner</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/53249.html">【Hacking With Swift】project8_MoonShot</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/39062.html">【Hacking With Swift】Project10_CupcakeCorner</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/53249.html">【Hacking With Swift】project8_MoonShot</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -291,15 +291,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -309,7 +308,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

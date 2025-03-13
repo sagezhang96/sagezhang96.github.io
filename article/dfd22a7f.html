@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">Swift中section的header用法</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2023-09-26
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">Swift中section的header用法</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2023-09-26
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;123123&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;456789&quot;</span>)</span><br><span class="line">                &#125; header: &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;this is header&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <div class="post-content">
+            <h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;123123&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;456789&quot;</span>)</span><br><span class="line">                &#125; header: &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;this is header&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="header中可以添加其他的View"><a href="#header中可以添加其他的View" class="headerlink" title="header中可以添加其他的View"></a>header中可以添加其他的View</h1><p>header可以添加Text和Color的View，同样的，对于ZVHstack，也可以组合多个Text或Color视图。也可以对这些视图加.backgroud修饰符。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span>&#123;</span><br><span class="line">            <span class="type">Form</span> &#123;</span><br><span class="line">                <span class="type">Section</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;123123&quot;</span>)</span><br><span class="line">                    <span class="type">Text</span>(<span class="string">&quot;456789&quot;</span>)</span><br><span class="line">                &#125; header: &#123;</span><br><span class="line">                    <span class="type">HStack</span>(spacing: <span class="number">0.0</span>)&#123;</span><br><span class="line">                        <span class="type">Text</span>(<span class="string">&quot;A&quot;</span>)</span><br><span class="line">                            <span class="comment">//.background(.red)</span></span><br><span class="line">                        <span class="type">Text</span>(<span class="string">&quot;bc&quot;</span>)</span><br><span class="line">                            .textCase(.lowercase)</span><br><span class="line">                            <span class="comment">//.background(.blue)</span></span><br><span class="line">                            <span class="comment">//.background(.red)</span></span><br><span class="line">                        <span class="type">Color</span>(.yellow)</span><br><span class="line">                        <span class="comment">//TextField(&quot;123&quot;)      这种是不允许的。</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -94,32 +93,33 @@
 <p>像上面那种写法，只能加header或footer其中之一，两个都加会报错（不知道什么原因）</p>
 <p>添加header或footer建议都使用这种句式，一并添加，实际使用中比较少见到footer。</p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/12325.html">写在十一旅游回来之后</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/32636.html">产品经理知识库</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/12325.html">写在十一旅游回来之后</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/32636.html">产品经理知识库</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -128,15 +128,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -146,7 +145,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

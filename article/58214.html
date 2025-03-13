@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">parsec通过公网IPV6实现远程连接</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-03-04
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">parsec通过公网IPV6实现远程连接</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-03-04
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/%E8%BF%9C%E7%A8%8B/" rel="tag">远程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/%E8%BF%9C%E7%A8%8B/" rel="tag">远程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171225.png"></p>
+        <div class="post-content">
+            <h1 id="parsec通过公网IPV6实现远程连接"><a href="#parsec通过公网IPV6实现远程连接" class="headerlink" title="parsec通过公网IPV6实现远程连接"></a>parsec通过公网IPV6实现远程连接</h1><h2 id="检查设备是否开启ipv6协议"><a href="#检查设备是否开启ipv6协议" class="headerlink" title="检查设备是否开启ipv6协议"></a>检查设备是否开启ipv6协议</h2><p>在windows-网络和 Internet-网络连接里，右键你的网络，查看以太网属性，看IPv6是否勾选，如果否，勾选上并双击进入设置自动获取IP和DNS。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171225.png"></p>
 <h2 id="首先看自己的电脑是否是公网ipv6"><a href="#首先看自己的电脑是否是公网ipv6" class="headerlink" title="首先看自己的电脑是否是公网ipv6"></a>首先看自己的电脑是否是公网ipv6</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>打开下面这个测试链接 <a target="_blank" rel="noopener" href="http://test-ipv6.com/">http://test-ipv6.com/</a></p>
 <p>如果是10&#x2F;10，表示你的设<img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171125.png">备已经接入ipv6网络了，这时候查看网页中显示的公网IPV6地址：</p>
 <p>你的公网 IPv6 地址是 240e:3b7:xxxxxxxxxx</p>
@@ -102,32 +101,33 @@
 <h3 id="光猫开启IPv6"><a href="#光猫开启IPv6" class="headerlink" title="光猫开启IPv6"></a>光猫开启IPv6</h3><p>现在各大运营商的光猫都默认开启了ipv6，如果没开启，咨询网络售后人员开启。</p>
 <p>以电信天翼网关为例，进入管理页面后，在【高级设置】-【网关信息】中，确认WAN IPv6为240x开头即可。<br><img src="https://sageimg.oss-cn-shenzhen.aliyuncs.com/image/20240304171019.png"></p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/46973.html">如何执行PDCA循环</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/61888.html">非常好眼镜，使我身体旋转</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/46973.html">如何执行PDCA循环</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/61888.html">非常好眼镜，使我身体旋转</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -136,15 +136,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -154,7 +153,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

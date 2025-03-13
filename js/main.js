@@ -25,9 +25,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // 初始化代码高亮
-    if (typeof Prism !== 'undefined') {
-        Prism.highlightAll();
-    }
 });

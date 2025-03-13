@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">【Hacking With Swift】Project10_CupcakeCorner</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-07-02
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">【Hacking With Swift】Project10_CupcakeCorner</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-07-02
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/Hacking-with-Swift/" rel="tag">Hacking with Swift</a> <a class="tag-none-link" href="/tags/Swift/" rel="tag">Swift</a> <a class="tag-none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
+        <div class="post-content">
+            <p><em><strong><font color=red>英文原博博主是</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.youtube.com/c/PaulHudson">Paul Hudson</a>    <i aria-hidden="true" class="fab fa-twitter" style="color: #4099ff"></i> <a href="https://twitter.com/twostraws" target="_blank">@twostraws</a></p>
 <p><em><strong><font color=red>本文是学习Swift过程中翻译该网站的内容:</font></strong></em>   <a target="_blank" rel="noopener" href="https://www.hackingwithswift.com/">https://www.hackingwithswift.com/</a></p>
 <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>在这个项目中，我们将构建一个用于订购纸杯蛋糕的多屏幕应用程序。这将使用几个表单，这对您来说是旧闻，但您还将学习如何从互联网发送和接收订单数据、如何验证表单等等。</p>
 <p>随着我们不断深入研究 Codable ，我希望您能继续对它的灵活性和安全性印象深刻。特别是，我希望您记住它与更旧的 UserDefaults API 有多么不同 - 不用担心是否正确输入字符串真是太好了！</p>
@@ -144,7 +143,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>我创建的图片高度为 1200 像素，但当它显示出来时，你会发现它要大得多。这直接涉及到使用 AsyncImage 的基本复杂性之一：在运行我们的代码并下载图片之前，SwiftUI 对图片一无所知，因此无法提前适当调整图片大小。</p>
-<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#x6c;&#111;&#103;&#x6f;&#x40;&#51;&#120;&#46;&#112;&#x6e;&#103;">&#x6c;&#111;&#103;&#x6f;&#x40;&#51;&#120;&#46;&#112;&#x6e;&#103;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#108;&#111;&#x67;&#111;&#x40;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;">&#108;&#111;&#x67;&#111;&#x40;&#x32;&#x78;&#46;&#x70;&#x6e;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
+<p>如果要在我的项目中包含 1200px 的图片，我会将其命名为 <a href="mailto:&#x6c;&#x6f;&#x67;&#111;&#64;&#51;&#120;&#46;&#112;&#x6e;&#x67;">&#x6c;&#x6f;&#x67;&#111;&#64;&#51;&#120;&#46;&#112;&#x6e;&#x67;</a>，然后再添加一张 800px 的图片，即 <a href="mailto:&#x6c;&#111;&#103;&#x6f;&#64;&#x32;&#x78;&#x2e;&#112;&#110;&#103;">&#x6c;&#111;&#103;&#x6f;&#64;&#x32;&#x78;&#x2e;&#112;&#110;&#103;</a>。这样 SwiftUI 就会为我们加载正确的图片，并确保图片清晰美观，尺寸也正确。现在的情况是，SwiftUI 在加载图片时将其设计为以 1200 像素的高度显示，因此图片会比我们的屏幕大得多，而且看起来也有点模糊。</p>
 <p>为了解决这个问题，我们可以提前告诉 SwiftUI 我们正在尝试加载 3 倍比例的图像，就像这样：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AsyncImage</span>(url: <span class="type">URL</span>(string: <span class="string">&quot;https://hws.dev/img/logo.png&quot;</span>), scale: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
@@ -400,32 +399,33 @@
 <li>对于更具挑战性的任务，可以尝试更新 Order 类，以便将用户的收货地址等数据保存到 UserDefaults 。这需要花点心思，因为 @AppStorage 在这里不起作用，而且你会发现 getters 和 setters 会给 Codable 的支持带来问题。您能找到一个中间方案吗？<strong>（这个未完成）</strong></li>
 </ol>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/12347.html">【Hacking With Swift】Project11_Bookworm</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/33439.html">【Hacking With Swift】Project9_Navigation</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/12347.html">【Hacking With Swift】Project11_Bookworm</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/33439.html">【Hacking With Swift】Project9_Navigation</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -434,15 +434,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -452,7 +451,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>

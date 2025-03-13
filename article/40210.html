@@ -7,8 +7,6 @@
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sage自留地😎" type="application/atom+xml">
 </head>
 <body>
@@ -64,28 +62,29 @@
 
         <div class="main-container">
             <main class="main-content">
-                <article class="post-detail">
-    <header class="post-header">
-        <h1 class="post-title">利用CloudFlare自建无服务器导航站</h1>
-        <div class="post-meta">
-            <span class="post-date">
-                2024-11-15
-            </span>
-            
-                <span class="post-category">
-                    <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                <div class="main-content">
+    <article class="post-detail">
+        <header class="post-header">
+            <h1 class="post-title">利用CloudFlare自建无服务器导航站</h1>
+            <div class="post-meta">
+                <span class="post-date">
+                    2024-11-15
                 </span>
-            
-            
-                <span class="post-tags">
-                    <a class="tag-none-link" href="/tags/CloudFlare/" rel="tag">CloudFlare</a>
-                </span>
-            
-        </div>
-    </header>
+                
+                    <span class="post-category">
+                        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    </span>
+                
+                
+                    <span class="post-tags">
+                        <a class="tag-none-link" href="/tags/CloudFlare/" rel="tag">CloudFlare</a>
+                    </span>
+                
+            </div>
+        </header>
 
-    <div class="post-content">
-        <h1 id="利用CloudFlare自建无服务器导航站"><a href="#利用CloudFlare自建无服务器导航站" class="headerlink" title="利用CloudFlare自建无服务器导航站"></a>利用CloudFlare自建无服务器导航站</h1><p>看到这两篇文章记录了利用CloudFlare自建无服务器导航站的过程，但是CloudFlare更新比较快，现在有些操作可能和教程中不太一样，所以这里我简单记录一下。</p>
+        <div class="post-content">
+            <h1 id="利用CloudFlare自建无服务器导航站"><a href="#利用CloudFlare自建无服务器导航站" class="headerlink" title="利用CloudFlare自建无服务器导航站"></a>利用CloudFlare自建无服务器导航站</h1><p>看到这两篇文章记录了利用CloudFlare自建无服务器导航站的过程，但是CloudFlare更新比较快，现在有些操作可能和教程中不太一样，所以这里我简单记录一下。</p>
 <p><a target="_blank" rel="noopener" href="https://www.rei3.com/gintama-post/20735.html">利用Cloudflare Worker是可以零成本部署个人导航的！</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.silverdragon.cn/archives/613/">如何利用Cloudflare Workers构建一个免费无服务器导航页</a></p>
 <p>总的来说，现在更简单无脑了。</p>
@@ -106,32 +105,33 @@
 </ol>
 <h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><p>现在你可以通过自定义域或worker默认域名访问该导航站了。</p>
 
-    </div>
-
-    <footer class="post-footer">
-        <div class="post-nav">
-            
-                <div class="post-nav-prev">
-                    <span>上一篇</span>
-                    <a href="/article/9333.html">2024年终总结</a>
-                </div>
-            
-            
-                <div class="post-nav-next">
-                    <span>下一篇</span>
-                    <a href="/article/12599.html">不要掉入完美主义的陷阱</a>
-                </div>
-            
         </div>
-    </footer>
 
-    
-        <div class="post-comments">
-            <h3 class="comments-title">评论</h3>
-            <div id="waline"></div>
-        </div>
-    
-</article>
+        <footer class="post-footer">
+            <div class="post-nav">
+                
+                    <div class="post-nav-prev">
+                        <span>上一篇</span>
+                        <a href="/article/9333.html">2024年终总结</a>
+                    </div>
+                
+                
+                    <div class="post-nav-next">
+                        <span>下一篇</span>
+                        <a href="/article/12599.html">不要掉入完美主义的陷阱</a>
+                    </div>
+                
+            </div>
+        </footer>
+
+        
+            <div class="post-comments">
+                <h3 class="comments-title">评论</h3>
+                <div id="waline"></div>
+            </div>
+        
+    </article>
+</div>
 
 
     <script type="module">
@@ -140,15 +140,14 @@
         init({
             el: '#waline',
             serverURL: 'https://walinecomments.five2fire.top',
-            dark: '',
+            dark: 'auto',
             lang: 'zh-CN',
             pageview: true,
             comment: true,
-            emoji: ["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"]
+            emoji: ["https://unpkg.com/@waline/emojis@1.1.0/weibo","https://unpkg.com/@waline/emojis@1.1.0/bilibili"]
         });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-
 
 
             </main>
@@ -158,7 +157,5 @@
     
 <script src="/js/main.js"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </body>
 </html>
