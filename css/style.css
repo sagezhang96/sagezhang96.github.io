@@ -22,7 +22,7 @@ body {
     max-width: 850px;
     margin: 0 auto;
     padding: 0 1rem;
-    width: 80%;
+    width: 100%;
     position: relative;
     background: #ffffff;
 }
@@ -1056,3 +1056,5 @@ html[data-theme='dark'] .wl-panel {
         margin-bottom: 1.5rem;
     }
 }
+
+import markdown.css
